@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timezone Clock</title>
+        <link rel="icon" href="../Graphics/Icons/icon.ico">
+        <link rel="stylesheet" href="SmallProjs.css"></link>
+    </head>
+    <script src="Timezones.js"></script>
+    <body class="back" onload="GetTimes()">
+        <h1>Time in Timezones</h1>
+        Here displays the current time of all timezones in UTC standard.<br>
+        The time in your timezone will have the timezone offset highlighted as white.<br>
+        <p><button onclick="document.location='../Homepage.html'">Back to Homepage</button></p>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzm12">
+                UTC-12:00<br>
+            </div>
+            <div class="tzborder", id="tzm11">
+                UTC-11:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="m12">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="m11">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzm10">
+                UTC-10:00<br>
+            </div>
+            <div class="tzborder", id="tzm9">
+                UTC-09:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="m10">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="m9">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzm8">
+                UTC-08:00<br>
+            </div>
+            <div class="tzborder", id="tzm7">
+                UTC-07:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="m8">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="m7">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzm6">
+                UTC-06:00<br>
+            </div>
+            <div class="tzborder", id="tzm5">
+                UTC-05:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="m6">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="m5">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzm4">
+                UTC-04:00<br>
+            </div>
+            <div class="tzborder", id="tzm3">
+                UTC-03:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="m4">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="m3">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzm2">
+                UTC-02:00<br>
+            </div>
+            <div class="tzborder", id="tzm1">
+                UTC-01:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="m2">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="m1">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzpm0">
+                UTC±00:00<br>
+            </div>
+            <div class="tzborder", id="tzp1">
+                UTC+01:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="pm0">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="p1">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzp2">
+                UTC+02:00<br>
+            </div>
+            <div class="tzborder", id="tzp3">
+                UTC+03:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="p2">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="p3">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzp4">
+                UTC+04:00<br>
+            </div>
+            <div class="tzborder", id="tzp5">
+                UTC+05:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="p4">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="p5">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzp6">
+                UTC+06:00<br>
+            </div>
+            <div class="tzborder", id="tzp7">
+                UTC+07:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="p6">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="p7">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzp8">
+                UTC+08:00<br>
+            </div>
+            <div class="tzborder", id="tzp9">
+                UTC+09:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="p8">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="p9">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzp10">
+                UTC+10:00<br>
+            </div>
+            <div class="tzborder", id="tzp11">
+                UTC+11:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="p10">00:00:00</p>
+            </div>
+            <div class="timer">
+                <p id="p11">00:00:00</p>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="tzborder", id="tzp12">
+                UTC+12:00<br>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <div class="timer">
+                <p id="p12">00:00:00</p>
+            </div>
+        </div>
+        <br><br>
+        <p style="font-size: 10px;">Timezone clocks by Curly Braces @2021</p>
+    </body>
+</html>

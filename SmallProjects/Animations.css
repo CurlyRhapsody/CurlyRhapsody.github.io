@@ -1,0 +1,213 @@
+.animation-cell {
+    background-color: aquamarine;
+    justify-items: initial;
+    align-items:flex-start;
+    font-size: 30px;
+    width: 300px;
+    height: 300px;
+    border: 3px solid darkgrey;
+}
+
+/* Pendulum motion */
+.thread {
+    position: absolute;
+    width: 5px;
+    height: 215px;
+    background-color: black;
+    animation: swing;
+    animation-duration: 3s;
+    transform-origin: 50% 0%;
+    animation-iteration-count: infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(33deg);
+    }
+    50% {
+        transform: rotate(-33deg);
+    }
+    100% {
+        transform: rotate(33deg);
+    }
+}
+
+.pendulum {
+    position: absolute;
+    margin-left: 135px;
+    margin-top: 205px;
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 50%;
+    display: block;
+    animation-name: SHM;
+    animation-duration: 3s;
+    transform-origin: 0px -200px;
+    animation-iteration-count: infinite;
+}
+
+@keyframes SHM {
+    0% {
+        transform: rotate(33deg);
+    }
+    50% {
+        transform: rotate(-33deg);
+    }
+    100% {
+        transform: rotate(33deg);
+    }
+}
+
+/* Circular motion */
+.arrow {
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid red;
+    display: inline-block;
+    animation-name: arrow-rotate;
+    animation-duration: 3s;
+    margin-left: -3px;
+    margin-top: 147px;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes arrow-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.circular {
+    position: absolute;
+    animation-name: Circular_x;
+    animation-duration: 3s;
+    margin-left: -30px;
+    margin-top: 15px;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+.circular::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+    animation-name: Circular_y;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+
+
+@keyframes Circular_x {
+    25% {
+        transform: translateX(-120px);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: translateX(0px);
+        animation-timing-function: ease-out;
+    }
+    75% {
+        transform: translateX(120px);
+        animation-timing-function: ease-in;
+    }
+    1000% {
+        transform: translateX(0px);
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes Circular_y {
+    25% {
+        transform: translateY(120px);
+        animation-timing-function: ease-out;
+    }
+    50% {
+        transform: translateY(240px);
+        animation-timing-function: ease-in;
+    }
+    75% {
+        transform: translateY(120px);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translateY(0px);
+        animation-timing-function: ease-in;
+    }
+}
+
+/* Expanding square */
+.expand {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    margin-top: 125px;
+    background-color: rgba(255, 50, 176, 0.75);
+    animation: expansion;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes expansion {
+    15% {
+        transform: scaleX(2);
+    }
+    20% {
+        transform: scaleX(2.4);
+    }
+    22% {
+        transform: scaleX(2);
+    }
+    24% {
+        transform: scaleX(2.1);
+    }
+    25% {
+        transform: scaleX(2);
+    }
+    40% {
+        transform: scale(2, 2);
+    }
+    45% {
+        transform: scale(2, 2.4);
+    }
+    47% {
+        transform: scale(2, 2);
+    }
+    49% {
+        transform: scale(2, 2.1);
+    }
+    50% {
+        transform: scale(2, 2);
+    }
+    65% {
+        transform: scale(1, 1);
+    }
+    70% {
+        transform: scale(0.6, 0.6);
+    }
+    75% {
+        transform: scale(1, 1);
+    }
+    80% {
+        transform: scale(0.8, 0.8);
+    }
+    85% {
+        transform: scale(1, 1);
+    }
+    90% {
+        transform: scale(0.9, 0.9);
+    }
+}

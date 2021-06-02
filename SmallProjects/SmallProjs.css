@@ -1,0 +1,74 @@
+.back {
+    background-color: rgb(206, 206, 206);
+    color: black;
+    text-align: center;
+    font-size: 24px;
+}
+.maintext p {
+    font-size: 18px;
+    color: black;
+    text-align: left;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+/* timer customizations */ 
+.timer {
+    background-color: black;
+    color: greenyellow;
+    font-size: 42px;
+    font-family: 'Courier New', Courier, monospace;
+    justify-items: center;
+    font-weight: bold;
+    border: 5px solid grey;
+    user-select: none;
+    width: fit-content;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* number input form customizations */ 
+.numinputform {
+    border: 2px solid black;
+    width: fit-content;
+    padding: 15px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* result table customizations */ 
+.resulttable table, th, td {
+    border: 2px solid black;
+    display: inline-block;
+    border-collapse: collapse;
+}
+.resulttable th {
+    width: 250px;
+}
+.resulttable td {
+    width: 500px;
+}
+/* RPS choice customizations */ 
+.choices {
+    background-color: aquamarine;
+    justify-items: center;
+    font-size: 30px;
+    width: fit-content;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: 3px solid darkgrey;
+}
+/*Timezone Border*/
+.tzborder {
+    border: 1px solid black;
+    border-bottom: 0px;
+    display: inline-block;
+    border-collapse: collapse;
+    width: fit-content;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
