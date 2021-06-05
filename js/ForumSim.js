@@ -13,8 +13,6 @@ class PostButton extends React.Component {
     }
 }
 
-ReactDOM.render(<PostButton />, document.getElementById('submit'));
-
 class NewComment extends React.Component {
     constructor() {
         super();
