@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 var floor = 1;
 
 class PostButton extends React.Component {
-    PostComment() {
+    static PostComment() {
         ReactDOM.render(<NewComment />, document.getElementById('CSection'));
     }
 
