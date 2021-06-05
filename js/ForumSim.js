@@ -22,6 +22,6 @@ class NewComment extends React.Component {
     }
 }
 
-function PostComment() {
+export function PostComment() {
     ReactDOM.render(<NewComment />, document.getElementById('root'));
 }
