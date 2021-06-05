@@ -1,0 +1,96 @@
+html {
+    scroll-behavior: smooth;
+}
+
+#main {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+body {
+    background-color: rgb(206, 206, 206);
+}
+
+.navigation-bar {
+    background: rgb(158, 158, 158);
+    height: 100%;
+    width: 200px;
+    position: fixed!important;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    overflow-x: hidden;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+li a {
+    text-decoration: none;
+}
+
+.bar-block {
+    background-color: black;
+    color: greenyellow;
+    font-family: 'Noto Sans HK';
+    border: none;
+    padding: 16px 0px 16px 0px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.bar-block:hover {
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+
+.bar-icon {
+    font-size: 20px;
+    padding-right: 15px;
+}
+
+.ProjImage {
+    text-align: center;
+}
+
+.container {
+    background-color: rgb(192, 192, 192);
+    width: 100%;
+        border-radius: 15px;
+}
+
+.skill {
+    background-color: rgb(116, 194, 92);
+    color: white;
+    padding: 1%;
+    text-align: right;
+    font-size: 20px;
+        border-radius: 15px;
+}
+
+.python, .ruby {
+    width: 45%;
+    background-color: rgb(152, 216, 49);
+}
+
+.cpp {
+    width: 40%;
+    background-color: rgb(158, 216, 49);
+}
+
+.pascal {
+    width: 25%;
+    background-color: rgb(223, 206, 52);
+}
+
+.css, .html {
+    width: 30%;
+    background-color: rgb(206, 223, 52);
+}
+
+.javascript {
+    width: 35%;
+    background-color: rgb(180, 216, 49);
+}

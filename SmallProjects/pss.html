@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+        <link rel="icon" href="../img/Icons/icon.ico">
+        <link rel="stylesheet" href="../css/SmallProjs.css">
+    </head>
+    <body class = "back">
+        <h2>Rock, Paper, Scissors!</h2>
+        <fieldset id="DifficultyForm" style="margin-left:auto; margin-right: auto;
+                                             padding:15px; width:fit-content; text-align:left;
+                                             border: 2px solid black;">
+            <span style="text-align:center;">Difficulty</span><br>
+            <input type="radio" name="difficulty" value="Easy mode" onclick="ChangeDifficulty(0)"
+                   title="You will always win against it!">Easy<br>
+
+            <input type="radio" name="difficulty" value="Normal mode" onclick="ChangeDifficulty(1)"
+                   title="Rookie player that plays randomly." checked>Normal<br>
+
+            <input type="radio" name="difficulty" value="Hard mode" onclick="ChangeDifficulty(2)"
+                   title="Has tricks on its hands. Throw smartly!">Hard<br>
+
+            <input type="radio" name="difficulty" value="Impossible mode" onclick="ChangeDifficulty(3)"
+                   title="Good luck winning against it ;)">Impossible<br>
+        </fieldset>
+        <br><br>
+        <div style="display:flex; justify-content:center;">
+            <div class="choices">
+                <p>Choose your throw</p>
+                <img id="Rock" src="../img/Rock.png" width="125px" height="125px" style="cursor: pointer;" onclick="ComputerPick(throws.ROCK)">
+                <img id="Paper" src="../img/Paper.png" width="125px" height="125px" style="cursor: pointer;" onclick="ComputerPick(throws.PAPER)">
+                <img id="Scissors" src="../img/Scissors.png" width="125px" height="125px" style="cursor: pointer;" onclick="ComputerPick(throws.SCISSORS)">
+            </div>
+            <div class="choices">
+                <p>Computer Throws...</p>
+                <img src="" width="125px" height="125px" style="display:none;" id="ComputerThrow">
+            </div>
+            <div class="choices">
+                <h3>Statistics</h3>
+                <div style="font-size: 18px; color:black; text-align:left;">
+                    <p id="Wins">Wins: 0</p>
+                    <p id="Loses">Loses: 0</p>
+                    <p id="Ties">Ties: 0</p>
+                </div>
+            </div>
+        </div>
+        <p id="Results"> </p>
+
+        <p><button onclick="document.location='../index.html'">Back to Homepage</button></p>
+        <p style="font-size: 10px;">Rock Paper Scissors by Curly Braces @2021</p>
+
+        <script src="../js/pss.js"></script>
+    </body>
+</html>

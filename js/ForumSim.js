@@ -33,3 +33,7 @@ class NewComment extends React.Component {
         );
     }
 }
+
+import function PostComment() {
+    ReactDOM.render(<NewComment />, document.getElementById('CSection'));
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Online stopwatch + 5s Challenge</title>
+        <link rel="icon" href="../Graphics/Icons/icon.ico">
+        <link rel="stylesheet" href="../css/SmallProjs.css">
+    </head>
+    <body class="back">
+        <p>Online Stopwatch</p>
+        <div class="timer">
+            <p id="display">00:00:00:00</p>
+        </div>
+        <p>
+            <button onclick="Refresh()" id="StartButton">Start</button>
+            <button onclick="pause()" id="PauseButton" style="display: none;">Pause</button>
+            <button onclick="Resume()" id="UnpauseButton" style="display: none;">Resume</button>
+            <button onclick="reset()" id="ResetButton" style="display: none;">Reset</button>
+        </p>
+        <p>
+            <button onclick="Start5s()" id="5SChallengeStart">Start 5 Second Challenge!</button>
+            <button onclick="Stop5s()" id="5SChallengeStop" style="display: none;">I think it is 5 seconds now</button>
+        </p>
+        <p id="5SChallengeResult">Alternatively, use space bar to start 5 Seconds Challenge.</p>
+        <br><br><br><br><br><br>
+        <p><button onclick="document.location='../index.html'">Back to Homepage</button></p>
+        <p style="font-size: 10px;">Stopwatch + 5s Challenge by Curly Braces @2021</p>
+
+    
+        <script src="../js/stopwatch.js"></script>
+    </body>
+</html>
