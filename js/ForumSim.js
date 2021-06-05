@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 var floor = 1;
 
-<<<<<<< HEAD
 class PostButton extends React.Component {
     PostComment() {
         ReactDOM.render(<NewComment />, document.getElementById('CSection'));
@@ -11,15 +10,6 @@ class PostButton extends React.Component {
 
     render() {
         return <button onclick={this.PostComment}>Submit</button>
-=======
-function PostComment() {
-    ReactDOM.render(<NewComment />, document.getElementById('CSection'));
-}
-
-class PostButton extends React.Component {
-    render() {
-        return <button onclick={PostComment()}>Submit</button>
->>>>>>> origin/main
     }
 }
 
