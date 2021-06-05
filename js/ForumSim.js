@@ -9,7 +9,7 @@ class PostButton extends React.Component {
     }
 
     render() {
-        return <button onclick={this.PostComment}>Submit</button>
+        return <button onclick={this.PostComment}>Submit</button>;
     }
 }
 
