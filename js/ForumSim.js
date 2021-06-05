@@ -3,6 +3,18 @@ import ReactDOM from 'react-dom';
 
 var floor = 1;
 
+class PostButton extends React.Component {
+    PostComment() {
+        ReactDOM.render(<NewComment />, document.getElementById('CSection'));
+    }
+
+    render() {
+        return <button onclick={this.PostComment}>Submit</button>
+    }
+}
+
+ReactDOM.render(<PostButton />, document.getElementById('submit'));
+
 class NewComment extends React.Component {
     constructor() {
         super();
