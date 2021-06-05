@@ -6,6 +6,11 @@
         <link rel="stylesheet" href="../css/SmallProjs.css"></link>
     </head>
     <script type="module" src="../js/ForumSim.js"></script>
+    <script>
+        function PostComment() {
+            ReactDOM.render(<NewComment />, document.getElementById('root'));
+        }
+    </script>
     <body class="back">
         <h2>Forum Simulator</h2>
         <p>A JS React practice</p>
