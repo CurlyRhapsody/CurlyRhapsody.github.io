@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forum Simulator</title>
+        <link rel="icon" href="../img/Icons/icon.ico">
+        <link rel="stylesheet" href="../css/SmallProjs.css">
+        <script src="../js/ForumSim.js"></script>
+    </head>
+    <body class="back">
+        <h2>Forum Simulator</h2>
+        <p>Practice on adding new HTML element</p>
+        <p><button onclick="document.location='../index.html'">Back to Homepage</button></p>
+        <div class="numinputform">
+            <label for="name">
+                <p style="text-align: left; line-height: 0px;">Name: 
+                    <input type="text" name="name" id="name">
+                </p>
+            </label>
+            <label for="content">
+                <p style="text-align: left; line-height: 0px;">Comment:</p>  
+            </label>
+            <textarea name="content" id="content" cols="150" rows="8" style="resize: none;"></textarea><br>
+            <button onclick="PostComment()">Submit</button>
+        </div>
+        <div id="CSection"></div>
+        <p><button onclick="document.location='../index.html'">Back to Homepage</button></p>
+        <p style="font-size: 10px;">Forum Simulator by Curly Braces @2021</p>
+    </body>
+</html>
