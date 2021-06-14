@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>狼人角色分配器</Title>
+        <link rel="icon" href="../../img/Icons/icon.ico">
+        <link rel="stylesheet" href="Wolf.css">
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+    </head>
+    <body class="back">
+        <h1>狼人角色分配器</h1>
+        <p style="font-size: 14px; text-align: center;">Ver 1.0</p>
+        <a href="../../index.html" class="floating-button">
+            <p><i class="fas fa-home"></i> 返回主頁</p>
+        </a>
+        <p class="floating-counter"><i class="fas fa-users"></i><span id="player-counter">玩家人數: 0</span></p>
+        <div class="floating-randomize">
+            <form>
+                <p><i class="fas fa-dice"></i>亂序程度：</p>
+                <input type="number" min="1" max="100" value="1" name="RandomLevel" id="RandomLevel">
+                <input type="button" onClick="RandomizeChars()" value="分配角色">
+            </form>
+        </div>
+        <div class="input" style="display:flex; justify-content:left;">
+            <div style="margin-right: 50px;">
+                <p><b>輸入角色及角色數量：</b></p>
+                <form>
+                    <label for="CharName">角色名稱：</label><br>
+                    <input type="text" id="CharName" name="CharName"><br>
+                    <label for="CharQuan">數量：</label><br>
+                    <input type="number" id="CharQuan" name="CharQuan"><br><br>
+                    <input type="button" onClick="ParseChar()" value="加入角色"><br><br>
+                </form>
+            </div>
+            <div style="margin-left: 50px;">
+                <p><b>或上傳預設角色組合以增加角色 (txt 檔案)：</b></p>
+                <form>
+                    <input type="button" onClick="ViewPresetFormat()" value="按此觀看檔案格式示例"><br><br>
+                    <input type="file" id="file-upload" name="file-upload" accept="text/txt"><br><br>
+                    <input type="button" onClick="LoadPreset()" value="加載並組合">
+                </form>
+            </div>
+        </div>
+        <br>
+        <div style="display:flex; justify-content:center;">
+            <div class="CharList" id="CharList">
+                <b style="font-size: 24px; line-height: 20px;">遊戲角色列表：</b><br><br>
+                <table id="CharTable">
+                    <th>角色名稱</th><th>數量</th>
+                </table>
+            </div>
+            <div class="CharResult" id="CharResult">
+                <b style="font-size: 24px; line-height: 20px;">抽籤結果：</b><br><br>
+                <table id="ResultTable">
+                    <th>玩家編號</th><th>角色</th>
+                </table>
+            </div>
+        </div>
+        <br>
+        <p style="font-size: 10px; text-align: center;">狼人角色分配器 by Curly Braces @2021</p>
+        
+        <script src="https://kit.fontawesome.com/b00b2b3ef5.js" crossorigin="anonymous"></script>
+        <script src="Wolf.js"></script>
+    </body>
+</html>

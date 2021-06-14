@@ -1,0 +1,108 @@
+.back {
+    background-color: aliceblue;
+}
+
+.back h1 {
+    text-align: center;
+    font-size: 36px;
+}
+
+.floating-button {
+    display: inline-block;
+    position: fixed!important;
+    width: 150px;
+    height: 60px;
+    border-radius: 50px;
+    top: 40px;
+    left: 40px;
+    line-height: 0px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(45, 211, 95);
+    box-shadow: 2px 2px 3px #090909;
+    text-decoration: none;
+    text-align: center;
+}
+
+.floating-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed!important;
+    width: 200px;
+    height: 60px;
+    border-radius: 50px;
+    top: 100px;
+    left: 15px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(236, 75, 11);
+    box-shadow: 2px 2px 3px #090909;
+}
+
+.floating-randomize {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed!important;
+    width: 200px;
+    height: 150px;
+    border-radius: 40px;
+    top: 200px;
+    left: 15px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(11, 52, 236);
+    box-shadow: 2px 2px 3px #090909;
+}
+
+.input {
+    margin-left: 230px;
+    border: 2px solid black;
+    background-color: khaki;
+    padding-left: 20px;
+}
+
+.CharList {
+    margin-left: 230px;
+    border: 2px solid black;
+    background-color: rgb(188, 240, 140);
+    padding: 20px;
+}
+
+.CharResult {
+    margin-left: 50px;
+    border: 2px solid black;
+    background-color: rgb(240, 185, 140);
+    padding: 20px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    font-size: 24px;
+    border: 2px solid black;
+    text-align: center;
+    width: 250px;
+    background-color: lightskyblue;
+}
+
+tr {
+    border: 2px solid black;
+}
+
+td {
+    font-size: 20px;
+    text-align: left;
+    font-display:initial;
+    border: 2px solid black;
+    width: 250px;
+}
+
+.selected {
+    color: whitesmoke;
+    font-weight: bold;
+    background-color: gray;
+}

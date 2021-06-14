@@ -4,6 +4,7 @@ html {
 
 #main {
     margin-left: 200px;
+    margin-right: 20px;
     padding: 20px;
 }
 
@@ -58,7 +59,7 @@ li a {
 .container {
     background-color: rgb(192, 192, 192);
     width: 100%;
-        border-radius: 15px;
+    border-radius: 15px;
 }
 
 .skill {
@@ -67,7 +68,7 @@ li a {
     padding: 1%;
     text-align: right;
     font-size: 20px;
-        border-radius: 15px;
+    border-radius: 15px;
 }
 
 .python, .ruby {
@@ -93,4 +94,42 @@ li a {
 .javascript {
     width: 35%;
     background-color: rgb(180, 216, 49);
+}
+
+.lsprojectbox {
+    background-color: grey;
+    justify-items: center;
+    font-size: 18px;
+    color: white;
+    font-family: monospace;
+    padding: 15px;
+    border: 3px solid darkgrey;
+}
+
+/* Larger project */
+.projecttext {
+    width: 79%;
+}
+
+.projecttext h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 8px;
+}
+
+.projecttext a {
+    text-align: center;
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.projectimg {
+    width: 21%;
+}
+
+.projectimg img {
+    width: 250px;
+    height: 250px;
 }
