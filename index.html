@@ -1,138 +1,75 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Curly Braces Studios</title>
-        <link rel="icon" href="img/Icons/icon.ico">
-        <link rel="stylesheet" href="css/index.css">
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto Sans HK'>
+        <title>Under Construction</title>
     </head>
-    <body>
-        <nav class="navigation-bar">
-            <img src="img/bruh.jpg" width="150" height="150"
-                style="display: block; margin-left: auto; margin-right: auto;">
-            <br>
-            <a href="#AboutMe" class="bar-block">
-                <p><i class="fas fa-user bar-icon"></i>About Me</p>
-            </a>
-            <a href="#Projects" class="bar-block">
-                <p><i class="fas fa-cogs bar-icon"></i>Projects</p>
-            </a>
-            <a href="#LargeProjects" class="bar-block">
-                <p><i class="fas fa-wrench bar-icon"></i>Larger Projects</p>
-            </a>
-        </nav>
-        <div id="main">
-            <p><h1 style="text-align: center;">Welcome to Curly Braces Studios!</h1></p>
-            <div style="text-align: center; font-size: 20px;">
-                This is where dreams come true.<br>
-                Imagination is the limit here!
-            </div>
-            <hr>
-            <h2 id="AboutMe">About Me</h2>
-            Hello! I am CurlyRhapsody.<br>
-            I am currently a student.<br>
-            I describe myself as a persistent, diligent guy that is willing to do things I like.
-            <h3>Academics</h3>
-            <ul>
-                <li>Hong Kong University of Science and Technology - BEng in Computer Science
-            </ul>
-            <h3>Skills</h3>
-            <p>Python</p>
-            <div class="container">
-                <div class="skill python">45%</div>
-            </div>
-            <br>
-            <p>C++</p>
-            <div class="container">
-                <div class="skill cpp">40%</div>
-            </div>
-            <br>
-            <p>Pascal</p>
-            <div class="container">
-                <div class="skill pascal">25%</div>
-            </div>
-            <br>
-            <p>Ruby</p>
-            <div class="container">
-                <div class="skill ruby">45%</div>
-            </div>
-            <br>
-            <p>HTML</p>
-            <div class="container">
-                <div class="skill html">30%</div>
-            </div>
-            <br>
-            <p>CSS</p>
-            <div class="container">
-                <div class="skill css">30%</div>
-            </div>
-            <br>
-            <p>Javascript</p>
-            <div class="container">
-                <div class="skill javascript">35%</div>
-            </div>
-            <hr>
-            <h2 id="Projects">Projects</h2>
-            <ul>
-                <li style="list-style-image: url(img/Icons/Stopwatch.png);">
-                    <a href="SmallProjects/Stopwatch.html">
-                        Stopwatch and 5 Second Challenge 秒錶與 5 秒挑戰
-                    </a>
-                </li>
-                <li style="list-style-image: url(img/Icons/Math.png);">
-                    <a href="SmallProjects/Quadratic.html">
-                        Quadratic Equation Analyzer 一元二次方程式分析器
-                    </a>
-                </li>
-                <li style="list-style-image: url(img/Icons/Gloves.png);">
-                    <a href="SmallProjects/pss.html">
-                        Rock Paper Scissors 猜拳遊戲
-                    </a>
-                </li>
-                <li style="list-style-image: url(img/Icons/SpinningTop.png);">
-                    <a href="index.html">
-                        Understanding Recursion 了解遞迴
-                    </a>
-                </li>
-                <li style="list-style-image: url(img/Icons/Flim.png);">
-                    <a href="SmallProjects/Animations.html">
-                        Animation Corner 動畫迴廊
-                    </a>
-                </li>
-                <li style="list-style-image: url(img/Icons/Stopwatch.png);">
-                    <a href="SmallProjects/Timezones.html">
-                        Timezone clocks 時區時鐘
-                    </a>
-                </li>
-                <li style="list-style-image: url(img/Icons/Bubble.png);">
-                    <a href="SmallProjects/ForumSim.html">
-                        Forum Simulator 論壇模擬器
-                    </a>
-                </li>
-                <li style="list-style-image: url(img/Icons/Bubble.png);">
-                    <a href="SmallProjects/textstyle.html">
-                        Text Style Factory 字楷工場
-                    </a>
-                </li>
-                <li>More to come...</li>
-            </ul>
-            <hr>
-            <h2 id="LargeProjects">Larger Projects</h2>
-            <div class="lsprojectbox" style="display:flex; justify-content:center;">
-                <div class="projecttext">
-                    <h1>狼人角色分配器</h1>
-                    <p>疫情期間不方便聚人玩狼人？齊人但是沒有地方玩狼人？人手分配角色怕失公平性？狼人角色分配器幫到你！</p>
-                    <p>上傳設好的遊戲局，或是人手輸入角色及其數量，讓電腦幫你！</p>
-                    <br><br>
-                    <a href="LargeProjects/Wolf/Wolf.html">按此前往 Click here</a>
+    <style>
+        .accordion {
+            background-color: lightgray;
+            border: none;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .accordion:hover {
+            background-color: rgb(176, 176, 176);
+            transition: 500ms;
+            animation-timing-function: linear;
+        }
+
+        .content-open {
+            height: 14.625rem;
+            margin-top: 0;
+        }
+
+        .content-closed {
+            height: 0;
+            margin-top: -0.5rem;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=construction" />
+    <script>
+        function togglePrompt() {
+            const content = document.getElementById("prompt-content");
+            
+            if (!!content.classList.contains("content-open")) {
+                content.classList.add("content-closed");
+                content.classList.remove("content-open");
+            } else {
+                content.classList.add("content-open");
+                content.classList.remove("content-closed");
+            }
+            
+        }
+    </script>
+    <body style="font-family:Arial, Helvetica, sans-serif; background-color: lightblue;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-top: 2rem;">
+            <h1><span class="material-symbols-outlined" style="font-size: 1.75rem;">construction</span> Under Construction</h1>
+            <div><b>curlyrhapsody.github.io</b> is under re-construction right now.</div>
+            <div>New version is expected to be constructed under Next.js, stay tuned!</div>
+            <div style="display: flex; flex-direction: column; align-items: center; padding: 0.5rem; gap: 0.5rem; width: 50%">
+                <div style="display: flex; flex-direction: column; background-color: white; padding: 1rem; border-radius: 1rem; width: calc(100% - 2rem); gap: 0.5rem;">
+                    <button class="accordion" onclick="togglePrompt()">In case you wonder the prompt</button>
+                    <div id="prompt-content" class="content-closed" style="transition: height 0.5s ease-out, margin-top 0.5s ease; overflow: hidden;">
+                        A 1920x1080 comical art style image with no captions or other supportive texts.<br>
+                        <br>
+                        A coder is wearing construction helmet and typing code into his computer.<br>
+                        His computer has two screens, one showing a VS Code IDE, full of codes written in React Next.JS, and another screen shows the preview of his website. The website is mainly constructed using Material UI components.<br>
+                        For the hardware the coder is using, he is using Aula F75 in Thunder Black color scheme as keyboard, and a Logitech MX Master 3S as mouse.<br>
+                        <br>
+                        On the wall behind the computer, there is a blueprint showing a website. On his desk, there is a cup of coffee, a Rubik's cube, and a figure of Rowlet from Pokemon.<br>
+                        <br>
+                        Please make sure the posture of the coder is correct. He should be facing the screens.<br>
+                    </div>
                 </div>
-                <div class="projectimg">
-                    <a href="LargeProjects/Wolf/Wolf.html">
-                        <img src="img/Wolf.jpg">
-                    </a>
-                </div>
+                <img src="UnderConstruction.png" width="100%" />
+                <div style="text-align: center;">※ Displayed image is purely imagination and does not reflect acutal website construction scene.</div>
             </div>
+            
         </div>
-        <script src="https://kit.fontawesome.com/b00b2b3ef5.js" crossorigin="anonymous"></script>
     </body>
 </html>
