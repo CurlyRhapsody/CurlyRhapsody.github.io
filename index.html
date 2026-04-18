@@ -21,12 +21,14 @@
         }
 
         .content-open {
-            height: 14.625rem;
+            opacity: 1;
             margin-top: 0;
+            max-height: 200rem;
         }
 
         .content-closed {
-            height: 0;
+            opacity: 0;
+            max-height: 0rem;
             margin-top: -0.5rem;
         }
 
@@ -54,7 +56,7 @@
             <div style="display: flex; flex-direction: column; align-items: center; padding: 0.5rem; gap: 0.5rem; width: 50%">
                 <div style="display: flex; flex-direction: column; background-color: white; padding: 1rem; border-radius: 1rem; width: calc(100% - 2rem); gap: 0.5rem;">
                     <button class="accordion" onclick="togglePrompt()">In case you wonder the prompt</button>
-                    <div id="prompt-content" class="content-closed" style="transition: height 0.5s ease-out, margin-top 0.5s ease; overflow: hidden;">
+                    <div id="prompt-content" class="content-closed" style="transition: all 0.5s ease; overflow: hidden;">
                         A 1920x1080 comical art style image with no captions or other supportive texts.<br>
                         <br>
                         A coder is wearing construction helmet and typing code into his computer.<br>
