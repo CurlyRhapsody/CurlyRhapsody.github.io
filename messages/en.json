@@ -1,0 +1,9 @@
+{
+    "menu": {
+        "home": "Home",
+        "profile": "Profile",
+        "blog": "Blog",
+        "project": "Project",
+        "games": "Games"
+    }
+}

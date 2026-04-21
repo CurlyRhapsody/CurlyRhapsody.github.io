@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import UnderConstruction from "../../assets/UnderConstruction.png"
+import UnderConstruction from "../../assets/images/UnderConstruction.png"
 
 const UnderConstructionPage = () => {
     const [isAccordionHovered, setIsAccordionHovered] = useState<boolean>(false);
