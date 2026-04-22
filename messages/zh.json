@@ -1,9 +1,11 @@
 {
     "menu": {
         "home": "首頁",
-        "profile": "關於",
+        "about": "關於",
         "blog": "筆記",
         "project": "專案",
-        "games": "遊戲"
+        "games": "遊戲",
+        "cates": "分頁",
+        "language": "語言"
     }
 }

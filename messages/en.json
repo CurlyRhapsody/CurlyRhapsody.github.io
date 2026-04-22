@@ -1,9 +1,11 @@
 {
     "menu": {
         "home": "Home",
-        "profile": "Profile",
+        "about": "About",
         "blog": "Blog",
         "project": "Project",
-        "games": "Games"
+        "games": "Games",
+        "cates": "SUBPAGES",
+        "language": "LANGUAGE"
     }
 }
