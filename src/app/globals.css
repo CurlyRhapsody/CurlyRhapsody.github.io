@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #caf0f8;
   --foreground: #171717;
 }
 
@@ -18,6 +18,19 @@
     --foreground: #ededed;
   }
 }
+
+@media (max-width: 768px) {
+  html {
+    font-size: calc(100vw * 0.02);
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 
 body {
   background: var(--background);

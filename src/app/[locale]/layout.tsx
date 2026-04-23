@@ -5,7 +5,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { Locale, locales } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import { Metadata } from "next";
 
 const roboto = Roboto({ subsets: ["latin"] });
 
