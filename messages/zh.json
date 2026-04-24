@@ -7,5 +7,12 @@
         "games": "遊戲",
         "cates": "分頁",
         "language": "語言"
+    },
+    "home": {
+        "title1": "想像",
+        "title2": "只是限制。",
+        "titleGreet": "歡迎來到卡利貝爾斯工作室！",
+
+        "greet": "嗨！我是 <emp>CurlyRhapsody</emp>。"
     }
 }
