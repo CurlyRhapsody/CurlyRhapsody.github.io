@@ -13,6 +13,8 @@
         "title2": "Is just a limit.",
         "titleGreet": "Welcome to Curly Braces Studios!",
 
-        "greet": "Hi, I'm <emp>CurlyRhapsody</emp>."
+        "greet": "Hi, I'm <emp>CurlyRhapsody</emp>.",
+        "i am a": "I am a/an…",
+        "anything": "…Just whatever I want, with no limits."
     }
 }

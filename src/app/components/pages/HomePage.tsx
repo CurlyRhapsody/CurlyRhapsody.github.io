@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Body1, Subtitle1, Subtitle2, Title1, Title2 } from "../Styled/Text";
 import { ShadowedStack } from "../CustomComponents";
+import CurlyBracesTypeWriter from "../CurlyBracesTypewriter";
 
 const HomePage = () => {
 
@@ -62,10 +63,10 @@ const HomePage = () => {
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, ease: "easeIn" }}
+                    transition={{ duration: 0.8, ease: "easeIn" }}
                 >
                     
-                    <ShadowedStack sx={{ width: "50rem", height: "20rem", borderRadius: "2rem", background: "#FFF", p: "2rem" }}>
+                    <ShadowedStack sx={{ width: "50rem", height: "25rem", borderRadius: "2rem", background: "#FFF", p: "2rem", gap: "1.625rem" }}>
                         <Subtitle1 sx={{ display: "inline" }}>
                             {t.rich("greet", {
                                 emp: (children) => 
@@ -81,6 +82,9 @@ const HomePage = () => {
                                     </Subtitle1>
                             })}
                         </Subtitle1>
+                        <Subtitle1>{t("i am a")}</Subtitle1>
+                        <CurlyBracesTypeWriter />
+                        <Subtitle1 sx={{ textAlign: "right" }}>{t("anything")}</Subtitle1>
                     </ShadowedStack>
                 </motion.div>
             </Stack>
