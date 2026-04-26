@@ -15,6 +15,25 @@
 
         "greet": "嗨！我是 <emp>CurlyRhapsody</emp>。",
         "i am a": "我是一個……",
-        "anything": "……隨心所欲，無拘無束。"
+        "anything": "……隨心所欲，無拘無束。",
+
+        "typewriter": {
+            "1": "編程員",
+            "2": "城市漫步者",
+            "3": "科學愛好者",
+            "4": "美食獵人",
+            "5": "交通研究員",
+            "6": "休閒遊戲玩家"
+        },
+
+        "startAdventure": "在此開始您的冒險",
+        "about title": "關於",
+        "about desc": "我到底是誰？",
+        "blog title": "筆記",
+        "blog desc": "隨意地寫一些東西",
+        "project title": "專案",
+        "project desc": "小巧但實用的小程式",
+        "games title": "遊戲",
+        "games desc": "遊戲時間！"
     }
 }

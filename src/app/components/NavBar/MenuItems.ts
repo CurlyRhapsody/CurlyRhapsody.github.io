@@ -6,19 +6,14 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import { Locale } from "@/i18n/config";
-
-type MenuItem = {
-    icon: SvgIconComponent;
-    localeStr: string;
-    path: string;
-}
+import { NavInfo } from "../types";
 
 type LangMenuItem = {
     locale: Locale;
     displayText: string;
 }
 
-export const menuList: MenuItem[] = [
+export const menuList: NavInfo[] = [
     {
         icon: HomeIcon,
         localeStr: "home",

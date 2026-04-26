@@ -4,18 +4,18 @@ import { Drawer, IconButton, Menu, MenuList, Stack } from "@mui/material";
 import Logo from "../../assets/images/logo.jpg"
 import Image from "next/image";
 import SectionButton from "./SectionButton";
-import useResponsiveSizing from "../Provider/useResponsiveSizing";
+import useResponsiveSizing from "../provider/useResponsiveSizing";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import TranslateIcon from '@mui/icons-material/Translate';
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { languageList, menuList } from "./MenuItems";
 import LangOption from "./LangOption";
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useLocalePathname, useLocaleRouter } from "@/i18n/routing";
-import { Title2, Title3 } from "../Styled/Text";
+import { Title3 } from "../styled/text";
 
 const MobileMenu = () => {
 

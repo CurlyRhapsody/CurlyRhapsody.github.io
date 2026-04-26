@@ -9,7 +9,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 const roboto = Roboto({ subsets: ["latin"] });
 
 export function generateStaticParams() {
-    return locales.map((locale) => ({ locale }));
+    return [{ locale: 'en' }, { locale: 'zh' }];
 }
 
 export default async function RootLayout({

@@ -15,6 +15,25 @@
 
         "greet": "Hi, I'm <emp>CurlyRhapsody</emp>.",
         "i am a": "I am a/an…",
-        "anything": "…Just whatever I want, with no limits."
+        "anything": "…Just whatever I want, with no limits.",
+
+        "typewriter": {
+            "1": "Programmer",
+            "2": "Urban Hiker",
+            "3": "Science Lover",
+            "4": "Food hunter",
+            "5": "Transport Fanatic",
+            "6": "Casual Gamer"
+        },
+
+        "startAdventure": "Start your adventure here:",
+        "about title": "About",
+        "about desc": "Who am I really?",
+        "blog title": "Blog",
+        "blog desc": "Casually writing random things",
+        "project title": "Project",
+        "project desc": "Creating small but practical stuff",
+        "games title": "Games",
+        "games desc": "Gaming time!"
     }
 }

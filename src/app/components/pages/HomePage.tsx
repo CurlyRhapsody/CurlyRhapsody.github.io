@@ -1,17 +1,24 @@
 "use client"
 
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import HomePageIamge from "../../assets/images/homePage.jpg";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { Body1, Subtitle1, Subtitle2, Title1, Title2 } from "../Styled/Text";
-import { ShadowedStack } from "../CustomComponents";
+import { Subtitle1, Title1 } from "../styled/text";
+import { ShadowedStack } from "../styled/component";
 import CurlyBracesTypeWriter from "../CurlyBracesTypewriter";
+import { homepageWords } from "../constant";
+import { useRouter } from "next/navigation";
+import { menuList } from "../NavBar/MenuItems";
+import HomePageClickable from "../HomePageClickable";
 
 const HomePage = () => {
 
     const t = useTranslations("home");
+    const ttw = useTranslations("home.typewriter");
+
+    const router = useRouter();
 
     return (
         <Stack sx={{ width: "100%", gap: "2rem", mb: "5rem" }}>
@@ -59,14 +66,13 @@ const HomePage = () => {
 
             <Stack sx={{ alignItems: "center", width: "100%" }}>
                 <motion.div
-                    style={{ width: "50rem" }}
+                    style={{ width: "45rem" }}
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: "easeIn" }}
                 >
-                    
-                    <ShadowedStack sx={{ width: "50rem", height: "25rem", borderRadius: "2rem", background: "#FFF", p: "2rem", gap: "1.625rem" }}>
+                    <ShadowedStack sx={{ width: "45rem", height: "25rem", borderRadius: "2rem", background: "#FFF", p: "2rem", gap: "1.625rem" }}>
                         <Subtitle1 sx={{ display: "inline" }}>
                             {t.rich("greet", {
                                 emp: (children) => 
@@ -83,9 +89,37 @@ const HomePage = () => {
                             })}
                         </Subtitle1>
                         <Subtitle1>{t("i am a")}</Subtitle1>
-                        <CurlyBracesTypeWriter />
+                        <CurlyBracesTypeWriter words={homepageWords.map((locale) => ttw(locale))} />
                         <Subtitle1 sx={{ textAlign: "right" }}>{t("anything")}</Subtitle1>
                     </ShadowedStack>
+                </motion.div>
+            </Stack>
+            <Stack sx={{ alignItems: "center", width: "100%" }}>
+                <motion.div
+                    style={{ width: "45rem" }}
+                    initial={{ opacity: 0, transform: "translateY(3rem)" }}
+                    whileInView={{ opacity: 1, transform: "translateY(0)" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: "easeIn" }}
+                >
+                    <Title1>{t("startAdventure")}</Title1>
+                    <Grid container spacing="2rem">
+                        {menuList.map((item, idx) => {
+                            
+                            if (idx === 0) return null; // home
+
+                            return (
+                                <Grid size={6}>
+                                    <HomePageClickable
+                                        Icon={item.icon}
+                                        localeStr={item.localeStr}
+                                        onClick={() => router.push(item.path)}
+                                    />
+                                </Grid>
+                            )}
+                        )}
+
+                    </Grid>
                 </motion.div>
             </Stack>
         </Stack>

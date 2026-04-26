@@ -1,7 +1,7 @@
 import { SvgIconComponent } from "@mui/icons-material";
 import { MenuItem } from "@mui/material";
-import { Body1 } from "../Styled/Text";
-import useResponsiveSizing from "../Provider/useResponsiveSizing";
+import { Body1 } from "../styled/text";
+import useResponsiveSizing from "../provider/useResponsiveSizing";
 import { useTranslations } from "next-intl";
 
 const SectionButton = ({
