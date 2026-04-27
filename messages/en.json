@@ -8,6 +8,11 @@
         "cates": "SUBPAGES",
         "language": "LANGUAGE"
     },
+    "error": {
+        "title": "Oh no!",
+        "desc": "Looks like this page is off limits.",
+        "go home": "Take me home"
+    },
     "home": {
         "title1": "Imagination",
         "title2": "Is just a limit.",

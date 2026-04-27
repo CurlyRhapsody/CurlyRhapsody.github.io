@@ -1,5 +1,3 @@
-import { SvgIconComponent } from "@mui/icons-material"
-
 import HomeIcon from '@mui/icons-material/Home';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import EditNoteIcon from '@mui/icons-material/EditNote';

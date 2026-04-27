@@ -21,7 +21,7 @@ const HomePage = () => {
     const router = useRouter();
 
     return (
-        <Stack sx={{ width: "100%", gap: "2rem", mb: "5rem" }}>
+        <Stack sx={{ width: "100%", gap: "4rem", mb: "5rem" }}>
             <Box
                 sx={{ position: "relative", width: "100%", overflow: "hidden", aspectRatio: "16/9", objectPosition: "center" }}
             >
@@ -77,6 +77,7 @@ const HomePage = () => {
                             {t.rich("greet", {
                                 emp: (children) => 
                                     <Subtitle1
+                                        component="span"
                                         sx={{
                                             display: "inline",
                                             background: "-webkit-linear-gradient(15deg, #1E90FF, #7B68EE)",
@@ -100,26 +101,27 @@ const HomePage = () => {
                     initial={{ opacity: 0, transform: "translateY(3rem)" }}
                     whileInView={{ opacity: 1, transform: "translateY(0)" }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, ease: "easeIn" }}
+                    transition={{ delay: 1.2, duration: 1, ease: "easeIn" }}
                 >
-                    <Title1>{t("startAdventure")}</Title1>
-                    <Grid container spacing="2rem">
-                        {menuList.map((item, idx) => {
-                            
-                            if (idx === 0) return null; // home
+                    <Stack sx={{ alignItems: "center", gap: "1.5rem" }}>
+                        <Title1>{t("startAdventure")}</Title1>
+                        <Grid container spacing="2rem">
+                            {menuList.map((item, idx) => {
+                                
+                                if (idx === 0) return null; // home
 
-                            return (
-                                <Grid size={6}>
-                                    <HomePageClickable
-                                        Icon={item.icon}
-                                        localeStr={item.localeStr}
-                                        onClick={() => router.push(item.path)}
-                                    />
-                                </Grid>
+                                return (
+                                    <Grid size={6} key={item.localeStr}>
+                                        <HomePageClickable
+                                            Icon={item.icon}
+                                            localeStr={item.localeStr}
+                                            onClick={() => router.push(item.path)}
+                                        />
+                                    </Grid>
+                                )}
                             )}
-                        )}
-
-                    </Grid>
+                        </Grid>
+                    </Stack>
                 </motion.div>
             </Stack>
         </Stack>

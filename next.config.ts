@@ -3,14 +3,14 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: 'export',
+  // output: 'export',
   images: { unoptimized: true }, 
   reactCompiler: true,
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/en",
+        source: '/:path((?!(?:en|zh)(?:/|$)).*)',
+        destination: '/en/:path*',
         permanent: true,
       }
     ]

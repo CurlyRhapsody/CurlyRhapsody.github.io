@@ -8,6 +8,11 @@
         "cates": "分頁",
         "language": "語言"
     },
+    "error": {
+        "title": "噢不！",
+        "desc": "看來這一頁並不存在。",
+        "go home": "返回主頁"
+    },
     "home": {
         "title1": "想像",
         "title2": "只是限制。",
@@ -26,7 +31,7 @@
             "6": "休閒遊戲玩家"
         },
 
-        "startAdventure": "在此開始您的冒險",
+        "startAdventure": "在此開始您的冒險：",
         "about title": "關於",
         "about desc": "我到底是誰？",
         "blog title": "筆記",
