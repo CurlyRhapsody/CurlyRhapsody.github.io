@@ -1,33 +1,22 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Roboto } from "next/font/google";
+import "@/app/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const roboto = Roboto({ subsets: ["latin"] });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Under Construction",
-  description: "Website is under revamp lol",
-};
-
-export default function RootLayout({
-  children,
+export default async function RootLayout({
+    children
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-[#add8e6]`}
-    >
-      <body>{children}</body>
-    </html>
-  );
+
+    return (
+        <html lang="en" className={`${roboto.className} antialiased`}>
+            <head>
+                <link rel="icon" href="/favicon.ico" sizes="any" />
+            </head>
+            <body>
+                {children}
+            </body>
+        </html>
+    );
 }
