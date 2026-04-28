@@ -41,7 +41,11 @@ export default function NotFound() {
                 <Image src={Dusted.src} alt="" width={1} height={1} style={{ width: "100%", height: "100%" }} />
             </Stack>
             <Button
-                sx={{ p: "1rem", background: "#5897EE", width: "100%", color: "white", borderRadius: "0.5rem", fontSize: "1.25rem" }}
+                variant="contained"
+                sx={{
+                    p: "1rem", background: "#5897EE", width: "100%", color: "white", borderRadius: "0.5rem", fontSize: "1.25rem",
+                    "&:hover": { background: "#4678BE" }
+                }}
                 startIcon={<HomeIcon sx={{ fontSize: "1.25rem" }} />}
                 onClick={() => router.push(`/${locale}`)}
             >

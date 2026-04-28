@@ -14,7 +14,7 @@ const HomePageClickable = ({ Icon, localeStr, onClick }: {
 
     return (
         <ButtonBase onClick={onClick} sx={{ borderRadius: "2rem", width: "100%" }}>
-            <ShadowedStack sx={{ borderRadius: "2rem", background: "#FFF", p: "2rem", width: "100%", gap: "1rem" }}>
+            <ShadowedStack sx={{ borderRadius: "2rem", background: "#FFF", p: "2rem", width: "100%", gap: "1rem", '&:hover': { background: "#E5E5E5", transition: "0.25s linear"} }}>
                 <Stack sx={{ flexDirection: "row", gap: "0.5rem", justifyContent: "center" }}>
                     <Icon sx={{ fontSize: "1.625rem" }} />
                     <Subtitle1>{t(`${localeStr} title`)}</Subtitle1>

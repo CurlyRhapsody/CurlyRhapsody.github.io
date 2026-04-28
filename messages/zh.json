@@ -1,4 +1,8 @@
 {
+    "headerTitle": {
+        "home": "首頁",
+        "about": "關於我"
+    },
     "menu": {
         "home": "首頁",
         "about": "關於",

@@ -1,4 +1,8 @@
 {
+    "headerTitle": {
+        "home": "Home",
+        "about": "About Me"
+    },
     "menu": {
         "home": "Home",
         "about": "About",
