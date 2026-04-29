@@ -4,7 +4,7 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import HomePageIamge from "../../assets/images/homePage.jpg";
 import { motion } from "motion/react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Subtitle1, Title1 } from "../styled/text";
 import { ShadowedStack } from "../styled/component";
 import CurlyBracesTypeWriter from "../CurlyBracesTypewriter";
@@ -18,6 +18,7 @@ const HomePage = () => {
     const t = useTranslations("home");
     const ttw = useTranslations("home.typewriter");
 
+    const locale = useLocale();
     const router = useRouter();
 
     return (
@@ -115,7 +116,7 @@ const HomePage = () => {
                                         <HomePageClickable
                                             Icon={item.icon}
                                             localeStr={item.localeStr}
-                                            onClick={() => router.push(item.path)}
+                                            onClick={() => router.push(`/${locale}/${item.path}`)}
                                         />
                                     </Grid>
                                 )}
