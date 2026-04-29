@@ -1,6 +1,6 @@
 import { Roboto } from "next/font/google";
 import "@/app/globals.css";
-import NavBar from "../components/NavBar/NavBar";
+import NavBar from "../components/navBar/NavBar";
 import { NextIntlClientProvider } from "next-intl";
 import { Locale, locales } from "@/i18n/config";
 import { notFound } from "next/navigation";

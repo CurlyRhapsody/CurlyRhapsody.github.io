@@ -1,9 +1,10 @@
 import { Roboto } from "next/font/google";
 import "@/app/globals.css";
+import { Suspense } from "react";
 
 const roboto = Roboto({ subsets: ["latin"] });
 
-export default async function RootLayout({
+export default function RootLayout({
     children
 }: Readonly<{
     children: React.ReactNode;
@@ -15,7 +16,9 @@ export default async function RootLayout({
                 <link rel="icon" href="/favicon.ico" sizes="any" />
             </head>
             <body>
-                {children}
+                <Suspense>
+                    {children}
+                </Suspense>
             </body>
         </html>
     );

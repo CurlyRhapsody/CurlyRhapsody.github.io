@@ -10,7 +10,7 @@ import { ShadowedStack } from "../styled/component";
 import CurlyBracesTypeWriter from "../CurlyBracesTypewriter";
 import { homepageWords } from "../constant";
 import { useRouter } from "next/navigation";
-import { menuList } from "../NavBar/MenuItems";
+import { menuList } from "../navBar/MenuItems";
 import HomePageClickable from "../HomePageClickable";
 
 const HomePage = () => {

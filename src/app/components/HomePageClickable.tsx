@@ -1,4 +1,4 @@
-import { ButtonBase, Icon, Stack } from "@mui/material";
+import { ButtonBase, Stack } from "@mui/material";
 import { ShadowedStack } from "./styled/component";
 import { SvgIconComponent } from "@mui/icons-material";
 import { Body1, Subtitle1 } from "./styled/text";

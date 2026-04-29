@@ -2,18 +2,13 @@
 
 import { Button, Stack } from "@mui/material";
 import { Subtitle1, Title1 } from "./components/styled/text";
-import { Metadata } from "next";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 
 import "@/app/globals.css";
 import Dusted from "@/app/assets/gif/dusted.gif"
 import HomeIcon from '@mui/icons-material/Home';
-
-export const metadata: Metadata = {
-    title: "404 | Curly Braces Studios",
-    description: "Not found",
-}
+import { Suspense } from "react";
 
 export default function NotFound() {
 
