@@ -6,15 +6,6 @@ const nextConfig: NextConfig = {
   // output: 'export',
   images: { unoptimized: true }, 
   reactCompiler: true,
-  async redirects() {
-    return [
-      {
-        source: '/:path((?!(?:en|zh)(?:/|$)).*)',
-        destination: '/en/:path*',
-        permanent: true,
-      }
-    ]
-  },
 };
 
 
