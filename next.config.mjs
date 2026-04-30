@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
+// @ts-check
 import createNextIntlPlugin from 'next-intl/plugin';
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   /* config options here */
   images: { unoptimized: true }, 
   reactCompiler: true,
