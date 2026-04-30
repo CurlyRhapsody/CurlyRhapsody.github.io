@@ -4,7 +4,9 @@ import createNextIntlPlugin from 'next-intl/plugin';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   /* config options here */
-  images: { unoptimized: true }, 
+  output: 'export',
+  images: { unoptimized: true },
+  experimental: { globalNotFound: true },
   reactCompiler: true,
 };
 

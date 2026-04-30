@@ -4,7 +4,7 @@ import { Drawer, IconButton, Menu, MenuList, Stack } from "@mui/material";
 import Logo from "../../assets/images/logo.jpg"
 import Image from "next/image";
 import SectionButton from "./SectionButton";
-import useResponsiveSizing from "../provider/useResponsiveSizing";
+import useResponsiveSizing from "../hooks/useResponsiveSizing";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import TranslateIcon from '@mui/icons-material/Translate';
