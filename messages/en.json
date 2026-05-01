@@ -44,5 +44,13 @@
         "project desc": "Creating small but practical stuff",
         "games title": "Games",
         "games desc": "Gaming time!"
+    },
+    "profile": {
+        "title": "Profile Page",
+        "content title": "Contents",
+        "content profile": "Profile",
+        "content education": "Education Path",
+        "content work": "Work Experience",
+        "content QnA": "Q&A"
     }
 }

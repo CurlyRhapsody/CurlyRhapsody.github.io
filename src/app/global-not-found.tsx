@@ -37,7 +37,7 @@ export default function NotFound() {
                     <Title1>{dict.title}</Title1>
                     <Subtitle1>{dict.desc}</Subtitle1>
                     <Stack sx={{ width: "15rem", height: "15rem", p: "2.25rem", borderRadius: "2.25rem", background: "white" }}>
-                        <Image src={Dusted.src} alt="" width={1} height={1} style={{ width: "100%", height: "100%" }} />
+                        <Image src={Dusted.src} alt="" width={1} height={1} style={{ width: "100%", height: "100%" }} loading="eager" />
                     </Stack>
                     <Button
                         variant="contained"
@@ -46,7 +46,7 @@ export default function NotFound() {
                             "&:hover": { background: "#4678BE" }
                         }}
                         startIcon={<HomeIcon sx={{ fontSize: "1.25rem" }} />}
-                        onClick={() => router.push(`/${locale}`)}
+                        onClick={() => { window.location.href = `/${locale}` }}
                     >
                         {dict.goHome}
                     </Button>

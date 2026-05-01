@@ -44,5 +44,13 @@
         "project desc": "小巧但實用的小程式",
         "games title": "遊戲",
         "games desc": "遊戲時間！"
+    },
+    "profile": {
+        "title": "個人檔案",
+        "content title": "目錄",
+        "content profile": "資料",
+        "content education": "學歷",
+        "content work": "工作經驗",
+        "content QnA": "Q&A"
     }
 }
