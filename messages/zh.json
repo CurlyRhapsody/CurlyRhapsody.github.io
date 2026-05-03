@@ -51,6 +51,26 @@
         "content profile": "資料",
         "content education": "學歷",
         "content work": "工作經驗",
-        "content QnA": "Q&A"
+        "content QnA": "Q&A",
+        "form": {
+            "subtitle": {
+                "name": "暱稱",
+                "alias": "實名",
+                "dob": "生日日期",
+                "location": "我來自……",
+                "hobbies": "興趣",
+                "social": "社交平台",
+                "icon": "圖示 (GitHub)",
+                "aboutMe": "關於我……",
+                "coding": "技能"
+            },
+            "content": {
+                "dob": "6/6/2001 （{age} 歲）",
+                "location": "中國香港",
+                "hobbies": "逛街、編程、科學探究、本地交通研究",
+                "noSocial": "我甚少以社交平台互動，更喜歡專注在現實當自己！",
+                "summary": "擁有超過 2 年 Next.JS 及 React 框架的實戰經驗，致力於構建高性能的應用程式。現正擴展技術至後端開發實作及數據庫管理。具有一定協作能力及自我激勵能力。"
+            }
+        }
     }
 }

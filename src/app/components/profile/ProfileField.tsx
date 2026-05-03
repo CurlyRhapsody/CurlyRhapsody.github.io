@@ -7,7 +7,7 @@ const ProfileField = ({ subtitle, content }: {
 }) => {
     return (
         <Stack sx={{ gap: "0.25rem" }}>
-            <Subtitle1>{subtitle}</Subtitle1>
+            <Subtitle1 sx={{ color: "#1E90FF" }}>{subtitle}</Subtitle1>
             <Body1>{content}</Body1>
         </Stack>
     )

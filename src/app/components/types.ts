@@ -5,3 +5,7 @@ export type NavInfo = {
     localeStr: string;
     path: string;
 }
+
+export type GithubUserInfo = {
+    avatar_url: string;
+}

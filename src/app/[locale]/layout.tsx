@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { Locale, locales } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
+import ReactQueryProvider from "../components/providers/ReactQueryProvider";
 
 const roboto = Roboto({ subsets: ["latin"] });
 
@@ -31,8 +32,10 @@ export default async function RootLayout({
 
     return (
         <NextIntlClientProvider>
-            <NavBar />
-            {children}
+            <ReactQueryProvider>
+                <NavBar />
+                {children}
+            </ReactQueryProvider>
         </NextIntlClientProvider>
     );
 }

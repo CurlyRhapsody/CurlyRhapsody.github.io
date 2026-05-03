@@ -51,6 +51,26 @@
         "content profile": "Profile",
         "content education": "Education Path",
         "content work": "Work Experience",
-        "content QnA": "Q&A"
+        "content QnA": "Q&A",
+        "form": {
+            "subtitle": {
+                "name": "Alias",
+                "alias": "Real Name",
+                "dob": "Date of Birth",
+                "location": "I am from...",
+                "hobbies": "Hobby",
+                "social": "Social",
+                "icon": "Icon (GitHub)",
+                "aboutMe": "About me...",
+                "coding": "Skillset"
+            },
+            "content": {
+                "dob": "6/6/2001 (Age {age})",
+                "location": "Hong Kong, China",
+                "hobbies": "Walking, Coding, Studying Science, Local Transport Research",
+                "noSocial": "I seldom socialize via Social Media. I like to be myself offline!",
+                "summary": "Software Developer with 2+ years of experience in Frontend React and Next.JS framework, dedicated in developing responsive digital solutions. Has growing proficiency in Backend architecture and Database management. Skilled in collaborative problem-solving with teammates with self-motivation."
+            }
+        }
     }
 }
