@@ -62,7 +62,7 @@
                 "social": "社交平台",
                 "icon": "圖示 (GitHub)",
                 "aboutMe": "關於我……",
-                "coding": "技能"
+                "coding": "編程技能"
             },
             "content": {
                 "dob": "6/6/2001 （{age} 歲）",
@@ -70,6 +70,20 @@
                 "hobbies": "逛街、編程、科學探究、本地交通研究",
                 "noSocial": "我甚少以社交平台互動，更喜歡專注在現實當自己！",
                 "summary": "擁有超過 2 年 Next.JS 及 React 框架的實戰經驗，致力於構建高性能的應用程式。現正擴展技術至後端開發實作及數據庫管理。具有一定協作能力及自我激勵能力。"
+            },
+            "skill": {
+                "title": "自評分數",
+                "Frontend": "網頁/App 前端開發",
+                "CyberSec": "資訊安全",
+                "DB": "數據庫",
+                "API": "後端 API 開發",
+                "TestQA": "測試及品質保證",
+                "DevOpsCICD": "DevOps 及 CI/CD",
+                "AI": "人工智能編程",
+                "SysDesign": "系統設計",
+                "radar": {
+                    "myScore": "自評分數"
+                }
             }
         }
     }

@@ -18,7 +18,7 @@ const ProfileForm = () => {
     }, [])
 
     return (
-        <ShadowedStack sx={{ borderRadius: "2rem", width: "45rem", padding: "3rem 7rem", gap: "2rem", background: "#fff" }}>
+        <ShadowedStack sx={{ borderRadius: "2rem", width: "45rem", padding: "2rem 4rem", gap: "2rem", background: "#fff" }}>
             <Stack direction="row" sx={{ justifyContent: "space-between", gap: "2rem" }}>
                 <Stack sx={{ gap: "2rem" }}>
                     <ProfileField subtitle={tTitle("name")} content={"CurlyRhapsody"} />

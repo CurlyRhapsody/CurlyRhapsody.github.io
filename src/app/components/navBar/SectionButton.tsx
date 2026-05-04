@@ -1,8 +1,8 @@
 import { SvgIconComponent } from "@mui/icons-material";
-import { MenuItem } from "@mui/material";
 import { Body1 } from "../styled/text";
 import useResponsiveSizing from "../hooks/useResponsiveSizing";
 import { useTranslations } from "next-intl";
+import { SidebarMenuItem } from "../styled/component";
 
 const SectionButton = ({
     Icon, text, onClick
@@ -16,7 +16,7 @@ const SectionButton = ({
     const t = useTranslations("menu")
 
     return (
-        <MenuItem
+        <SidebarMenuItem
             onClick={onClick}
             sx={{
                 color: "#3C3C3C",
@@ -26,7 +26,7 @@ const SectionButton = ({
         >
             <Icon sx={{ fontSize: "1.125rem" }} />
             <Body1>{t(text)}</Body1>
-        </MenuItem>
+        </SidebarMenuItem>
     )
 }
 
