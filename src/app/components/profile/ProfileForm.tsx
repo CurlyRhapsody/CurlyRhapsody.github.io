@@ -5,7 +5,8 @@ import { Stack } from "@mui/material";
 import { useMemo } from "react";
 import { DateTime } from "luxon";
 import ProfileIcon from "./ProfileIcon";
-import ProfileSkills from "./ProfileSkills";
+import ProfileSkills from "./skillset/ProfileSkills";
+import ProfileSocials from "./ProfileSocials";
 
 const ProfileForm = () => {
 
@@ -18,7 +19,7 @@ const ProfileForm = () => {
     }, [])
 
     return (
-        <ShadowedStack sx={{ borderRadius: "2rem", width: "45rem", padding: "2rem 4rem", gap: "2rem", background: "#fff" }}>
+        <ShadowedStack sx={{ borderRadius: "2rem", width: "45rem", padding: "2rem 3rem", gap: "2rem", background: "#fff" }}>
             <Stack direction="row" sx={{ justifyContent: "space-between", gap: "2rem" }}>
                 <Stack sx={{ gap: "2rem" }}>
                     <ProfileField subtitle={tTitle("name")} content={"CurlyRhapsody"} />
@@ -30,8 +31,10 @@ const ProfileForm = () => {
                 
             </Stack>
             <ProfileField subtitle={tTitle("hobbies")} content={tContent("hobbies")} />
+            <ProfileField subtitle={tTitle("describe")} content={tContent("describe")} />
             <ProfileField subtitle={tTitle("aboutMe")} content={tContent("summary")} />
             <ProfileSkills />
+            <ProfileSocials />
         </ShadowedStack>
     )
 }

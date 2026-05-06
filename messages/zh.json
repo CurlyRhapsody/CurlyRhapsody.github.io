@@ -59,6 +59,7 @@
                 "dob": "生日日期",
                 "location": "我來自……",
                 "hobbies": "興趣",
+                "describe": "用三個詞語形容我……",
                 "social": "社交平台",
                 "icon": "圖示 (GitHub)",
                 "aboutMe": "關於我……",
@@ -68,7 +69,9 @@
                 "dob": "6/6/2001 （{age} 歲）",
                 "location": "中國香港",
                 "hobbies": "逛街、編程、科學探究、本地交通研究",
+                "describe": "謀略、活力、混沌",
                 "noSocial": "我甚少以社交平台互動，更喜歡專注在現實當自己！",
+                "moreLater": "或者我會考慮再開一個帳號……",
                 "summary": "擁有超過 2 年 Next.JS 及 React 框架的實戰經驗，致力於構建高性能的應用程式。現正擴展技術至後端開發實作及數據庫管理。具有一定協作能力及自我激勵能力。"
             },
             "skill": {
@@ -83,6 +86,19 @@
                 "SysDesign": "系統設計",
                 "radar": {
                     "myScore": "自評分數"
+                },
+                "list": {
+                    "frontend title": "前端開發",
+                    "frontend desc1": "精通網頁開發語言 - <b>HTML、CSS、Javascript</b>",
+                    "frontend desc2": "擁有豐富 <b>React 及 Next.JS</b> 前端框架經驗",
+                    "frontend desc3": "有使用 <b>Dart 及 Flutter 框架</b>開發經驗",
+                    "backend title": "後端開發",
+                    "backend desc1": "擁有使用 <b>Java Spring Boot</b> 框架開發伺服器 API 之經驗",
+                    "backend desc2": "具使用 <b>MySQL 及 MongoDB</b> 數據庫之經驗",
+                    "tools title": "工具",
+                    "tools desc1": "具使用 <b>Git</b> 版本控制之經驗",
+                    "tools desc2": "擁有 <b>ArgoCD</b> GitOps CD 工具之基礎",
+                    "tools desc3": "能使用 <b>Cursor, Codex 及 OpenCode</b> 等 AI 編程工具工作"
                 }
             }
         }

@@ -28,7 +28,11 @@ const ProfileIcon = () => {
     return (
         <Stack sx={{ gap: "1rem", width: "15rem", alignItems: "center" }}>
             <Subtitle1 sx={{ color: "#1E90FF" }}>{t("icon")}</Subtitle1>
-            <Avatar sx={{ width: "15rem", height: "15rem" }} src={iconSrc} />
+            <Avatar
+                sx={{ width: "15rem", height: "15rem" }}
+                slotProps={{ img: { draggable: "false" } }}
+                src={iconSrc} 
+            />
         </Stack>
     )
 }

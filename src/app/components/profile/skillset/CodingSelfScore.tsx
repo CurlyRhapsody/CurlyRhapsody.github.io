@@ -11,7 +11,7 @@ import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import { SvgIconComponent } from "@mui/icons-material";
-import { Subtitle1 } from "../styled/text";
+import { Subtitle1 } from "../../styled/text";
 
 const metrics = ["Frontend", "CyberSec", "DB", "API", "TestQA", "DevOpsCICD", "AI", "SysDesign"];
 
@@ -130,6 +130,7 @@ const SkillGrid = () => {
         <Grid container spacing="1rem">
             {metrics.map((metric, index) => (
                 <SkillScoreCard
+                    key={metric}
                     title={t(metric)}
                     score={seriesData.data[index]}
                     icon={iconMap[metric]}
@@ -146,7 +147,7 @@ const CodingSelfScore = ({ narrow }: { narrow: boolean }) => {
     return (
         <Box
             sx={{
-                width: "20rem", height: narrow ? "auto" : "20rem",
+                width: "20rem", height: narrow ? "auto" : "30rem",
                 minHeight: "20rem", maxWidth: "100%", margin: "0 auto"
             }}
         >

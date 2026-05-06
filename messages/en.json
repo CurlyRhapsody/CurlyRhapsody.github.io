@@ -59,6 +59,7 @@
                 "dob": "Date of Birth",
                 "location": "I am from...",
                 "hobbies": "Hobby",
+                "describe": "Describe myself in 3 words...",
                 "social": "Social",
                 "icon": "Icon (GitHub)",
                 "aboutMe": "About me...",
@@ -68,7 +69,9 @@
                 "dob": "6/6/2001 (Age {age})",
                 "location": "Hong Kong, China",
                 "hobbies": "Walking, Coding, Studying Science, Local Transport Research",
+                "describe": "Strategic, Energetic, Chaotic",
                 "noSocial": "I seldom socialize via Social Media. I like to be myself offline!",
+                "moreLater": "Maybe I'll consider open one later...",
                 "summary": "Software Developer with 2+ years of experience in Frontend React and Next.JS framework, dedicated in developing responsive digital solutions. Has growing proficiency in Backend architecture and Database management. Skilled in collaborative problem-solving with teammates with self-motivation."
             },
             "skill": {
@@ -88,9 +91,14 @@
                     "frontend title": "Frontend",
                     "frontend desc1": "Proficient in Web Development Languages - <b>HTML, CSS, Javascript</b>",
                     "frontend desc2": "Deep Experience in <b>React & Next.JS</b> Frontend Frameworks",
+                    "frontend desc3": "Moderate Experience in developing with <b>Flutter Framework in Dart</b>",
                     "backend title": "Backend",
                     "backend desc1": "Experience in Server API development with <b>Java Spring Boot</b> Framework",
-                    "backend desc2": "Experience in <b>MySQL & MongoDB</b>"
+                    "backend desc2": "Good Understanding in <b>MySQL & MongoDB</b> Database Systems",
+                    "tools title": "Tools",
+                    "tools desc1": "Proficiency in Version Controlling via <b>Git</b>",
+                    "tools desc2": "Basic understanding in GitOps CD tool <b>ArgoCD</b>",
+                    "tools desc3": "Able to work with AI-coding tools including <b>Cursor, Codex & OpenCode</b>"
                 }
             }
         }
