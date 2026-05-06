@@ -101,6 +101,16 @@
                     "tools desc3": "能使用 <b>Cursor, Codex 及 OpenCode</b> 等 AI 編程工具工作"
                 }
             }
+        },
+        "academic": {
+            "title": "學習經歷",
+            "hkust": {
+                "year": "2019 秋季 - 2023 春季",
+                "name": "香港科技大學",
+                "major": "工學士（計算機科學）",
+                "honors": "一級榮譽畢業",
+                "stats": "總學分: <b>124</b> <vd></vd> CGA: <b>3.717</b> <vd></vd> Major CGA: <b>3.681</b>"
+            }
         }
     }
 }
