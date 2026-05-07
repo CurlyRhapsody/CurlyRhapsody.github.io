@@ -104,12 +104,26 @@
         },
         "academic": {
             "title": "Academic Record",
+            "projectTitle": "Remarkable Projects",
+            "roleTitle": "Role",
             "hkust": {
                 "year": "2019 Fall - 2023 Spring",
                 "name": "Hong Kong University of Science and Technology",
                 "major": "Bachelor of Engineering in Computer Science",
                 "honors": "First Class Honors",
-                "stats": "Total Credits: <b>124</b> <vd></vd> CGA: <b>3.717</b> <vd></vd> Major CGA: <b>3.681</b>"
+                "stats": "Total Credits: <b>124</b> <vd></vd> CGA: <b>3.717</b> <vd></vd> Major CGA: <b>3.681</b>",
+                "project": {                    
+                    "e2ee": {
+                        "name": "USTalk - Secure End-to-End Encrypted Messaging App",
+                        "desc1": "An instant messaging app designed for HKUST Students & Educators",
+                        "desc2": "Sends messages via end-to-end encrypting Signal Protocol (+AES for media)",
+                        "desc3": "Aimed to provide secure, anonymous channel for HKUST members for communication",
+                        "role1": "Frontend developer of app screens (Group Chat, Profile, Settings, etc.)",
+                        "role2": "Added support of E2EE media messages (Images, Audio, Videos)",
+                        "role3": "Enables user to chat effectively with various media messages under intuitive UI",
+                        "repository": "Project Repository"
+                    }
+                }
             }
         }
     }

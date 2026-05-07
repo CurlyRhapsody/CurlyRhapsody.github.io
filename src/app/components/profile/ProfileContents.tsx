@@ -9,6 +9,7 @@ import BadgeIcon from '@mui/icons-material/Badge';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import Link from "next/link";
 
 const ContentOption = ({
     Icon, title, tag
@@ -20,22 +21,24 @@ const ContentOption = ({
     const { isMobile } = useResponsiveSizing();
 
     return (
-        <Grid size={isMobile ? 6 : 3}>
-            <ShadowedStack
-                sx={{
-                    width: isMobile ? "100%" : "10rem",
-                    height: "12rem",
-                    p: "1.5rem",
-                    borderRadius: "1.5rem",
-                    alignItems: "center",
-                    justifyContent: "space-around",
-                    background: "#FFFFFF"
-                }}
-            >
-                <Icon sx={{ fontSize: "2rem" }} />
-                <Body1 sx={{ textAlign: "center" }}>{title}</Body1>
-            </ShadowedStack>
-        </Grid>
+        <Link href={`#${tag}`}>
+            <Grid size={isMobile ? 6 : 3}>
+                <ShadowedStack
+                    sx={{
+                        width: isMobile ? "100%" : "10rem",
+                        height: "12rem",
+                        p: "1.5rem",
+                        borderRadius: "1.5rem",
+                        alignItems: "center",
+                        justifyContent: "space-around",
+                        background: "#FFFFFF"
+                    }}
+                >
+                    <Icon sx={{ fontSize: "2rem" }} />
+                    <Body1 sx={{ textAlign: "center" }}>{title}</Body1>
+                </ShadowedStack>
+            </Grid>
+        </Link>
     )
 }
 

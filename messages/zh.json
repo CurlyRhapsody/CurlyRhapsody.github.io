@@ -104,12 +104,26 @@
         },
         "academic": {
             "title": "學習經歷",
+            "projectTitle": "重點專案",
+            "roleTitle": "專案職責",
             "hkust": {
                 "year": "2019 秋季 - 2023 春季",
                 "name": "香港科技大學",
                 "major": "工學士（計算機科學）",
                 "honors": "一級榮譽畢業",
-                "stats": "總學分: <b>124</b> <vd></vd> CGA: <b>3.717</b> <vd></vd> Major CGA: <b>3.681</b>"
+                "stats": "總學分: <b>124</b> <vd></vd> CGA: <b>3.717</b> <vd></vd> Major CGA: <b>3.681</b>",
+                "project": {                    
+                    "e2ee": {
+                        "name": "USTalk - Secure End-to-End Encrypted Messaging App",
+                        "desc1": "一個專為科大學生及教員而設的即時通訊軟件",
+                        "desc2": "訊息均以 Signal 協定進行端對端加密（媒體訊息使用 AES）",
+                        "desc3": "以向科大成員提供安全、匿名的通訊渠道為目標",
+                        "role1": "前端介面開發者（包括群組聊天室、用戶資料、設定頁面）",
+                        "role2": "開發媒體訊息（相片、錄音、影片）端對端加密流程",
+                        "role3": "允許用戶於熟悉的通訊介面中傳送多媒體訊息，達致有效溝通",
+                        "repository": "專案 Repository"
+                    }
+                }
             }
         }
     }

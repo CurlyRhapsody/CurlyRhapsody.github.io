@@ -3,6 +3,7 @@
 :root {
   --background: #caf0f8;
   --foreground: #171717;
+  --header-height: 4rem;
 }
 
 /* @theme inline {
@@ -31,6 +32,9 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--background);
