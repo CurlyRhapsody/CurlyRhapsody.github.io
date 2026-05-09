@@ -25,9 +25,10 @@ const AcademicContainer = () => {
                 >
                     <Box>
                         <Typography sx={{ fontSize: "1.375rem", lineHeight: "1.625rem", fontWeight: 700, pb: "0.5rem" }}>{t("hkust.name")}</Typography>
+                        <Body1>{t("hkust.year")}</Body1>
                         <Body1>{t("hkust.major")}</Body1>
                         <Body1>{t("hkust.honors")}</Body1>
-                        <Body1 sx={{ pt: "1rem" }}>
+                        <Body1 component="div" sx={{ pt: "1rem" }}>
                             {t.rich("hkust.stats", {
                                 vd: () => (
                                     <Divider
@@ -45,10 +46,13 @@ const AcademicContainer = () => {
                         <Body2 component="li" sx={{ ml: "1.25rem" }}>{t("hkust.project.e2ee.desc1")}</Body2>
                         <Body2 component="li" sx={{ ml: "1.25rem" }}>{t("hkust.project.e2ee.desc2")}</Body2>
                         <Body2 component="li" sx={{ ml: "1.25rem" }}>{t("hkust.project.e2ee.desc3")}</Body2>
-                        <Typography sx={{ fontSize: "1.125rem", lineHeight: "1.5rem", fontWeight: 700, py: "0.25rem" }}>{t("roleTitle")}</Typography>
-                        <Body2 component="li" sx={{ ml: "1.25rem" }}>{t("hkust.project.e2ee.role1")}</Body2>
-                        <Body2 component="li" sx={{ ml: "1.25rem" }}>{t("hkust.project.e2ee.role2")}</Body2>
-                        <Body2 component="li" sx={{ ml: "1.25rem" }}>{t("hkust.project.e2ee.role3")}</Body2>
+                        <Box sx={{ ml: "1.25rem" }}>
+                            <Typography sx={{ fontSize: "1.125rem", lineHeight: "1.5rem", fontWeight: 700, py: "0.25rem" }}>{t("roleTitle")}</Typography>
+                            <Body2 component="li" sx={{ ml: "1.25rem" }}>{t("hkust.project.e2ee.role1")}</Body2>
+                            <Body2 component="li" sx={{ ml: "1.25rem" }}>{t("hkust.project.e2ee.role2")}</Body2>
+                            <Body2 component="li" sx={{ ml: "1.25rem" }}>{t("hkust.project.e2ee.role3")}</Body2>
+                        </Box>
+                        
                         <Link href="https://github.com/chanjeff2/fyp-chat-app" target="__blank" style={{ display: "block", width: "fit-content" }}>
                             <Stack direction="row"
                                 sx={{

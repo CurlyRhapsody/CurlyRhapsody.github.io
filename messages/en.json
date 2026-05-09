@@ -125,6 +125,30 @@
                     }
                 }
             }
+        },
+        "work": {
+            "title": "Work Experience",
+            "projectTitle": "Remarkable Projects",
+            "roleTitle": "Role",
+            "hktv": {
+                "name": "Hong Kong Technology Venture Limited (HKTV)",
+                "year": "06/2023 - Present",
+                "highestPosition": "Highest Postion: <b>Programmer II</b>",
+                "project": {
+                    "lm": {
+                        "name": "ThePlace (Formerly called HKTVshops / LittleMall)",
+                        "role1": "Search Page Desktop View - Frontend Developer",
+                        "role2": "Product Variant Search in Search Page - Frontend Developer",
+                        "role3": "Provides users seamelss experience in searching for products across both mobile and desktop platforms"
+                    },
+                    "mabs": {
+                        "name": "Merchant Ad Booking System",
+                        "role1": "Customer Tracking, Network Buy - Ad Detail page - Frontend Developer",
+                        "role2": "Personalised Slider A - Booking + Ad Detail (Full booking flow) - main Frontend & Backend Developer",
+                        "role3": "Enables merchant & admin to book and prepare ad materials with smooth experience"
+                    }
+                }
+            }
         }
     }
 }

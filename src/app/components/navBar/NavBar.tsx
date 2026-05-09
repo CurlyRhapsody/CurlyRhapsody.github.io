@@ -1,6 +1,6 @@
 "use client"
 
-import { Drawer, IconButton, Menu, MenuList, Stack } from "@mui/material";
+import { Box, Drawer, IconButton, Menu, MenuList, Stack } from "@mui/material";
 import Logo from "../../assets/images/logo.jpg"
 import Image from "next/image";
 import SectionButton from "./SectionButton";

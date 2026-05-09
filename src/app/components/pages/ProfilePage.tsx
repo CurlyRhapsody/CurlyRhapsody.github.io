@@ -4,6 +4,7 @@ import { Stack } from "@mui/material";
 import ProfileForm from "../profile/ProfileForm";
 import ProfileContents from "../profile/ProfileContents";
 import AcademicContainer from "../profile/AcademicContainer";
+import WorkContainer from "../profile/WorkContainer";
 
 const ProfilePage = () => {
     return (
@@ -11,6 +12,7 @@ const ProfilePage = () => {
             <ProfileContents />
             <ProfileForm />
             <AcademicContainer />
+            <WorkContainer />
         </Stack>
     );
 }

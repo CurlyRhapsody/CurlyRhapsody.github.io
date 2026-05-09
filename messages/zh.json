@@ -104,7 +104,7 @@
         },
         "academic": {
             "title": "學習經歷",
-            "projectTitle": "重點專案",
+            "projectTitle": "重點項目",
             "roleTitle": "專案職責",
             "hkust": {
                 "year": "2019 秋季 - 2023 春季",
@@ -122,6 +122,30 @@
                         "role2": "開發媒體訊息（相片、錄音、影片）端對端加密流程",
                         "role3": "允許用戶於熟悉的通訊介面中傳送多媒體訊息，達致有效溝通",
                         "repository": "專案 Repository"
+                    }
+                }
+            }
+        },
+        "work": {
+            "title": "工作經驗",
+            "projectTitle": "重點項目",
+            "roleTitle": "專案職責",
+            "hktv": {
+                "name": "香港科技探索有限公司 (HKTV)",
+                "year": "06/2023 - 現今",
+                "highestPosition": "最高職位：<b>Programmer II</b>",
+                "project": {
+                    "lm": {
+                        "name": "ThePlace (舊稱 HKTVshops / LittlMall)",
+                        "role1": "桌面版搜尋頁面 - 前端開發者",
+                        "role2": "搜尋頁面商品規格 - 前端開發者",
+                        "role3": "為用戶提供流暢的手機及桌面端搜尋體驗"
+                    },
+                    "mabs": {
+                        "name": "Merchant Ad Booking System",
+                        "role1": "客戶追蹤廣告、廣告展示網絡 - 廣告詳細內容頁 - 前端開發者",
+                        "role2": "個人化橫幅廣告 A - 廣告預約、廣告詳細內容（預約全流程） - 主要前端及後端開發者",
+                        "role3": "讓商戶及管理員擁有的預約廣告及提供廣告素材體驗"
                     }
                 }
             }

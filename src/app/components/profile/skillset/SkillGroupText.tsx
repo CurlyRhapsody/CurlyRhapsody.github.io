@@ -12,7 +12,7 @@ const SkillGroupText = ({ subtitle, content }: {
         <Stack sx={{ my: "0.5rem", gap: "0.375rem" }}>
             <Subtitle2>{t(subtitle)}</Subtitle2>
             {content.map((localeStr) => (
-                <Body1 component="li" sx={{ ml: "1.75rem" }}>
+                <Body1 key={localeStr} component="li" sx={{ ml: "1.75rem" }}>
                     {t.rich(localeStr, {
                         b: (str) => <b>{str}</b>
                     })}
