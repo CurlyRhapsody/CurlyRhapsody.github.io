@@ -104,32 +104,50 @@
         },
         "academic": {
             "title": "Academic Record",
-            "projectTitle": "Remarkable Projects",
-            "roleTitle": "Role",
-            "hkust": {
-                "year": "2019 Fall - 2023 Spring",
-                "name": "Hong Kong University of Science and Technology",
-                "major": "Bachelor of Engineering in Computer Science",
-                "honors": "First Class Honors",
-                "stats": "Total Credits: <b>124</b> <vd></vd> CGA: <b>3.717</b> <vd></vd> Major CGA: <b>3.681</b>",
-                "project": {                    
-                    "e2ee": {
-                        "name": "USTalk - Secure End-to-End Encrypted Messaging App",
-                        "desc1": "An instant messaging app designed for HKUST Students & Educators",
-                        "desc2": "Sends messages via end-to-end encrypting Signal Protocol (+AES for media)",
-                        "desc3": "Aimed to provide secure, anonymous channel for HKUST members for communication",
-                        "role1": "Frontend developer of app screens (Group Chat, Profile, Settings, etc.)",
-                        "role2": "Added support of E2EE media messages (Images, Audio, Videos)",
-                        "role3": "Enables user to chat effectively with various media messages under intuitive UI",
-                        "repository": "Project Repository"
+            "institutions": {
+                "subtitle": "Academic Institutions",
+                "projectTitle": "Remarkable Projects",
+                "roleTitle": "Role",
+                "hkust": {
+                    "name": "Hong Kong University of Science and Technology",
+                    "year": "2019 Fall - 2023 Spring",
+                    "title": "Bachelor of Engineering in Computer Science",
+                    "status": "First Class Honors",
+                    "stats": "Total Credits: <b>124</b> <vd></vd> CGA: <b>3.717</b> <vd></vd> Major CGA: <b>3.681</b>",
+                    "project": {                    
+                        "e2ee": {
+                            "name": "USTalk - Secure End-to-End Encrypted Messaging App",
+                            "desc1": "An instant messaging app designed for HKUST Students & Educators",
+                            "desc2": "Sends messages via end-to-end encrypting Signal Protocol (+AES for media)",
+                            "desc3": "Aimed to provide secure, anonymous channel for HKUST members for communication",
+                            "role1": "Frontend developer of app screens (Group Chat, Profile, Settings, etc.)",
+                            "role2": "Added support of E2EE media messages (Images, Audio, Videos)",
+                            "role3": "Enables user to chat effectively with various media messages under intuitive UI",
+                            "repository": "Project Repository"
+                        }
                     }
                 }
-            }
+            },
+            "certificates": {
+                "subtitle": "Miscellaneous Certificates"
+            },
+            "none": "None"
         },
         "work": {
             "title": "Work Experience",
             "projectTitle": "Remarkable Projects",
             "roleTitle": "Role",
+            "askpire": {
+                "name": "Askpire Limited",
+                "year": "06/2021 - 08/2022 (Summer Intern)",
+                "highestPosition": "Highest Postion: <b>Software Engineer</b>",
+                "project": {
+                    "app": {
+                        "name": "Askpire App",
+                        "role1": "App Frontend Developer"
+                    }
+                }
+            },
             "hktv": {
                 "name": "Hong Kong Technology Venture Limited (HKTV)",
                 "year": "06/2023 - Present",
@@ -148,7 +166,16 @@
                         "role3": "Enables merchant & admin to book and prepare ad materials with smooth experience"
                     }
                 }
+            },
+            "comingSoon": {
+                "name": "???",
+                "desc": "The adventure continues..."
             }
+        },
+        "qna": {
+            "title": "FAQs",
+            "q1": "What did you do during time gaps between jobs?",
+            "a1": "To keep my career timeline clean and short, <red>all part-time and freelancing jobs are left out.</red> These jobs can be irrelvant with my career path. I will also take my time to learn new things, regardless of relevancy with my career, at the same time."
         }
     }
 }

@@ -5,6 +5,7 @@ import ProfileForm from "../profile/ProfileForm";
 import ProfileContents from "../profile/ProfileContents";
 import AcademicContainer from "../profile/AcademicContainer";
 import WorkContainer from "../profile/WorkContainer";
+import QnAContainer from "../profile/QnAContainer";
 
 const ProfilePage = () => {
     return (
@@ -13,6 +14,7 @@ const ProfilePage = () => {
             <ProfileForm />
             <AcademicContainer />
             <WorkContainer />
+            <QnAContainer />
         </Stack>
     );
 }
