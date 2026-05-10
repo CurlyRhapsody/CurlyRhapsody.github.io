@@ -35,7 +35,7 @@ export default function NotFound() {
             <body>
                 <Stack sx={{ position: "fixed", left: "50%", top: "50%", transform: "translate(-50%, -50%)", gap: "2rem", alignItems: "center" }}>
                     <Title1>{dict.title}</Title1>
-                    <Subtitle1>{dict.desc}</Subtitle1>
+                    <Subtitle1 sx={{ textAlign: "center" }}>{dict.desc}</Subtitle1>
                     <Stack sx={{ width: "15rem", height: "15rem", p: "2.25rem", borderRadius: "2.25rem", background: "white" }}>
                         <Image src={Dusted.src} alt="" width={1} height={1} style={{ width: "100%", height: "100%" }} loading="eager" />
                     </Stack>
