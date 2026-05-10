@@ -21,11 +21,10 @@ const ContentOption = ({
     const { isMobile } = useResponsiveSizing();
 
     return (
-        <Link href={`#${tag}`}>
-            <Grid size={isMobile ? 6 : 3}>
+        <Grid key={tag} size={isMobile ? 6 : 3}>
+            <Link href={`#${tag}`}>
                 <ShadowedStack
                     sx={{
-                        width: isMobile ? "100%" : "10rem",
                         height: "12rem",
                         p: "1.5rem",
                         borderRadius: "1.5rem",
@@ -37,20 +36,19 @@ const ContentOption = ({
                     <Icon sx={{ fontSize: "2rem" }} />
                     <Body1 sx={{ textAlign: "center" }}>{title}</Body1>
                 </ShadowedStack>
-            </Grid>
-        </Link>
+            </Link>
+        </Grid>
     )
 }
 
 const ProfileContents = () => {
     const t = useTranslations("profile");
-    const { isMobile } = useResponsiveSizing();
 
     return (
-        <Stack sx={{ gap: "1rem", alignItems: "center", width: "100%", px: "2rem" }}>
+        <Stack sx={{ gap: "1rem", alignItems: "center", width: "100%", px: "1rem" }}>
             <Title1>{t("title")}</Title1>
             <Subtitle1>{t("content title")}</Subtitle1>
-            <Grid container spacing="2rem">
+            <Grid container spacing="2rem" direction="row">
                 <ContentOption Icon={BadgeIcon} title={t("content profile")} tag="profile" />
                 <ContentOption Icon={SchoolIcon} title={t("content education")} tag="education" />
                 <ContentOption Icon={WorkIcon} title={t("content work")} tag="work" />
