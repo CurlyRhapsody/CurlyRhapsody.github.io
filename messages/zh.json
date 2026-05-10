@@ -44,5 +44,138 @@
         "project desc": "小巧但實用的小程式",
         "games title": "遊戲",
         "games desc": "遊戲時間！"
+    },
+    "profile": {
+        "title": "個人檔案",
+        "content title": "目錄",
+        "content profile": "資料",
+        "content education": "學歷",
+        "content work": "工作經驗",
+        "content QnA": "Q&A",
+        "form": {
+            "subtitle": {
+                "name": "暱稱",
+                "alias": "實名",
+                "dob": "生日日期",
+                "location": "我來自……",
+                "hobbies": "興趣",
+                "describe": "用三個詞語形容我……",
+                "social": "社交平台",
+                "icon": "圖示 (GitHub)",
+                "aboutMe": "關於我……",
+                "coding": "編程技能"
+            },
+            "content": {
+                "dob": "6/6/2001 （{age} 歲）",
+                "location": "中國香港",
+                "hobbies": "逛街、編程、科學探究、本地交通研究",
+                "describe": "謀略、活力、混沌",
+                "noSocial": "我甚少以社交平台互動，更喜歡專注在現實當自己！",
+                "moreLater": "或者我會考慮再開一個帳號……",
+                "summary": "擁有超過 2 年 Next.JS 及 React 框架的實戰經驗，致力於構建高性能的應用程式。現正擴展技術至後端開發實作及數據庫管理。具有一定協作能力及自我激勵能力。"
+            },
+            "skill": {
+                "title": "自評分數",
+                "Frontend": "網頁/App 前端開發",
+                "CyberSec": "資訊安全",
+                "DB": "數據庫",
+                "API": "後端 API 開發",
+                "TestQA": "測試及品質保證",
+                "DevOpsCICD": "DevOps 及 CI/CD",
+                "AI": "人工智能編程",
+                "SysDesign": "系統設計",
+                "radar": {
+                    "myScore": "自評分數"
+                },
+                "list": {
+                    "frontend title": "前端開發",
+                    "frontend desc1": "精通網頁開發語言 - <b>HTML、CSS、Javascript</b>",
+                    "frontend desc2": "擁有豐富 <b>React 及 Next.JS</b> 前端框架經驗",
+                    "frontend desc3": "有使用 <b>Dart 及 Flutter 框架</b>開發經驗",
+                    "backend title": "後端開發",
+                    "backend desc1": "擁有使用 <b>Java Spring Boot</b> 框架開發伺服器 API 之經驗",
+                    "backend desc2": "具使用 <b>MySQL 及 MongoDB</b> 數據庫之經驗",
+                    "tools title": "工具",
+                    "tools desc1": "具使用 <b>Git</b> 版本控制之經驗",
+                    "tools desc2": "擁有 <b>ArgoCD</b> GitOps CD 工具之基礎",
+                    "tools desc3": "能使用 <b>Cursor, Codex 及 OpenCode</b> 等 AI 編程工具工作"
+                }
+            }
+        },
+        "academic": {
+            "title": "學習經歷",
+            "institutions": {
+                "subtitle": "教育機構",
+                "projectTitle": "重點項目",
+                "roleTitle": "專案職責",
+                "hkust": {
+                    "name": "香港科技大學",
+                    "year": "2019 秋季 - 2023 春季",
+                    "title": "工學士（計算機科學）",
+                    "status": "一級榮譽畢業",
+                    "stats": "總學分: <b>124</b> <vd></vd> CGA: <b>3.717</b> <vd></vd> Major CGA: <b>3.681</b>",
+                    "project": {                    
+                        "e2ee": {
+                            "name": "USTalk - Secure End-to-End Encrypted Messaging App",
+                            "desc1": "一個專為科大學生及教員而設的即時通訊軟件",
+                            "desc2": "訊息均以 Signal 協定進行端對端加密（媒體訊息使用 AES）",
+                            "desc3": "以向科大成員提供安全、匿名的通訊渠道為目標",
+                            "role1": "前端介面開發者（包括群組聊天室、用戶資料、設定頁面）",
+                            "role2": "開發媒體訊息（相片、錄音、影片）端對端加密流程",
+                            "role3": "允許用戶於熟悉的通訊介面中傳送多媒體訊息，達致有效溝通",
+                            "repository": "專案 Repository"
+                        }
+                    }
+                }
+            },
+            "certificates": {
+                "subtitle": "其它證書"
+            },
+            "none": "無"
+        },
+        "work": {
+            "title": "工作經驗",
+            "projectTitle": "重點項目",
+            "roleTitle": "專案職責",
+            "askpire": {
+                "name": "Askpire Limited",
+                "year": "06/2021 - 08/2022 （夏季實習生）",
+                "highestPosition": "最高職位：<b>Software Engineer</b>",
+                "project": {
+                    "app": {
+                        "name": "Askpire 應用程式",
+                        "role1": "程式前端開發者"
+                    }
+                }
+            },
+            "hktv": {
+                "name": "香港科技探索有限公司 (HKTV)",
+                "year": "06/2023 - 現今",
+                "highestPosition": "最高職位：<b>Programmer II</b>",
+                "project": {
+                    "lm": {
+                        "name": "ThePlace (舊稱 HKTVshops / LittlMall)",
+                        "role1": "桌面版搜尋頁面 - 前端開發者",
+                        "role2": "搜尋頁面商品規格 - 前端開發者",
+                        "role3": "為用戶提供流暢的手機及桌面端搜尋體驗"
+                    },
+                    "mabs": {
+                        "name": "Merchant Ad Booking System",
+                        "role1": "客戶追蹤廣告、廣告展示網絡 - 廣告詳細內容頁 - 前端開發者",
+                        "role2": "個人化橫幅廣告 A - 廣告預約、廣告詳細內容（預約全流程） - 主要前端及後端開發者",
+                        "role3": "讓商戶及管理員擁有的預約廣告及提供廣告素材體驗"
+                    }
+                }
+            },
+            "comingSoon": {
+                "name": "？？？",
+                "desc": "冒險仍然繼續……"
+            },
+            "qna": {
+                "title": "常見問題",
+                "q1": "你工作經驗中的空窗期做了甚麼？",
+                "a1": "為確保我的工作時間線簡短，<red>所有兼職及自由工作均已撇除。</red>這些工作可以與我的行業無關，同時我仍會抓緊時間學習新事物，包括但不限於與我行業相關的知識。"
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 import { MenuItem } from "@mui/material";
 import { Body1 } from "../styled/text";
 import useResponsiveSizing from "../hooks/useResponsiveSizing";
+import { SidebarMenuItem } from "../styled/component";
 
 const LangOption = ({
     text, onClick
@@ -11,7 +12,7 @@ const LangOption = ({
     const { isMobile, isDesktop } = useResponsiveSizing();
 
     return (
-        <MenuItem
+        <SidebarMenuItem
             onClick={onClick}
             sx={{
                 color: "#3C3C3C",
@@ -20,7 +21,7 @@ const LangOption = ({
             }}
         >
             <Body1>{text}</Body1>
-        </MenuItem>
+        </SidebarMenuItem>
     )
 }
 

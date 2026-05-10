@@ -29,6 +29,7 @@ const HomePage = () => {
                 <Image
                     fill src={HomePageIamge.src} alt=""
                     style={{ objectFit: "cover", filter: "blur(0.1875rem)", backgroundPosition: "center" }}
+                    loading="eager"
                 />
                 <motion.div
                     style={{ width: "100%", height: "100%" }}
