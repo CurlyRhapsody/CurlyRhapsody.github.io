@@ -3,6 +3,7 @@ import { locales } from "@/i18n/config";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { AvailableGames } from "./params";
+import { notFound } from "next/navigation";
 
 type Props = {
     params: Promise<{ locale: string, game: string }>;
