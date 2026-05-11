@@ -4,7 +4,10 @@
         "about": "About Me",
         "blog": "Blog Space",
         "projects": "Projects",
-        "games": "Game Center"
+        "games": {
+            "hub": "Game Center",
+            "rps": "Rock Paper Scissors"
+        }
     },
     "menu": {
         "home": "Home",

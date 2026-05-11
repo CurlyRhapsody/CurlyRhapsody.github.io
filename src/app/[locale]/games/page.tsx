@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const t = await getTranslations({ locale, namespace: "headerTitle" });
 
     return {
-        title: `${t("games")} | Curly Braces Studios`,
+        title: `${t("games.hub")} | Curly Braces Studios`,
         description: "Play games in any genre",
     };
 };
