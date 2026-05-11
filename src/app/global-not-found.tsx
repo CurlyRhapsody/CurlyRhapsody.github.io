@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Stack } from "@mui/material";
+import { Button, Stack, ThemeProvider } from "@mui/material";
 import { Subtitle1, Title1 } from "./components/styled/text";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
@@ -8,6 +8,7 @@ import Image from "next/image";
 import "@/app/globals.css";
 import Dusted from "@/app/assets/gif/dusted.gif"
 import HomeIcon from '@mui/icons-material/Home';
+import { themePalette } from "./theme";
 
 export default function NotFound() {
 
@@ -33,24 +34,26 @@ export default function NotFound() {
                 <title>404 | Curly Braces Studios</title>
             </head>
             <body>
-                <Stack sx={{ position: "fixed", left: "50%", top: "50%", transform: "translate(-50%, -50%)", gap: "2rem", alignItems: "center" }}>
-                    <Title1>{dict.title}</Title1>
-                    <Subtitle1 sx={{ textAlign: "center" }}>{dict.desc}</Subtitle1>
-                    <Stack sx={{ width: "15rem", height: "15rem", p: "2.25rem", borderRadius: "2.25rem", background: "white" }}>
-                        <Image src={Dusted.src} alt="" width={1} height={1} style={{ width: "100%", height: "100%" }} loading="eager" />
+                <ThemeProvider theme={themePalette}>
+                    <Stack sx={{ position: "fixed", left: "50%", top: "50%", transform: "translate(-50%, -50%)", gap: "2rem", alignItems: "center" }}>
+                        <Title1>{dict.title}</Title1>
+                        <Subtitle1 sx={{ textAlign: "center" }}>{dict.desc}</Subtitle1>
+                        <Stack sx={{ width: "15rem", height: "15rem", p: "2.25rem", borderRadius: "2.25rem", background: "white" }}>
+                            <Image src={Dusted.src} alt="" width={1} height={1} style={{ width: "100%", height: "100%" }} loading="eager" />
+                        </Stack>
+                        <Button
+                            variant="contained"
+                            sx={{
+                                p: "1rem", background: "#5897EE", width: "100%", color: "white", borderRadius: "0.5rem", fontSize: "1.25rem",
+                                "&:hover": { background: "#4678BE" }
+                            }}
+                            startIcon={<HomeIcon sx={{ fontSize: "1.25rem" }} />}
+                            onClick={() => { window.location.href = `/${locale}` }}
+                        >
+                            {dict.goHome}
+                        </Button>
                     </Stack>
-                    <Button
-                        variant="contained"
-                        sx={{
-                            p: "1rem", background: "#5897EE", width: "100%", color: "white", borderRadius: "0.5rem", fontSize: "1.25rem",
-                            "&:hover": { background: "#4678BE" }
-                        }}
-                        startIcon={<HomeIcon sx={{ fontSize: "1.25rem" }} />}
-                        onClick={() => { window.location.href = `/${locale}` }}
-                    >
-                        {dict.goHome}
-                    </Button>
-                </Stack>
+                </ThemeProvider>
             </body>
         </html>
     );
