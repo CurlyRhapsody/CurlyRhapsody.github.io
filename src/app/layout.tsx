@@ -1,6 +1,7 @@
 import { Roboto } from "next/font/google";
 import "@/app/globals.css";
 import { Suspense } from "react";
+import ThemeRegistry from "./components/providers/ThemeRegistry";
 
 const roboto = Roboto({ subsets: ["latin"] });
 
@@ -17,7 +18,9 @@ export default function RootLayout({
             </head>
             <body>
                 <Suspense>
-                    {children}
+                    <ThemeRegistry>
+                        {children}
+                    </ThemeRegistry>
                 </Suspense>
             </body>
         </html>

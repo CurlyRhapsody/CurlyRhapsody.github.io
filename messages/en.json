@@ -1,7 +1,10 @@
 {
     "headerTitle": {
         "home": "Home",
-        "about": "About Me"
+        "about": "About Me",
+        "blog": "Blog Space",
+        "projects": "Projects",
+        "games": "Game Center"
     },
     "menu": {
         "home": "Home",
@@ -177,5 +180,20 @@
             "q1": "What did you do during time gaps between jobs?",
             "a1": "To keep my career timeline clean and short, <red>all part-time and freelancing jobs are left out.</red> These jobs can be irrelvant with my career path. I will also take my time to learn new things, regardless of relevancy with my career, at the same time."
         }
+    },
+    "blog": {
+        "title": "Blog List",
+        "soon1": "Stay tuned for something new!",
+        "soon2": "Rome wasn't recorded in one day..."
+    },
+    "project": {
+        "title": "Projects",
+        "subtitle": "Mostly reinventing wheels, sometimes just joking, sometimes a gem!",
+        "soon": "Bro is lacking I think"
+    },
+    "games": {
+        "title": "Game Center",
+        "subtitle": "Providing some kind of entertainment",
+        "soon": "Cartridges are not ready..."
     }
 }

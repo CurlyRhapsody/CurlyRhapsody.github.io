@@ -25,6 +25,7 @@ const ContentOption = ({
             <Link href={`#${tag}`}>
                 <ShadowedStack
                     sx={{
+                        width: "auto",
                         height: "12rem",
                         p: "1.5rem",
                         borderRadius: "1.5rem",
@@ -48,7 +49,7 @@ const ProfileContents = () => {
         <Stack sx={{ gap: "1rem", alignItems: "center", width: "100%", px: "1rem" }}>
             <Title1>{t("title")}</Title1>
             <Subtitle1>{t("content title")}</Subtitle1>
-            <Grid container spacing="2rem" direction="row">
+            <Grid container spacing="2rem" direction="row" sx={{ width: "44rem" }}>
                 <ContentOption Icon={BadgeIcon} title={t("content profile")} tag="profile" />
                 <ContentOption Icon={SchoolIcon} title={t("content education")} tag="education" />
                 <ContentOption Icon={WorkIcon} title={t("content work")} tag="work" />
