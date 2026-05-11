@@ -4,6 +4,7 @@
   --background: #caf0f8;
   --foreground: #171717;
   --header-height: 4rem;
+  color-scheme: light !important;
 }
 
 /* @theme inline {

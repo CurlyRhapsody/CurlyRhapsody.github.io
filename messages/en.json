@@ -197,6 +197,27 @@
     "games": {
         "title": "Game Center",
         "subtitle": "Providing some kind of entertainment",
-        "soon": "Cartridges are not ready..."
+        "soon": "Cartridges are not ready...",
+        "menu": {
+            "rps": "Rock Paper Scissors"
+        },
+        "rps": {
+            "title": "Rock Paper Scissors",
+            "difficulty": "Select Difficulty",
+            "easy": "Easy",
+            "normal": "Normal",
+            "hard": "Hard",
+            "impossible": "Impossible",
+            "stats": {
+                "title": "Statistics",
+                "games": "Total Games: {count}",
+                "wins": "Total Wins: {count}",
+                "loses": "Total Loses: {count}",
+                "draws": "Total Draws: {count}"
+            },
+            "win": "You win this round!",
+            "lose": "You lost this round!",
+            "draw": "It's a draw!"
+        }
     }
 }

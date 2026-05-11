@@ -1,7 +1,7 @@
 import { SvgIconComponent } from "@mui/icons-material";
 import { useTranslations } from "next-intl";
 import { Body1, Subtitle1, Title1 } from "../styled/text";
-import { Grid, Stack, SvgIcon } from "@mui/material";
+import { ButtonBase, Grid, Stack, SvgIcon } from "@mui/material";
 import useResponsiveSizing from "../hooks/useResponsiveSizing";
 import { ShadowedStack } from "../styled/component";
 
@@ -23,20 +23,22 @@ const ContentOption = ({
     return (
         <Grid key={tag} size={isMobile ? 6 : 3}>
             <Link href={`#${tag}`}>
-                <ShadowedStack
-                    sx={{
-                        width: "auto",
-                        height: "12rem",
-                        p: "1.5rem",
-                        borderRadius: "1.5rem",
-                        alignItems: "center",
-                        justifyContent: "space-around",
-                        background: "#FFFFFF"
-                    }}
-                >
-                    <Icon sx={{ fontSize: "2rem" }} />
-                    <Body1 sx={{ textAlign: "center" }}>{title}</Body1>
-                </ShadowedStack>
+                <ButtonBase sx={{ borderRadius: "1.5rem", width: "100%" }}>
+                    <ShadowedStack
+                        sx={{
+                            width: "100%",
+                            height: "12rem",
+                            p: "1.5rem",
+                            borderRadius: "1.5rem",
+                            alignItems: "center",
+                            justifyContent: "space-around",
+                            background: "#FFFFFF"
+                        }}
+                    >
+                        <Icon sx={{ fontSize: "2rem" }} />
+                        <Body1 sx={{ textAlign: "center" }}>{title}</Body1>
+                    </ShadowedStack>
+                </ButtonBase>
             </Link>
         </Grid>
     )
