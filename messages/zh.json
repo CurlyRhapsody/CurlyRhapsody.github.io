@@ -204,17 +204,22 @@
         "rps": {
             "title": "猜拳遊戲",
             "difficulty": "選擇難度",
-            "easy": "簡單",
-            "normal": "中等",
-            "hard": "困難",
-            "impossible": "地獄",
+            "selectedDifficulty": "現時難度：<ind>{difficulty}</ind>",
+            "EASY": "簡單",
+            "NORMAL": "中等",
+            "HARD": "困難",
+            "IMPOSSIBLE": "地獄",
             "stats": {
                 "title": "數據",
                 "games": "總遊玩次數：{count}",
                 "wins": "勝出次數：{count}",
                 "loses": "敗仗次數：{count}",
-                "draws": "平手次數：{count}"
+                "draws": "平手次數：{count}",
+                "reset": "重置數據",
+                "tip": "數據會於更改難度時重置"
             },
+            "you": "您",
+            "cpu": "CPU",
             "win": "你勝出了這個回合！",
             "lose": "你輸掉了這個回合！",
             "draw": "打成平手！"

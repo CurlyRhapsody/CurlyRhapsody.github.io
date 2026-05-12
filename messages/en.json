@@ -204,17 +204,22 @@
         "rps": {
             "title": "Rock Paper Scissors",
             "difficulty": "Select Difficulty",
-            "easy": "Easy",
-            "normal": "Normal",
-            "hard": "Hard",
-            "impossible": "Impossible",
+            "selectedDifficulty": "Current diffuclty: <ind>{difficulty}</ind>",
+            "EASY": "Easy",
+            "NORMAL": "Normal",
+            "HARD": "Hard",
+            "IMPOSSIBLE": "Impossible",
             "stats": {
                 "title": "Statistics",
                 "games": "Total Games: {count}",
                 "wins": "Total Wins: {count}",
                 "loses": "Total Loses: {count}",
-                "draws": "Total Draws: {count}"
+                "draws": "Total Draws: {count}",
+                "reset": "Reset Stats",
+                "tip": "Stats will auto-reset when changing difficulty"
             },
+            "you": "You",
+            "cpu": "CPU",
             "win": "You win this round!",
             "lose": "You lost this round!",
             "draw": "It's a draw!"
