@@ -209,20 +209,20 @@
             "NORMAL": "Normal",
             "HARD": "Hard",
             "IMPOSSIBLE": "Impossible",
+            "statsTip": "Stats will auto-reset when changing difficulty",
             "stats": {
                 "title": "Statistics",
                 "games": "Total Games: {count}",
-                "wins": "Total Wins: {count}",
-                "loses": "Total Loses: {count}",
-                "draws": "Total Draws: {count}",
-                "reset": "Reset Stats",
-                "tip": "Stats will auto-reset when changing difficulty"
+                "wins": "Total Wins: <flash>{count}</flash>",
+                "loses": "Total Loses: <flash>{count}</flash>",
+                "draws": "Total Draws: <flash>{count}</flash>",
+                "reset": "Reset Stats"
             },
             "you": "You",
             "cpu": "CPU",
-            "win": "You win this round!",
-            "lose": "You lost this round!",
-            "draw": "It's a draw!"
+            "WIN": "You win this round!",
+            "LOSE": "You lost this round!",
+            "DRAW": "It's a draw!"
         }
     }
 }

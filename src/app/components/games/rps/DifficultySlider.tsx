@@ -17,7 +17,7 @@ const StyledTab = styled(Tab)({
 
 const DifficultySlider = () => {
 
-    const { difficulty, switchDifficulty } = useRPSContext();
+    const { difficulty, switchDifficulty, gameState } = useRPSContext();
     const t = useTranslations("games.rps");
     const idx = ((currDifficulty: RPSDifficulty) => {
         switch (currDifficulty) {
@@ -47,10 +47,10 @@ const DifficultySlider = () => {
                 value={difficulty}
                 onChange={(e, newValue) => switchDifficulty(newValue)}
             >
-                <StyledTab disableRipple value={"EASY"} label={(t("EASY"))} />
-                <StyledTab disableRipple value={"NORMAL"} label={(t("NORMAL"))} />
-                <StyledTab disableRipple value={"HARD"} label={(t("HARD"))} />
-                <StyledTab disableRipple value={"IMPOSSIBLE"} label={(t("IMPOSSIBLE"))} />
+                <StyledTab disableRipple value={"EASY"} label={(t("EASY"))} disabled={!!gameState} />
+                <StyledTab disableRipple value={"NORMAL"} label={(t("NORMAL"))} disabled={!!gameState} />
+                <StyledTab disableRipple value={"HARD"} label={(t("HARD"))} disabled={!!gameState} />
+                <StyledTab disableRipple value={"IMPOSSIBLE"} label={(t("IMPOSSIBLE"))} disabled={!!gameState} />
             </Tabs>
         </Stack>
     )
