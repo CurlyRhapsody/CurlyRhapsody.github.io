@@ -3,7 +3,10 @@
         "home": "Home",
         "about": "About Me",
         "blog": "Blog Space",
-        "projects": "Projects",
+        "projects": {
+            "list": "Projects",
+            "color-calc": "Color Code Calculator"
+        },
         "games": {
             "hub": "Game Center",
             "rps": "Rock Paper Scissors"
@@ -192,7 +195,26 @@
     "project": {
         "title": "Projects",
         "subtitle": "Mostly reinventing wheels, sometimes just joking, sometimes a gem!",
-        "soon": "Bro is lacking I think"
+        "soon": "Bro is lacking I think",
+        "menu": {
+            "color-calc": "Color Code Calculator"
+        },
+        "color-calc": {
+            "title": "Color Code Calculator",
+            "pickColor": "Pick a color:",
+            "typeItOut": "Or type it out here:",
+            "related": "Related Colors",
+            "grayscaled": "Grayscaled",
+            "tint": "Tints",
+            "shade": "Shades",
+            "harmonies": "Color Harmonies",
+            "analogous": "Analogous Color",
+            "complementary": "Complementary Color",
+            "splitComplementary": "Split Complementary Colors",
+            "triadic": "Triadic Colors",
+            "rectangular": "Tetradic Colors",
+            "square": "Square Colors"
+        }
     },
     "games": {
         "title": "Game Center",

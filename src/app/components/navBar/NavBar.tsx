@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Drawer, IconButton, Menu, MenuList, Stack } from "@mui/material";
+import { Drawer, IconButton, Menu, MenuList, Stack } from "@mui/material";
 import Logo from "../../assets/images/logo.jpg"
 import Image from "next/image";
 import SectionButton from "./SectionButton";
@@ -44,7 +44,10 @@ const MobileMenu = () => {
                     {menuList.map(({ icon, localeStr, path }) => (
                         <SectionButton
                             key={localeStr} Icon={icon} text={localeStr}
-                            onClick={() => router.push(`/${locale}${path}`)}
+                            onClick={() => {
+                                setIsDrawerOpened(false);
+                                router.push(`/${locale}${path}`);
+                            }}
                         />
                     ))}
                     <Stack sx={{ width: "100%", justifyContent: "center", pl: "1rem", mt: "1.5rem", mb: "0.5rem" }}>
@@ -53,7 +56,10 @@ const MobileMenu = () => {
                     {languageList.map(({ locale, displayText }) => (
                         <LangOption
                             key={locale} text={displayText}
-                            onClick={() => localeRouter.replace(localePathname, { locale })}
+                            onClick={() => {
+                                setIsDrawerOpened(false);
+                                localeRouter.replace(localePathname, { locale })
+                            }}
                         />
                     ))}
                 </MenuList>

@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const t = await getTranslations({ locale, namespace: "headerTitle" });
 
     return {
-        title: `${t("projects")} | Curly Braces Studios`,
+        title: `${t("projects.list")} | Curly Braces Studios`,
         description: "The hub of project of anything but games",
     };
 };

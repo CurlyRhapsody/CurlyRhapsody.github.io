@@ -3,7 +3,10 @@
         "home": "首頁",
         "about": "關於我",
         "blog": "專欄空間",
-        "projects": "專案",
+        "projects": {
+            "list": "專案",
+            "color-calc": "色碼尋找器"
+        },
         "games": {
             "hub": "遊戲中心",
             "rps": "猜拳遊戲"
@@ -192,7 +195,26 @@
     "project": {
         "title": "專案",
         "subtitle": "很多時候都在重造輪子、有時純粹玩笑，有時可能是隱世秘寶！",
-        "soon": "我想他在偷懶了……"
+        "soon": "我想他在偷懶了……",
+        "menu": {
+            "color-calc": "色碼尋找器"
+        },
+        "color-calc": {
+            "title": "色碼尋找器",
+            "pickColor": "在此選擇顏色：",
+            "typeItOut": "或直接寫出顏色：",
+            "related": "相關顏色",
+            "grayscaled": "灰階",
+            "tint": "淡色調",
+            "shade": "暗色調",
+            "harmonies": "色彩調和",
+            "analogous": "相似色",
+            "complementary": "互補色",
+            "splitComplementary": "分割互補色",
+            "triadic": "三等分色",
+            "rectangular": "矩形配色",
+            "square": "四方配色"
+        }
     },
     "games": {
         "title": "遊戲中心",
