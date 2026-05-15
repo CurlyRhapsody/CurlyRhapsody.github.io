@@ -1,0 +1,37 @@
+/* Container */
+div.w-color-colorful {
+    width: 12.5rem !important;
+    height: 11.875rem !important;
+}
+
+/* Saturation - Upper Container */
+div.w-color-saturation {
+    border-radius: 0.5rem !important;
+    width: 12.5rem !important;
+    height: 9.375rem !important;
+    min-width: 12.5rem !important;
+    border-bottom: 1rem !important;
+}
+div.w-color-saturation > div {
+    width: 1rem !important;
+    height: 1rem !important;
+    transform: translate(-0.5rem, -0.5rem) !important;
+}
+div.w-color-alpha {
+    background: none !important;
+    height: 1.5rem !important;
+}
+
+/* Hue - Lower Bar */
+div.w-color-hue > div {
+    border-radius: 0.5rem !important;
+    width: 12.5rem !important;
+    height: 1.5rem !important;
+    min-width: 12.5rem !important;
+    margin-top: 1rem;
+}
+div.w-color-hue > div > div {
+    width: 1rem !important;
+    height: 1rem !important;
+    transform: translate(-0.5rem, 0.25rem) !important;
+}
