@@ -30,7 +30,7 @@ export const menuList: NavInfo[] = [
     {
         icon: ConstructionIcon,
         localeStr: "project",
-        path: "/projects",
+        path: "/project",
     },
     {
         icon: SportsEsportsIcon,
