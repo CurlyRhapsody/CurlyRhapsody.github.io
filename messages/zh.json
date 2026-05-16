@@ -204,7 +204,9 @@
             "pickColor": "在此選擇顏色：",
             "typeItOut": "或直接寫出顏色：",
             "related": "相關顏色",
-            "grayscaled": "灰階",
+            "click2copy": "點擊色票即可複製顏色 HEX 代碼",
+            "copied": "色碼已複製",
+            "tintAndShade": "色調",
             "tint": "淡色調",
             "shade": "暗色調",
             "harmonies": "色彩調和",
@@ -212,8 +214,13 @@
             "complementary": "互補色",
             "splitComplementary": "分割互補色",
             "triadic": "三等分色",
-            "rectangular": "矩形配色",
-            "square": "四方配色"
+            "tetradic": "矩形配色",
+            "square": "四方配色",
+            "colorblindTitle": "色盲模擬",
+            "redCB": "紅色盲",
+            "greenCB": "綠色盲",
+            "blueCB": "藍色盲",
+            "fullCB": "全色盲\n（灰階）"
         }
     },
     "games": {

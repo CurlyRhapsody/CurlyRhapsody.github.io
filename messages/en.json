@@ -204,7 +204,9 @@
             "pickColor": "Pick a color:",
             "typeItOut": "Or type it out here:",
             "related": "Related Colors",
-            "grayscaled": "Grayscaled",
+            "click2copy": "Click on color swatches to copy its HEX code",
+            "copied": "Color copied",
+            "tintAndShade": "Tints and Shades",
             "tint": "Tints",
             "shade": "Shades",
             "harmonies": "Color Harmonies",
@@ -212,8 +214,13 @@
             "complementary": "Complementary Color",
             "splitComplementary": "Split Complementary Colors",
             "triadic": "Triadic Colors",
-            "rectangular": "Tetradic Colors",
-            "square": "Square Colors"
+            "tetradic": "Tetradic Colors",
+            "square": "Square Colors",
+            "colorblindTitle": "Color Blindness Simulation",
+            "redCB": "Protanopia\n(Red-Blind)",
+            "greenCB": "Deuteranopia\n(Green-Blind)",
+            "blueCB": "Tritanopia\n(Blue-Blind)",
+            "fullCB": "Achromatopsia\n(Grayscaled)"
         }
     },
     "games": {
