@@ -62,7 +62,9 @@ export const ColorSwatch = ({ desc, hex }: {
 
     return (
         <Stack sx={{ alignItems: "center" }}>
-            <Body2 sx={{ whiteSpace: "pre-wrap", textAlign: "center", height: "2.25rem", verticalAlign: "middle" }}>{desc}</Body2>
+            <Stack sx={{ height: "2.25rem", justifyContent: "flex-end" }}>
+                <Body2 sx={{ whiteSpace: "pre-wrap", textAlign: "center", verticalAlign: "bottom" }}>{desc}</Body2>
+            </Stack>
             <Box
                 onClick={async () => {
                     await navigator.clipboard.writeText(hex);

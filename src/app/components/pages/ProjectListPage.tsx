@@ -49,14 +49,17 @@ const ProjectListPage = () => {
         <Stack sx={{ width: "100%", py: "4rem", alignItems: "center", gap: "2rem" }}>
             <Title1>{t("title")}</Title1>
             <Subtitle1 sx={{ mx: "2rem", textAlign: "center" }}>{t("subtitle")}</Subtitle1>
-            {projectList.map((project) =>(
-                <Project
-                    key={project.id}
-                    href={`/${locale}/projects/${project.id}`}
-                    name={t(`menu.${project.id}`)}
-                    Icon={project.Icon}
-                />
-            ))}         
+            <Stack sx={{ width: "100%", alignItems: "center", gap: "1rem" }}>
+                {projectList.map((project) =>(
+                    <Project
+                        key={project.id}
+                        href={`/${locale}/projects/${project.id}`}
+                        name={t(`menu.${project.id}`)}
+                        Icon={project.Icon}
+                    />
+                ))}
+            </Stack>
+                   
         </Stack>
     )
 }

@@ -12,6 +12,11 @@ export const themePalette = createTheme({
             styleOverrides: {
                 root: { textTransform: "none" }
             }
+        },
+        MuiTab: {
+            styleOverrides: {
+                root: { textTransform: "none" }
+            }
         }
     }
 })

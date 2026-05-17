@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 const StyledTab = styled(Tab)({
     minWidth: "auto",
     width: "auto",
-    textTransform: "none",
     maxHeight: "2rem",
     minHeight: "2rem",
     height: "2rem",

@@ -1,6 +1,7 @@
 import { SvgIconComponent } from "@mui/icons-material";
 import WavingHandIcon from '@mui/icons-material/WavingHand';
 import PaletteIcon from '@mui/icons-material/Palette';
+import CasinoIcon from '@mui/icons-material/Casino';
 
 type ProjectMenu = {
     id: string;
@@ -16,6 +17,10 @@ export const projectList: ProjectMenu[] = [
     {
         id: "color-calc",
         Icon: PaletteIcon
+    },
+    {
+        id: "casino-sim",
+        Icon: CasinoIcon
     }
 ];
 

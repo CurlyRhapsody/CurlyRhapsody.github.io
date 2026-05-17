@@ -5,6 +5,8 @@ import { useParams } from "next/navigation";
 import ColorCalcContainer from "../projects/containers/ColorCalcContainer";
 import ColorCalcProvider from "../projects/providers/ColorCalcProvider";
 import SnackbarProvider from "../providers/SnackbarProvider";
+import CasinoSimContainer from "../projects/containers/CasinoSimContainer";
+import CasinoSimProvider from "../projects/providers/CasinoSimProvider";
 
 const ProjectPage = () => {
     const params = useParams();
@@ -19,6 +21,12 @@ const ProjectPage = () => {
                     </ColorCalcProvider>
                 </SnackbarProvider>
             );
+        case AvailableProjects.CASINO_SIM:
+            return (
+                <CasinoSimProvider>
+                    <CasinoSimContainer />
+                </CasinoSimProvider>
+            )
         default: return <></>; // This case is not suppose to happen, should fallback by 404
     }
 }

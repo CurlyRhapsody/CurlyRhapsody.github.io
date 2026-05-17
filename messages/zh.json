@@ -5,7 +5,8 @@
         "blog": "專欄空間",
         "projects": {
             "list": "專案",
-            "color-calc": "色碼尋找器"
+            "color-calc": "色碼尋找器",
+            "casino-sim": "賭場模擬"
         },
         "games": {
             "hub": "遊戲中心",
@@ -197,7 +198,8 @@
         "subtitle": "很多時候都在重造輪子、有時純粹玩笑，有時可能是隱世秘寶！",
         "soon": "我想他在偷懶了……",
         "menu": {
-            "color-calc": "色碼尋找器"
+            "color-calc": "色碼尋找器",
+            "casino-sim": "賭場模擬"
         },
         "color-calc": {
             "title": "色碼尋找器",
@@ -221,6 +223,31 @@
             "greenCB": "綠色盲",
             "blueCB": "藍色盲",
             "fullCB": "全色盲\n（灰階）"
+        },
+        "casino-sim": {
+            "title": "賭場模擬",
+            "disclaimer": "⚠️ 下方所展示之內容只供教育資訊用途。\n切勿沉迷賭博。",
+            "tabs": {
+                "poker": "撲克牌",
+                "dice": "擲骰子",
+                "sic-bo": "骰寶",
+                "mark-six": "六合彩",
+                "routelette": "輪盤賭"
+            },
+            "poker": {
+                "draw": "抽五張牌",
+                "hands": "符合牌型：",
+                "highCard": "烏龍",
+                "onePair": "一對",
+                "twoPairs": "兩對",
+                "threeOfAKind": "三條",
+                "straight": "順子",
+                "flush": "同花",
+                "fullHouse": "葫蘆",
+                "fourOfAKind": "鐵支",
+                "straightFlush": "同花順",
+                "royalFlush": "皇家同花順"
+            }
         }
     },
     "games": {

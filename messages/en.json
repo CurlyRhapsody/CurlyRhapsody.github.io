@@ -5,7 +5,8 @@
         "blog": "Blog Space",
         "projects": {
             "list": "Projects",
-            "color-calc": "Color Code Calculator"
+            "color-calc": "Color Code Calculator",
+            "casino-sim": "Casino Simulation"
         },
         "games": {
             "hub": "Game Center",
@@ -197,7 +198,8 @@
         "subtitle": "Mostly reinventing wheels, sometimes just joking, sometimes a gem!",
         "soon": "Bro is lacking I think",
         "menu": {
-            "color-calc": "Color Code Calculator"
+            "color-calc": "Color Code Calculator",
+            "casino-sim": "Casino Simulation"
         },
         "color-calc": {
             "title": "Color Code Calculator",
@@ -221,6 +223,31 @@
             "greenCB": "Deuteranopia\n(Green-Blind)",
             "blueCB": "Tritanopia\n(Blue-Blind)",
             "fullCB": "Achromatopsia\n(Grayscaled)"
+        },
+        "casino-sim": {
+            "title": "Casino Simulation",
+            "disclaimer": "⚠️ All contents below is purely for educational purposes.\nDo not risk your life away in gambling.",
+            "tabs": {
+                "poker": "Poker",
+                "dice": "Dice Roll",
+                "sic-bo": "Sic Bo",
+                "mark-six": "Mark Six",
+                "routelette": "Routelette"
+            },
+            "poker": {
+                "draw": "Draw 5 cards",
+                "hands": "Matching Hand:",
+                "highCard": "High Card",
+                "onePair": "One Pair",
+                "twoPairs": "Two Pairs",
+                "threeOfAKind": "Three of a Kind",
+                "straight": "Straight",
+                "flush": "Flush",
+                "fullHouse": "Full House",
+                "fourOfAKind": "Four of a Kind",
+                "straightFlush": "Straight Flush",
+                "royalFlush": "Royal Flush"
+            }
         }
     },
     "games": {
