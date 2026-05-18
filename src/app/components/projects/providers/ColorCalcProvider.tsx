@@ -3,7 +3,7 @@
 import { ColorResult, hexToHsva, hexToRgba, hsvaToHex, hsvaToRgba, HsvColor, rgbaToHex, rgbaToHsva, RgbColor, rgbToHex } from "@uiw/react-color";
 import React, { createContext, useContext, useMemo, useState } from "react";
 import useDebounce from "../../hooks/useDebounce";
-import { applyColorBlindness, getFullCB } from "../color-calc/colorBlindnessUtils";
+import { applyColorBlindness, calculateColorVariations, getFullCB } from "../color-calc/utils";
 
 export type ColorPalette = {
     desc?: string;
@@ -95,115 +95,9 @@ const ColorCalcProvider = ({ children }: {children: React.ReactNode}) => {
         }
     , 42);
 
-    const colorVariations: ColorVariations | undefined = useMemo(() => {
-
-        if (!rgb || !hsv) return undefined;
-
-        const { r: red, g: green, b: blue } = rgb;
-        const { h: hue, s: saturation, v: value } = hsv;
-
-        const tints = [];
-        const shades = [];
-
-        // Tints
-        for (let i = 0; i < 10; i++) {
-            const factor = i * 0.1;
-            const newR = Math.round(red + (255 - red) * factor);
-            const newG = Math.round(green + (255 - green) * factor);
-            const newB = Math.round(blue + (255 - blue) * factor);
-
-            const finalHex = rgbToHex({ r: newR, g: newG, b: newB }).toUpperCase();
-
-            shades.push({
-                desc: `+${i * 10}%`,
-                hex: finalHex
-            });
-        }
-
-        // Shades
-        for (let i = 0; i < 10; i++) {
-            const factor = 1 - (i * 0.1);
-            const newR = Math.round(red * factor);
-            const newG = Math.round(green * factor);
-            const newB = Math.round(blue * factor);
-
-            const finalHex = rgbToHex({ r: newR, g: newG, b: newB }).toUpperCase();
-
-            tints.push({
-                desc: `-${i * 10}%`,
-                hex: finalHex
-            });
-        }
-
-        // Harmonies
-        // Complementary
-        const complementary = [
-            { ...hsv, a: 1 },
-            { h: (hue + 180) % 360, s: saturation, v: value, a: 1 }
-        ].map((hsv) => ({ hex: hsvaToHex(hsv).toUpperCase() }));
-
-        // Analogous
-        const analogous = [
-            { h: (hue + 330) % 360, s: saturation, v: value, a: 1 },
-            { ...hsv, a: 1 },
-            { h: (hue + 30) % 360, s: saturation, v: value, a: 1 },
-        ].map((hsv) => ({ hex: hsvaToHex(hsv).toUpperCase() }));
-
-        // Split Complementary
-        const splitComplementary = [
-            { h: (hue + 210) % 360, s: saturation, v: value, a: 1 },
-            { ...hsv, a: 1 },
-            { h: (hue + 150) % 360, s: saturation, v: value, a: 1 },
-        ].map((hsv) => ({ hex: hsvaToHex(hsv).toUpperCase() }));
-
-        // Triadic
-        const triadic = [
-            { ...hsv, a: 1 },
-            { h: (hue + 120) % 360, s: saturation, v: value, a: 1 },
-            { h: (hue + 240) % 360, s: saturation, v: value, a: 1 },
-        ].map((hsv) => ({ hex: hsvaToHex(hsv).toUpperCase() }));
-
-        // Tetradic
-        const tetradic = [
-            { ...hsv, a: 1 },
-            { h: (hue + 60) % 360, s: saturation, v: value, a: 1 },
-            { h: (hue + 180) % 360, s: saturation, v: value, a: 1 },
-            { h: (hue + 240) % 360, s: saturation, v: value, a: 1 },
-        ].map((hsv) => ({ hex: hsvaToHex(hsv).toUpperCase() }));
-        
-        // Square
-        const square = [
-            { ...hsv, a: 1 },
-            { h: (hue + 90) % 360, s: saturation, v: value, a: 1 },
-            { h: (hue + 180) % 360, s: saturation, v: value, a: 1 },
-            { h: (hue + 270) % 360, s: saturation, v: value, a: 1 },
-        ].map((hsv) => ({ hex: hsvaToHex(hsv).toUpperCase() }));
-
-        const redCB = rgbaToHex(applyColorBlindness(rgb, "protanopia")).toUpperCase();
-        const greenCB = rgbaToHex(applyColorBlindness(rgb, "deuteranopia")).toUpperCase();
-        const blueCB = rgbaToHex(applyColorBlindness(rgb, "tritanopia")).toUpperCase();
-        const fullCB = rgbaToHex(getFullCB(rgb)).toUpperCase();
-
-        return ({
-            tints,
-            shades,
-            harmonies: {
-                complementary,
-                analogous,
-                splitComplementary,
-                triadic,
-                tetradic,
-                square,
-            },
-            colorblinds: {
-                red: redCB,
-                green: greenCB,
-                blue: blueCB,
-                full: fullCB,
-            }
-        })
-
-    }, [hex])
+    const colorVariations: ColorVariations | undefined = useMemo(
+        () => calculateColorVariations(rgb, hsv), [hex]
+    );
 
     return (
         <ColorCalcContext.Provider value={{

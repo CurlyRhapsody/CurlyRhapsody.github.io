@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
 import { Card, Rank, Suit } from "./types"
-import { Body1, Caption1, Subtitle1, Title1 } from "../../styled/text";
+import { Body2, Subtitle1, Title1 } from "../../styled/text";
 import { motion, useAnimationControls, useTime, useTransform } from "motion/react";
 import { useEffect, useState } from "react";
 import ChessPawnIcon from "@/app/assets/svg/ChessPawnIcon";
@@ -12,18 +12,6 @@ const rankToText = {
     11: "J", 12: "Q", 13: "K", 14: "A"
 }
 
-const colCounts = {
-    2: [2],
-    3: [3],
-    4: [2, 2],
-    5: [2, 1, 2],
-    6: [3, 3],
-    7: [3, 1, 3],
-    8: [3, 2, 3],
-    9: [4, 1, 4],
-    10: [4, 2, 4],
-}
-
 const NumberPattern = ({ symbol, count, fill }: { symbol: string, count: number, fill: string }) => {
 
     if (count < 2 || count > 10) return null;
@@ -32,9 +20,9 @@ const NumberPattern = ({ symbol, count, fill }: { symbol: string, count: number,
         switch (num) {
             case 2: return [2];
             case 3: return [3];
-            case 4: return [2, 2];
+            case 4: return [2, 0, 2];
             case 5: return [2, 1, 2];
-            case 6: return [3, 3];
+            case 6: return [3, 0, 3];
             case 7: return [3, 1, 3];
             case 8: return [3, 2, 3];
             case 9: return [4, 1, 4];
@@ -43,9 +31,9 @@ const NumberPattern = ({ symbol, count, fill }: { symbol: string, count: number,
     })(count)
 
     return (
-        <Stack direction="row" sx={{ justifyContent: "center", gap: "0.875rem", width: "100%", height: "100%" }}>
+        <Stack direction="row" sx={{ justifyContent: "center", gap: "0.5rem", width: "100%", height: "100%" }}>
             {colPrintCount?.map((count, i) => (
-                <Stack key={`col-${i}`} direction="column" sx={{ justifyContent: "space-around", width: "fit-content" }}>
+                <Stack key={`col-${i}`} direction="column" sx={{ justifyContent: "space-around", width: "1.125rem" }}>
                     {Array(count).fill(0).map((_, j) => (
                         <Subtitle1 key={`col-${i}-${j}-sym`} sx={{ color: fill }}>{symbol}</Subtitle1>
                     ))}
@@ -82,14 +70,14 @@ const CardPattern = ({ card }: { card: Card }) => {
         )
         if (rank === 14) return (
             <Stack sx={{ height: "100%", alignItems: "center", justifyContent: "center" }}>
-                <Title1 sx={{ color: fill }}>{symbol}</Title1>
+                <Title1 sx={{ fontSize: "5rem", lineHeight: "7rem", color: fill }}>{symbol}</Title1>
             </Stack>
         )
     }
 
     return (
         <Stack sx={{ position: "relative", width: "100%", height: "100%" }}>
-            <Caption1
+            <Body2
                 sx={{
                     position: "absolute", top: "0", left: "0",
                     whiteSpace: "pre-wrap", textAlign: "center", width: "fit-content",
@@ -97,7 +85,7 @@ const CardPattern = ({ card }: { card: Card }) => {
                 }}
             >
                 {`${card.suit}\n${rankToText[card.rank]}`}
-            </Caption1>
+            </Body2>
             {cardPattern(card.rank)}
         </Stack>
     )
@@ -115,8 +103,9 @@ const CardBack = () => (
     />
 )
 
-export const PokerCard = ({ card }: {
+export const PokerCard = ({ card, animationTrigger }: {
     card?: Card;
+    animationTrigger: number;
 }) => {
 
     const [startTime, setStartTime] = useState(0);
@@ -137,7 +126,7 @@ export const PokerCard = ({ card }: {
                 ease: "easeInOut"
             }
         })
-    }, [card, controls, time]);
+    }, [animationTrigger, controls, time]);
 
     const isRevealed = useTransform(time, (latestTime) => {
         const elapsed = latestTime - startTime;

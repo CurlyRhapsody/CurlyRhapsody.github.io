@@ -18,14 +18,28 @@ export type Card = {
 }
 
 export enum CardHandRank {
-    HighCard, // No special pattern
-    OnePair,
-    TwoPairs,
-    ThreeOfAKind,
-    Straight,
-    Flush,
-    FullHouse,
-    FourOfAKind,
-    StraightFlush,
-    RoyalFlush // 10-J-Q-K-A  Straight Flush
+    HighCard = "highCard", // No special pattern
+    OnePair = "onePair",
+    TwoPairs = "twoPairs",
+    ThreeOfAKind = "threeOfAKind",
+    Straight = "straight",
+    Flush = "flush",
+    FullHouse = "fullHouse",
+    FourOfAKind = "fourOfAKind",
+    StraightFlush = "straightFlush",
+    RoyalFlush = "royalFlush" // 10-J-Q-K-A  Straight Flush
+}
+
+export enum DiceType {
+    FOUR = 4,
+    SIX = 6,
+    EIGHT = 8,
+    TEN = 10,
+    TWLEVE = 12,
+    TWENTY = 20
+}
+
+export type Dice = {
+    type: DiceType,
+    value: number,
 }

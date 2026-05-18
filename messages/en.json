@@ -229,6 +229,7 @@
             "disclaimer": "⚠️ All contents below is purely for educational purposes.\nDo not risk your life away in gambling.",
             "tabs": {
                 "poker": "Poker",
+                "coin-flip": "Coin Flip",
                 "dice": "Dice Roll",
                 "sic-bo": "Sic Bo",
                 "mark-six": "Mark Six",
@@ -237,17 +238,44 @@
             "poker": {
                 "draw": "Draw 5 cards",
                 "hands": "Matching Hand:",
+                "highlight": "Best hand highlighted in red, matching highlighted in yellow",
                 "highCard": "High Card",
+                "highCardDef": "Five cards with distinct rank and suit. Valued by highest rank card", 
                 "onePair": "One Pair",
+                "onePairDef": "Two cards with same rank", 
                 "twoPairs": "Two Pairs",
+                "twoPairsDef": "Two pairs of card with distinct rank", 
                 "threeOfAKind": "Three of a Kind",
+                "threeOfAKindDef": "Three same-ranking cards", 
                 "straight": "Straight",
+                "straightDef": "Five cards with\nconsecutive ranks",
                 "flush": "Flush",
+                "flushDef": "Five cards in the same suit",
                 "fullHouse": "Full House",
+                "fullHouseDef": "Three of a Kind + One Pair",
                 "fourOfAKind": "Four of a Kind",
+                "fourOfAKindDef": "Holding a rank of card\nin all four suits",
                 "straightFlush": "Straight Flush",
-                "royalFlush": "Royal Flush"
-            }
+                "straightFlushDef": "Straight + Flush,\nas its name speaks",
+                "royalFlush": "Royal Flush",
+                "royalFlushDef": "Straight Flush,\nbut it is 10-J-Q-K-A"
+            },
+            "coin-flip": {
+                "toss": "Toss coins",
+                "numHeads": "Number of Heads: {count}",
+                "numTails": "Number of Tails: {count}",
+                "adjust": "Adjust number of coins",
+                "limit": "(Min 1, Max 10)"
+            },
+            "dice": {
+                "roll": "Roll Dice",
+                "sum": "Value Sum: {sum}",
+                "adjust": "Add dice\n(Default as D6)",
+                "click2Change": "Click on dice to change dice type",
+                "available": "Available dice type: D4, D6, D8, D10, D12, D20",
+                "limit": "(Min 1, Max 10)"
+            },
+            "wip": "Working in Progress!"
         }
     },
     "games": {

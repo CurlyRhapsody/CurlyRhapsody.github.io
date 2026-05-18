@@ -229,6 +229,7 @@
             "disclaimer": "⚠️ 下方所展示之內容只供教育資訊用途。\n切勿沉迷賭博。",
             "tabs": {
                 "poker": "撲克牌",
+                "coin-flip": "翻硬幣",
                 "dice": "擲骰子",
                 "sic-bo": "骰寶",
                 "mark-six": "六合彩",
@@ -237,17 +238,44 @@
             "poker": {
                 "draw": "抽五張牌",
                 "hands": "符合牌型：",
+                "highlight": "最佳牌型以紅色背景標示；相符牌型以黃色背景標示",
                 "highCard": "烏龍",
+                "highCardDef": "五張點數和花色不同的牌，大小按最大點數的牌決定", 
                 "onePair": "一對",
+                "onePairDef": "擁有兩張相同點數的牌", 
                 "twoPairs": "兩對",
+                "twoPairsDef": "有兩對點數相同的對子的牌型", 
                 "threeOfAKind": "三條",
+                "threeOfAKindDef": "有三張點數相同的牌", 
                 "straight": "順子",
+                "straightDef": "有五張點數順連的牌",
                 "flush": "同花",
+                "flushDef": "有五張花色相同的牌",
                 "fullHouse": "葫蘆",
+                "fullHouseDef": "三條 + 一對",
                 "fourOfAKind": "鐵支",
+                "fourOfAKindDef": "集齊同一點數所有花色的牌", 
                 "straightFlush": "同花順",
-                "royalFlush": "皇家同花順"
-            }
+                "straightFlushDef": "顧名思義，同花 + 順子",
+                "royalFlush": "皇家同花順",
+                "royalFlushDef": "同花順，但點數為\n10-J-Q-K-A"
+            },
+            "coin-flip": {
+                "toss": "擲硬幣",
+                "numHeads": "正面數量： {count}",
+                "numTails": "反面數量： {count}",
+                "adjust": "調整硬幣數量",
+                "limit": "(最少 1；最多 10)"
+            },
+            "dice": {
+                "roll": "擲骰子",
+                "sum": "總和： {sum}",
+                "adjust": "添加骰子\n（預設為六面骰）",
+                "click2Change": "點擊骰子即可切換骰子種類",
+                "available": "提供骰子種類（面數）： 4, 6, 8, 10, 12, 20",
+                "limit": "(最少 1；最多 10)"
+            },
+            "wip": "功能開發中！"
         }
     },
     "games": {
