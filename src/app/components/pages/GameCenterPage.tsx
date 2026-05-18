@@ -49,14 +49,16 @@ const GameCenterPage = () => {
         <Stack sx={{ width: "100%", py: "4rem", alignItems: "center", gap: "2rem" }}>
             <Title1>{t("title")}</Title1>
             <Subtitle1>{t("subtitle")}</Subtitle1>
-            {gameList.map((game) =>(
-                <Game
-                    key={game.id}
-                    href={`/${locale}/games/${game.id}`}
-                    name={t(`menu.${game.id}`)}
-                    Icon={game.Icon}
-                />
-            ))}
+            <Stack sx={{ width: "100%", alignItems: "center", gap: "1rem" }}>
+                {gameList.map((game) =>(
+                    <Game
+                        key={game.id}
+                        href={`/${locale}/games/${game.id}`}
+                        name={t(`menu.${game.id}`)}
+                        Icon={game.Icon}
+                    />
+                ))}
+            </Stack>
         </Stack>
     )
 }
