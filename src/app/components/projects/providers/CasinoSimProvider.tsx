@@ -22,6 +22,7 @@ type Context = {
     hand?: CardHandRank;
     coins: boolean[];
     dice: Dice[];
+    sicBoDice: number[];
     switchTab: (newTab: CasinoTab) => void;
     drawCards: () => void;
     flipCoins: () => void;
@@ -31,6 +32,7 @@ type Context = {
     addDice: () => void;
     changeDiceType: (index: number) => void;
     removeDice: (index: number) => void;
+    rollSicBo: () => void;
 }
 
 const initContext: Context = {
@@ -39,6 +41,7 @@ const initContext: Context = {
     hand: undefined,
     coins: [],
     dice: [],
+    sicBoDice: [],
     switchTab: () => { return; },
     drawCards: () => { return; },
     flipCoins: () => { return; },
@@ -48,6 +51,7 @@ const initContext: Context = {
     addDice: () => { return; },
     changeDiceType: (index: number) => { return; },
     removeDice: (index: number) => { return; },
+    rollSicBo: () => { return; },
 }
 
 const CasinoSimContext = createContext<Context>(initContext);
@@ -61,6 +65,7 @@ const CasinoSimProvider = ({ children }: {children: React.ReactNode}) => {
     const [coins, setCoins] = useState<boolean[]>([true]); // true = Head, false = Tail
 
     const [dice, setDice] = useState<Dice[]>([{ type: DiceType.SIX, value: 3 }]);
+    const [sicBoDice, setSicBoDice] = useState<number[]>([1, 1, 1]);
 
     /* ----- Poker ----- */
     const drawCards = () => {
@@ -91,7 +96,6 @@ const CasinoSimProvider = ({ children }: {children: React.ReactNode}) => {
 
     /* ----- Dice roll ----- */
     const rollDice = () => {
-        const numDice = dice.length;
         const newResult = dice.map((die) => ({ type: die.type, value: Math.floor(Math.random() * die.type) + 1 }));
         setDice(newResult);
     }
@@ -105,6 +109,11 @@ const CasinoSimProvider = ({ children }: {children: React.ReactNode}) => {
 
     const removeDice = (index: number) => { setDice(dice.filter((_, i) => i !== index)); }
 
+    /* ----- Sic Bo ----- */
+    const rollSicBo = () => {
+        const newResult = [...Array(3)].map((_) => (Math.floor(Math.random() * 6) + 1));
+        setSicBoDice(newResult);
+    }
     return (
         <CasinoSimContext.Provider value={{
             tab: activeTab,
@@ -112,6 +121,7 @@ const CasinoSimProvider = ({ children }: {children: React.ReactNode}) => {
             hand,
             coins,
             dice,
+            sicBoDice,
             switchTab: setActiveTab,
             drawCards,
             flipCoins,
@@ -121,6 +131,7 @@ const CasinoSimProvider = ({ children }: {children: React.ReactNode}) => {
             addDice,
             changeDiceType,
             removeDice,
+            rollSicBo,
         }}>
             {children}
         </CasinoSimContext.Provider>

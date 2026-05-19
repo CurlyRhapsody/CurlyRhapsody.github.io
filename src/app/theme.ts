@@ -10,7 +10,8 @@ export const themePalette = createTheme({
     components: {
         MuiButton: {
             styleOverrides: {
-                root: { textTransform: "none" }
+                root: { textTransform: "none" },
+                startIcon: { marginLeft: "-0.25rem", marginRight: "0.5rem" }
             }
         },
         MuiTab: {

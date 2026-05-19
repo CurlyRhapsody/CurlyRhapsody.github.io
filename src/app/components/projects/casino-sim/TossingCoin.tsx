@@ -11,8 +11,8 @@ const CoinPrint = ({ isHead }: { isHead: boolean; }) => {
             {isHead
                 ? (
                     <>
-                        <DataObjectIcon sx={{ fontSize: "4rem", fill: "white" }} />
-                        <FavoriteIcon sx={{ position: "absolute", fontSize: "1rem", fill: "white" }} />
+                        <DataObjectIcon sx={{ fontSize: "4rem", fill: "white", filter: "drop-shadow(0 0.0625rem 0.125rem #0000004D)" }} />
+                        <FavoriteIcon sx={{ position: "absolute", fontSize: "1rem", fill: "white", filter: "drop-shadow(0 0.0625rem 0.125rem #0000004D)" }} />
                     </>
                 ) : (
                     <Typography

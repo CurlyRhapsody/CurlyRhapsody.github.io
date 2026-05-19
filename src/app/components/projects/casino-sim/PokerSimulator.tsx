@@ -17,7 +17,10 @@ const PokerSimulator = () => {
             <Button
                 variant="contained"
                 startIcon={<PokerCardIcon props={{ fontSize: "1.5rem", fill: "white" }} />}
-                sx={{ p: "1rem", width: "fit-content", borderRadius: "0.5rem" }}
+                sx={{
+                    p: "1rem", width: "fit-content", borderRadius: "0.5rem",
+                    "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
+                }}
                 onClick={() => { drawCards(); setAnimationTrigger(Math.random()); }}
             >
                 {t("draw")}

@@ -1,4 +1,4 @@
-import { Card, CardHandRank, Dice, DiceType, Rank, Suit } from "./types";
+import { Card, CardHandRank, Dice, DiceType, Rank, SicBoCombs, Suit } from "./types";
 
 /* ----- Poker ----- */
 const SUIT_ORDER: Record<Suit, number> = {
@@ -65,3 +65,40 @@ export function changeDiceTypeOfDice(dice: Dice[], index: number): Dice[] {
     return newDice;
 }
 
+/* ----- Sic Bo ----- */
+export function evaluateSicBo(dice: number[]): SicBoCombs | undefined {
+
+    if (dice.length !== 3) return undefined;
+
+    const sum = dice[0] + dice[1] + dice[2];
+
+    // Sort dice combination in ascending order
+    const sorted = dice.sort((a, b) => a - b);
+    const encoded = sorted.join("-");
+
+    const freqs: { [rank: number]: number } = {};
+    for (const die of dice) {
+        freqs[die] = (freqs[die] || 0) + 1;
+    }
+
+    let isTriple = false; let hasDouble = false;
+    let triple = undefined; let double = undefined;
+
+    Object.entries(freqs).forEach(([value, frequency]) => {
+        if (frequency === 3) {
+            isTriple = true;
+            triple = parseInt(value);
+        }
+        if (frequency === 2) {
+            hasDouble = true;
+            double = parseInt(value);
+        }
+    })
+
+    return { sum, encoded, isTriple, triple, hasDouble, double, freqs }
+}
+
+/* ----- Mark Six ----- */
+export function determineMarkSixColor(num: number) {
+    const idx = Math.floor((num + Math.floor(num / 10) % 6) / 2);
+}
