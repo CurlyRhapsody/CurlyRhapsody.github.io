@@ -116,7 +116,7 @@ const MarkSixSimulator = () => {
 
                 <Subtitle1 sx={{ whiteSpace: "pre-wrap", textAlign: "center", minHeight: "1.75rem" }}>{renderPrizeText}</Subtitle1>
                 <Button
-                    disabled={typeof markSixPrize === "undefined"}
+                    disabled={typeof renderPrizeText === "undefined"}
                     variant="contained"
                     startIcon={<ReplayIcon sx={{ fontSize: "1.5rem" }} />}
                     sx={{
