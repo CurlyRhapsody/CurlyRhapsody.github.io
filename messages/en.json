@@ -233,7 +233,7 @@
                 "dice": "Dice Roll",
                 "sic-bo": "Sic Bo",
                 "mark-six": "Mark Six",
-                "routelette": "Routelette"
+                "roulette": "Roulette"
             },
             "poker": {
                 "draw": "Draw 5 cards",
@@ -275,7 +275,60 @@
                 "available": "Available dice type: D4, D6, D8, D10, D12, D20",
                 "limit": "(Min 1, Max 10)"
             },
-            "wip": "Working in Progress!"
+            "sic-bo": {
+                "roll": "Roll Dice",
+                "winWagers": "Winning Wagers",
+                "rateVaries": "Win odds varies among geo-locations, hence omitted here",
+                "small": "Small",
+                "big": "Big",
+                "even": "Even",
+                "odd": "Odd",
+                "triples": "Triples (Wins All)",
+                "any": "Any Triples",
+                "doubles": "Doubles",
+                "singles": "Singles",
+                "2dc": "2 Dice Combinations",
+                "3in4": "Four Number Combinations",
+                "winningOnly": "The following wages will show winning combinations only, due to many existing possibilities:",
+                "3singles": "3 Dice",
+                "2p1": "Double and Single",
+                "none": "None"
+            },
+            "mark-six": {
+                "select": "Choose your numbers (Max 6)",
+                "buy": "\"Buy\" Lottery",
+                "noBuy": "I changed my mind",
+                "done": "Done",
+                "start": "Start Drawing",
+                "yourNum": "Your Number:",
+                "drawnNumber": "Drawn Number:",
+                "noParti": "You may got the numbers,\nbut you didn't choose your numbers...",
+                "0Prize": "You got no prize!\nBetter luck next time!",
+                "7prize": "You got the 7th Prize!",
+                "6prize": "Nice! You got the 6th Prize!",
+                "5prize": "Great! You got the 5th Prize!",
+                "4prize": "Wow! You got the 4th Prize!",
+                "3prize": "My God! You got the 3rd Prize!!!",
+                "2prize": "Lucky You! You got the 2nd Prize!!!!!",
+                "1prize": "YOOOOOOO!!! You got the 1st Prize!!!!!!!!!",
+                "reset": "Reset"
+            },
+            "roulette": {
+                "spin": "Spin Wheel",
+                "reset": "Reset",
+                "winWagers": "Winning Wagers:",
+                "number": "Number",
+                "color": "Color",
+                "evenOdd": "Even/Odd",
+                "even": "Even",
+                "odd": "Odd",
+                "lowHigh": "Low/High",
+                "low": "Low",
+                "high": "High",
+                "dozen": "Dozen",
+                "column": "Column",
+                "none": "None"
+            }
         }
     },
     "games": {

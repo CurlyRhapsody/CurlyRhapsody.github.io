@@ -29,7 +29,7 @@ const EditableDice = ({ dice, animationTrigger, isDeleteDisabled, onClick, onDel
             rotate: [0, 360],
             transition: {
                 duration: 0.1,
-                repeat: 10,
+                repeat: 6,
                 times: [0, 1],
                 ease: "easeOut"
             }
@@ -49,10 +49,7 @@ const EditableDice = ({ dice, animationTrigger, isDeleteDisabled, onClick, onDel
 
     return (
         <Box>
-            <motion.div
-                animate={controls}
-                initial={{ scaleX: 1 }}
-            >
+            <motion.div animate={controls}>
                 <Stack
                     onClick={onClick}
                     sx={{
@@ -60,6 +57,7 @@ const EditableDice = ({ dice, animationTrigger, isDeleteDisabled, onClick, onDel
                         cursor: "pointer",
                         width: "7.25rem", height: "7.25rem", padding: "0.5rem", borderRadius: "0.5rem",
                         userSelect: "none",
+                        filter: "drop-shadow(0 0.0625rem 0.125rem #0000004D)",
                         ...diceStyles[dice.type]
                     }}
                 >

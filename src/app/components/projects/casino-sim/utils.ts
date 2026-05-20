@@ -1,4 +1,4 @@
-import { Card, CardHandRank, Dice, DiceType, Rank, Suit } from "./types";
+import { Card, CardHandRank, Dice, DiceType, Rank, SicBoCombs, Suit } from "./types";
 
 /* ----- Poker ----- */
 const SUIT_ORDER: Record<Suit, number> = {
@@ -65,3 +65,87 @@ export function changeDiceTypeOfDice(dice: Dice[], index: number): Dice[] {
     return newDice;
 }
 
+/* ----- Sic Bo ----- */
+export function evaluateSicBo(dice: number[]): SicBoCombs | undefined {
+
+    if (dice.length !== 3) return undefined;
+
+    const sum = dice[0] + dice[1] + dice[2];
+
+    // Sort dice combination in ascending order
+    const sorted = dice.sort((a, b) => a - b);
+    const encoded = sorted.join("-");
+
+    const freqs: { [rank: number]: number } = {};
+    for (const die of dice) {
+        freqs[die] = (freqs[die] || 0) + 1;
+    }
+
+    let isTriple = false; let hasDouble = false;
+    let triple = undefined; let double = undefined;
+
+    Object.entries(freqs).forEach(([value, frequency]) => {
+        if (frequency === 3) {
+            isTriple = true;
+            triple = parseInt(value);
+        }
+        if (frequency === 2) {
+            hasDouble = true;
+            double = parseInt(value);
+        }
+    })
+
+    return { sum, encoded, isTriple, triple, hasDouble, double, freqs }
+}
+
+/* ----- Mark Six ----- */
+type MarkSixResults = {
+    sorted: number[]; // First 6 number sorted, special number remain
+    prize?: number; // 1-7 for prize, undefined if no prize
+}
+
+export function sortNMatchPrize(lottery: number[], drawn: number[]) {
+
+    const firstSix = drawn.slice(0, 6).sort((a, b) => a - b);
+    const sorted = [...firstSix, drawn[6]];
+
+    if (lottery.length === 0) return { sorted };
+
+    const normalNum = sorted.slice(0, 6);
+    const specialNum = sorted[6];
+
+    const lotterySet = new Set(lottery);
+    
+    const hasSpecial = lotterySet.has(specialNum);
+
+    let matched = 0;
+    for (const num of normalNum) {
+        if (lotterySet.has(num)) {
+            matched++;
+        }
+    }
+
+    let prize = 0;
+    if (matched === 6) prize = 1
+    else if (matched === 5 && hasSpecial) prize = 2
+    else if (matched === 5) prize = 3
+    else if (matched === 4 && hasSpecial) prize = 4
+    else if (matched === 4) prize = 5
+    else if (matched === 3 && hasSpecial) prize = 6
+    else if (matched === 3) prize = 7
+
+    return ({ sorted, prize })
+
+}
+
+/* ----- Roulette ----- */
+export const ROULETTE_NUMBERS = [
+    0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10,
+    5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26
+];
+
+export function getNumberColor(num: number): string {
+    if (num === 0) return '#4caf50'; // Green
+    const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
+    return redNumbers.includes(num) ? '#f44336' : '#212121'; // Red or Black
+};

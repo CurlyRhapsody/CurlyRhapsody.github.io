@@ -23,7 +23,10 @@ const CoinFlipSimulator = () => {
             <Button
                 variant="contained"
                 startIcon={<PaidOutlinedIcon sx={{ fontSize: "1.5rem" }} />}
-                sx={{ p: "1rem", width: "fit-content", borderRadius: "0.5rem" }}
+                sx={{
+                    p: "1rem", width: "fit-content", borderRadius: "0.5rem",
+                    "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
+                }}
                 onClick={() => { 
                     setAnimationTrigger(Math.random());
                     setTimeout(flipCoins, 600);

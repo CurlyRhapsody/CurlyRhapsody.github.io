@@ -43,3 +43,13 @@ export type Dice = {
     type: DiceType,
     value: number,
 }
+
+export type SicBoCombs = {
+    sum: number;
+    encoded: string; // in form of "1-2-3"
+    isTriple: boolean;
+    triple?: number;
+    hasDouble: boolean;
+    double?: number;
+    freqs: { [value: number]: number };
+}

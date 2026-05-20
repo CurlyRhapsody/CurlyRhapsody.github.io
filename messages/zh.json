@@ -233,7 +233,7 @@
                 "dice": "擲骰子",
                 "sic-bo": "骰寶",
                 "mark-six": "六合彩",
-                "routelette": "輪盤賭"
+                "roulette": "輪盤賭"
             },
             "poker": {
                 "draw": "抽五張牌",
@@ -275,7 +275,59 @@
                 "available": "提供骰子種類（面數）： 4, 6, 8, 10, 12, 20",
                 "limit": "(最少 1；最多 10)"
             },
-            "wip": "功能開發中！"
+            "sic-bo": {
+                "roll": "擲骰子",
+                "winWagers": "勝出賭注：",
+                "rateVaries": "因各地賠率各異，故下略",
+                "small": "小",
+                "big": "大",
+                "even": "雙",
+                "odd": "單",
+                "triples": "圍骰（通殺）",
+                "any": "任一圍骰",
+                "doubles": "對子",
+                "singles": "單骰",
+                "2dc": "雙骰指定組合",
+                "3in4": "四出三組合",
+                "winningOnly": "下列門種因組合過多，只顯示勝出組合：",
+                "3singles": "三骰指定",
+                "2p1": "連骰及單骰",
+                "none": "無"
+            },
+            "mark-six": {
+                "select": "選擇您的號碼（最多 6 個）",
+                "buy": "「購買」彩票",
+                "noBuy": "我改變想法了",
+                "start": "開始攪珠",
+                "yourNum": "您的獎劵：",
+                "drawnNumber": "攪出號碼：",
+                "noParti": "這次可能攪出了您的心水號碼，\n然而您沒有投注……",
+                "0Prize": "您這次沒有中獎！\n祝下次好運！",
+                "7prize": "您獲得了七獎！",
+                "6prize": "很好！您獲得了六獎！",
+                "5prize": "厲害！您獲得了五獎！",
+                "4prize": "哇！您獲得了四獎！",
+                "3prize": "天啊！您獲得了三獎！！",
+                "2prize": "真幸運！您獲得了二獎！！！",
+                "1prize": "YOOOOOOO！！！您獲得了頭獎！！！！！",
+                "reset": "重置"
+            },
+            "roulette": {
+                "spin": "開始轉盤",
+                "reset": "重置",
+                "winWagers": "勝出賭注：",
+                "number": "數字",
+                "color": "顏色",
+                "evenOdd": "奇偶",
+                "even": "雙",
+                "odd": "單",
+                "lowHigh": "大小",
+                "low": "小",
+                "high": "大",
+                "dozen": "12 數組",
+                "column": "直行",
+                "none": "無"
+            }
         }
     },
     "games": {

@@ -1,4 +1,4 @@
-import { Box, Button, Grid, IconButton, Stack } from "@mui/material";
+import { Box, Button, Grid, Stack } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { useCasinoSimContext } from "../providers/CasinoSimProvider";
 import { useMemo, useState } from "react";
@@ -23,7 +23,10 @@ const DiceSimulator = () => {
             <Button
                 variant="contained"
                 startIcon={<CasinoIcon sx={{ fontSize: "1.5rem" }} />}
-                sx={{ p: "1rem", width: "fit-content", borderRadius: "0.5rem" }}
+                sx={{
+                    p: "1rem", width: "fit-content", borderRadius: "0.5rem",
+                    "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
+                }}
                 onClick={() => { 
                     setAnimationTrigger(Math.random());
                     setTimeout(rollDice, 600);
@@ -50,6 +53,10 @@ const DiceSimulator = () => {
                 <Box>
                     <Button
                         startIcon={<AddIcon sx={{ fontSize: "1.5rem" }} />}
+                        sx={{
+                            p: "1rem", width: "fit-content", borderRadius: "0.5rem",
+                            "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
+                        }}
                         variant="contained"
                         disabled={numDice >= 10}
                         onClick={addDice}
@@ -64,6 +71,7 @@ const DiceSimulator = () => {
                     <Body1 sx={{ width: "100%", textAlign: "center", mt: "0.25rem" }}>{t("available")}</Body1>
                 </Box>
             </Stack>
+            
         </Stack>
     )
 }
