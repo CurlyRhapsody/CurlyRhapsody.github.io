@@ -144,7 +144,7 @@ const CasinoSimProvider = ({ children }: {children: React.ReactNode}) => {
             const { sorted, prize } = sortNMatchPrize(markSixLottery, result);
             setMarkSixDrawn(sorted);
             setMarkSixPrize(prize);
-        }, 10500)
+        }, 9000)
     }
 
     const markSixReset = () => {

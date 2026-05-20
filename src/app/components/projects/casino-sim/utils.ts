@@ -109,7 +109,7 @@ export function sortNMatchPrize(lottery: number[], drawn: number[]) {
     const firstSix = drawn.slice(0, 6).sort((a, b) => a - b);
     const sorted = [...firstSix, drawn[6]];
 
-    if (lottery.length === 0) return { sorted };
+    if (lottery.length === 0) return { prize: -1, sorted };
 
     const normalNum = sorted.slice(0, 6);
     const specialNum = sorted[6];

@@ -30,8 +30,8 @@ const MarkSixSimulator = () => {
 
     const renderPrizeText = ((): string | undefined => {
         if (typeof markSixPrize === "undefined") return undefined;
-        if (markSixLottery.length === 0) return t("noParti");
         switch (markSixPrize) {
+            case -1: return t("noParti");
             case 0: return t("0Prize");
             case 1: return t("1Prize");
             case 2: return t("2Prize");
@@ -86,6 +86,7 @@ const MarkSixSimulator = () => {
                             }}
                             onClick={() => {
                                 setIsAllDrawn(false);
+                                setTimeout(() => setIsAllDrawn(true), 9000)
                                 drawMarkSix();
                             }}
                         >
@@ -101,8 +102,8 @@ const MarkSixSimulator = () => {
                                         initial={{ scale: 0, opacity: 0 }}
                                         animate={{ scale: 1, opacity: 1 }}
                                         transition={{
-                                            delay: isAllDrawn ? 0 : (i * 1.5),
-                                            duration: isAllDrawn ? 0 : 0.5
+                                            delay: isAllDrawn ? 0 : (i * 1.25),
+                                            duration: isAllDrawn ? 0 : 0.25
                                         }}
                                     >
                                         <MarkSixBall val={val} />
@@ -116,7 +117,7 @@ const MarkSixSimulator = () => {
 
                 <Subtitle1 sx={{ whiteSpace: "pre-wrap", textAlign: "center", minHeight: "1.75rem" }}>{renderPrizeText}</Subtitle1>
                 <Button
-                    disabled={isAllDrawn && markSixDrawn.length === 0}
+                    disabled={!isAllDrawn || markSixDrawn.length === 0}
                     variant="contained"
                     startIcon={<ReplayIcon sx={{ fontSize: "1.5rem" }} />}
                     sx={{
@@ -125,7 +126,7 @@ const MarkSixSimulator = () => {
                     }}
                     onClick={() => {
                         markSixReset();
-                        setIsAllDrawn(false);
+                        setIsAllDrawn(true);
                     }}
                 >
                     {t("reset")}
