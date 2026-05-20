@@ -29,8 +29,8 @@ const MarkSixSimulator = () => {
     const [isAllDrawn, setIsAllDrawn] = useState<boolean>(true);
 
     const renderPrizeText = ((): string | undefined => {
-        if (typeof markSixPrize === "undefined") return undefined;
         if (markSixLottery.length === 0) return t("noParti");
+        if (typeof markSixPrize === "undefined") return undefined;
         switch (markSixPrize) {
             case 0: return t("0Prize");
             case 1: return t("1Prize");
