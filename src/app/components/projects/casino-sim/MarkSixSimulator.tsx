@@ -29,8 +29,8 @@ const MarkSixSimulator = () => {
     const [isAllDrawn, setIsAllDrawn] = useState<boolean>(true);
 
     const renderPrizeText = ((): string | undefined => {
-        if (markSixLottery.length === 0) return t("noParti");
         if (typeof markSixPrize === "undefined") return undefined;
+        if (markSixLottery.length === 0) return t("noParti");
         switch (markSixPrize) {
             case 0: return t("0Prize");
             case 1: return t("1Prize");
@@ -116,7 +116,7 @@ const MarkSixSimulator = () => {
 
                 <Subtitle1 sx={{ whiteSpace: "pre-wrap", textAlign: "center", minHeight: "1.75rem" }}>{renderPrizeText}</Subtitle1>
                 <Button
-                    disabled={typeof renderPrizeText === "undefined"}
+                    disabled={isAllDrawn && markSixDrawn.length === 0}
                     variant="contained"
                     startIcon={<ReplayIcon sx={{ fontSize: "1.5rem" }} />}
                     sx={{
