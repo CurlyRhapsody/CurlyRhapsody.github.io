@@ -18,6 +18,11 @@ export const themePalette = createTheme({
             styleOverrides: {
                 root: { textTransform: "none" }
             }
+        },
+        MuiIconButton: {
+            styleOverrides: {
+                root: { padding: "0.5rem" }
+            }
         }
     }
 })

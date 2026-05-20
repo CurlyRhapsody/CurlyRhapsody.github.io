@@ -3,9 +3,9 @@
 import React, { createContext, useContext, useState } from "react";
 import { Card, CardHandRank, Dice, DiceType, Rank, Suit } from "../casino-sim/types";
 import { shuffleArray } from "../../utility/utils";
-import { changeDiceTypeOfDice, evaluateHand, sortCards } from "../casino-sim/utils";
+import { changeDiceTypeOfDice, evaluateHand, sortCards, sortNMatchPrize } from "../casino-sim/utils";
 
-export const casinoTabText = ["poker", "coin-flip", "dice", "sic-bo", "mark-six", "routelette"]
+export const casinoTabText = ["poker", "coin-flip", "dice", "sic-bo", "mark-six", "roulette"]
 
 export enum CasinoTab {
     POKER,
@@ -13,7 +13,7 @@ export enum CasinoTab {
     DICE,
     SIC_BO,
     MARK_SIX,
-    ROUTELETTE
+    ROULETTE
 }
 
 type Context = {
@@ -23,6 +23,9 @@ type Context = {
     coins: boolean[];
     dice: Dice[];
     sicBoDice: number[];
+    markSixLottery: number[];
+    markSixDrawn: number[];
+    markSixPrize?: number;
     switchTab: (newTab: CasinoTab) => void;
     drawCards: () => void;
     flipCoins: () => void;
@@ -33,6 +36,9 @@ type Context = {
     changeDiceType: (index: number) => void;
     removeDice: (index: number) => void;
     rollSicBo: () => void;
+    generateLottery: (lottery: number[]) => void;
+    drawMarkSix: () => void;
+    markSixReset: () => void;
 }
 
 const initContext: Context = {
@@ -42,6 +48,9 @@ const initContext: Context = {
     coins: [],
     dice: [],
     sicBoDice: [],
+    markSixLottery: [],
+    markSixDrawn: [],
+    markSixPrize: undefined,
     switchTab: () => { return; },
     drawCards: () => { return; },
     flipCoins: () => { return; },
@@ -52,6 +61,9 @@ const initContext: Context = {
     changeDiceType: (index: number) => { return; },
     removeDice: (index: number) => { return; },
     rollSicBo: () => { return; },
+    generateLottery: (lottery: number[]) => { return; },
+    drawMarkSix: () => { return; },
+    markSixReset: () => { return; },
 }
 
 const CasinoSimContext = createContext<Context>(initContext);
@@ -66,6 +78,10 @@ const CasinoSimProvider = ({ children }: {children: React.ReactNode}) => {
 
     const [dice, setDice] = useState<Dice[]>([{ type: DiceType.SIX, value: 3 }]);
     const [sicBoDice, setSicBoDice] = useState<number[]>([1, 1, 1]);
+
+    const [markSixLottery, setMarkSixLottery] = useState<number[]>([]);
+    const [markSixDrawn, setMarkSixDrawn] = useState<number[]>([]);
+    const [markSixPrize, setMarkSixPrize] = useState<number | undefined>(undefined);
 
     /* ----- Poker ----- */
     const drawCards = () => {
@@ -114,6 +130,29 @@ const CasinoSimProvider = ({ children }: {children: React.ReactNode}) => {
         const newResult = [...Array(3)].map((_) => (Math.floor(Math.random() * 6) + 1));
         setSicBoDice(newResult);
     }
+
+    /* ----- Mark Six ----- */
+    const generateLottery = (lottery: number[]) => setMarkSixLottery(lottery.sort((a, b) => a - b));
+
+    const drawMarkSix = () => {
+        const numbers = Array.from({length: 49}, (_, i) => i + 1);
+
+        const result = shuffleArray(numbers).slice(0, 7);
+
+        setMarkSixDrawn(result);
+        setTimeout(() => {
+            const { sorted, prize } = sortNMatchPrize(markSixLottery, result);
+            setMarkSixDrawn(sorted);
+            setMarkSixPrize(prize);
+        }, 10500)
+    }
+
+    const markSixReset = () => {
+        setMarkSixLottery([]);
+        setMarkSixDrawn([]);
+        setMarkSixPrize(undefined);
+    }
+
     return (
         <CasinoSimContext.Provider value={{
             tab: activeTab,
@@ -122,6 +161,9 @@ const CasinoSimProvider = ({ children }: {children: React.ReactNode}) => {
             coins,
             dice,
             sicBoDice,
+            markSixLottery,
+            markSixDrawn,
+            markSixPrize,
             switchTab: setActiveTab,
             drawCards,
             flipCoins,
@@ -132,6 +174,9 @@ const CasinoSimProvider = ({ children }: {children: React.ReactNode}) => {
             changeDiceType,
             removeDice,
             rollSicBo,
+            generateLottery,
+            drawMarkSix,
+            markSixReset,
         }}>
             {children}
         </CasinoSimContext.Provider>

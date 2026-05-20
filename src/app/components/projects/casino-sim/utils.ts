@@ -99,6 +99,53 @@ export function evaluateSicBo(dice: number[]): SicBoCombs | undefined {
 }
 
 /* ----- Mark Six ----- */
-export function determineMarkSixColor(num: number) {
-    const idx = Math.floor((num + Math.floor(num / 10) % 6) / 2);
+type MarkSixResults = {
+    sorted: number[]; // First 6 number sorted, special number remain
+    prize?: number; // 1-7 for prize, undefined if no prize
 }
+
+export function sortNMatchPrize(lottery: number[], drawn: number[]) {
+
+    const firstSix = drawn.slice(0, 6).sort((a, b) => a - b);
+    const sorted = [...firstSix, drawn[6]];
+
+    if (lottery.length === 0) return { sorted };
+
+    const normalNum = sorted.slice(0, 6);
+    const specialNum = sorted[6];
+
+    const lotterySet = new Set(lottery);
+    
+    const hasSpecial = lotterySet.has(specialNum);
+
+    let matched = 0;
+    for (const num of normalNum) {
+        if (lotterySet.has(num)) {
+            matched++;
+        }
+    }
+
+    let prize = 0;
+    if (matched === 6) prize = 1
+    else if (matched === 5 && hasSpecial) prize = 2
+    else if (matched === 5) prize = 3
+    else if (matched === 4 && hasSpecial) prize = 4
+    else if (matched === 4) prize = 5
+    else if (matched === 3 && hasSpecial) prize = 6
+    else if (matched === 3) prize = 7
+
+    return ({ sorted, prize })
+
+}
+
+/* ----- Roulette ----- */
+export const ROULETTE_NUMBERS = [
+    0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10,
+    5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26
+];
+
+export function getNumberColor(num: number): string {
+    if (num === 0) return '#4caf50'; // Green
+    const redNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
+    return redNumbers.includes(num) ? '#f44336' : '#212121'; // Red or Black
+};

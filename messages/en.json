@@ -233,7 +233,7 @@
                 "dice": "Dice Roll",
                 "sic-bo": "Sic Bo",
                 "mark-six": "Mark Six",
-                "routelette": "Routelette"
+                "roulette": "Roulette"
             },
             "poker": {
                 "draw": "Draw 5 cards",
@@ -295,11 +295,15 @@
                 "none": "None"
             },
             "mark-six": {
-                "select": "Choose your numbers:",
-                "justDraw": "No thanks",
+                "select": "Choose your numbers (Max 6)",
+                "buy": "\"Buy\" Lottery",
+                "noBuy": "I changed my mind",
+                "done": "Done",
                 "start": "Start Drawing",
-                "noParti": "You may got the numbers, but you didn't choose your numbers...",
-                "0Prize": "You got no prize! Better luck next time!",
+                "yourNum": "Your Number:",
+                "drawnNumber": "Drawn Number:",
+                "noParti": "You may got the numbers,\nbut you didn't choose your numbers...",
+                "0Prize": "You got no prize!\nBetter luck next time!",
                 "7prize": "You got the 7th Prize!",
                 "6prize": "Nice! You got the 6th Prize!",
                 "5prize": "Great! You got the 5th Prize!",
@@ -309,7 +313,22 @@
                 "1prize": "YOOOOOOO!!! You got the 1st Prize!!!!!!!!!",
                 "reset": "Reset"
             },
-            "wip": "Working in Progress!"
+            "roulette": {
+                "spin": "Spin Wheel",
+                "reset": "Reset",
+                "winWagers": "Winning Wagers:",
+                "number": "Number",
+                "color": "Color",
+                "evenOdd": "Even/Odd",
+                "even": "Even",
+                "odd": "Odd",
+                "lowHigh": "Low/High",
+                "low": "Low",
+                "high": "High",
+                "dozen": "Dozen",
+                "column": "Column",
+                "none": "None"
+            }
         }
     },
     "games": {

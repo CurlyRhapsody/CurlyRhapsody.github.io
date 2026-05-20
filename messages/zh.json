@@ -233,7 +233,7 @@
                 "dice": "擲骰子",
                 "sic-bo": "骰寶",
                 "mark-six": "六合彩",
-                "routelette": "輪盤賭"
+                "roulette": "輪盤賭"
             },
             "poker": {
                 "draw": "抽五張牌",
@@ -295,11 +295,14 @@
                 "none": "無"
             },
             "mark-six": {
-                "select": "選擇您的號碼：",
-                "justDraw": "不了",
+                "select": "選擇您的號碼（最多 6 個）",
+                "buy": "「購買」彩票",
+                "noBuy": "我改變想法了",
                 "start": "開始攪珠",
-                "noParti": "這次可能攪出了您的心水號碼，然而您沒有投注……",
-                "0Prize": "您這次沒有中獎！祝下次好運！",
+                "yourNum": "您的獎劵：",
+                "drawnNumber": "攪出號碼：",
+                "noParti": "這次可能攪出了您的心水號碼，\n然而您沒有投注……",
+                "0Prize": "您這次沒有中獎！\n祝下次好運！",
                 "7prize": "您獲得了七獎！",
                 "6prize": "很好！您獲得了六獎！",
                 "5prize": "厲害！您獲得了五獎！",
@@ -309,7 +312,22 @@
                 "1prize": "YOOOOOOO！！！您獲得了頭獎！！！！！",
                 "reset": "重置"
             },
-            "wip": "功能開發中！"
+            "roulette": {
+                "spin": "開始轉盤",
+                "reset": "重置",
+                "winWagers": "勝出賭注：",
+                "number": "數字",
+                "color": "顏色",
+                "evenOdd": "奇偶",
+                "even": "雙",
+                "odd": "單",
+                "lowHigh": "大小",
+                "low": "小",
+                "high": "大",
+                "dozen": "12 數組",
+                "column": "直行",
+                "none": "無"
+            }
         }
     },
     "games": {

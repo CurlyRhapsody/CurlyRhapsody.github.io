@@ -1,12 +1,11 @@
 import { Box, Grid, Stack, styled } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { Subtitle1, Body1, Subtitle2 } from '@/app/components/styled/text';
-import { number } from 'motion';
 
-const WagerGrid = styled(Grid)<{ isActive: boolean }>(({ isActive }) => ({
+const WagerGrid = styled(Grid)<{ isactive: boolean }>(({ isactive }) => ({
     display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column",
     border: "0.0625rem solid #161616",
-    background: isActive ? "#FFF4B3" : "unset"
+    background: isactive ? "#FFF4B3" : "unset"
 }))
 
 export const CommonTripleWagers = ({ diceSum, isTriple, triple }: { diceSum: number; isTriple: boolean; triple?: number }) => {
@@ -16,11 +15,11 @@ export const CommonTripleWagers = ({ diceSum, isTriple, triple }: { diceSum: num
     return (
         <Stack direction="row">
             <Box sx={{ width: "25%" }}>
-                <WagerGrid isActive={!isTriple && diceSum < 11} sx={{ height: "50%" }}>
+                <WagerGrid isactive={!isTriple && diceSum < 11} sx={{ height: "50%" }}>
                     <Subtitle1 sx={{ color: "#C20000" }}>{t("small")}</Subtitle1>
                     <Body1 sx={{ mt: "0.5rem" }}>4-10</Body1>
                 </WagerGrid>
-                <WagerGrid isActive={!isTriple && (diceSum % 2 === 1)} sx={{ height: "50%" }}>
+                <WagerGrid isactive={!isTriple && (diceSum % 2 === 1)} sx={{ height: "50%" }}>
                     <Subtitle1 sx={{ color: "#C20000" }}>{t("odd")}</Subtitle1>
                 </WagerGrid>
             </Box>
@@ -32,22 +31,22 @@ export const CommonTripleWagers = ({ diceSum, isTriple, triple }: { diceSum: num
                     {[...Array(6)].map((_, i) => {
                         const value = i+1;
                         return (
-                            <WagerGrid key={`triple-wager-${value}`} isActive={(triple === value)} size={1} sx={{ aspectRatio: "5/2" }}>
+                            <WagerGrid key={`triple-wager-${value}`} isactive={(triple === value)} size={1} sx={{ aspectRatio: "5/2" }}>
                                 <Subtitle1>{`${value}-${value}-${value}`}</Subtitle1>
                             </WagerGrid>
                         )
                     })}
                 </Grid>
-                <WagerGrid isActive={isTriple} sx={{ width: "100%", height: "25%" }}>
+                <WagerGrid isactive={isTriple} sx={{ width: "100%", height: "25%" }}>
                     <Subtitle2 sx={{ width: "100%", textAlign: "center", py: "0.5rem" }}>{t("any")}</Subtitle2>
                 </WagerGrid>
             </Box>
             <Box sx={{ width: "25%" }}>
-                <WagerGrid isActive={!isTriple && diceSum > 10} sx={{ height: "50%" }}>
+                <WagerGrid isactive={!isTriple && diceSum > 10} sx={{ height: "50%" }}>
                     <Subtitle1 sx={{ color: "#C20000" }}>{t("big")}</Subtitle1>
                     <Body1 sx={{ mt: "0.5rem" }}>11-17</Body1>
                 </WagerGrid>
-                <WagerGrid isActive={!isTriple && (diceSum % 2 === 0)} sx={{ height: "50%" }}>
+                <WagerGrid isactive={!isTriple && (diceSum % 2 === 0)} sx={{ height: "50%" }}>
                     <Subtitle1 sx={{ color: "#C20000" }}>{t("even")}</Subtitle1>
                 </WagerGrid>
             </Box>
@@ -62,7 +61,7 @@ export const ValueWagers = ({ diceSum, isTriple }: { diceSum: number; isTriple: 
     return (
         <Grid container direction="row" columns={7} sx={{ width: "100%", justifyContent: "space-between" }}>
             {[...Array(14)].map((_, i) => (
-                <WagerGrid key={`value-wager-${i+4}`} isActive={!isTriple && (diceSum === (i + 4))} size={1} sx={{ aspectRatio: "3/1" }}>
+                <WagerGrid key={`value-wager-${i+4}`} isactive={!isTriple && (diceSum === (i + 4))} size={1} sx={{ aspectRatio: "3/1" }}>
                     <Subtitle1>{i+4}</Subtitle1>
                 </WagerGrid>
             ))}
@@ -82,7 +81,7 @@ export const SingleDoubleWagers = ({ freqs, double, isTriple }: { freqs: { [valu
                     {[...Array(6)].map((_, i) => {
                         const value = i+1;
                         return (
-                            <WagerGrid key={`single-wager-${value}`} isActive={!isTriple && !!freqs[value]} size={1} sx={{ aspectRatio: "2/1" }}>
+                            <WagerGrid key={`single-wager-${value}`} isactive={!isTriple && !!freqs[value]} size={1} sx={{ aspectRatio: "2/1" }}>
                                 <Subtitle1>{`${value}`}</Subtitle1>
                             </WagerGrid>
                         )
@@ -96,7 +95,7 @@ export const SingleDoubleWagers = ({ freqs, double, isTriple }: { freqs: { [valu
                     {[...Array(6)].map((_, i) => {
                         const value = i+1;
                         return (
-                            <WagerGrid key={`double-wager-${value}`} isActive={!isTriple && (double === value)} size={1} sx={{ aspectRatio: "2/1" }}>
+                            <WagerGrid key={`double-wager-${value}`} isactive={!isTriple && (double === value)} size={1} sx={{ aspectRatio: "2/1" }}>
                                 <Subtitle1>{`${value}-${value}`}</Subtitle1>
                             </WagerGrid>
                         )
@@ -124,7 +123,7 @@ export const TwoDiceWagers = ({ freqs }: { freqs: { [value: number]: number }; }
             <Grid container direction="row" columns={5} sx={{ width: "100%", justifyContent: "space-between" }}>
                 {pairs.map(([low, high], i) => {
                     return (
-                        <WagerGrid key={`pair-wager-${low}-${high}`} isActive={!!freqs[low] && !!freqs[high]} size={1} sx={{ aspectRatio: "3/1" }}>
+                        <WagerGrid key={`pair-wager-${low}-${high}`} isactive={!!freqs[low] && !!freqs[high]} size={1} sx={{ aspectRatio: "3/1" }}>
                             <Subtitle1>{`${low}-${high}`}</Subtitle1>
                         </WagerGrid>
                     )
@@ -149,25 +148,25 @@ export const FourCombWagers = ({ freqs }: { freqs: { [value: number]: number }; 
                 <Subtitle2 sx={{ width: "100%", textAlign: "center", py: "0.5rem" }}>{t("3in4")}</Subtitle2>
             </Box>
             <Grid container direction="row" columns={4} sx={{ width: "100%", justifyContent: "space-between" }}>
-                <WagerGrid isActive={satisfy(1, 2, 3, 4)} size={1} sx={{ aspectRatio: "5/2", flexDirection: "row", gap: "1rem" }}>
+                <WagerGrid isactive={satisfy(1, 2, 3, 4)} size={1} sx={{ aspectRatio: "5/2", flexDirection: "row", gap: "1rem" }}>
                     <Subtitle1 sx={{ color: !!freqs[1] ? "#C20000" : "#000000" }}>1</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[2] ? "#C20000" : "#000000" }}>2</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[3] ? "#C20000" : "#000000" }}>3</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[4] ? "#C20000" : "#000000" }}>4</Subtitle1>
                 </WagerGrid>
-                <WagerGrid isActive={satisfy(2, 3, 4, 5)} size={1} sx={{ aspectRatio: "5/2", flexDirection: "row", gap: "1rem" }}>
+                <WagerGrid isactive={satisfy(2, 3, 4, 5)} size={1} sx={{ aspectRatio: "5/2", flexDirection: "row", gap: "1rem" }}>
                     <Subtitle1 sx={{ color: !!freqs[2] ? "#C20000" : "#000000" }}>2</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[3] ? "#C20000" : "#000000" }}>3</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[4] ? "#C20000" : "#000000" }}>4</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[5] ? "#C20000" : "#000000" }}>5</Subtitle1>
                 </WagerGrid>
-                <WagerGrid isActive={satisfy(2, 3, 5, 6)} size={1} sx={{ aspectRatio: "5/2", flexDirection: "row", gap: "1rem" }}>
+                <WagerGrid isactive={satisfy(2, 3, 5, 6)} size={1} sx={{ aspectRatio: "5/2", flexDirection: "row", gap: "1rem" }}>
                     <Subtitle1 sx={{ color: !!freqs[2] ? "#C20000" : "#000000" }}>2</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[3] ? "#C20000" : "#000000" }}>3</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[5] ? "#C20000" : "#000000" }}>5</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[6] ? "#C20000" : "#000000" }}>6</Subtitle1>
                 </WagerGrid>
-                <WagerGrid isActive={satisfy(3, 4, 5, 6)} size={1} sx={{ aspectRatio: "5/2", flexDirection: "row", gap: "1rem" }}>
+                <WagerGrid isactive={satisfy(3, 4, 5, 6)} size={1} sx={{ aspectRatio: "5/2", flexDirection: "row", gap: "1rem" }}>
                     <Subtitle1 sx={{ color: !!freqs[3] ? "#C20000" : "#000000" }}>3</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[4] ? "#C20000" : "#000000" }}>4</Subtitle1>
                     <Subtitle1 sx={{ color: !!freqs[5] ? "#C20000" : "#000000" }}>5</Subtitle1>
@@ -188,11 +187,11 @@ export const WildWagers = ({ encoded, hasDouble, isTriple }: { encoded: string; 
                 <Body1 sx={{ width: "100%", textAlign: "center", py: "0.5rem" }}>{t("winningOnly")}</Body1>
             </Box>
             <Grid container direction="row" columns={2} sx={{ width: "100%", justifyContent: "space-between" }}>
-                <WagerGrid isActive={!isTriple && !hasDouble} sx={{ aspectRatio: "4/1" }} size={1}>
+                <WagerGrid isactive={!isTriple && !hasDouble} sx={{ aspectRatio: "4/1" }} size={1}>
                     <Body1>{t("3singles")}</Body1>
                     <Subtitle1 sx={{ mt: "0.5rem" }}>{(!isTriple && !hasDouble) ? encoded : t("none")}</Subtitle1>
                 </WagerGrid>
-                <WagerGrid isActive={!isTriple && hasDouble} sx={{ aspectRatio: "4/1" }} size={1}>
+                <WagerGrid isactive={!isTriple && hasDouble} sx={{ aspectRatio: "4/1" }} size={1}>
                     <Body1>{t("2p1")}</Body1>
                     <Subtitle1 sx={{ mt: "0.5rem" }}>{(!isTriple && hasDouble) ? encoded : t("none")}</Subtitle1>
                 </WagerGrid>

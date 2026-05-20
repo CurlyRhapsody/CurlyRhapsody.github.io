@@ -1,23 +1,13 @@
 import { useTranslations } from "next-intl";
 import { ShadowedStack } from "../../styled/component";
-import { Divider, Stack, Tab, Tabs } from "@mui/material";
+import { Divider, Tab, Tabs } from "@mui/material";
 import { CasinoTab, casinoTabText, useCasinoSimContext } from "../providers/CasinoSimProvider";
 import PokerSimulator from "./PokerSimulator";
 import CoinFlipSimulator from "./CoinFlipSimulator";
 import DiceSimulator from "./DiceSimulator";
-import { Title1 } from "../../styled/text";
 import SicBoSimulator from './SicBoSimulator';
-
-// Placeholder component
-const ComingSoon = () => {
-    const t = useTranslations("project.casino-sim");
-
-    return (
-        <Stack sx={{ alignItems: "center" }}>
-            <Title1>{t("wip")}</Title1>
-        </Stack>
-    )
-}
+import MarkSixSimulator from "./MarkSixSimulator";
+import RouletteSimulator from "./RouletteSimulator";
 
 const CansinoContent = ({ activeTab }: { activeTab: CasinoTab }) => {
 
@@ -25,8 +15,8 @@ const CansinoContent = ({ activeTab }: { activeTab: CasinoTab }) => {
     if (activeTab === CasinoTab.FLIP_COIN) return <CoinFlipSimulator />;
     if (activeTab === CasinoTab.DICE) return <DiceSimulator />;
     if (activeTab === CasinoTab.SIC_BO) return <SicBoSimulator />;
-    if (activeTab === CasinoTab.MARK_SIX) return <ComingSoon />;
-    if (activeTab === CasinoTab.ROUTELETTE) return <ComingSoon />;
+    if (activeTab === CasinoTab.MARK_SIX) return <MarkSixSimulator />;
+    if (activeTab === CasinoTab.ROULETTE) return <RouletteSimulator />;
 
     return null;
 }
