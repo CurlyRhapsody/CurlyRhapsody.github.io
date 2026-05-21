@@ -27,7 +27,7 @@ const iconMap: Record<string, React.ReactNode> = {
 }
 
 const seriesData: RadarSeries = {
-    data: [8, 4, 5, 7, 4, 3, 5, 6],
+    data: [8, 4, 5, 7, 5, 3, 5, 6],
 }
 
 /* ----- Radar Chart ----- */
@@ -90,7 +90,7 @@ const SkillRadarChart = () => {
                 startAngle: 0
             }}
         >
-            <ChartsWrapper>
+            <ChartsWrapper sx={{ width: "100%" }}>
                 <ChartsSurface>
                     <RadarGrid divisions={5} shape="circular" />
                     <IconMetricLabel />
@@ -147,7 +147,7 @@ const CodingSelfScore = ({ narrow }: { narrow: boolean }) => {
     return (
         <Box
             sx={{
-                width: "20rem", height: narrow ? "auto" : "30rem",
+                width: "100%", height: narrow ? "auto" : "30rem",
                 minHeight: "20rem", maxWidth: "100%", margin: "0 auto"
             }}
         >

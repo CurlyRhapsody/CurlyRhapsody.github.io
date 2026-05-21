@@ -17,7 +17,7 @@ const HandGrid = ({ currentHand, rank, activeWhen }: {
     return (
         <Grid size={1}>
             <Stack sx={{
-                width: "100%", height: "5rem", alignItems: "center", justifyContent: "center", p: "0.5rem",
+                width: "100%", height: "8rem", alignItems: "center", justifyContent: "center", p: "0.5rem",
                 gap: "1rem", border: "0.0625rem solid #161616",
                 background: isMain ? "#E78587" : (isHighlighted ? "#FFF4B3" : "unset"),
             }}>

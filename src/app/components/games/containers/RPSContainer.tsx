@@ -8,9 +8,11 @@ import DifficultySlider from "../rps/DifficultySlider";
 import GameBoard from "../rps/GameBoard";
 import RPSStatusContainer from "../rps/RPSStatusContainer";
 import PageContainer from "../../styled/PageContainer";
+import useResponsiveSizing from '../../hooks/useResponsiveSizing';
 
 const RPSContainer = () => {
 
+    const { isMobile } = useResponsiveSizing();
     const t = useTranslations("games.rps");
 
     return (
@@ -21,11 +23,11 @@ const RPSContainer = () => {
                 <DifficultySlider />
                 <Body1>{t("statsTip")}</Body1>
             </ShadowedStack>
-            <Stack direction="row" sx={{ width: "100%", gap: "2rem", }}>
-                <Stack sx={{ flex: 2 }}>
+            <Stack direction={isMobile ? "column" : "row"} sx={{ width: "100%", gap: "2rem", }}>
+                <Stack sx={{ flex: isMobile ? "unset" : 2 }}>
                     <GameBoard />
                 </Stack>
-                <Stack sx={{ flex: 1 }}>
+                <Stack sx={{ flex: isMobile ? "unset" : 1 }}>
                     <RPSStatusContainer />
                 </Stack>
             </Stack>

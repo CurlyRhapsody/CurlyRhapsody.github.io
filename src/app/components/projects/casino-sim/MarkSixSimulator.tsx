@@ -32,96 +32,92 @@ const MarkSixSimulator = () => {
         if (typeof markSixPrize === "undefined") return undefined;
         switch (markSixPrize) {
             case -1: return t("noParti");
-            case 0: return t("0Prize");
-            case 1: return t("1Prize");
-            case 2: return t("2Prize");
-            case 3: return t("3Prize");
-            case 4: return t("4Prize");
-            case 5: return t("5Prize");
-            case 6: return t("6Prize");
-            case 7: return t("7Prize");
+            case 0: return t("0prize");
+            case 1: return t("1prize");
+            case 2: return t("2prize");
+            case 3: return t("3prize");
+            case 4: return t("4prize");
+            case 5: return t("5prize");
+            case 6: return t("6prize");
+            case 7: return t("7prize");
         }
     })()
 
     return (
         <>
             <PickLotteryPopup open={isPopupOpened} onClose={() => setIsPopupOpened(false)} />
-            <Stack sx={{ alignItems: "center", gap: "1rem", width: "100%" }}>
-                <Stack direction="row" sx={{ width: "100%" }}>
-                    <Stack sx={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
-                        <Button
-                            disabled={markSixDrawn.length > 0}
-                            variant="contained"
-                            startIcon={<BookOnlineIcon sx={{ fontSize: "1.5rem" }} />}
-                            sx={{
-                                p: "1rem", width: "10rem", borderRadius: "0.5rem",
-                                "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
-                            }}
-                            onClick={() => setIsPopupOpened(true)}
-                        >
-                            {t("buy")}
-                        </Button>
-                    </Stack>
-                    <Stack direction="column" sx={{ flex: 5, gap: "1rem" }}>
-                        <Subtitle1>{t("yourNum")}</Subtitle1>
-                        <Grid container direction="row" columns={6} spacing="0.625rem" sx={{ height: "3.75rem" }}>
-                            {markSixLottery.map((val, i) => (
-                                <Grid key={`lottery-picked-${i}`} size={1} sx={{ width: "fit-content" }}>
+            <Stack sx={{ alignItems: "center", gap: "2rem", width: "100%" }}>
+                <Stack direction="row" sx={{ width: "100%", justifyContent: "space-around" }}>
+                    <Button
+                        disabled={markSixDrawn.length > 0}
+                        variant="contained"
+                        startIcon={<BookOnlineIcon sx={{ fontSize: "1.5rem" }} />}
+                        sx={{
+                            p: "1rem", width: "12.5rem", borderRadius: "0.5rem", fontSize: "1.25rem",
+                            "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
+                        }}
+                        onClick={() => setIsPopupOpened(true)}
+                    >
+                        {t("buy")}
+                    </Button>
+
+                    <Button
+                        disabled={markSixDrawn.length > 0}
+                        variant="contained"
+                        startIcon={<PlayArrowIcon sx={{ fontSize: "1.5rem" }} />}
+                        sx={{
+                            p: "1rem", width: "12.5rem", borderRadius: "0.5rem", fontSize: "1.25rem",
+                            "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
+                        }}
+                        onClick={() => {
+                            setIsAllDrawn(false);
+                            setTimeout(() => setIsAllDrawn(true), 9000)
+                            drawMarkSix();
+                        }}
+                    >
+                        {t("start")}
+                    </Button>
+                </Stack>
+
+                <Stack sx={{ width: "100%", gap: "1rem", px: "2rem" }}>
+                    <Subtitle1>{t("yourNum")}</Subtitle1>
+                    <Grid container direction="row" columns={6} spacing="1.25rem" sx={{ height: "3.75rem" }}>
+                        {markSixLottery.map((val, i) => (
+                            <Grid key={`lottery-picked-${i}`} size={1} sx={{ width: "fit-content" }}>
+                                <MarkSixBall val={val} />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Stack>
+
+                <Stack sx={{ width: "100%", gap: "1rem", px: "2rem" }}>
+                    <Subtitle1>{t("drawnNumber")}</Subtitle1>
+                    <Grid container direction="row" spacing="1.25rem" columns={7} sx={{ height: "6rem" }}>
+                        {markSixDrawn.map((val, i) => (
+                            <Grid key={`comp-drawn-${i}`} size={1} sx={{ width: "fit-content", }}>
+                                <motion.div
+                                    initial={{ scale: 0, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    transition={{
+                                        delay: isAllDrawn ? 0 : (i * 1.25),
+                                        duration: isAllDrawn ? 0 : 0.25
+                                    }}
+                                >
                                     <MarkSixBall val={val} />
-                                </Grid>
-                            ))}
-                        </Grid>
-                    </Stack>
+                                </motion.div>
+                                <Body1 sx={{ textAlign: "center", mt: "0.5rem" }}>{ballIndex[i]}</Body1>
+                            </Grid>
+                        ))}
+                    </Grid>
                 </Stack>
 
-                <Stack direction="row" sx={{ width: "100%" }}>
-                    <Stack sx={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
-                        <Button
-                            disabled={markSixDrawn.length > 0}
-                            variant="contained"
-                            startIcon={<PlayArrowIcon sx={{ fontSize: "1.5rem" }} />}
-                            sx={{
-                                p: "1rem", width: "10rem", borderRadius: "0.5rem",
-                                "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
-                            }}
-                            onClick={() => {
-                                setIsAllDrawn(false);
-                                setTimeout(() => setIsAllDrawn(true), 9000)
-                                drawMarkSix();
-                            }}
-                        >
-                            {t("start")}
-                        </Button>
-                    </Stack>
-                    <Stack direction="column" sx={{ flex: 5, gap: "1rem" }}>
-                        <Subtitle1>{t("drawnNumber")}</Subtitle1>
-                        <Grid container direction="row" spacing="0.625rem" columns={7} sx={{ height: "6rem" }}>
-                            {markSixDrawn.map((val, i) => (
-                                <Grid key={`comp-drawn-${i}`} size={1} sx={{ width: "fit-content", }}>
-                                    <motion.div
-                                        initial={{ scale: 0, opacity: 0 }}
-                                        animate={{ scale: 1, opacity: 1 }}
-                                        transition={{
-                                            delay: isAllDrawn ? 0 : (i * 1.25),
-                                            duration: isAllDrawn ? 0 : 0.25
-                                        }}
-                                    >
-                                        <MarkSixBall val={val} />
-                                    </motion.div>
-                                    <Body1 sx={{ textAlign: "center", mt: "0.5rem" }}>{ballIndex[i]}</Body1>
-                                </Grid>
-                            ))}
-                        </Grid>
-                    </Stack>
-                </Stack>
-
-                <Subtitle1 sx={{ whiteSpace: "pre-wrap", textAlign: "center", minHeight: "1.75rem" }}>{renderPrizeText}</Subtitle1>
+                <Subtitle1 sx={{ whiteSpace: "pre-wrap", textAlign: "center", minHeight: "3.5rem" }}>{renderPrizeText}</Subtitle1>
                 <Button
                     disabled={!isAllDrawn || markSixDrawn.length === 0}
                     variant="contained"
                     startIcon={<ReplayIcon sx={{ fontSize: "1.5rem" }} />}
                     sx={{
-                        p: "1rem", width: "10rem", borderRadius: "0.5rem",
+                        p: "1rem", width: "12.5rem", borderRadius: "0.5rem", fontSize: "1.25rem",
                         "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
                     }}
                     onClick={() => {

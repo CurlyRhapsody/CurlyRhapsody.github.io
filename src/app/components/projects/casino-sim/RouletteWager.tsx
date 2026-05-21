@@ -7,6 +7,7 @@ const StyledStack = styled(Stack)({
     position: "relative",
     alignItems: "center",
     justifyContent: "center",
+    height: "7.5rem",
     border: "0.0625rem solid #161616"
 })
 
@@ -26,12 +27,12 @@ const RouletteWager = ({
                 <Subtitle1 sx={{ textAlign: "center" }}>{t("winWagers")}</Subtitle1>
             </Box>
             <Box sx={{ width: "100%", height: "fit-content" }}>
-                <Stack direction="row" sx={{ height: "5rem" }}>
+                <Stack direction="row" sx={{ height: "7.5rem" }}>
                     <StyledStack sx={{ width: "30%"}}>
                         <Body1 sx={{ position: "absolute", left: "0.5rem", top: "0.5rem" }}>{t("color")}</Body1>
                         <Box
                             sx={{
-                                width: "70%", height: "3rem",
+                                width: "66.7%", height: "3rem",
                                 background: (!!winning && winning !== 0) ? getNumberColor(winning) : "none",
                                 clipPath: "polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%)",
                             }}
@@ -46,7 +47,7 @@ const RouletteWager = ({
                         <Subtitle1>{(!!winning && winning !== 0) ? (winning % 2 ? t("odd") : t("even")) : ""}</Subtitle1>
                     </StyledStack>
                 </Stack>
-                <Stack direction="row" sx={{ height: "5rem" }}>
+                <Stack direction="row" sx={{ height: "7.5rem" }}>
                     <StyledStack sx={{ flex: 1 }}>
                         <Body1 sx={{ position: "absolute", left: "0.5rem", top: "0.5rem" }}>{t("lowHigh")}</Body1>
                         <Subtitle1>{(!!winning && winning !== 0) ? (winning <= 18 ? t("low") : t("high")) : ""}</Subtitle1>

@@ -20,11 +20,11 @@ const SectionButton = ({
             onClick={onClick}
             sx={{
                 color: "#3C3C3C",
-                ...(isMobile && { width: "100%", height: "3rem", gap: "0.5rem" }),
-                ...(isDesktop && { height: "100%", gap: "0.375rem", }),
+                ...(isMobile && { width: "100%", height: "5rem", gap: "0.5rem" }),
+                ...(isDesktop && { height: "100%", gap: "0.375rem" }),
             }}
         >
-            <Icon sx={{ fontSize: "1.125rem" }} />
+            <Icon sx={{ fontSize: isMobile ? "1.625rem" : "1.125rem" }} />
             <Body1>{t(text)}</Body1>
         </SidebarMenuItem>
     )

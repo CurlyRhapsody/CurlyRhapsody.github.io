@@ -37,7 +37,7 @@ export const CommonTripleWagers = ({ diceSum, isTriple, triple }: { diceSum: num
                         )
                     })}
                 </Grid>
-                <WagerGrid isactive={isTriple} sx={{ width: "100%", height: "25%" }}>
+                <WagerGrid isactive={isTriple} sx={{ width: "100%", height: "2.75rem" }}>
                     <Subtitle2 sx={{ width: "100%", textAlign: "center", py: "0.5rem" }}>{t("any")}</Subtitle2>
                 </WagerGrid>
             </Box>

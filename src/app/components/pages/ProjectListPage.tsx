@@ -2,38 +2,27 @@
 
 import { ButtonBase, Stack } from "@mui/material";
 import { useLocale, useTranslations } from "next-intl";
-import { Body1, Subtitle1, Title1 } from "../styled/text";
+import { Body1, Subtitle1, Subtitle2, Title1 } from "../styled/text";
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import Link from "next/link";
 import { ShadowedStack } from "../styled/component";
 import { SvgIconComponent } from "@mui/icons-material";
 import { projectList } from "./ProjectGameList";
 
-const EmptyProjectList = () => {
-    const t = useTranslations("project");
-
-    return (
-        <Stack sx={{ alignItems: "center", gap: "1rem" }}>
-            <SettingsSuggestIcon sx={{ fontSize: "10rem" }} />
-            <Subtitle1>{t("soon")}</Subtitle1>
-        </Stack>
-    )
-}
-
 const Project = ({ href, name, Icon }: { href: string, name: string, Icon: SvgIconComponent }) => {
     return (
         <Link href={href}>
-            <ButtonBase sx={{ borderRadius: "1rem" }}>
+            <ButtonBase sx={{ borderRadius: "1.5rem" }}>
                 <ShadowedStack
                     direction="row"
                     sx={{
-                        width: "40rem", height: "3.25rem", p: "1rem 1.5rem", borderRadius: "1rem",
-                        justifyContent: "flex-start", alignItems: "center", gap: "1rem",
+                        width: "40rem", height: "4.5rem", p: "2rem", borderRadius: "1.5rem",
+                        justifyContent: "flex-start", alignItems: "center", gap: "1.25rem",
                         background: "#FFFFFF"
                     }}
                 >
-                    <Icon sx={{ fontSize: "1.25rem" }} />
-                    <Body1>{name}</Body1>
+                    <Icon sx={{ fontSize: "1.5rem" }} />
+                    <Subtitle2>{name}</Subtitle2>
                 </ShadowedStack>
             </ButtonBase>
         </Link>
@@ -49,7 +38,7 @@ const ProjectListPage = () => {
         <Stack sx={{ width: "100%", py: "4rem", alignItems: "center", gap: "2rem" }}>
             <Title1>{t("title")}</Title1>
             <Subtitle1 sx={{ mx: "2rem", textAlign: "center" }}>{t("subtitle")}</Subtitle1>
-            <Stack sx={{ width: "100%", alignItems: "center", gap: "1rem" }}>
+            <Stack sx={{ width: "100%", alignItems: "center", gap: "1.5rem" }}>
                 {projectList.map((project) =>(
                     <Project
                         key={project.id}

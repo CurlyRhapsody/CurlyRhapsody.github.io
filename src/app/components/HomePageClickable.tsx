@@ -13,13 +13,13 @@ const HomePageClickable = ({ Icon, localeStr, onClick }: {
     const t = useTranslations("home");
 
     return (
-        <ButtonBase onClick={onClick} sx={{ borderRadius: "2rem", width: "100%" }}>
-            <ShadowedStack sx={{ borderRadius: "2rem", background: "#FFF", p: "2rem", width: "100%", gap: "1rem", '&:hover': { background: "#E5E5E5", transition: "0.25s linear"} }}>
+        <ButtonBase onClick={onClick} sx={{ borderRadius: "1.5rem", width: "100%" }}>
+            <ShadowedStack sx={{ borderRadius: "1.5rem", background: "#FFF", p: "1.5rem 1rem", width: "100%", gap: "1rem", '&:hover': { background: "#E5E5E5", transition: "0.25s linear"} }}>
                 <Stack sx={{ flexDirection: "row", gap: "0.5rem", justifyContent: "center" }}>
                     <Icon sx={{ fontSize: "1.625rem" }} />
                     <Subtitle1>{t(`${localeStr} title`)}</Subtitle1>
                 </Stack>
-                <Body1 sx={{ textAlign: "left" }}>{t(`${localeStr} desc`)}</Body1>
+                <Body1 sx={{ textAlign: "center" }}>{t(`${localeStr} desc`)}</Body1>
             </ShadowedStack>
         </ButtonBase>
     )

@@ -8,6 +8,7 @@ import RouletteWager from './RouletteWager';
 const RouletteSimulator = () => {
     const [spinning, setSpinning] = useState<boolean>(false);
     const [marbleRotation, setMarbleRotation] = useState<number>(0);
+    const [wheelRotation, setWheelRotation] = useState<number>(0);
     const [winningNumber, setWinningNumber] = useState<number | null>(null);
     const [hasSpun, setHasSpun] = useState<boolean>(false);
 
@@ -22,16 +23,24 @@ const RouletteSimulator = () => {
         setWinningNumber(null);
 
         const winningIndex = Math.floor(Math.random() * totalSegments);
-        const selectedNumber = ROULETTE_NUMBERS[winningIndex];
+
+        const delta = Math.floor(Math.random() * totalSegments); 
+
+        const selectedNumber = ROULETTE_NUMBERS[(winningIndex - delta + totalSegments) % totalSegments];
 
         const targetTileAngle = winningIndex * degreesPerSegment;
+        const targetWheelAngle = delta * degreesPerSegment * -1;
         
-        const extraLaps = 3600;
+        const extraLaps = 5400;
+        const wheelExtraLaps = -2160;
         
         const currentLapBase = Math.ceil(marbleRotation / 360) * 360;
-        const finalMarbleRotation = currentLapBase + extraLaps + targetTileAngle;
+        const currentWheelLapBase = Math.ceil(wheelRotation / 360) * 360;
+        const finalWheelRotation = currentWheelLapBase + wheelExtraLaps + targetWheelAngle;
+        const finalMarbleRotation = currentLapBase + extraLaps + targetTileAngle + targetWheelAngle;
 
         setMarbleRotation(finalMarbleRotation);
+        setWheelRotation(finalWheelRotation);
 
         setTimeout(() => {
             setSpinning(false);
@@ -42,6 +51,7 @@ const RouletteSimulator = () => {
     const handleReset = () => {
         setSpinning(false);
         setMarbleRotation(0);
+        setWheelRotation(0);
         setWinningNumber(null);
         setHasSpun(false);
     };
@@ -49,19 +59,20 @@ const RouletteSimulator = () => {
     const t = useTranslations("project.casino-sim.roulette");
 
     return (
-        <Stack sx={{ p: "3rem", alignItems: 'center', gap: "2rem", width: "100%" }}>
+        <Stack sx={{ p: "2rem", alignItems: 'center', gap: "2rem", width: "100%" }}>
             <Roulette 
                 degreesPerSegment={degreesPerSegment}
                 marbleRotation={marbleRotation}
+                wheelRotation={wheelRotation}
                 hasSpun={hasSpun}
             />
-            <Stack direction="row" sx={{ gap: "2rem" }}>
+            <Stack direction="row" sx={{ gap: "3rem" }}>
                 <Button 
                     variant="contained" 
                     size="large" 
                     disabled={spinning} 
                     onClick={handleSpin}
-                    sx={{ width: "10rem", p: "0.5rem" }}
+                    sx={{ width: "12.5rem", p: "1rem", fontSize: "1.25rem" }}
                 >
                     {t("spin")}
                 </Button>
@@ -70,7 +81,7 @@ const RouletteSimulator = () => {
                     size="large" 
                     disabled={spinning || !hasSpun} 
                     onClick={handleReset}
-                    sx={{ width: "10rem", p: "0.5rem" }}
+                    sx={{ width: "12.5rem", p: "1rem", fontSize: "1.25rem" }}
                 >
                     {t("reset")}
                 </Button>

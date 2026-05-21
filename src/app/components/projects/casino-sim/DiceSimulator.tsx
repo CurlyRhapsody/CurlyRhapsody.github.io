@@ -24,7 +24,7 @@ const DiceSimulator = () => {
                 variant="contained"
                 startIcon={<CasinoIcon sx={{ fontSize: "1.5rem" }} />}
                 sx={{
-                    p: "1rem", width: "fit-content", borderRadius: "0.5rem",
+                    p: "1rem", width: "12.5rem", borderRadius: "0.5rem", fontSize: "1.25rem",
                     "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
                 }}
                 onClick={() => { 
@@ -34,7 +34,7 @@ const DiceSimulator = () => {
             >
                 {t("roll")}
             </Button>
-            <Grid container columns={5} direction="row" spacing="1rem" sx={{ justifyContent: "center" }}>
+            <Grid container columns={5} direction="row" columnSpacing="1rem" rowSpacing="2rem" sx={{ justifyContent: "center", maxWidth: "40.25rem" }}>
                 {dice.map((die, index) => (
                     <Grid size={1} sx={{ width: "7.25rem", height: "10rem" }}>
                         <EditableDice
@@ -49,12 +49,16 @@ const DiceSimulator = () => {
                 ))}
             </Grid>
             <Subtitle2>{t("sum", { sum: diceSum })}</Subtitle2>
-            <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-around", gap: "2.5rem" }}>
+            <Stack direction="column" sx={{ alignItems: "center", justifyContent: "space-around", gap: "2rem" }}>
+                <Box>
+                    <Subtitle2 sx={{ width: "100%", textAlign: "center", mt: "0.25rem" }}>{t("click2Change")}</Subtitle2>
+                    <Body1 sx={{ width: "100%", textAlign: "center", mt: "0.25rem" }}>{t("available")}</Body1>
+                </Box>
                 <Box>
                     <Button
                         startIcon={<AddIcon sx={{ fontSize: "1.5rem" }} />}
                         sx={{
-                            p: "1rem", width: "fit-content", borderRadius: "0.5rem",
+                            p: "1rem", width: "20rem", borderRadius: "0.5rem", fontSize: "1.25rem",
                             "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
                         }}
                         variant="contained"
@@ -63,12 +67,7 @@ const DiceSimulator = () => {
                     >
                         {t("adjust")}
                     </Button>
-                    <Body1 sx={{ width: "100%", textAlign: "center", mt: "0.25rem" }}></Body1>
                     <Body1 sx={{ width: "100%", textAlign: "center", mt: "0.25rem" }}>{t("limit")}</Body1>
-                </Box>
-                <Box>
-                    <Subtitle2 sx={{ width: "100%", textAlign: "center", mt: "0.25rem" }}>{t("click2Change")}</Subtitle2>
-                    <Body1 sx={{ width: "100%", textAlign: "center", mt: "0.25rem" }}>{t("available")}</Body1>
                 </Box>
             </Stack>
             

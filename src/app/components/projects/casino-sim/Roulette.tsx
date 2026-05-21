@@ -6,15 +6,19 @@ import { getNumberColor, ROULETTE_NUMBERS } from "./utils";
 const Roulette = ({
     degreesPerSegment,
     marbleRotation,
+    wheelRotation,
     hasSpun
 }: {
     degreesPerSegment: number;
     marbleRotation: number;
+    wheelRotation: number;
     hasSpun: boolean;
 }) => {
 
+    console.log(marbleRotation, wheelRotation)
+
     return (
-        <Box sx={{ position: 'relative', width: "22.5rem", height: "22.5rem" }}>
+        <Box sx={{ position: 'relative', width: "30rem", height: "30rem" }}>
             <Box 
                 sx={{ 
                     position: "absolute", 
@@ -27,7 +31,14 @@ const Roulette = ({
                 }}
             />
             
-            <Box sx={{ position: "absolute", inset: "1.5rem", borderRadius: '50%', overflow: 'hidden' }}>
+            <Box sx={{
+                position: "absolute",
+                inset: "2rem",
+                borderRadius: '50%',
+                overflow: 'hidden',
+                transform: `rotate(${wheelRotation}deg)`,
+                transition: 'transform 4s cubic-bezier(0.1, 0.4, 0.1, 1)', 
+            }}>
                 <Box sx={{ position: 'relative', width: '100%', height: '100%'}}>
                     {ROULETTE_NUMBERS.map((num, idx) => {
                         const currentAngle = idx * degreesPerSegment;
@@ -48,7 +59,7 @@ const Roulette = ({
                                 <Stack 
                                     sx={{ 
                                         position: "absolute", 
-                                        top: "0.75rem", 
+                                        top: "1rem", 
                                         left: "50%", 
                                         transform: `translateX(-50%) rotate(${degreesPerSegment / 2}deg)`,
                                         flexDirection: 'column', 
@@ -58,7 +69,7 @@ const Roulette = ({
                                     <Typography
                                         sx={{ 
                                             color: '#FFFFFF', 
-                                            fontSize: '0.75rem', 
+                                            fontSize: '1rem', 
                                             fontWeight: 'bold',
                                             textShadow: '0.0625rem 0.0625rem 0.125rem #000000CC'
                                         }}
@@ -74,9 +85,9 @@ const Roulette = ({
                     <Box 
                         sx={{ 
                             position: "absolute", 
-                            inset: "2.8125rem",
+                            inset: "3.75rem",
                             borderRadius: '50%', 
-                            border: '0.375rem solid #3E2723',
+                            border: '0.5rem solid #3E2723',
                             background: "#171717" 
                         }} 
                     />
@@ -86,7 +97,7 @@ const Roulette = ({
                 <Box 
                     sx={{ 
                         position: "absolute", 
-                        inset: "0.625rem", 
+                        inset: "0.833rem", 
                         borderRadius: '50%', 
                         transformOrigin: '50% 50%', 
                         transform: `rotate(${marbleRotation}deg)`, 
@@ -100,11 +111,11 @@ const Roulette = ({
                     <Box 
                         sx={{ 
                             position: "absolute", 
-                            top: "1.5rem", 
+                            top: "2rem", 
                             left: '50%', 
                             transform: 'translateX(-50%)', 
-                            width: "0.875rem", 
-                            height: "0.875rem", 
+                            width: "1.167rem", 
+                            height: "1.167rem", 
                             borderRadius: '50%', 
                             backgroundColor: '#ffffff', 
                             boxShadow: '0 0.125rem 0.25rem #00000099'
@@ -116,10 +127,10 @@ const Roulette = ({
                 <Box 
                     sx={{ 
                         position: "absolute", 
-                        inset: "8.125rem", 
+                        inset: "10.833rem", 
                         borderRadius: '50%', 
                         backgroundColor: '#8D6E63', 
-                        border: '0.25rem solid #2D1A12', 
+                        border: '0.333rem solid #2D1A12', 
                         boxShadow: 'inset 0px 0px 10px rgba(0,0,0,0.5)',
                         zIndex: 5
                     }} 

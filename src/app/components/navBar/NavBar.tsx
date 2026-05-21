@@ -29,16 +29,16 @@ const MobileMenu = () => {
 
     return (
         <>
-            <Image src={Logo.src} width={1} height={1} alt="" style={{ width: "3rem", height: "3rem" }} loading="eager" />
+            <Image src={Logo.src} width={1} height={1} alt="" style={{ width: "5rem", height: "5rem" }} loading="eager" />
             <IconButton onClick={() => setIsDrawerOpened(true)}>
-                <MenuIcon sx={{ fontSize: "1.5rem", color: "#3C3C3C" }} />
+                <MenuIcon sx={{ fontSize: "2.5rem", color: "#3C3C3C" }} />
             </IconButton>
             <Drawer open={isDrawerOpened} onClose={() => setIsDrawerOpened(false)}>
-                <MenuList sx={{ display: "flex", flexDirection: "column", width: "15rem", padding: 0 }}>
-                    <Stack sx={{ width: "100%", height: "4rem", justifyContent: "center", pl: "1rem", pt: "1rem" }}>
-                        <Image src={Logo.src} width={1} height={1} alt="" style={{ width: "3rem", height: "3rem" }} loading="eager" />
+                <MenuList sx={{ display: "flex", flexDirection: "column", width: "25rem", padding: 0 }}>
+                    <Stack sx={{ width: "100%", height: "6rem", justifyContent: "center", pl: "1rem", pt: "1rem" }}>
+                        <Image src={Logo.src} width={1} height={1} alt="" style={{ width: "5rem", height: "5rem" }} loading="eager" />
                     </Stack>
-                    <Stack sx={{ width: "100%", justifyContent: "center", pl: "1rem", mt: "1.5rem", mb: "0.5rem" }}>
+                    <Stack sx={{ width: "100%", justifyContent: "center", pl: "2rem", mt: "1.5rem", mb: "0.5rem" }}>
                         <Title3 color="#3C3C3C">{t("cates")}</Title3>
                     </Stack>
                     {menuList.map(({ icon, localeStr, path }) => (
@@ -50,7 +50,7 @@ const MobileMenu = () => {
                             }}
                         />
                     ))}
-                    <Stack sx={{ width: "100%", justifyContent: "center", pl: "1rem", mt: "1.5rem", mb: "0.5rem" }}>
+                    <Stack sx={{ width: "100%", justifyContent: "center", pl: "2rem", mt: "1.5rem", mb: "0.5rem"}}>
                         <Title3 color="#3C3C3C">{t("language")}</Title3>
                     </Stack>
                     {languageList.map(({ locale, displayText }) => (
@@ -144,7 +144,7 @@ const NavBar = () => {
             sx={{
                 background: "white",
                 width: "100%",
-                height: "4rem",
+                height: "var(--header-height)",
                 boxShadow: "0 0.25rem 0.75rem 0rem rgba(0,0,0,0.75)",
                 borderBottom: "1px solid #AAAAAA",
                 flexDirection: "row",
