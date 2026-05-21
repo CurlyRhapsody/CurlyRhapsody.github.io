@@ -24,7 +24,7 @@ const CoinFlipSimulator = () => {
                 variant="contained"
                 startIcon={<PaidOutlinedIcon sx={{ fontSize: "1.5rem" }} />}
                 sx={{
-                    p: "1rem", width: "fit-content", borderRadius: "0.5rem",
+                    p: "1rem", width: "12.5rem", borderRadius: "0.5rem", fontSize: "1.25rem",
                     "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
                 }}
                 onClick={() => { 
@@ -34,10 +34,10 @@ const CoinFlipSimulator = () => {
             >
                 {t("toss")}
             </Button>
-            <Grid container columns={5} direction="row" spacing="1rem" sx={{ justifyContent: "center" }}>
+            <Grid container columns={5} direction="row" spacing="1rem" sx={{ justifyContent: "center", maxWidth: "40.25rem" }}>
                 {coins.map((coin, index) => (
-                    <Grid size={1} sx={{ width: "7.25rem", height: "7.25rem" }}>
-                        <TossingCoin key={`coin-${index}`} isHead={coin} animationTrigger={animationTrigger} />
+                    <Grid key={`coin-${index}`} size={1} sx={{ width: "7.25rem", height: "7.25rem" }}>
+                        <TossingCoin isHead={coin} animationTrigger={animationTrigger} />
                     </Grid>
                 ))}
             </Grid>
@@ -52,11 +52,11 @@ const CoinFlipSimulator = () => {
                 </Box>
                 <Stack direction="row" sx={{ gap: "0.75rem", alignItems: "center" }}>
                     <IconButton disabled={numCoins <= 1} onClick={removeCoins}>
-                        <RemoveIcon sx={{ fontSize: "1.5rem" }} />
+                        <RemoveIcon sx={{ fontSize: "2rem" }} />
                     </IconButton>
                     <Subtitle2>{numCoins}</Subtitle2>
                     <IconButton disabled={numCoins >= 10} onClick={addCoins}>
-                        <AddIcon sx={{ fontSize: "1.5rem" }} />
+                        <AddIcon sx={{ fontSize: "2rem" }} />
                     </IconButton>
                 </Stack>
                 

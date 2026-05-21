@@ -7,12 +7,12 @@ import SkillGroupText from "./SkillGroupText";
 
 const ProfileSkills = () => {
     const t = useTranslations("profile.form");
-    const isViewNarrow = useMediaQuery('(max-width: 420px)');
+    const isViewNarrow = useMediaQuery('(max-width: 300px)');
     
     return (
         <Box>
             <Subtitle1 sx={{ color: "#1E90FF" }}>{t("subtitle.coding")}</Subtitle1>
-            <Stack direction="row" sx={{ justifyContent: "space-between", gap: "1rem" }}>
+            <Stack direction="column" sx={{ justifyContent: "space-between", gap: "1rem" }}>
                 <Stack>
                     <SkillGroupText
                         subtitle={"frontend title"}
@@ -38,11 +38,10 @@ const ProfileSkills = () => {
                         ]}
                     />
                 </Stack>
-                <Stack sx={{ alignItems: "center", height: isViewNarrow ? "auto" : "30rem", width: "20rem", gap: "0.25rem" }}>
+                <Stack sx={{ alignItems: "center", height: isViewNarrow ? "auto" : "25rem", width: "100%", gap: "0.25rem" }}>
                     <Subtitle2>{t("skill.title")}</Subtitle2>
                     <CodingSelfScore narrow={isViewNarrow} />
                 </Stack>
-                
             </Stack>
         </Box>
     )

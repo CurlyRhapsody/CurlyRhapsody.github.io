@@ -73,7 +73,7 @@ const EditableDice = ({ dice, animationTrigger, isDeleteDisabled, onClick, onDel
                     </Stack>
                 </Stack>
             </motion.div>
-            <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
+            <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center", pt: "1rem" }}>
                 <Body1 sx={{ px: "0.5rem" }}>{`D${dice.type}`}</Body1>
                 <IconButton onClick={onDelete} disabled={isDeleteDisabled}>
                     <DeleteIcon sx={{ fontSize: "1.25rem", fill: isDeleteDisabled ? "#9E9E9E" : "#990000" }} />

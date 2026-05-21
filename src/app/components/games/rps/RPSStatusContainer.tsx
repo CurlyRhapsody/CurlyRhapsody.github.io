@@ -1,10 +1,11 @@
 import { useTranslations } from "next-intl";
 import { ShadowedStack } from "../../styled/component";
-import { Button, Stack } from "@mui/material";
-import { Body1, Body2, Subtitle1 } from "../../styled/text";
+import { Button, Stack, Grid } from '@mui/material';
+import { Body1, Subtitle1, Subtitle2 } from '../../styled/text';
 import { useRPSContext } from "../providers/RPSProvider";
 import { motion, useAnimation } from "motion/react";
 import { useEffect } from "react";
+import useResponsiveSizing from '../../hooks/useResponsiveSizing';
 
 const FlashingStatus = ({ title, count, color }: {
     title: string;
@@ -22,7 +23,7 @@ const FlashingStatus = ({ title, count, color }: {
     }, [count, color, controls]);
 
     return (
-        <Body2>
+        <Body1>
             {t.rich(title, {
                 count: count,
                 flash: (content) => (
@@ -31,7 +32,7 @@ const FlashingStatus = ({ title, count, color }: {
                     </motion.span>
                 )
             })}
-        </Body2>
+        </Body1>
     )
 }
 
@@ -39,16 +40,17 @@ const RPSStatusContainer = () => {
 
     const t = useTranslations("games.rps");
     const { gameState, totalWins, totalLoses, totalDraws, totalGames, resetStats } = useRPSContext();
+    const { isMobile } = useResponsiveSizing();
 
     return (
         <Stack sx={{ gap: "2rem", height: "100%" }}>
             <ShadowedStack
                 sx={{
                     borderRadius: "1rem", p: "1rem", background: "#FFFFFF",
-                    height: "3.5rem", width: "100%", justifyContent: "center"
+                    height: "3.75rem", width: "100%", justifyContent: "center"
                 }}
             >
-                <Body1>{!!gameState ? t(gameState) : ""}</Body1>
+                <Subtitle2 sx={{ height: "1.75rem" }}>{!!gameState ? t(gameState) : ""}</Subtitle2>
             </ShadowedStack>
             <ShadowedStack
                 sx={{
@@ -57,13 +59,24 @@ const RPSStatusContainer = () => {
                 }}
             >
                 <Subtitle1 sx={{ textAlign: "center" }}>{t("stats.title")}</Subtitle1>
-                <Body2>{t("stats.games", { count: totalGames })}</Body2>
-                <FlashingStatus title={"stats.wins"} count={totalWins} color={"#00D40A"} />
-                <FlashingStatus title={"stats.loses"} count={totalLoses} color={"#C20000"} />
-                <FlashingStatus title={"stats.draws"} count={totalDraws} color={"#FFC500"} />
+                <Grid container direction="row" columns={isMobile ? 2 : 1} spacing="1.25rem">
+                    <Grid size={1}>
+                        <Body1>{t("stats.games", { count: totalGames })}</Body1>
+                    </Grid>
+                    <Grid size={1}>
+                        <FlashingStatus title={"stats.wins"} count={totalWins} color={"#00D40A"} />
+                    </Grid>
+                    <Grid size={1}>
+                        <FlashingStatus title={"stats.loses"} count={totalLoses} color={"#C20000"} />
+                    </Grid>
+                    <Grid size={1}>
+                        <FlashingStatus title={"stats.draws"} count={totalDraws} color={"#FFC500"} />
+                    </Grid>
+                </Grid>
                 <Button
                     variant="outlined"
                     onClick={resetStats}
+                    sx={{ fontSize: "1.375rem", borderRadius: "0.75rem" }}
                 >
                     {t("stats.reset")}
                 </Button>

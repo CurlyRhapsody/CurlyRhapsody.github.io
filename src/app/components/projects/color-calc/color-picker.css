@@ -1,15 +1,15 @@
 /* Container */
 div.w-color-colorful {
-    width: 12.5rem !important;
-    height: 11.875rem !important;
+    width: 25rem !important;
+    height: 21.25rem !important;
 }
 
 /* Saturation - Upper Container */
 div.w-color-saturation {
     border-radius: 0.5rem !important;
-    width: 12.5rem !important;
-    height: 9.375rem !important;
-    min-width: 12.5rem !important;
+    width: 25rem !important;
+    height: 18.75rem !important;
+    min-width: 25rem !important;
     border-bottom: 1rem !important;
 }
 div.w-color-saturation > div {
@@ -25,9 +25,9 @@ div.w-color-alpha {
 /* Hue - Lower Bar */
 div.w-color-hue > div {
     border-radius: 0.5rem !important;
-    width: 12.5rem !important;
+    width: 25rem !important;
     height: 1.5rem !important;
-    min-width: 12.5rem !important;
+    min-width: 25rem !important;
     margin-top: 1rem;
 }
 div.w-color-hue > div > div {

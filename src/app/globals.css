@@ -7,6 +7,12 @@
   color-scheme: light !important;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --header-height: 6rem;
+  }
+}
+
 /* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

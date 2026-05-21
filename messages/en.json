@@ -82,7 +82,7 @@
                 "describe": "Strategic, Energetic, Chaotic",
                 "noSocial": "I seldom socialize via Social Media. I like to be myself offline!",
                 "moreLater": "Maybe I'll consider open one later...",
-                "summary": "Software Developer with 2+ years of experience in Frontend React and Next.JS framework, dedicated in developing responsive digital solutions. Has growing proficiency in Backend architecture and Database management. Skilled in collaborative problem-solving with teammates with self-motivation."
+                "summary": "Software Developer with 3 years of experience in Frontend React and Next.JS framework, dedicated in developing responsive digital solutions. Has growing proficiency in Backend architecture and Database management. Skilled in collaborative problem-solving with teammates with self-motivation."
             },
             "skill": {
                 "title": "Self-rate Score",
@@ -206,7 +206,7 @@
             "pickColor": "Pick a color:",
             "typeItOut": "Or type it out here:",
             "related": "Related Colors",
-            "click2copy": "Click on color swatches to copy its HEX code",
+            "click2copy": "Click on color swatches to copy HEX code",
             "copied": "Color copied",
             "tintAndShade": "Tints and Shades",
             "tint": "Tints",
@@ -289,7 +289,7 @@
                 "singles": "Singles",
                 "2dc": "2 Dice Combinations",
                 "3in4": "Four Number Combinations",
-                "winningOnly": "The following wages will show winning combinations only, due to many existing possibilities:",
+                "winningOnly": "The following wagers will show winning combinations only, due to many existing possibilities:",
                 "3singles": "3 Dice",
                 "2p1": "Double and Single",
                 "none": "None"
@@ -302,15 +302,15 @@
                 "start": "Start Drawing",
                 "yourNum": "Your Number:",
                 "drawnNumber": "Drawn Number:",
-                "noParti": "You may got the numbers,\nbut you didn't choose your numbers...",
-                "0Prize": "You got no prize!\nBetter luck next time!",
+                "noParti": "You may got the numbers,\nbut you didn't choose them...",
+                "0prize": "You got no prize!\nBetter luck next time!",
                 "7prize": "You got the 7th Prize!",
-                "6prize": "Nice! You got the 6th Prize!",
-                "5prize": "Great! You got the 5th Prize!",
-                "4prize": "Wow! You got the 4th Prize!",
-                "3prize": "My God! You got the 3rd Prize!!!",
-                "2prize": "Lucky You! You got the 2nd Prize!!!!!",
-                "1prize": "YOOOOOOO!!! You got the 1st Prize!!!!!!!!!",
+                "6prize": "Nice!\nYou got the 6th Prize!",
+                "5prize": "Great!\nYou got the 5th Prize!",
+                "4prize": "Wow!\nYou got the 4th Prize!",
+                "3prize": "My God!\nYou got the 3rd Prize!!!",
+                "2prize": "Lucky You!\nYou got the 2nd Prize!!!!!",
+                "1prize": "YOOOOOOO!!!\nYou got the 1st Prize!!!!!!!!!",
                 "reset": "Reset"
             },
             "roulette": {
@@ -346,7 +346,7 @@
             "NORMAL": "Normal",
             "HARD": "Hard",
             "IMPOSSIBLE": "Impossible",
-            "statsTip": "Stats will auto-reset when changing difficulty",
+            "statsTip": "Stats resets when changing difficulty",
             "stats": {
                 "title": "Statistics",
                 "games": "Total Games: {count}",

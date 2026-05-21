@@ -17,7 +17,7 @@ const LangOption = ({
             sx={{
                 color: "#3C3C3C",
                 ...(isDesktop && { height: "2.5rem", padding: "0.5rem 1rem" }),
-                ...(isMobile && { width: "100%", height: "3rem" }),
+                ...(isMobile && { width: "100%", height: "5rem" }),
             }}
         >
             <Body1>{text}</Body1>

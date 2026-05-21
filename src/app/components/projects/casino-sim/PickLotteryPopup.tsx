@@ -46,10 +46,10 @@ const PickLotteryPopup = ({
                     ))}
 
                 </Grid>
-                <Stack direction="row" sx={{ gap: "2rem" }}>
+                <Stack direction="row" sx={{ gap: "4rem" }}>
                     <Button
                         variant="contained"
-                        sx={{ p: "1rem", borderRadius: "0.5rem", width: "12rem" }}
+                        sx={{ p: "1rem", borderRadius: "0.5rem", width: "15rem", fontSize: "1.25rem" }}
                         onClick={onClose}
                     >
                         {t("noBuy")}
@@ -57,7 +57,7 @@ const PickLotteryPopup = ({
                     <Button
                         disabled={picked.length !== 6}
                         variant="contained"
-                        sx={{ p: "1rem", borderRadius: "0.5rem", width: "12rem" }}
+                        sx={{ p: "1rem", borderRadius: "0.5rem", width: "15rem", fontSize: "1.25rem" }}
                         onClick={() => {
                             generateLottery(picked);
                             setPicked([]);
