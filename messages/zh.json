@@ -10,7 +10,8 @@
         },
         "games": {
             "hub": "遊戲中心",
-            "rps": "猜拳遊戲"
+            "rps": "猜拳遊戲",
+            "pet-the-cat": "撫摸小貓"
         }
     },
     "menu": {
@@ -336,7 +337,8 @@
         "subtitle": "提供了某程度上的娛樂",
         "soon": "卡帶尚未準備好……",
         "menu": {
-            "rps": "猜拳遊戲"
+            "rps": "猜拳遊戲",
+            "pet-the-cat": "撫摸小貓"
         },
         "rps": {
             "title": "猜拳遊戲",
@@ -360,6 +362,14 @@
             "WIN": "你勝出了這個回合！",
             "LOSE": "你輸掉了這個回合！",
             "DRAW": "打成平手！"
+        },
+        "pet-the-cat": {
+            "title": "撫摸小貓",
+            "shoutout": "啟發至 <link>Brush Jjaemu</link> 小遊戲",
+            "score": "分數：{score}",
+            "highScore": "最高分數：{score}",
+            "gameOver": "遊戲結束！",
+            "reset": "重試"
         }
     }
 }

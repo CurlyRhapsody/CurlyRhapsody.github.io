@@ -10,7 +10,8 @@
         },
         "games": {
             "hub": "Game Center",
-            "rps": "Rock Paper Scissors"
+            "rps": "Rock Paper Scissors",
+            "pet-the-cat": "Pet the Cat"
         }
     },
     "menu": {
@@ -336,7 +337,8 @@
         "subtitle": "Providing some kind of entertainment",
         "soon": "Cartridges are not ready...",
         "menu": {
-            "rps": "Rock Paper Scissors"
+            "rps": "Rock Paper Scissors",
+            "pet-the-cat": "Pet the Cat"
         },
         "rps": {
             "title": "Rock Paper Scissors",
@@ -360,6 +362,14 @@
             "WIN": "You win this round!",
             "LOSE": "You lost this round!",
             "DRAW": "It's a draw!"
+        },
+        "pet-the-cat": {
+            "title": "Pet the Cat",
+            "shoutout": "Inspired from the minigame <link>Brush Jjaemu</link>",
+            "score": "Score: {score}",
+            "highScore": "High Score: {score}",
+            "gameOver": "Game Over!",
+            "reset": "Retry"
         }
     }
 }

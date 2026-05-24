@@ -8,6 +8,13 @@ const nextConfig = {
   images: { unoptimized: true },
   experimental: { globalNotFound: true },
   reactCompiler: true,
+  turbopack: {
+    rules: {
+      "*.mp3": {
+        type: "asset"
+      }
+    }
+  }
 };
 
 
