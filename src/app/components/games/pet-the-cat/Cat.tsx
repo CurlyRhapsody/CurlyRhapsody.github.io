@@ -20,7 +20,7 @@ const catIcon: Record<CatState, string> = {
 
 const Cat = ({ gameState, onPet }: {
     gameState: CatState;
-    onPet: (event: React.MouseEvent<HTMLDivElement>) => void;
+    onPet: () => void;
 }) => {
 
     const transformEffect = useMemo(() => {
@@ -39,6 +39,7 @@ const Cat = ({ gameState, onPet }: {
 
     return (
         <Stack
+            onTouchMove={onPet}
             onMouseMove={onPet}
             sx={{
                 width: "30rem",
