@@ -1,9 +1,9 @@
 "use client"
 
-import { ColorResult, hexToHsva, hexToRgba, hsvaToHex, hsvaToRgba, HsvColor, rgbaToHex, rgbaToHsva, RgbColor, rgbToHex } from "@uiw/react-color";
+import { ColorResult, hexToHsva, hexToRgba, hsvaToHex, hsvaToRgba, HsvColor, rgbaToHsva, RgbColor, rgbToHex } from "@uiw/react-color";
 import React, { createContext, useContext, useMemo, useState } from "react";
-import useDebounce from "../../hooks/useDebounce";
-import { applyColorBlindness, calculateColorVariations, getFullCB } from "../color-calc/utils";
+import { calculateColorVariations } from "../color-calc/utils";
+import useThrottle from '../../hooks/useThrottle';
 
 export type ColorPalette = {
     desc?: string;
@@ -58,7 +58,7 @@ const ColorCalcProvider = ({ children }: {children: React.ReactNode}) => {
     const [hsv, setHsv] = useState<HsvColor>({ h: 210, s: 88, v: 100 });
     
     // All change color functions are debounced to ~24fps to prevent devices become frying pan emulator
-    const setColor = useDebounce(
+    const setColor = useThrottle(
         (color?: ColorResult) => {
             if (!color) return;
             const { hex: newHex, rgb: newRgb, hsv: newHsv } = color;
@@ -69,7 +69,7 @@ const ColorCalcProvider = ({ children }: {children: React.ReactNode}) => {
         }
     , 42);
 
-    const onChangeCodeValue = useDebounce(
+    const onChangeCodeValue = useThrottle(
         (type: CodeType, val: string | Partial<RgbColor> | Partial<HsvColor>) => {
             switch (type) {
                 case "HEX": 

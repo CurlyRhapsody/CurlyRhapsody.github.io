@@ -366,7 +366,10 @@
         "pet-the-cat": {
             "title": "撫摸小貓",
             "shoutout": "啟發至 <link>Brush Jjaemu</link> 小遊戲",
-            "score": "分數：{score}"
+            "score": "分數：{score}",
+            "highScore": "最高分數：{score}",
+            "gameOver": "遊戲結束！",
+            "reset": "重試"
         }
     }
 }

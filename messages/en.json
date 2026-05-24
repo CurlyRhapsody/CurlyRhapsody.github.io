@@ -366,7 +366,10 @@
         "pet-the-cat": {
             "title": "Pet the Cat",
             "shoutout": "Inspired from the minigame <link>Brush Jjaemu</link>",
-            "score": "Score: {score}"
+            "score": "Score: {score}",
+            "highScore": "High Score: {score}",
+            "gameOver": "Game Over!",
+            "reset": "Retry"
         }
     }
 }
