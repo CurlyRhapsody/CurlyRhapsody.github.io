@@ -6,7 +6,8 @@
         "projects": {
             "list": "Projects",
             "color-calc": "Color Code Calculator",
-            "casino-sim": "Casino Simulation"
+            "casino-sim": "Casino Simulation",
+            "broadcast": "Cross-tab Broadcast Simulation"
         },
         "games": {
             "hub": "Game Center",
@@ -200,7 +201,8 @@
         "soon": "Bro is lacking I think",
         "menu": {
             "color-calc": "Color Code Calculator",
-            "casino-sim": "Casino Simulation"
+            "casino-sim": "Casino Simulation",
+            "broadcast": "Cross-tab Broadcast Simulation"
         },
         "color-calc": {
             "title": "Color Code Calculator",
@@ -330,6 +332,13 @@
                 "column": "Column",
                 "none": "None"
             }
+        },
+        "broadcast": {
+            "title": "Cross-tab Broadcast Simulation",
+            "shoutout": "Inspired from <link>this project</link>",
+            "effect": "Open new browsers of this page to see the effect!",
+            "mobileTitle": "Project is not available for Mobile.",
+            "plzUsePC": "Please use Desktop to try it out. Mobile tab nature does not allow the effect."
         }
     },
     "games": {

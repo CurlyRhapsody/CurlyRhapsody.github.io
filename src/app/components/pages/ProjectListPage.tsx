@@ -2,12 +2,12 @@
 
 import { ButtonBase, Stack } from "@mui/material";
 import { useLocale, useTranslations } from "next-intl";
-import { Body1, Subtitle1, Subtitle2, Title1 } from "../styled/text";
-import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
+import { Subtitle1, Subtitle2, Title1 } from "../styled/text";
 import Link from "next/link";
 import { ShadowedStack } from "../styled/component";
 import { SvgIconComponent } from "@mui/icons-material";
 import { projectList } from "./ProjectGameList";
+import useAccessPlatform from "../hooks/useAccessPlatform";
 
 const Project = ({ href, name, Icon }: { href: string, name: string, Icon: SvgIconComponent }) => {
     return (
@@ -33,20 +33,29 @@ const ProjectListPage = () => {
 
     const t = useTranslations("project");
     const locale = useLocale();
+    const { currentPlatform } = useAccessPlatform();
 
     return (
         <Stack sx={{ width: "100%", py: "4rem", alignItems: "center", gap: "2rem" }}>
             <Title1>{t("title")}</Title1>
             <Subtitle1 sx={{ mx: "2rem", textAlign: "center" }}>{t("subtitle")}</Subtitle1>
             <Stack sx={{ width: "100%", alignItems: "center", gap: "1.5rem" }}>
-                {projectList.map((project) =>(
-                    <Project
-                        key={project.id}
-                        href={`/${locale}/projects/${project.id}`}
-                        name={t(`menu.${project.id}`)}
-                        Icon={project.Icon}
-                    />
-                ))}
+                {projectList.map((project) => {
+                    
+                    const isSupported = !project.available
+                                    || project.available === currentPlatform
+
+                    if (!isSupported) return null;
+
+                    return (
+                        <Project
+                            key={project.id}
+                            href={`/${locale}/projects/${project.id}`}
+                            name={t(`menu.${project.id}`)}
+                            Icon={project.Icon}
+                        />
+                    )
+                })}
             </Stack>
                    
         </Stack>
