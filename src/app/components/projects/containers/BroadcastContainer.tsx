@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import PageContainer from "../../styled/PageContainer";
-import { Stack } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import useAccessPlatform from "../../hooks/useAccessPlatform";
 import { Subtitle2, Title1, Title3, Subtitle1, Body1 } from '../../styled/text';
 import Link from "next/link";
@@ -48,7 +48,10 @@ const BroadcastContainer = () => {
                         </Link>
                     ) })}    
                 </Subtitle1>
-                <Body1>{t("effect")}</Body1>
+                <Box sx={{ textAlign: "center" }}>
+                    <Body1>{t("effect")}</Body1>
+                    <Body1>{t("refresh")}</Body1>
+                </Box>
             </Stack>
             <BroadcastPlatform />
         </PageContainer>

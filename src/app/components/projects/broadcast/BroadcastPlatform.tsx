@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { ShadowedStack } from "../../styled/component";
-import { getWindowMiddlePos, globalToLocal } from './utils';
-import { ChartsXAxis } from '@mui/x-charts';
+import { Coord, findAngleAndDelta, getWindowMiddlePos, globalToLocal } from './utils';
 
-type PointCoord = { [tabUUID: string]: { x: number, y: number } };
+type PointCoord = { [tabUUID: string]: Coord };
 type PointPerformance = { [tabUUID: string]: DOMHighResTimeStamp };
 
 const TAB_ID = crypto.randomUUID();
@@ -17,6 +16,7 @@ const BroadcastPlatform = () => {
     const [lastSeenMap, setLastSeenMap] = useState<PointPerformance>({});
 
     const posMapRef = useRef(posMap);
+    const coordsRef = useRef<PointCoord>({});
     useEffect(() => {
         posMapRef.current = posMap;
     }, [posMap]);
@@ -35,11 +35,10 @@ const BroadcastPlatform = () => {
         }
     
         const period = () => {
-            if (context && canvas) {
-                context?.clearRect(0, 0, canvas.width, canvas.height);
-                drawArrows();
-                drawPoints();
-            }
+            if (!context || !canvas) return;
+            context?.clearRect(0, 0, 168, 168);
+            drawArrows();
+            drawPoints();
             animationFrameId = requestAnimationFrame(period);
         }
     
@@ -53,40 +52,56 @@ const BroadcastPlatform = () => {
             );
     
             const points = [{ x: currentLocal.x, y: currentLocal.y }];
-            for (const id in posMap) {
-                const remoteGlobal = posMap[id];
+
+            const currentPosMap = posMapRef.current;
+            for (const id in currentPosMap) {
+                const remoteGlobal = currentPosMap[id];
                 const remoteLocal = globalToLocal(remoteGlobal.x, remoteGlobal.y);
                 points.push({ x: remoteLocal.x, y: remoteLocal.y });
             }
     
             context.strokeStyle = 'black';
             context.lineWidth = 1;
-            for (let i = 0; i < points.length; i++) {
-                for (let j = i + 1; j < points.length; j++) {
-                    context.beginPath();
-                    context.moveTo(points[i].x, points[i].y);
-                    context.lineTo(points[j].x, points[j].y);
-                    context.stroke();
-                }
+            for (let j = 1; j < points.length; j++) {
+
+                const { angle, dx, dy } = findAngleAndDelta(points[j], points[0], 60);
+                const { endX, endY } = { endX: 84 + dx, endY: 84 + dy };
+
+                context.beginPath();
+                context.moveTo(84, 84);
+                context.lineTo(endX,endY);
+                context.lineTo(
+                    endX - 10 * Math.cos(angle - Math.PI / 9),
+                    endY - 10 * Math.sin(angle - Math.PI / 9)
+                );
+                context.moveTo(endX,endY);
+                context.lineTo(
+                    endX - 10 * Math.cos(angle + Math.PI / 9),
+                    endY - 10 * Math.sin(angle + Math.PI / 9)
+                );
+                context.stroke();
             }
         }
     
         const drawPoints = () => {
             if (!context) return;
-    
+
+            context.beginPath();
+            context.arc(84, 84, 10, 0, 2 * Math.PI);
+            context.fillStyle = 'red';
+            context.fill();
+
             const currentGlobal = getWindowMiddlePos();
             const currentLocal = globalToLocal(
                 currentGlobal.x,
                 currentGlobal.y
             );
         
-            context.beginPath();
-            context.arc(currentLocal.x, currentLocal.y, 10, 0, 2 * Math.PI);
-            context.fillStyle = 'red';
-            context.fill();
-        
-            for (const id in posMap) {
-                const remoteGlobal = posMap[id];
+            const currentPosMap = posMapRef.current;
+            for (const id in currentPosMap) {
+                const remoteGlobal = currentPosMap[id];
+
+                console.log(remoteGlobal);
         
                 const remoteLocal = globalToLocal(
                     remoteGlobal.x,
@@ -94,7 +109,11 @@ const BroadcastPlatform = () => {
                 );
         
                 context.beginPath();
-                context.arc(remoteLocal.x, remoteLocal.y, 10, 0, 2 * Math.PI);
+                context.arc(
+                    remoteLocal.x - (currentLocal.x - 84),
+                    remoteLocal.y - (currentLocal.y - 84),
+                    10, 0, 2 * Math.PI
+                );
                 context.fillStyle = 'blue';
                 context.fill();
             }
@@ -109,6 +128,7 @@ const BroadcastPlatform = () => {
 
                 for (const id in updatedLastSeen) {
                     if (now - updatedLastSeen[id] > TAB_TIMEOUT) {
+                        delete coordsRef.current[id];
                         delete updatedLastSeen[id];
                         changed = true;
                         
@@ -125,6 +145,9 @@ const BroadcastPlatform = () => {
 
         const handleMessage = (event: MessageEvent) => {
             if (event.data.tabId === TAB_ID) return;
+
+            coordsRef.current[event.data.tabId] = { x: event.data.x, y: event.data.y };
+
             setPosMap(prev => ({ ...prev, [event.data.tabId]: { x: event.data.x, y: event.data.y } }));
             setLastSeenMap(prev => ({ ...prev, [event.data.tabId]: performance.now() }));
         }
@@ -142,12 +165,13 @@ const BroadcastPlatform = () => {
             clearInterval(cleanupInterval);
         };
     }, []);
-    
+
     return (
         <ShadowedStack
             sx={{
-                position: "absolute", background: "#FFFFFF", borderRadius: "16px", p: "16px",
-                width: "200px", height: "200px", minHeight: "200px", top: "calc(50% - 100px)"
+                position: "absolute", background: "#FFFFFF", borderRadius: "16px", padding: "16px",
+                width: "200px", height: "200px", minHeight: "200px", top: "calc(50% - 100px)",
+                zIndex: 200
             }}
         >
             <canvas ref={canvasRef} width="168px" height="168px"></canvas>

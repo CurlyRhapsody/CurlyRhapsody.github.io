@@ -336,7 +336,8 @@
         "broadcast": {
             "title": "Cross-tab Broadcast Simulation",
             "shoutout": "Inspired from <link>this project</link>",
-            "effect": "Open new browsers of this page to see the effect!",
+            "effect": "Open new browsers of this page to see the dots point each other!",
+            "refresh": "Refresh the new page if new pages are not registered.",
             "mobileTitle": "Project is not available for Mobile.",
             "plzUsePC": "Please use Desktop to try it out. Mobile tab nature does not allow the effect."
         }
