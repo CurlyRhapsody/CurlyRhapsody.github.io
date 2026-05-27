@@ -7,7 +7,8 @@
             "list": "Projects",
             "color-calc": "Color Code Calculator",
             "casino-sim": "Casino Simulation",
-            "broadcast": "Cross-tab Broadcast Simulation"
+            "broadcast": "Cross-tab Broadcast Simulation",
+            "sort-sim": "Sort Visualizer"
         },
         "games": {
             "hub": "Game Center",
@@ -202,7 +203,8 @@
         "menu": {
             "color-calc": "Color Code Calculator",
             "casino-sim": "Casino Simulation",
-            "broadcast": "Cross-tab Broadcast Simulation"
+            "broadcast": "Cross-tab Broadcast Simulation",
+            "sort-sim": "Sort Visualizer"
         },
         "color-calc": {
             "title": "Color Code Calculator",
@@ -340,6 +342,25 @@
             "refresh": "Refresh the new page if new pages are not registered.",
             "mobileTitle": "Project is not available for Mobile.",
             "plzUsePC": "Please use Desktop to try it out. Mobile tab nature does not allow the effect."
+        },
+        "sort-sim": {
+            "title": "Sort Visualizer",
+            "subtitle": "\"That Average Portfolio Project\"",
+            "settings": "Settings",
+            "select": "Select sort type",
+            "shuffle": "Shuffle",
+            "start": "Start",
+            "numElements": "No. of Elements: {count}",
+            "sort": {
+                "bubble": "Bubble Sort",
+                "insertion": "Insertion Sort",
+                "selection": "Selection Sort",
+                "cocktail": "Cocktail Shaker Sort",
+                "merge": "Merge Sort",
+                "quick": "Quick Sort",
+                "count": "Count Sort",
+                "radix": "Radix Sort (Base 10)"
+            }
         }
     },
     "games": {

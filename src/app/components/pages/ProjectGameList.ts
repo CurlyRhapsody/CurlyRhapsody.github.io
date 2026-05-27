@@ -4,6 +4,7 @@ import PaletteIcon from '@mui/icons-material/Palette';
 import CasinoIcon from '@mui/icons-material/Casino';
 import PetsIcon from '@mui/icons-material/Pets';
 import CellTowerIcon from '@mui/icons-material/CellTower';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import { AvailablePlatform } from "../hooks/useAccessPlatform";
 
 type ProjectMenu = {
@@ -31,6 +32,10 @@ export const projectList: ProjectMenu[] = [
         id: "broadcast",
         Icon: CellTowerIcon,
         available: "DESKTOP"
+    },
+    {
+        id: "sort-sim",
+        Icon: BarChartIcon
     }
 ];
 

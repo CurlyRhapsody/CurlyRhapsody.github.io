@@ -8,6 +8,8 @@ import SnackbarProvider from "../providers/SnackbarProvider";
 import CasinoSimContainer from "../projects/containers/CasinoSimContainer";
 import CasinoSimProvider from "../projects/providers/CasinoSimProvider";
 import BroadcastContainer from "../projects/containers/BroadcastContainer";
+import SortSimContainer from "../projects/containers/SortSimContainer";
+import SortSimProvider from "../projects/providers/SortSimProvider";
 
 const ProjectPage = () => {
     const params = useParams();
@@ -31,6 +33,12 @@ const ProjectPage = () => {
         case AvailableProjects.BROADCAST:
             return (
                 <BroadcastContainer />
+            )
+        case AvailableProjects.SORT_SIM:
+            return (
+                <SortSimProvider>
+                    <SortSimContainer />
+                </SortSimProvider>
             )
         default: return <></>; // This case is not suppose to happen, should fallback by 404
     }
