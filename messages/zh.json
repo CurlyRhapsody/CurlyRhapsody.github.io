@@ -6,7 +6,8 @@
         "projects": {
             "list": "專案",
             "color-calc": "色碼尋找器",
-            "casino-sim": "賭場模擬"
+            "casino-sim": "賭場模擬",
+            "broadcast": "跨分頁多播模擬"
         },
         "games": {
             "hub": "遊戲中心",
@@ -200,7 +201,8 @@
         "soon": "我想他在偷懶了……",
         "menu": {
             "color-calc": "色碼尋找器",
-            "casino-sim": "賭場模擬"
+            "casino-sim": "賭場模擬",
+            "broadcast": "跨分頁多播模擬"
         },
         "color-calc": {
             "title": "色碼尋找器",
@@ -330,6 +332,14 @@
                 "column": "直行",
                 "none": "無"
             }
+        },
+        "broadcast": {
+            "title": "跨分頁多播模擬",
+            "shoutout": "啟發自<link>此專案</link>",
+            "effect": "請使用新分頁打開此頁，令紅點們互相指向對方！",
+            "refresh": "如新分頁無法被偵測，請刷新該分頁。",
+            "mobileTitle": "此專案不適配於手機端",
+            "plzUsePC": "請使用電腦打開此頁專案。手機分頁的行為不允許此專案正常運作。"
         }
     },
     "games": {

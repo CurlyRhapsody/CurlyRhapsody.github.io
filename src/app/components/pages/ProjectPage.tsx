@@ -7,6 +7,7 @@ import ColorCalcProvider from "../projects/providers/ColorCalcProvider";
 import SnackbarProvider from "../providers/SnackbarProvider";
 import CasinoSimContainer from "../projects/containers/CasinoSimContainer";
 import CasinoSimProvider from "../projects/providers/CasinoSimProvider";
+import BroadcastContainer from "../projects/containers/BroadcastContainer";
 
 const ProjectPage = () => {
     const params = useParams();
@@ -26,6 +27,10 @@ const ProjectPage = () => {
                 <CasinoSimProvider>
                     <CasinoSimContainer />
                 </CasinoSimProvider>
+            )
+        case AvailableProjects.BROADCAST:
+            return (
+                <BroadcastContainer />
             )
         default: return <></>; // This case is not suppose to happen, should fallback by 404
     }
