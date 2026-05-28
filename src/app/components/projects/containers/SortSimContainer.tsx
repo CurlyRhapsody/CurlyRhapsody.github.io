@@ -6,7 +6,7 @@ import SortPanel from "../sort-sim/SortPanel";
 
 const SortSimContainer = () => {
 
-    const t = useTranslations("project.sort-sim")
+    const t = useTranslations("project.sort-sim");
 
     return (
         <PageContainer>

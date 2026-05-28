@@ -347,10 +347,14 @@
             "title": "排序視覺化",
             "subtitle": "「那個很常見的作品集專案」",
             "settings": "排序設定",
-            "select": "選擇排序方式",
+            "select": "排序方式",
             "shuffle": "打亂",
             "start": "開始",
             "numElements": "物件數量：{count}",
+            "sortInterval": "排序間隔：{time}ms",
+            "elementSetting": "物件設定",
+            "inorder": "1 至 n 順序",
+            "repeated": "包含重覆數件",
             "sort": {
                 "bubble": "冒泡排序法",
                 "insertion": "插入排序法",
@@ -359,7 +363,7 @@
                 "merge": "合併排序法",
                 "quick": "快速排序法",
                 "count": "計數排序法",
-                "radix": "基數排序法（十進制）",
+                "radix10": "基數排序法（十進制）",
                 "bogo": "猴子排序法"
             }
         }

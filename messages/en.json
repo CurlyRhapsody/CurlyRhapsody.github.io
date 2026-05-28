@@ -347,10 +347,14 @@
             "title": "Sort Visualizer",
             "subtitle": "\"That Average Portfolio Project\"",
             "settings": "Settings",
-            "select": "Select sort type",
+            "select": "Sort type",
             "shuffle": "Shuffle",
             "start": "Start",
             "numElements": "No. of Elements: {count}",
+            "sortInterval": "Sort Interval: {time}ms",
+            "elementSetting": "Element Settings",
+            "inorder": "1 to n inorder",
+            "repeated": "With repeated numbers",
             "sort": {
                 "bubble": "Bubble Sort",
                 "insertion": "Insertion Sort",
@@ -359,7 +363,8 @@
                 "merge": "Merge Sort",
                 "quick": "Quick Sort",
                 "count": "Count Sort",
-                "radix": "Radix Sort (Base 10)"
+                "radix10": "Radix Sort (Base 10)",
+                "bogo": "Bogo Sort"
             }
         }
     },
