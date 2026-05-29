@@ -350,6 +350,8 @@
             "select": "Sort type",
             "shuffle": "Shuffle",
             "start": "Start",
+            "pause": "Pause",
+            "resume": "Resume",
             "numElements": "No. of Elements: {count}",
             "sortInterval": "Sort Interval: {time}ms",
             "elementSetting": "Element Settings",

@@ -1,21 +1,40 @@
 "use client"
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useRef, useState } from "react";
 import { useEffect } from 'react';
-import { shuffleArray } from "../../utility/utils";
+import { shuffleArray, sleep } from "../../utility/utils";
+import { bubbleSort } from "../sort-sim/algorithms/BubbleSort";
+import { insertionSort } from "../sort-sim/algorithms/InsertionSort";
+import { selectionSort } from "../sort-sim/algorithms/SelectionSort";
+import { cocktailSort } from "../sort-sim/algorithms/CocktailSort";
+
+export type SortElement = {
+    value: number;
+    state: ElementState;
+}
 
 type Context = {
-    array?: number[];
+    array?: SortElement[];
     shufflePattern?: ShuffleMethod;
     sortAlgo?: SortMethod;
     numElements?: number;
     sortInterval?: number;
+    isSorting?: boolean;
+    isPaused?: boolean;
     shuffle: () => void;
     sort: () => void;
+    togglePause: () => void;
     changeElementSettings: (newPattern: ShuffleMethod) => void;
     changeSortMethod: (newMethod: SortMethod) => void;
     setNumElements: (newElNum: number) => void;
     setSortInterval: (newInterval: number) => void;
+}
+
+export enum ElementState {
+    NORMAL = "normal",
+    COMPARING = "comparing",
+    SWAPPING = "swapping",
+    FINISHED = "finished",
 }
 
 export enum ShuffleMethod {
@@ -41,8 +60,11 @@ const initContext: Context = {
     sortAlgo: undefined,
     numElements: undefined,
     sortInterval: undefined,
+    isSorting: undefined,
+    isPaused: undefined,
     shuffle: () => { return; },
     sort: () => { return; },
+    togglePause: () => { return; },
     changeElementSettings: () => { return; },
     changeSortMethod: () => { return; },
     setNumElements: () => { return; },
@@ -54,15 +76,21 @@ const SortSimContext = createContext<Context>(initContext);
 
 const SortSimProvider = ({ children }: {children: React.ReactNode}) => {
 
-    const [array, setArray] = useState<number[]>([]);
+    const [array, setArray] = useState<SortElement[]>([]);
     const [shufflePattern, setShufflePattern] = useState<ShuffleMethod>(ShuffleMethod.INORDER);
     const [sortAlgo, setSortAlgo] = useState<SortMethod>(SortMethod.BUBBLE);
     const [numElements, setNumElements] = useState<number>(10);
     const [sortInterval, setSortInterval] = useState<number>(100);
 
+    const [isPaused, setIsPaused] = useState<boolean>(false);
+    const [isSorting, setIsSorting] = useState<boolean>(false);
+
+    const pauseRef = useRef<boolean>(false);
+    const sortRef = useRef<boolean>(false);
+
     useEffect(() => {
         shuffle();
-    }, [numElements, shufflePattern])
+    }, [numElements, shufflePattern]);
 
     const changeElementSettings = (newPattern: ShuffleMethod) => {
         setShufflePattern(newPattern);
@@ -73,31 +101,86 @@ const SortSimProvider = ({ children }: {children: React.ReactNode}) => {
     }
 
     const shuffle = () => {
+
+        pauseRef.current = false;
+        sortRef.current = false;
+        setIsPaused(false);
+        setIsSorting(false);
+
         if (shufflePattern === ShuffleMethod.INORDER) {
-            const newArray = Array.from({ length: numElements }, (_, i) => i + 1);
-            setArray(shuffleArray<number>(newArray));
+            const newArray = Array.from({ length: numElements }, (_, i) => ({
+                value: i + 1,
+                state: ElementState.NORMAL,
+            }));
+            setArray(shuffleArray<SortElement>(newArray));
         }
         if (shufflePattern === ShuffleMethod.WITH_REPEAT) {
             const result = [];
             let nextNum = 1;
             for (let i = 0; i < numElements; i++) {
                 if (Math.random() < 0.2) {
-                    result.push(nextNum);
+                    result.push(({
+                        value: nextNum,
+                        state: ElementState.NORMAL,
+                    }));
                 } else {
-                    result.push(nextNum++);
+                    result.push(({
+                        value: nextNum++,
+                        state: ElementState.NORMAL,
+                    }));
                 }
             }
-            setArray(shuffleArray<number>(result));
+            setArray(shuffleArray<SortElement>(result));
         }
     };
 
-    const sort = () => {}
+    const checkPause = async () => {
+        while (pauseRef.current) {
+            await sleep(100);
+        }
+    }
+
+    const sort = async () => {
+
+        if (isSorting) return;
+        sortRef.current = true;
+        setIsSorting(true);
+
+        switch (sortAlgo) {
+            case SortMethod.BUBBLE:
+                await bubbleSort(array, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.INSERTION:
+                await insertionSort(array, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.SELECTION:
+                await selectionSort(array, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.COCKTAIL:
+                await cocktailSort(array, sortInterval, setArray, checkPause);
+                break;
+            default:
+                await bubbleSort(array, sortInterval, setArray, checkPause);
+                break;
+        }
+        
+
+        setIsSorting(false);
+        sortRef.current = false;
+    }
+
+    const togglePause = () => {
+        pauseRef.current = !pauseRef.current;
+        setIsPaused(!isPaused)
+    }
 
     return (
         <SortSimContext.Provider value={{
             array, shufflePattern,
+            isPaused,
+            isSorting,
             sortAlgo, numElements, sortInterval,
-            shuffle, sort,
+            shuffle, sort, togglePause,
             changeElementSettings,
             changeSortMethod,
             setNumElements,

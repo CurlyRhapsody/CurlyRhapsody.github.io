@@ -350,6 +350,8 @@
             "select": "排序方式",
             "shuffle": "打亂",
             "start": "開始",
+            "pause": "暫停",
+            "resume": "繼續",
             "numElements": "物件數量：{count}",
             "sortInterval": "排序間隔：{time}ms",
             "elementSetting": "物件設定",

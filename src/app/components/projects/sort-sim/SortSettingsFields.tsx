@@ -5,12 +5,13 @@ import { ShuffleMethod, SortMethod, useSortSimContext } from '../providers/SortS
 
 export const SortDropdown = () => {
     const t = useTranslations("project.sort-sim");
-    const { sortAlgo, changeSortMethod } = useSortSimContext();
+    const { isSorting, sortAlgo, changeSortMethod } = useSortSimContext();
 
     return (
         <Stack direction="row" sx={{ gap: "1.5rem", alignItems: "center", justifyContent: "center", width: "100%" }}>
             <Subtitle2>{t("select")}</Subtitle2>
             <Select
+                disabled={isSorting}
                 value={sortAlgo}
                 onChange={(e) => changeSortMethod(e.target.value as SortMethod)}
                 sx={{
@@ -30,7 +31,7 @@ export const SortDropdown = () => {
 
 export const ElementSettingRadio = () => {
     const t = useTranslations("project.sort-sim");
-    const { shufflePattern, changeElementSettings } = useSortSimContext();
+    const { isSorting, shufflePattern, changeElementSettings } = useSortSimContext();
 
     return (
         <Stack direction="row" sx={{ gap: "1.5rem", alignItems: "center", justifyContent: "center", width: "100%" }}>
@@ -42,13 +43,13 @@ export const ElementSettingRadio = () => {
             >
                 <FormControlLabel
                     value={ShuffleMethod.INORDER}
-                    control={<Radio sx={{ padding: "0.5rem" }} />}
+                    control={<Radio sx={{ padding: "0.5rem" }} disabled={isSorting} />}
                     label={t("inorder")}
                     sx={{ ml: "-0.625rem", mr: "1rem" }}
                 />
                 <FormControlLabel
                     value={ShuffleMethod.WITH_REPEAT}
-                    control={<Radio sx={{ padding: "0.5rem" }} />}
+                    control={<Radio sx={{ padding: "0.5rem" }} disabled={isSorting} />}
                     label={t("repeated")}
                     sx={{ ml: "-0.625rem", mr: "1rem" }}
                 />
@@ -59,12 +60,13 @@ export const ElementSettingRadio = () => {
 
 export const ElementCountSlider = () => {
     const t = useTranslations("project.sort-sim");
-    const { numElements, setNumElements } = useSortSimContext();
+    const { isSorting, numElements, setNumElements } = useSortSimContext();
 
     return (
         <Stack direction="column" sx={{ gap: "1rem", alignItems: "flex-start", width: "15rem" }}>
             <Subtitle2>{t("numElements", { count: numElements ?? NaN })}</Subtitle2>
             <Slider
+                disabled={isSorting}
                 value={numElements}
                 onChange={(_, num: number) => setNumElements(num)}
                 min={5}
@@ -77,17 +79,18 @@ export const ElementCountSlider = () => {
 
 export const SortIntervalSlider = () => {
     const t = useTranslations("project.sort-sim");
-    const { sortInterval, setSortInterval } = useSortSimContext();
+    const { isSorting, sortInterval, setSortInterval } = useSortSimContext();
 
     return (
         <Stack direction="column" sx={{ gap: "1rem", alignItems: "flex-start", width: "15rem" }}>
             <Subtitle2>{t("sortInterval", { time: sortInterval ?? NaN })}</Subtitle2>
             <Slider
+                disabled={isSorting}
                 value={sortInterval}
                 onChange={(_, num: number) => setSortInterval(num)}
-                min={50}
-                max={1000}
-                step={50}
+                min={5}
+                max={200}
+                step={5}
             />
         </Stack>
     )
