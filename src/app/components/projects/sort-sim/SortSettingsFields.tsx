@@ -18,12 +18,25 @@ export const SortDropdown = () => {
                 sx={{
                     width: "20rem",
                     "& .MuiSelect-select": {
-                        p: "1rem 2rem 1rem 0.875rem"
+                        p: "1rem 2rem 1rem 0.875rem",
+                        fontSize: "1.25rem",
+                        lineHeight: "1.75rem",
+                        fontWeight: 400,
                     }
                 }}
             >
                 {Object.values(SortMethod).map((method) => (
-                    <MenuItem value={method}>{t(`sort.${method}`)}</MenuItem>
+                    <MenuItem
+                        value={method}
+                        sx={{
+                            p: "1rem 2rem 1rem 0.875rem",
+                            fontSize: "1.25rem",
+                            lineHeight: "1.75rem",
+                            fontWeight: 400,
+                        }}
+                    >
+                        {t(`sort.${method}`)
+                    }</MenuItem>
                 ))}
             </Select>
         </Stack>
@@ -46,13 +59,27 @@ export const ElementSettingRadio = () => {
                     value={ShuffleMethod.INORDER}
                     control={<Radio sx={{ padding: "0.5rem" }} disabled={isSorting} />}
                     label={t("inorder")}
-                    sx={{ ml: "-0.625rem", mr: "1rem" }}
+                    sx={{
+                        ml: "-0.625rem", mr: "1rem",
+                        "& .MuiFormControlLabel-label": {
+                            fontSize: "1.25rem",
+                            lineHeight: "1.75rem",
+                            fontWeight: 400,
+                        }
+                    }}
                 />
                 <FormControlLabel
                     value={ShuffleMethod.WITH_REPEAT}
                     control={<Radio sx={{ padding: "0.5rem" }} disabled={isSorting} />}
                     label={t("repeated")}
-                    sx={{ ml: "-0.625rem", mr: "1rem" }}
+                    sx={{
+                        ml: "-0.625rem", mr: "1rem",
+                        "& .MuiFormControlLabel-label": {
+                            fontSize: "1.25rem",
+                            lineHeight: "1.75rem",
+                            fontWeight: 400,
+                        }
+                    }}
                 />
             </RadioGroup>
         </Stack>
@@ -82,6 +109,17 @@ export const ElementCountSlider = () => {
                 min={5}
                 max={isBogo ? 10 : 100}
                 step={1}
+                sx={{
+                    py: "0.875rem",
+                    "& .MuiSlider-thumb": {
+                        height: "1.25rem",
+                        width: "1.25rem"
+                    },
+                    "& .MuiSlider-thumb::after": {
+                        height: "1.25rem",
+                        width: "1.25rem"
+                    }
+                }}
             />
         </Stack>
     )
@@ -101,6 +139,17 @@ export const SortIntervalSlider = () => {
                 min={2}
                 max={50}
                 step={1}
+                sx={{
+                    py: "0.875rem",
+                    "& .MuiSlider-thumb": {
+                        height: "1.25rem",
+                        width: "1.25rem"
+                    },
+                    "& .MuiSlider-thumb::after": {
+                        height: "1.25rem",
+                        width: "1.25rem"
+                    }
+                }}
             />
         </Stack>
     )
