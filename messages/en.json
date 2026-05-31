@@ -7,7 +7,8 @@
             "list": "Projects",
             "color-calc": "Color Code Calculator",
             "casino-sim": "Casino Simulation",
-            "broadcast": "Cross-tab Broadcast Simulation"
+            "broadcast": "Cross-tab Broadcast Simulation",
+            "sort-sim": "Sort Visualizer"
         },
         "games": {
             "hub": "Game Center",
@@ -202,7 +203,8 @@
         "menu": {
             "color-calc": "Color Code Calculator",
             "casino-sim": "Casino Simulation",
-            "broadcast": "Cross-tab Broadcast Simulation"
+            "broadcast": "Cross-tab Broadcast Simulation",
+            "sort-sim": "Sort Visualizer"
         },
         "color-calc": {
             "title": "Color Code Calculator",
@@ -340,6 +342,35 @@
             "refresh": "Refresh the new page if new pages are not registered.",
             "mobileTitle": "Project is not available for Mobile.",
             "plzUsePC": "Please use Desktop to try it out. Mobile tab nature does not allow the effect."
+        },
+        "sort-sim": {
+            "title": "Sort Visualizer",
+            "subtitle": "\"That Average Portfolio Project\"",
+            "settings": "Settings",
+            "select": "Sort type",
+            "shuffle": "Shuffle",
+            "start": "Start",
+            "pause": "Pause",
+            "resume": "Resume",
+            "numElements": "No. of Elements: {count}",
+            "sortInterval": "Sort Interval: {time}ms",
+            "elementSetting": "Element Settings",
+            "inorder": "1 to n inorder",
+            "repeated": "With repeated numbers",
+            "sort": {
+                "bubble": "Bubble Sort",
+                "insertion": "Insertion Sort",
+                "selection": "Selection Sort",
+                "cocktail": "Cocktail Shaker Sort",
+                "shell": "Shell Sort",
+                "merge": "Merge Sort",
+                "quick": "Quick Sort",
+                "count": "Count Sort",
+                "radix10": "Radix Sort (Base 10)",
+                "radix8": "Radix Sort (Base 8)",
+                "radix2": "Radix Sort (Base 2)",
+                "bogo": "Bogo Sort"
+            }
         }
     },
     "games": {

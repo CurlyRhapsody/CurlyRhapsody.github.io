@@ -7,7 +7,8 @@
             "list": "專案",
             "color-calc": "色碼尋找器",
             "casino-sim": "賭場模擬",
-            "broadcast": "跨分頁多播模擬"
+            "broadcast": "跨分頁多播模擬",
+            "sort-sim": "排序視覺化"
         },
         "games": {
             "hub": "遊戲中心",
@@ -202,7 +203,8 @@
         "menu": {
             "color-calc": "色碼尋找器",
             "casino-sim": "賭場模擬",
-            "broadcast": "跨分頁多播模擬"
+            "broadcast": "跨分頁多播模擬",
+            "sort-sim": "排序視覺化"
         },
         "color-calc": {
             "title": "色碼尋找器",
@@ -340,6 +342,35 @@
             "refresh": "如新分頁無法被偵測，請刷新該分頁。",
             "mobileTitle": "此專案不適配於手機端",
             "plzUsePC": "請使用電腦打開此頁專案。手機分頁的行為不允許此專案正常運作。"
+        },
+        "sort-sim": {
+            "title": "排序視覺化",
+            "subtitle": "「那個很常見的作品集專案」",
+            "settings": "排序設定",
+            "select": "排序方式",
+            "shuffle": "打亂",
+            "start": "開始",
+            "pause": "暫停",
+            "resume": "繼續",
+            "numElements": "物件數量：{count}",
+            "sortInterval": "排序間隔：{time}ms",
+            "elementSetting": "物件設定",
+            "inorder": "1 至 n 順序",
+            "repeated": "包含重覆數件",
+            "sort": {
+                "bubble": "冒泡排序法",
+                "insertion": "插入排序法",
+                "selection": "選擇排序法",
+                "cocktail": "雞尾酒排序法",
+                "shell": "希爾排序法",
+                "merge": "合併排序法",
+                "quick": "快速排序法",
+                "count": "計數排序法",
+                "radix10": "基數排序法（十進制）",
+                "radix8": "基數排序法（八進制）",
+                "radix2": "基數排序法（二進制）",
+                "bogo": "猴子排序法"
+            }
         }
     },
     "games": {

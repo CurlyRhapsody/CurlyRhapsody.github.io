@@ -6,3 +6,7 @@ export function shuffleArray<T>(arr: T[]): T[] {
     }
     return arr;
 }
+
+export function sleep(interval: number) {
+    return new Promise(resolve => setTimeout(resolve, interval));
+}

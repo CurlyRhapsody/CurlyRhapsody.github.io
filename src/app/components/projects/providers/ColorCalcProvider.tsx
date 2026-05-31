@@ -115,7 +115,7 @@ export const useColorCalcContext = () => {
     const context = useContext(ColorCalcContext);
 
     if (context === undefined) {
-        throw Error("useRPSContext must be wrapped inside ColorCalcProvider");
+        throw Error("useColorCalcContext must be wrapped inside ColorCalcProvider");
     }
 
     return context;
