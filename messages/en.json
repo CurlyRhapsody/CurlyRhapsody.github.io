@@ -362,10 +362,13 @@
                 "insertion": "Insertion Sort",
                 "selection": "Selection Sort",
                 "cocktail": "Cocktail Shaker Sort",
+                "shell": "Shell Sort",
                 "merge": "Merge Sort",
                 "quick": "Quick Sort",
                 "count": "Count Sort",
                 "radix10": "Radix Sort (Base 10)",
+                "radix8": "Radix Sort (Base 8)",
+                "radix2": "Radix Sort (Base 2)",
                 "bogo": "Bogo Sort"
             }
         }

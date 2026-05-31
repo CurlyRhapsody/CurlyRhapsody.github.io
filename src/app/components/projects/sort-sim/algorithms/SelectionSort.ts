@@ -43,6 +43,6 @@ export async function selectionSort(
     for (let i = 0; i < arrLen; i++) {
         arr[i].state = ElementState.FINISHED;
         setArray([...arr]);
-        await sleep(5)
+        await sleep(3)
     }
 }

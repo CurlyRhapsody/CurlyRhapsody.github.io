@@ -3,10 +3,8 @@
 import React, { createContext, useContext, useRef, useState } from "react";
 import { useEffect } from 'react';
 import { shuffleArray, sleep } from "../../utility/utils";
-import { bubbleSort } from "../sort-sim/algorithms/BubbleSort";
-import { insertionSort } from "../sort-sim/algorithms/InsertionSort";
-import { selectionSort } from "../sort-sim/algorithms/SelectionSort";
-import { cocktailSort } from "../sort-sim/algorithms/CocktailSort";
+import * as SortingSlgorithms from "../sort-sim/algorithms";
+
 
 export type SortElement = {
     value: number;
@@ -47,10 +45,13 @@ export enum SortMethod {
     INSERTION = "insertion",
     SELECTION = "selection",
     COCKTAIL = "cocktail",
+    SHELL = "shell",
     MERGE = "merge",
     QUICK = "quick",
     COUNT = "count",
     RADIX_10 = "radix10",
+    RADIX_8 = "radix8",
+    RADIX_2 = "radix2",
     BOGO = "bogo"
 }
 
@@ -80,7 +81,7 @@ const SortSimProvider = ({ children }: {children: React.ReactNode}) => {
     const [shufflePattern, setShufflePattern] = useState<ShuffleMethod>(ShuffleMethod.INORDER);
     const [sortAlgo, setSortAlgo] = useState<SortMethod>(SortMethod.BUBBLE);
     const [numElements, setNumElements] = useState<number>(10);
-    const [sortInterval, setSortInterval] = useState<number>(100);
+    const [sortInterval, setSortInterval] = useState<number>(20);
 
     const [isPaused, setIsPaused] = useState<boolean>(false);
     const [isSorting, setIsSorting] = useState<boolean>(false);
@@ -148,19 +149,43 @@ const SortSimProvider = ({ children }: {children: React.ReactNode}) => {
 
         switch (sortAlgo) {
             case SortMethod.BUBBLE:
-                await bubbleSort(array, sortInterval, setArray, checkPause);
+                await SortingSlgorithms.bubbleSort(array, sortInterval, setArray, checkPause);
                 break;
             case SortMethod.INSERTION:
-                await insertionSort(array, sortInterval, setArray, checkPause);
+                await SortingSlgorithms.insertionSort(array, sortInterval, setArray, checkPause);
                 break;
             case SortMethod.SELECTION:
-                await selectionSort(array, sortInterval, setArray, checkPause);
+                await SortingSlgorithms.selectionSort(array, sortInterval, setArray, checkPause);
                 break;
             case SortMethod.COCKTAIL:
-                await cocktailSort(array, sortInterval, setArray, checkPause);
+                await SortingSlgorithms.cocktailSort(array, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.SHELL:
+                await SortingSlgorithms.shellSort(array, sortInterval, setArray, checkPause);
+                break;                
+            case SortMethod.MERGE:
+                await SortingSlgorithms.mergeSort(array, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.QUICK:
+                await SortingSlgorithms.quickSort(array, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.COUNT:
+                await SortingSlgorithms.countSort(array, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.RADIX_10:
+                await SortingSlgorithms.radixSort(array, 10, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.RADIX_8:
+                await SortingSlgorithms.radixSort(array, 8, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.RADIX_2:
+                await SortingSlgorithms.radixSort(array, 2, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.BOGO:
+                await SortingSlgorithms.bogoSort(array, sortInterval, setArray, checkPause);
                 break;
             default:
-                await bubbleSort(array, sortInterval, setArray, checkPause);
+                await SortingSlgorithms.bubbleSort(array, sortInterval, setArray, checkPause);
                 break;
         }
         

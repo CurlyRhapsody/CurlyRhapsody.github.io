@@ -2,6 +2,7 @@ import { FormControlLabel, MenuItem, Radio, RadioGroup, Select, Slider, Stack, s
 import { useTranslations } from "next-intl"
 import { Subtitle2 } from "../../styled/text";
 import { ShuffleMethod, SortMethod, useSortSimContext } from '../providers/SortSimProvider';
+import { useEffect, useMemo } from "react";
 
 export const SortDropdown = () => {
     const t = useTranslations("project.sort-sim");
@@ -60,7 +61,16 @@ export const ElementSettingRadio = () => {
 
 export const ElementCountSlider = () => {
     const t = useTranslations("project.sort-sim");
-    const { isSorting, numElements, setNumElements } = useSortSimContext();
+    const { isSorting, sortAlgo, numElements, setNumElements } = useSortSimContext();
+
+    // if is bogo sort, limit max Element to 10 or else the algo would take years to solve
+    const isBogo = useMemo(() => sortAlgo === SortMethod.BOGO, [sortAlgo]);
+
+    useEffect(() => {
+        if (isBogo) {
+            setNumElements(Math.min(10, numElements ?? 11)); 
+        }
+    }, [sortAlgo])
 
     return (
         <Stack direction="column" sx={{ gap: "1rem", alignItems: "flex-start", width: "15rem" }}>
@@ -70,7 +80,7 @@ export const ElementCountSlider = () => {
                 value={numElements}
                 onChange={(_, num: number) => setNumElements(num)}
                 min={5}
-                max={100}
+                max={isBogo ? 10 : 100}
                 step={1}
             />
         </Stack>
@@ -88,9 +98,9 @@ export const SortIntervalSlider = () => {
                 disabled={isSorting}
                 value={sortInterval}
                 onChange={(_, num: number) => setSortInterval(num)}
-                min={5}
-                max={200}
-                step={5}
+                min={2}
+                max={50}
+                step={1}
             />
         </Stack>
     )

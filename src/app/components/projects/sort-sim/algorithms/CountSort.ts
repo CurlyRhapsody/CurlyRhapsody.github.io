@@ -1,39 +1,42 @@
 import { sleep } from "@/app/components/utility/utils";
 import { ElementState, SortElement } from "../../providers/SortSimProvider";
 
-export async function insertionSort(
+export async function countSort(
     array: SortElement[],
     interval: number,
     setArray: (arr: SortElement[]) => void,
     checkPause: () => Promise<void>,
 ) {
     let arr: SortElement[] = [...array];
+    const min = Math.min(...arr.map((el) => el.value));
+    const max = Math.max(...arr.map((el) => el.value));
+    const freqs = Array(max - min + 1).fill(0);
+    const freqRange = freqs.length;
     const arrLen = arr.length;
-    for (let i = 1; i < arrLen; i++) {
+    for (let i = 0; i < arrLen; i++) {
         await checkPause();
-
-        let curr = arr[i];
-        let j = i-1;
-
         arr[i].state = ElementState.COMPARING;
+
+        freqs[arr[i].value - min]++;
+
         setArray([...arr]);
         await sleep(interval);
+    }
 
-        while (j >= 0 && arr[j].value > curr.value) {
+    let ptr = 0;
+
+    for (let i = 0; i < freqRange; i++) {
+        const freq = freqs[i];
+        for (let j = 0; j < freq; j++) {
             await checkPause();
-            arr[j+1] = arr[j];
-            arr[j+1].state = ElementState.SWAPPING;
+
+            arr[ptr].value = min + i;
+            arr[ptr].state = ElementState.SWAPPING;
             setArray([...arr]);
             await sleep(interval);
 
-            j--;
+            ptr++;
         }
-        
-        await checkPause();
-        arr[j+1] = curr;
-        arr.forEach(el => el.state = ElementState.NORMAL);
-        setArray([...arr]);
-        await sleep(interval);
     }
     
     for (let i = 0; i < arrLen; i++) {
