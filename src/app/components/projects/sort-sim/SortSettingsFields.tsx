@@ -35,8 +35,8 @@ export const SortDropdown = () => {
                             fontWeight: 400,
                         }}
                     >
-                        {t(`sort.${method}`)
-                    }</MenuItem>
+                        {t(`algo.${method}`)}
+                    </MenuItem>
                 ))}
             </Select>
         </Stack>

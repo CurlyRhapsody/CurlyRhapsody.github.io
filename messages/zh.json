@@ -8,7 +8,8 @@
             "color-calc": "色碼尋找器",
             "casino-sim": "賭場模擬",
             "broadcast": "跨分頁多播模擬",
-            "sort-sim": "排序視覺化"
+            "sort-sim": "排序視覺化",
+            "pathfind": "尋路視覺化"
         },
         "games": {
             "hub": "遊戲中心",
@@ -204,7 +205,8 @@
             "color-calc": "色碼尋找器",
             "casino-sim": "賭場模擬",
             "broadcast": "跨分頁多播模擬",
-            "sort-sim": "排序視覺化"
+            "sort-sim": "排序視覺化",
+            "pathfind": "尋路視覺化"
         },
         "color-calc": {
             "title": "色碼尋找器",
@@ -370,6 +372,32 @@
                 "radix8": "基數排序法（八進制）",
                 "radix2": "基數排序法（二進制）",
                 "bogo": "猴子排序法"
+            }
+        },
+        "pathfind": {
+            "title": "尋路視覺化",
+            "subtitle": "「又一個很常見的作品集專案」",
+            "settings": "設定",
+            "algo": "尋路演算法",
+            "countWeight": "此演算法將考慮路線權重",
+            "obstacle": "障礙物",
+            "nowSelecting": "已選擇障礙物：",
+            "start": "起點",
+            "end": "終點",
+            "clear": "清除障礙物",
+            "wall": "牆壁",
+            "snow": "雪地 (2)",
+            "forest": "森林 (5)",
+            "water": "海洋 (9)",
+            "mountain": "高山 (15)",
+            "emptyIs1": "所有空格通行權重為 1",
+            "visited": "已發現空格",
+            "path": "最終路徑",
+            "algos": {
+                "bfs": "廣度優先搜索",
+                "dfs": "深度優先搜索",
+                "dijkstra": "Dijkstra 演算法",
+                "aStar": "A* 演算法"
             }
         }
     },

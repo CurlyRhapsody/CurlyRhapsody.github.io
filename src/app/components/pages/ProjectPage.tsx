@@ -10,6 +10,8 @@ import CasinoSimProvider from "../projects/providers/CasinoSimProvider";
 import BroadcastContainer from "../projects/containers/BroadcastContainer";
 import SortSimContainer from "../projects/containers/SortSimContainer";
 import SortSimProvider from "../projects/providers/SortSimProvider";
+import PathfindProvider from "../projects/providers/PathfindProvider";
+import PathfindContainer from "../projects/containers/PathfindContainer";
 
 const ProjectPage = () => {
     const params = useParams();
@@ -39,6 +41,12 @@ const ProjectPage = () => {
                 <SortSimProvider>
                     <SortSimContainer />
                 </SortSimProvider>
+            )
+        case AvailableProjects.PATHFIND:
+            return (
+                <PathfindProvider>
+                    <PathfindContainer />
+                </PathfindProvider>
             )
         default: return <></>; // This case is not suppose to happen, should fallback by 404
     }

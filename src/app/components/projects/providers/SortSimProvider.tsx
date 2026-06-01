@@ -87,7 +87,6 @@ const SortSimProvider = ({ children }: {children: React.ReactNode}) => {
     const [isSorting, setIsSorting] = useState<boolean>(false);
 
     const pauseRef = useRef<boolean>(false);
-    const sortRef = useRef<boolean>(false);
 
     useEffect(() => {
         shuffle();
@@ -104,7 +103,6 @@ const SortSimProvider = ({ children }: {children: React.ReactNode}) => {
     const shuffle = () => {
 
         pauseRef.current = false;
-        sortRef.current = false;
         setIsPaused(false);
         setIsSorting(false);
 
@@ -144,7 +142,6 @@ const SortSimProvider = ({ children }: {children: React.ReactNode}) => {
     const sort = async () => {
 
         if (isSorting) return;
-        sortRef.current = true;
         setIsSorting(true);
 
         switch (sortAlgo) {
@@ -191,7 +188,6 @@ const SortSimProvider = ({ children }: {children: React.ReactNode}) => {
         
 
         setIsSorting(false);
-        sortRef.current = false;
     }
 
     const togglePause = () => {
