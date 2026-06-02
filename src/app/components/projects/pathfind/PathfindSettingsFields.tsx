@@ -3,7 +3,7 @@ import { ObstacleType, PathfindMethod, usePathfindContext } from "../providers/P
 import { Box, Grid, IconButton, MenuItem, Select, Stack, SvgIcon } from "@mui/material";
 import { Body1, Subtitle1, Subtitle2 } from "../../styled/text";
 import React, { useMemo } from 'react';
-import { tileToIcon } from "./tileToIcon";
+import { tileToIcon } from "./tileMaps";
 
 export const PathfindDropdown = () => {
     const t = useTranslations("project.pathfind");
@@ -75,7 +75,7 @@ export const ObstacleList = () => {
         <Stack direction="row" sx={{ width: "100%", gap: "4rem", justifyContent: "center", alignItems: "center", mx: "auto" }}>
             <Stack sx={{ width: "15rem", gap: "1rem", alignItems: "center" }}>
                 <Subtitle1>{t("nowSelecting")}</Subtitle1>
-                <SvgIcon component={tileToIcon[selectedTile || ObstacleType.WALL] ?? React.Fragment} sx={{ fontSize: "6.25rem" }} />
+                <SvgIcon component={tileToIcon[selectedTile || ObstacleType.WALL]} sx={{ fontSize: "6.25rem" }} />
                 <Body1>{t(tileName)}</Body1>
             </Stack>
             <Grid direction="row" columns={4} container spacing="1rem" sx={{ width: "22rem" }}>
@@ -83,8 +83,8 @@ export const ObstacleList = () => {
                     if (obj === ObstacleType.AIR) return null;
                     return (
                         <Grid size={1}>
-                            <IconButton onClick={() => setSelectedTile(obj)}>
-                                <SvgIcon component={tileToIcon[obj] ?? React.Fragment} sx={{ fontSize: "3rem", color: "black" }} />
+                            <IconButton disabled={isSearching} onClick={() => setSelectedTile(obj)}>
+                                <SvgIcon component={tileToIcon[obj]} sx={{ fontSize: "3rem", color: "black" }} />
                             </IconButton>
                         </Grid>
                     )

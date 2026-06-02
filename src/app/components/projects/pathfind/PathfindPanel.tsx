@@ -4,10 +4,10 @@ import useResponsiveSizing from '../../hooks/useResponsiveSizing';
 import { Stack } from '@mui/material';
 import { Subtitle1 } from '../../styled/text';
 import { HintAndLegend, ObstacleList, PathfindDropdown } from './PathfindSettingsFields';
+import PathfindBoard from './PathfindBoard';
 
 const PathfindPanel = () => {
 
-    const { isMobile } = useResponsiveSizing();
     const t = useTranslations("project.pathfind");
 
     return (
@@ -20,6 +20,7 @@ const PathfindPanel = () => {
                 <Subtitle1>{t("obstacle")}</Subtitle1>
             </Stack>
             <ObstacleList />
+            <PathfindBoard />
             <HintAndLegend />
         </ShadowedStack>
     )
