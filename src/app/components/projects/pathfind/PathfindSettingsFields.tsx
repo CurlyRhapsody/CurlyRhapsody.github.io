@@ -82,7 +82,7 @@ export const ObstacleList = () => {
                 {Object.values(ObstacleType).map((obj) => {
                     if (obj === ObstacleType.AIR) return null;
                     return (
-                        <Grid size={1}>
+                        <Grid size={1} key={`select-grid-${obj}`}>
                             <IconButton disabled={isSearching} onClick={() => setSelectedTile(obj)}>
                                 <SvgIcon component={tileToIcon[obj]} sx={{ fontSize: "3rem", color: "black" }} />
                             </IconButton>

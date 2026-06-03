@@ -4,6 +4,8 @@ import React, { createContext, useContext, useMemo, useRef, useState } from "rea
 import { useEffect } from 'react';
 import { shuffleArray, sleep } from "../../utility/utils";
 import useResponsiveSizing from '../../hooks/useResponsiveSizing';
+import { Coordinate } from "../pathfind/algorithms/types";
+import { BFS } from "../pathfind/algorithms/BFS";
 
 type Context = {
     board?: Tile[][];
@@ -76,16 +78,16 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
     const [board, setBoard] = useState<Tile[][]>([]);
     const [pathfindAlgo, setPathfindAlgo] = useState<PathfindMethod>(PathfindMethod.BFS);
     const [selectedTile, setSelectedTile] = useState<ObstacleType>(ObstacleType.WALL);
-    const [start, setStart] = useState<number[]>([2, 2]);
-    const [end, setEnd] = useState<number[]>([0, 0]);
+    const [start, setStart] = useState<Coordinate>({ r: 2, c: 2 });
+    const [end, setEnd] = useState<Coordinate>({ r: 0, c: 0 });
 
     const [isPaused, setIsPaused] = useState<boolean>(false);
     const [isSearching, setIsSearching] = useState<boolean>(false);
 
     useEffect(() => {
         const newGrid: Tile[][] = Array.from({ length: maxCols }, () => Array(maxCols).fill({ obstacle: ObstacleType.AIR, state: TileState.NORMAL }));
-        setEnd([maxCols - 3, maxCols - 3]);
-        newGrid[start[0]][start[1]] = { obstacle: ObstacleType.START, state: TileState.NORMAL };
+        setEnd({ r: maxCols-3, c: maxCols-3 });
+        newGrid[2][2] = { obstacle: ObstacleType.START, state: TileState.NORMAL };
         newGrid[maxCols - 3][maxCols - 3] = { obstacle: ObstacleType.END, state: TileState.NORMAL };
         setBoard(newGrid);
     }, [maxCols])
@@ -110,7 +112,12 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
         setIsSearching(true);
 
         switch (pathfindAlgo) {
-
+            case PathfindMethod.BFS:
+                await BFS(start, end, board, setBoard, checkPause);
+                break;
+            default:
+                await BFS(start, end, board, setBoard, checkPause);
+                break;
         }
         
 
@@ -130,37 +137,27 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
         const rows = board.length;
         const cols = board[0].length;
 
-        const isStartTile = row === start[0] && column === start[1];
-        const isEndTile = row === end[0] && column === end[1];
+        const isStartTile = row === start.r && column === start.c;
+        const isEndTile = row === end.r && column === end.c;
 
-        if (isStartTile || isEndTile) return;
+        if ((isStartTile || isEndTile) && tile !== ObstacleType.START && tile !== ObstacleType.END) return;
 
         if (row < 0 || row >= rows) return;
         if (column < 0 || column >= cols) return;
         
         // Deep copy
-        const newGrid = board.map((r, rIdx) => 
-            r.map((t, cIdx) => {
-                if (rIdx === row && cIdx === column) {
-                    return {
-                        state: TileState.NORMAL,
-                        obstacle: tile === ObstacleType.CLEAR ? ObstacleType.AIR : tile 
-                    };
-                }
-                return t; 
-            })
-        );
+        const newGrid = board.map((row) => row.map((tile) => ({ ...tile })));
 
         switch (tile) {
             case ObstacleType.START:
-                newGrid[start[0]][start[1]].obstacle = ObstacleType.AIR;
-                setStart([row, column]);
-                newGrid[row][column].obstacle = tile;
+                newGrid[start.r][start.c].obstacle = ObstacleType.AIR;
+                setStart({ r: row, c: column });
+                newGrid[row][column].obstacle = ObstacleType.START;
                 break;
             case ObstacleType.END:
-                newGrid[end[0]][end[1]].obstacle = ObstacleType.AIR;
-                setEnd([row, column]);
-                newGrid[row][column].obstacle = tile;
+                newGrid[end.r][end.c].obstacle = ObstacleType.AIR;
+                setEnd({ r: row, c: column });
+                newGrid[row][column].obstacle = ObstacleType.END;
                 break;
             case ObstacleType.CLEAR:
                 newGrid[row][column].obstacle = ObstacleType.AIR;

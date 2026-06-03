@@ -11,7 +11,7 @@ import WavesIcon from '@mui/icons-material/Waves';
 import TerrainIcon from '@mui/icons-material/Terrain';
 import { JSX } from "@emotion/react/jsx-runtime";
 
-const EmptyIcon = () => (<span />);
+export const EmptyIcon = () => (<span />);
 
 export const tileToIcon: Record<ObstacleType, SvgIconComponent | (() => JSX.Element)> = {
     [ObstacleType.AIR]: EmptyIcon,

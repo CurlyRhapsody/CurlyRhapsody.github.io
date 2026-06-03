@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Stack, SvgIcon } from '@mui/material';
 import { ObstacleType, usePathfindContext } from '../providers/PathfindProvider';
-import { stateToColor, tileToIcon } from './tileMaps';
+import { EmptyIcon, stateToColor, tileToIcon } from './tileMaps';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
@@ -18,11 +18,15 @@ const PathfindBoard = () => {
     const onClickBoard = (row: number, column: number) => {
         if (isSearching) return;
         setIsHoldDrawing(true);
+        if (board?.[row][column].obstacle === selectedTile) return;
+
         addTile(row, column, selectedTile);
     }
 
     const onHoverTile = (row: number, column: number) => {
         if (isSearching) return;
+        if (board?.[row][column].obstacle === selectedTile) return;
+
         if (isHoldDrawing) {
             addTile(row, column, selectedTile);
         }
@@ -66,24 +70,24 @@ const PathfindBoard = () => {
                         }
                 </Button>
             </Stack>
-            <Box sx={{ width: "fit-content", mx: "auto", touchAction: "none" }}>
+            <Box
+                sx={{ mx: "auto", touchAction: "none", width: `calc(${board?.[0]?.length ?? 0} * 2rem)` }}
+                onMouseUp={() => onLeave()}
+                onTouchEnd={() => onLeave()}
+            >
                 {board?.map((row, r) => (
-                    <Grid container columns={row.length} sx={{ width: `calc(${row.length} * 2rem)`, height: "2rem" }} key={`pathfind-row-${r}`}>
+                    <Stack direction="row" sx={{ width: "100%", height: "2rem" }} key={`pathfind-row-${r}`}>
                         {row.map((tile, c) => (
-                            <Grid size={1} sx={{ width: "2rem", height: "2rem" }} key={`pathfind-row-${r}-col-${c}`}>
-                                <Box
-                                    component="div"
-                                    sx={{ width: "2rem", height: "2rem", borderRadius: "0.25rem", border: "0.0625rem solid #808080", bgcolor: stateToColor[tile.state] }}
-                                    onPointerDown={() => onClickBoard(r, c)}
-                                    onPointerEnter={() => onHoverTile(r, c)}
-                                    onMouseUp={() => onLeave()}
-                                    onTouchEnd={() => onLeave()}
-                                >
-                                    <SvgIcon component={tileToIcon[tile.obstacle]} sx={{ fontSize: "1.5rem", color: "black", width: "100%", height: "100%", userSelect: "none" }} />
-                                </Box>
-                            </Grid>
+                            <Box
+                                key={`pathfind-row-${r}-col-${c}-${tile.obstacle}-${tile.state}`}
+                                sx={{ width: "2rem", height: "2rem", borderRadius: "0.25rem", border: "0.0625rem solid #808080", bgcolor: stateToColor[tile.state] }}
+                                onPointerDown={() => onClickBoard(r, c)}
+                                onPointerEnter={() => onHoverTile(r, c)}
+                            >
+                                <SvgIcon component={tileToIcon[tile.obstacle] || EmptyIcon} sx={{ fontSize: "1.5rem", color: "black", width: "100%", height: "100%", userSelect: "none" }} />
+                            </Box>
                         ))}
-                    </Grid>
+                    </Stack>
                 ))}
             </Box>
         </Stack>
