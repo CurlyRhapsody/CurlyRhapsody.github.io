@@ -400,6 +400,8 @@
             "resume": "Resume",
             "emptyIs1": "All empty tiles has traverse cost of 1",
             "visited": "Visited",
+            "discovered": "Discovered",
+            "focused": "Exploring",
             "path": "Final Path",
             "algos": {
                 "bfs": "Breadth First Search",

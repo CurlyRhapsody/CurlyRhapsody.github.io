@@ -76,9 +76,16 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
 
     const { isWideDesktop } = useResponsiveSizing();
 
-    const maxCols = isWideDesktop ? 32 : 20;
+    const maxCols = useMemo(() => isWideDesktop ? 30 : 20, [isWideDesktop]);
 
-    const [board, setBoard] = useState<Tile[][]>([]);
+    const initBoard = () => {
+        const newGrid: Tile[][] = Array.from({ length: maxCols }, () => Array(maxCols).fill({ obstacle: ObstacleType.AIR, state: TileState.NORMAL }));
+        newGrid[2][2] = { obstacle: ObstacleType.START, state: TileState.NORMAL };
+        newGrid[maxCols - 3][maxCols - 3] = { obstacle: ObstacleType.END, state: TileState.NORMAL };
+        return newGrid;
+    }
+
+    const [board, setBoard] = useState<Tile[][]>(() => initBoard());
     const [pathfindAlgo, setPathfindAlgo] = useState<PathfindMethod>(PathfindMethod.BFS);
     const [selectedTile, setSelectedTile] = useState<ObstacleType>(ObstacleType.WALL);
     const [start, setStart] = useState<Coordinate>({ r: 2, c: 2 });
@@ -97,7 +104,7 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
 
     useEffect(() => {
         reset();
-    }, [pathfindAlgo])
+    }, [pathfindAlgo]);
 
     const pauseRef = useRef<boolean>(false);
 

@@ -399,7 +399,9 @@
             "pause": "暫停",
             "resume": "繼續",
             "emptyIs1": "所有空格通行權重為 1",
-            "visited": "已發現空格",
+            "visited": "已到訪",
+            "discovered": "已發現",
+            "focused": "探索中",
             "path": "最終路徑",
             "algos": {
                 "bfs": "廣度優先搜索",

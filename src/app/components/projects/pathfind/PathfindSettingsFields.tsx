@@ -104,10 +104,18 @@ export const HintAndLegend = () => {
     return (
         <Stack sx={{ width: "100%", gap: "1rem",alignItems: "center" }}>
             <Subtitle2>{t("emptyIs1")}</Subtitle2>
-            <Stack direction="row" sx={{ gap: "6rem", alignItems: "center", justifyContent: "center" }}>
+            <Stack direction="row" sx={{ gap: "3rem", alignItems: "center", justifyContent: "center" }}>
                 <Stack direction="row" sx={{ gap: "0.75rem" }}>
                     <Box sx={{ width: "2rem", height: "2rem", borderRadius: "0.375rem", bgcolor: "#A5D3FF", border: "0.0625rem solid #808080" }} />
                     <Body1>{t("visited")}</Body1>
+                </Stack>
+                <Stack direction="row" sx={{ gap: "0.75rem" }}>
+                    <Box sx={{ width: "2rem", height: "2rem", borderRadius: "0.375rem", bgcolor: "#D2FFA5", border: "0.0625rem solid #808080" }} />
+                    <Body1>{t("discovered")}</Body1>
+                </Stack>
+                <Stack direction="row" sx={{ gap: "0.75rem" }}>
+                    <Box sx={{ width: "2rem", height: "2rem", borderRadius: "0.375rem", bgcolor: "#FFA5A5", border: "0.0625rem solid #808080" }} />
+                    <Body1>{t("focused")}</Body1>
                 </Stack>
                 <Stack direction="row" sx={{ gap: "0.75rem" }}>
                     <Box sx={{ width: "2rem", height: "2rem", borderRadius: "0.375rem", bgcolor: "#FFFFA5", border: "0.0625rem solid #808080" }} />
