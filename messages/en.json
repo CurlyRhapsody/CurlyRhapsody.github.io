@@ -8,7 +8,8 @@
             "color-calc": "Color Code Calculator",
             "casino-sim": "Casino Simulation",
             "broadcast": "Cross-tab Broadcast Simulation",
-            "sort-sim": "Sort Visualizer"
+            "sort-sim": "Sort Visualizer",
+            "pathfind": "Pathfinding Visualizer"
         },
         "games": {
             "hub": "Game Center",
@@ -204,7 +205,8 @@
             "color-calc": "Color Code Calculator",
             "casino-sim": "Casino Simulation",
             "broadcast": "Cross-tab Broadcast Simulation",
-            "sort-sim": "Sort Visualizer"
+            "sort-sim": "Sort Visualizer",
+            "pathfind": "Pathfinding Visualizer"
         },
         "color-calc": {
             "title": "Color Code Calculator",
@@ -348,6 +350,8 @@
             "subtitle": "\"That Average Portfolio Project\"",
             "settings": "Settings",
             "select": "Sort type",
+            "selectPopup": "Select Sort Algorithm",
+            "close": "Confirm",
             "shuffle": "Shuffle",
             "start": "Start",
             "pause": "Pause",
@@ -370,6 +374,39 @@
                 "radix8": "Radix Sort (Base 8)",
                 "radix2": "Radix Sort (Base 2)",
                 "bogo": "Bogo Sort"
+            }
+        },
+        "pathfind": {
+            "title": "Pathfinding Visualizer",
+            "subtitle": "\"Another Average Portfolio Project\"",
+            "settings": "Settings",
+            "algo": "Algorithm",
+            "selectPopup": "Select Pathfind Algorithm",
+            "close": "Confirm",
+            "countWeight": "This algorithm considers path weight",
+            "obstacle": "Obstacles",
+            "nowSelecting": "Chosen tile:",
+            "start": "Start",
+            "end": "End",
+            "clear": "Clear Tile",
+            "wall": "Wall",
+            "snow": "Snow (2)",
+            "forest": "Forest (5)",
+            "water": "Ocean (9)",
+            "mountain": "Mountain (15)",
+            "reset": "Reset Board",
+            "find": "Start",
+            "pause": "Pause",
+            "resume": "Resume",
+            "emptyIs1": "All empty tiles has traverse cost of 1",
+            "visited": "Visited",
+            "path": "Final Path",
+            "algos": {
+                "bfs": "Breadth First Search",
+                "dfs": "Depth First Search",
+                "gbfs": "Greedy Best First Search",
+                "dijkstra": "Dijkstra's Algorithm",
+                "aStar": "A* Algorithm"
             }
         }
     },

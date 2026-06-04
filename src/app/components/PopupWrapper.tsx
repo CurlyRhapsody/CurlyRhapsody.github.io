@@ -1,9 +1,10 @@
-import { Dialog, SxProps } from '@mui/material';
+import { Dialog, DialogProps, SxProps } from '@mui/material';
 
-const PopupWrapper = ({ open, dialogProps, children }: {
+const PopupWrapper = ({ open, dialogProps, onClose, children }: {
     open: boolean;
     children: React.ReactNode;
     dialogProps?: SxProps;
+    onClose?: () => void;
 }) => {
 
     return (
@@ -21,6 +22,7 @@ const PopupWrapper = ({ open, dialogProps, children }: {
                     }
                 }
             }}
+            onClose={onClose}
         >
             {children}
         </Dialog>

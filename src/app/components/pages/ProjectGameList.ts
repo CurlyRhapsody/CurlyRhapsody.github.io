@@ -5,47 +5,55 @@ import CasinoIcon from '@mui/icons-material/Casino';
 import PetsIcon from '@mui/icons-material/Pets';
 import CellTowerIcon from '@mui/icons-material/CellTower';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import RouteIcon from '@mui/icons-material/Route';
+
 import { AvailablePlatform } from "../hooks/useAccessPlatform";
+import { AvailableProjects } from "@/app/[locale]/projects/[project]/params";
+import { AvailableGames } from "@/app/[locale]/games/[game]/params";
 
 type ProjectMenu = {
-    id: string;
+    id: AvailableProjects;
     Icon: SvgIconComponent;
     available?: AvailablePlatform;
 }
 
 type GameMenu = {
-    id: string;
+    id: AvailableGames;
     Icon: SvgIconComponent;
     available?: AvailablePlatform;
 }
 
 export const projectList: ProjectMenu[] = [
     {
-        id: "color-calc",
+        id: AvailableProjects.COLOR_CALCULATOR,
         Icon: PaletteIcon
     },
     {
-        id: "casino-sim",
+        id: AvailableProjects.CASINO_SIM,
         Icon: CasinoIcon
     },
     {
-        id: "broadcast",
+        id: AvailableProjects.BROADCAST,
         Icon: CellTowerIcon,
         available: "DESKTOP"
     },
     {
-        id: "sort-sim",
+        id: AvailableProjects.SORT_SIM,
         Icon: BarChartIcon
+    },
+    {
+        id: AvailableProjects.PATHFIND,
+        Icon: RouteIcon
     }
 ];
 
 export const gameList: GameMenu[] = [
     {
-        id: "rps",
+        id: AvailableGames.RPS,
         Icon: WavingHandIcon
     },
     {
-        id: "pet-the-cat",
+        id: AvailableGames.PET_THE_CAT,
         Icon: PetsIcon
     }
 ]
