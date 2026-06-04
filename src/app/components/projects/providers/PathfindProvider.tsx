@@ -4,8 +4,8 @@ import React, { createContext, useContext, useMemo, useRef, useState } from "rea
 import { useEffect } from 'react';
 import { shuffleArray, sleep } from "../../utility/utils";
 import useResponsiveSizing from '../../hooks/useResponsiveSizing';
-import { Coordinate } from "../pathfind/algorithms/types";
-import { BFS } from "../pathfind/algorithms/BFS";
+import { Coordinate } from "../pathfind/algorithms/utils";
+import * as PathfindingAlgorithms from "../pathfind/algorithms/index"
 
 type Context = {
     board?: Tile[][];
@@ -23,6 +23,8 @@ type Context = {
 
 export enum TileState {
     NORMAL = "Normal",
+    DISCOVERED = "Discovered",
+    FOCUSED = "Focused",
     VISITED = "Visited",
     PATH = "Path"
 }
@@ -42,6 +44,7 @@ export enum ObstacleType {
 export enum PathfindMethod {
     BFS = "bfs",
     DFS = "dfs",
+    GBFS = "gbfs",
     DIJKSTRA = "dijkstra",
     ASTAR = "aStar",
 }
@@ -90,8 +93,11 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
         newGrid[2][2] = { obstacle: ObstacleType.START, state: TileState.NORMAL };
         newGrid[maxCols - 3][maxCols - 3] = { obstacle: ObstacleType.END, state: TileState.NORMAL };
         setBoard(newGrid);
-    }, [maxCols])
+    }, [maxCols]);
 
+    useEffect(() => {
+        reset();
+    }, [pathfindAlgo])
 
     const pauseRef = useRef<boolean>(false);
 
@@ -113,10 +119,22 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
 
         switch (pathfindAlgo) {
             case PathfindMethod.BFS:
-                await BFS(start, end, board, setBoard, checkPause);
+                await PathfindingAlgorithms.BFS(start, end, board, setBoard, checkPause);
+                break;
+            case PathfindMethod.DFS:
+                await PathfindingAlgorithms.DFS(start, end, board, setBoard, checkPause);
+                break;
+            case PathfindMethod.GBFS:
+                await PathfindingAlgorithms.GBFS(start, end, board, setBoard, checkPause);
+                break;
+            case PathfindMethod.DIJKSTRA:
+                await PathfindingAlgorithms.Dijkstra(start, end, board, setBoard, checkPause);
+                break;
+            case PathfindMethod.ASTAR:
+                await PathfindingAlgorithms.AStar(start, end, board, setBoard, checkPause);
                 break;
             default:
-                await BFS(start, end, board, setBoard, checkPause);
+                await PathfindingAlgorithms.BFS(start, end, board, setBoard, checkPause);
                 break;
         }
         
@@ -125,8 +143,7 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
     }
 
     const reset = () => {
-        const rows = board.length;
-        const cols = board[0].length;
+        if (!board) return;
         const resetGrid = board.map(
             row => row.map(el => ({ obstacle: el.obstacle, state: TileState.NORMAL }))
         );

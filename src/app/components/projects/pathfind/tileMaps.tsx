@@ -27,6 +27,8 @@ export const tileToIcon: Record<ObstacleType, SvgIconComponent | (() => JSX.Elem
 
 export const stateToColor: Record<TileState, string> = {
     [TileState.NORMAL]: "#FFFFFF",
+    [TileState.DISCOVERED]: "#D2FFA5",
+    [TileState.FOCUSED]: "#FFA5A5",
     [TileState.VISITED]: "#A5D3FF",
     [TileState.PATH]: "#FFFFA5",
 }

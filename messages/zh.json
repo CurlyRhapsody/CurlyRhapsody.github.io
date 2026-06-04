@@ -350,6 +350,8 @@
             "subtitle": "「那個很常見的作品集專案」",
             "settings": "排序設定",
             "select": "排序方式",
+            "selectPopup": "選擇排序演算法",
+            "close": "確定",
             "shuffle": "打亂",
             "start": "開始",
             "pause": "暫停",
@@ -379,6 +381,8 @@
             "subtitle": "「又一個很常見的作品集專案」",
             "settings": "設定",
             "algo": "尋路演算法",
+            "selectPopup": "選擇尋路演算法",
+            "close": "確定",
             "countWeight": "此演算法將考慮路線權重",
             "obstacle": "障礙物",
             "nowSelecting": "已選擇障礙物：",
@@ -400,6 +404,7 @@
             "algos": {
                 "bfs": "廣度優先搜索",
                 "dfs": "深度優先搜索",
+                "gbfs": "貪婪最佳優先搜尋",
                 "dijkstra": "Dijkstra 演算法",
                 "aStar": "A* 演算法"
             }

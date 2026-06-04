@@ -1,53 +1,56 @@
 import { useTranslations } from "next-intl";
 import { ObstacleType, PathfindMethod, usePathfindContext } from "../providers/PathfindProvider";
-import { Box, Grid, IconButton, MenuItem, Select, Stack, SvgIcon } from "@mui/material";
+import { Box, Grid, IconButton, InputAdornment, Stack, SvgIcon, TextField } from "@mui/material";
 import { Body1, Subtitle1, Subtitle2 } from "../../styled/text";
-import React, { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { tileToIcon } from "./tileMaps";
+import ChooseAlgoPopup from "./ChooseAlgoPopup";
+
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 export const PathfindDropdown = () => {
     const t = useTranslations("project.pathfind");
-    const { isSearching, pathfindAlgo, setPathfindAlgo } = usePathfindContext();
+    const { isSearching, pathfindAlgo } = usePathfindContext();
+    const [isSelectingAlgo, setIsSelectingAlgo] = useState<boolean>(false);
 
     const isWeighted = useMemo(() => [PathfindMethod.DIJKSTRA, PathfindMethod.ASTAR].includes(pathfindAlgo as PathfindMethod), [pathfindAlgo])
 
     return (
-        <Stack sx={{ gap: "1rem", alignItems: "center" }}>
-            <Stack direction="row" sx={{ gap: "1.5rem", alignItems: "center", justifyContent: "center", width: "100%" }}>
-                <Subtitle2>{t("algo")}</Subtitle2>
-                <Select
-                    disabled={isSearching}
-                    value={pathfindAlgo}
-                    onChange={(e) => setPathfindAlgo(e.target.value as PathfindMethod)}
-                    sx={{
-                        width: "20rem",
-                        "& .MuiSelect-select": {
-                            p: "1rem 2rem 1rem 0.875rem",
-                            fontSize: "1.25rem",
-                            lineHeight: "1.75rem",
-                            fontWeight: 400,
-                        }
-                    }}
-                >
-                    {Object.values(PathfindMethod).map((method) => (
-                        <MenuItem
-                            value={method}
-                            sx={{
+        <>
+            <ChooseAlgoPopup open={isSelectingAlgo} onClose={() => setIsSelectingAlgo(false)} />
+            <Stack sx={{ gap: "1rem", alignItems: "center" }}>
+                <Stack direction="row" sx={{ gap: "1.5rem", alignItems: "center", justifyContent: "center", width: "100%" }}>
+                    <Subtitle2>{t("algo")}</Subtitle2>
+                    <TextField
+                        disabled={isSearching}
+                        value={t(`algos.${pathfindAlgo}`)}
+                        onClick={() => setIsSelectingAlgo(true)}
+                        sx={{
+                            width: "20rem",
+                            "& .MuiSelect-select": {
                                 p: "1rem 2rem 1rem 0.875rem",
                                 fontSize: "1.25rem",
                                 lineHeight: "1.75rem",
                                 fontWeight: 400,
-                            }}
-                        >
-                            {t(`algos.${method}`)}
-                        </MenuItem>
-                    ))}
-                </Select>
+                            }
+                        }}
+                        slotProps={{
+                            input: {
+                                readOnly: true,
+                                endAdornment: (
+                                <InputAdornment position="end">
+                                    <ArrowDropDownIcon />
+                                </InputAdornment>
+                                ),
+                            }
+                        }}
+                    />
+                </Stack>
+                <Box sx={{ minWidth: "0.5rem", height: "1.75rem" }}>
+                    {isWeighted && <Body1 sx={{ color: "#C20000" }}>{t("countWeight")}</Body1>}
+                </Box>
             </Stack>
-            <Box sx={{ minWidth: "0.5rem", height: "1.75rem" }}>
-                {isWeighted && <Body1 sx={{ color: "#C20000" }}>{t("countWeight")}</Body1>}
-            </Box>
-        </Stack>
+        </>
     )
 }
 

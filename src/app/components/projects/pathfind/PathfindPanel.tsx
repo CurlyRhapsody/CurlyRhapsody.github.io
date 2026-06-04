@@ -1,6 +1,5 @@
 import { useTranslations } from 'next-intl';
 import { ShadowedStack } from '../../styled/component';
-import useResponsiveSizing from '../../hooks/useResponsiveSizing';
 import { Stack } from '@mui/material';
 import { Subtitle1 } from '../../styled/text';
 import { HintAndLegend, ObstacleList, PathfindDropdown } from './PathfindSettingsFields';

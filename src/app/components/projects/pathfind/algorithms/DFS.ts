@@ -2,14 +2,14 @@ import { Tile, TileState } from "../../providers/PathfindProvider";
 import { Coordinate, getNeighbours, isSameCoords, reconstructPath, updateBoardState } from "./utils";
 import { sleep } from "@/app/components/utility/utils";
 
-export async function BFS(
+export async function DFS(
     start: Coordinate,
     end: Coordinate,
     board: Tile[][],
     setBoard: React.Dispatch<React.SetStateAction<Tile[][]>>,
     checkPause: () => Promise<void>,
 ) {
-    const queue: Coordinate[] = [start];
+    const stack: Coordinate[] = [start];
     const parentMap: Map<string, Coordinate | null> = new Map<string, Coordinate | null>();
 
     board[start.r][start.c].state = TileState.VISITED;
@@ -17,8 +17,8 @@ export async function BFS(
 
     parentMap.set(`${start.r},${start.c}`, null);
 
-    while (queue.length > 0) {
-        const current: Coordinate = queue.shift()!;
+    while (stack.length > 0) {
+        const current: Coordinate = stack.pop()!;
 
         board[current.r][current.c].state = TileState.FOCUSED;
         updateBoardState(current, TileState.FOCUSED, setBoard);
@@ -42,7 +42,7 @@ export async function BFS(
 
                 parentMap.set(key, current);
 
-                queue.push(neighbor);
+                stack.push(neighbor);
             }
         }
 

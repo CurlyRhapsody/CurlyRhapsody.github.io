@@ -1,45 +1,48 @@
-import { FormControlLabel, MenuItem, Radio, RadioGroup, Select, Slider, Stack, styled } from "@mui/material";
+import { FormControlLabel, InputAdornment, Radio, RadioGroup, Slider, Stack, TextField } from "@mui/material";
 import { useTranslations } from "next-intl"
 import { Subtitle2 } from "../../styled/text";
 import { ShuffleMethod, SortMethod, useSortSimContext } from '../providers/SortSimProvider';
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import ChooseAlgoPopup from "./ChooseAlgoPopup";
+
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 export const SortDropdown = () => {
     const t = useTranslations("project.sort-sim");
-    const { isSorting, sortAlgo, changeSortMethod } = useSortSimContext();
+    const { isSorting, sortAlgo } = useSortSimContext();
+    const [isSelectingAlgo, setIsSelectingAlgo] = useState<boolean>(false);
 
     return (
-        <Stack direction="row" sx={{ gap: "1.5rem", alignItems: "center", justifyContent: "center", width: "100%" }}>
-            <Subtitle2>{t("select")}</Subtitle2>
-            <Select
-                disabled={isSorting}
-                value={sortAlgo}
-                onChange={(e) => changeSortMethod(e.target.value as SortMethod)}
-                sx={{
-                    width: "20rem",
-                    "& .MuiSelect-select": {
-                        p: "1rem 2rem 1rem 0.875rem",
-                        fontSize: "1.25rem",
-                        lineHeight: "1.75rem",
-                        fontWeight: 400,
-                    }
-                }}
-            >
-                {Object.values(SortMethod).map((method) => (
-                    <MenuItem
-                        value={method}
-                        sx={{
+        <>
+            <ChooseAlgoPopup open={isSelectingAlgo} onClose={() => setIsSelectingAlgo(false)} />
+            <Stack direction="row" sx={{ gap: "1.5rem", alignItems: "center", justifyContent: "center", width: "100%" }}>
+                <Subtitle2>{t("select")}</Subtitle2>
+                <TextField
+                    disabled={isSorting}
+                    value={t(`sort.${sortAlgo}`)}
+                    onClick={() => setIsSelectingAlgo(true)}
+                    sx={{
+                        width: "20rem",
+                        "& .MuiSelect-select": {
                             p: "1rem 2rem 1rem 0.875rem",
                             fontSize: "1.25rem",
                             lineHeight: "1.75rem",
                             fontWeight: 400,
-                        }}
-                    >
-                        {t(`algo.${method}`)}
-                    </MenuItem>
-                ))}
-            </Select>
-        </Stack>
+                        }
+                    }}
+                    slotProps={{
+                        input: {
+                            readOnly: true,
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    <ArrowDropDownIcon />
+                                </InputAdornment>
+                            ),
+                        }
+                    }}
+                />
+            </Stack>
+        </>
     )
 }
 

@@ -350,6 +350,8 @@
             "subtitle": "\"That Average Portfolio Project\"",
             "settings": "Settings",
             "select": "Sort type",
+            "selectPopup": "Select Sort Algorithm",
+            "close": "Confirm",
             "shuffle": "Shuffle",
             "start": "Start",
             "pause": "Pause",
@@ -379,6 +381,8 @@
             "subtitle": "\"Another Average Portfolio Project\"",
             "settings": "Settings",
             "algo": "Algorithm",
+            "selectPopup": "Select Pathfind Algorithm",
+            "close": "Confirm",
             "countWeight": "This algorithm considers path weight",
             "obstacle": "Obstacles",
             "nowSelecting": "Chosen tile:",
@@ -400,6 +404,7 @@
             "algos": {
                 "bfs": "Breadth First Search",
                 "dfs": "Depth First Search",
+                "gbfs": "Greedy Best First Search",
                 "dijkstra": "Dijkstra's Algorithm",
                 "aStar": "A* Algorithm"
             }
