@@ -33,12 +33,14 @@ export async function DFS(
     
         for (const neighbor of getNeighbours(current.r, current.c, board.length, board)) {
 
-            if (![TileState.VISITED, TileState.DISCOVERED].includes(board[neighbor.r][neighbor.c].state)) {
+            if (board[neighbor.r][neighbor.c].state !== TileState.VISITED) {
 
                 const key = `${neighbor.r},${neighbor.c}`;
                 
-                board[neighbor.r][neighbor.c].state = TileState.DISCOVERED;
-                updateBoardState(neighbor, TileState.DISCOVERED, setBoard);
+                if (board[neighbor.r][neighbor.c].state !== TileState.DISCOVERED) {
+                    board[neighbor.r][neighbor.c].state = TileState.DISCOVERED;
+                    updateBoardState(neighbor, TileState.DISCOVERED, setBoard);
+                }
 
                 parentMap.set(key, current);
 

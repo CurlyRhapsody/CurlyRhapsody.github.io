@@ -44,9 +44,11 @@ export enum SortMethod {
     BUBBLE = "bubble",
     INSERTION = "insertion",
     SELECTION = "selection",
+    GNOME = "gnome",
     COCKTAIL = "cocktail",
     SHELL = "shell",
     MERGE = "merge",
+    STOOGE = "stooge",
     QUICK = "quick",
     COUNT = "count",
     RADIX_10 = "radix10",
@@ -154,6 +156,9 @@ const SortSimProvider = ({ children }: {children: React.ReactNode}) => {
             case SortMethod.SELECTION:
                 await SortingSlgorithms.selectionSort(array, sortInterval, setArray, checkPause);
                 break;
+            case SortMethod.GNOME:
+                await SortingSlgorithms.gnomeSort(array, sortInterval, setArray, checkPause);
+                break;
             case SortMethod.COCKTAIL:
                 await SortingSlgorithms.cocktailSort(array, sortInterval, setArray, checkPause);
                 break;
@@ -162,6 +167,9 @@ const SortSimProvider = ({ children }: {children: React.ReactNode}) => {
                 break;                
             case SortMethod.MERGE:
                 await SortingSlgorithms.mergeSort(array, sortInterval, setArray, checkPause);
+                break;
+            case SortMethod.STOOGE:
+                await SortingSlgorithms.stoogeSort(array, sortInterval, setArray, checkPause);
                 break;
             case SortMethod.QUICK:
                 await SortingSlgorithms.quickSort(array, sortInterval, setArray, checkPause);

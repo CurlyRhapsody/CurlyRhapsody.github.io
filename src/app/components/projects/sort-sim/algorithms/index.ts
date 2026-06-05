@@ -1,9 +1,11 @@
 export { bubbleSort } from "./BubbleSort";
 export { insertionSort } from "./InsertionSort";
 export { selectionSort } from "./SelectionSort";
+export { gnomeSort } from "./GnomeSort";
 export { cocktailSort } from "./CocktailSort";
 export { shellSort } from "./ShellSort";
 export { mergeSort } from "./MergeSort";
+export { stoogeSort } from "./StoogeSort"
 export { quickSort } from "./QuickSort";
 export { countSort } from "./CountSort";
 export { radixSort } from "./RadixSort";
