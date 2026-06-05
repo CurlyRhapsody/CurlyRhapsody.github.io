@@ -22,8 +22,9 @@ export const SortDropdown = () => {
                     value={t(`sort.${sortAlgo}`)}
                     onClick={() => setIsSelectingAlgo(true)}
                     sx={{
-                        width: "20rem",
-                        "& .MuiSelect-select": {
+                        width: "30rem",
+                        "& .MuiInputBase-root": { pr: "0.875rem" },
+                        "& .MuiInputBase-input": {
                             p: "1rem 2rem 1rem 0.875rem",
                             fontSize: "1.25rem",
                             lineHeight: "1.75rem",
@@ -34,7 +35,7 @@ export const SortDropdown = () => {
                         input: {
                             readOnly: true,
                             endAdornment: (
-                                <InputAdornment position="end">
+                                <InputAdornment position="end" sx={{ ml: "0.5rem" }}>
                                     <ArrowDropDownIcon />
                                 </InputAdornment>
                             ),

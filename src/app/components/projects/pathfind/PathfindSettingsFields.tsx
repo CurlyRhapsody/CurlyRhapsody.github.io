@@ -26,8 +26,9 @@ export const PathfindDropdown = () => {
                         value={t(`algos.${pathfindAlgo}`)}
                         onClick={() => setIsSelectingAlgo(true)}
                         sx={{
-                            width: "20rem",
-                            "& .MuiSelect-select": {
+                            width: "30rem",
+                            "& .MuiInputBase-root": { pr: "0.875rem" },
+                            "& .MuiInputBase-input": {
                                 p: "1rem 2rem 1rem 0.875rem",
                                 fontSize: "1.25rem",
                                 lineHeight: "1.75rem",
@@ -38,9 +39,9 @@ export const PathfindDropdown = () => {
                             input: {
                                 readOnly: true,
                                 endAdornment: (
-                                <InputAdornment position="end">
-                                    <ArrowDropDownIcon />
-                                </InputAdornment>
+                                    <InputAdornment position="end" sx={{ ml: "0.5rem" }}>
+                                        <ArrowDropDownIcon />
+                                    </InputAdornment>
                                 ),
                             }
                         }}
@@ -81,18 +82,23 @@ export const ObstacleList = () => {
                 <SvgIcon component={tileToIcon[selectedTile || ObstacleType.WALL]} sx={{ fontSize: "6.25rem" }} />
                 <Body1>{t(tileName)}</Body1>
             </Stack>
-            <Grid direction="row" columns={4} container spacing="1rem" sx={{ width: "22rem" }}>
-                {Object.values(ObstacleType).map((obj) => {
-                    if (obj === ObstacleType.AIR) return null;
-                    return (
-                        <Grid size={1} key={`select-grid-${obj}`}>
-                            <IconButton disabled={isSearching} onClick={() => setSelectedTile(obj)}>
-                                <SvgIcon component={tileToIcon[obj]} sx={{ fontSize: "3rem", color: "black" }} />
-                            </IconButton>
-                        </Grid>
-                    )
-                })}
-            </Grid>
+            <Stack sx={{ width: "22rem", gap: "1rem", alignItems: "center" }}>
+                <Grid direction="row" columns={4} container spacing="1rem" sx={{ width: "100%" }}>
+                    {Object.values(ObstacleType).map((obj) => {
+                        if (obj === ObstacleType.AIR) return null;
+                        return (
+                            <Grid size={1} key={`select-grid-${obj}`}>
+                                <IconButton disabled={isSearching} onClick={() => setSelectedTile(obj)}>
+                                    <SvgIcon component={tileToIcon[obj]} sx={{ fontSize: "3rem", color: "black" }} />
+                                </IconButton>
+                            </Grid>
+                        )
+                    })}
+                </Grid>
+                <Stack>
+                    <Body1>{t(`desc.${tileName}`)}</Body1>
+                </Stack>
+            </Stack>
         </Stack>
     )
 }
