@@ -12,6 +12,8 @@ import SortSimContainer from "../projects/containers/SortSimContainer";
 import SortSimProvider from "../projects/providers/SortSimProvider";
 import PathfindProvider from "../projects/providers/PathfindProvider";
 import PathfindContainer from "../projects/containers/PathfindContainer";
+import MealSplitProvider from "../projects/providers/MealSplitProvider";
+import MealSplitContainer from "../projects/containers/MealSplitContainer";
 
 const ProjectPage = () => {
     const params = useParams();
@@ -48,6 +50,12 @@ const ProjectPage = () => {
                     <PathfindContainer />
                 </PathfindProvider>
             )
+        case AvailableProjects.MEAL_SPLIT:
+             return (
+                <MealSplitProvider>
+                    <MealSplitContainer />
+                </MealSplitProvider>
+             )
         default: return <></>; // This case is not suppose to happen, should fallback by 404
     }
 }

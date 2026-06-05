@@ -9,7 +9,8 @@
             "casino-sim": "Casino Simulation",
             "broadcast": "Cross-tab Broadcast Simulation",
             "sort-sim": "Sort Visualizer",
-            "pathfind": "Pathfinding Visualizer"
+            "pathfind": "Pathfinding Visualizer",
+            "meal-split": "Meal Split Calculator"
         },
         "games": {
             "hub": "Game Center",
@@ -206,7 +207,8 @@
             "casino-sim": "Casino Simulation",
             "broadcast": "Cross-tab Broadcast Simulation",
             "sort-sim": "Sort Visualizer",
-            "pathfind": "Pathfinding Visualizer"
+            "pathfind": "Pathfinding Visualizer",
+            "meal-split": "Meal Split Calculator"
         },
         "color-calc": {
             "title": "Color Code Calculator",
@@ -422,6 +424,28 @@
                 "dijkstra": "Dijkstra's Algorithm",
                 "aStar": "A* Algorithm"
             }
+        },
+        "meal-split": {
+            "title": "Meal Split Calculator",
+            "subtitle": "How much should you pay?",
+            "total": "Total Due (Listed on Bill)",
+            "service": "Service Charge",
+            "blankLeave": "Leave as blank if has no charges.",
+            "discountValue": "Discount",
+            "discountType": "Discount Type",
+            "applyToService": "Applies to Service Charge",
+            "absolute": "Save fixed amount",
+            "relative": "Percentage off",
+            "individual": "Individual Info",
+            "name": "Name",
+            "willSplit": "Splits",
+            "individualCost": "Individual Item Cost\n(Blank if none)",
+            "calculate": "Calculate",
+            "results": "Results",
+            "unnamed": "Person #{id}",
+            "remainder": "Remainder (Extra charged if negative)",
+            "remainderDesc": "Remainder is the uncollected / extra charged money after split. This is mainly due to rounding errors from fee rules.\nIt is up to you to handle the amount.",
+            "done": "Okay"
         }
     },
     "games": {

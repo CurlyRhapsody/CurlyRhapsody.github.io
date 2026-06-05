@@ -100,8 +100,6 @@ const BroadcastPlatform = () => {
             const currentPosMap = posMapRef.current;
             for (const id in currentPosMap) {
                 const remoteGlobal = currentPosMap[id];
-
-                console.log(remoteGlobal);
         
                 const remoteLocal = globalToLocal(
                     remoteGlobal.x,
