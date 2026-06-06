@@ -428,6 +428,7 @@
         "meal-split": {
             "title": "Meal Split Calculator",
             "subtitle": "How much should you pay?",
+            "totalInfo": "Bill Summary",
             "total": "Total Due (Listed on Bill)",
             "service": "Service Charge",
             "blankLeave": "Leave as blank if has no charges.",
@@ -436,7 +437,9 @@
             "applyToService": "Applies to Service Charge",
             "absolute": "Save fixed amount",
             "relative": "Percentage off",
-            "individual": "Individual Info",
+            "individual": "Individual Items",
+            "numAdjust": "Number of participants:",
+            "adjustResets": "⚠️Adjusting participants number resets table below!",
             "name": "Name",
             "willSplit": "Splits",
             "individualCost": "Individual Item Cost\n(Blank if none)",

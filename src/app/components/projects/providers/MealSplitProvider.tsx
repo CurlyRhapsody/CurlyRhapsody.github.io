@@ -1,46 +1,64 @@
 "use client"
 
 import React, { createContext, useContext, useRef, useState } from "react";
+import { useEffect } from 'react';
 
-enum DiscountType {
+export enum DiscountType {
     ABSOLUTE = "absolute",
     RELATIVE = "relative",
 }
 
 type Person = {
-    name: string;
+    name?: string;
     willSplit: boolean;
     individualCost?: number;
     needToPay?: number;
 }
 
+const defaultPeople: Person[] = [
+    {
+        name: "Alice",
+        willSplit: true,
+    },
+    {
+        name: "Bob",
+        willSplit: true
+    }
+]
+
 type Context = {
     people?: Person[];
     totalCost?: number;
+    servicePercentage?: number;
     remainder?: number;
     discount?: number;
-    discountMode?: DiscountType
+    discountMode?: DiscountType;
+    discountAppliesToService?: boolean;
     updatePerson: (personId: number, value: Partial<Person>) => void;
-    addNewPerson: () => void;
-    removePerson: (personId: number) => void;
-    updateTotalCost: (newTotal: number) => void;
-    updateDiscount: (newDiscount: number) => void;
+    adjustParticipantCount: (newNumber: number) => void;
+    updateTotalCost: (newTotal?: number) => void;
+    updateServicePercentage: (newServicePercentage: number) => void;
+    updateDiscount: (newDiscount?: number) => void;
     updateDiscountMode: (newDiscountMode: DiscountType) => void;
+    updateDiscountAppliesToService: (newState: boolean) => void;
     calculate: () => void
 }
 
 const initContext: Context = {
     people: undefined,
     totalCost: undefined,
+    servicePercentage: undefined,
     remainder: undefined,
     discount: undefined,
     discountMode: undefined,
+    discountAppliesToService: undefined,
     updatePerson: () => { return; },
-    addNewPerson: () => { return; },
-    removePerson: () => { return; },
+    adjustParticipantCount: () => { return; },
     updateTotalCost: () => { return; },
+    updateServicePercentage: () => { return; },
     updateDiscount: () => { return; },
     updateDiscountMode: () => { return; },
+    updateDiscountAppliesToService: () => { return; },
     calculate: () => { return; },
 }
 
@@ -48,11 +66,19 @@ const initContext: Context = {
 const MealSplitContext = createContext<Context>(initContext);
 
 const MealSplitProvider = ({ children }: {children: React.ReactNode}) => {
-    const [people, setPeople] = useState<Person[]>([]);
+    const [people, setPeople] = useState<Person[]>(defaultPeople);
+    const [numParticipant, setNumParticipant] = useState<number>(2);
+    const [servicePercentage, setServicePercentage] = useState<number | undefined>(undefined);
     const [totalCost, setTotalCost] = useState<number | undefined>(undefined);
     const [remainder, setRemainder] = useState<number | undefined>(undefined);
     const [discount, setDiscount] = useState<number | undefined>(undefined);
     const [discountMode, setDiscountMode] = useState<DiscountType>(DiscountType.RELATIVE);
+    const [discountAppliesToService, setDiscountAppliesToService] = useState<boolean>(false);
+
+    useEffect(() => {
+        const newList: Person[] = Array(numParticipant).fill(() => ({ willSplit: true }))
+        setPeople(newList);
+    }, [numParticipant])
 
     const updatePerson = (personId: number, value: Partial<Person>) => {
         setPeople((oldData) => {
@@ -67,30 +93,13 @@ const MealSplitProvider = ({ children }: {children: React.ReactNode}) => {
         });
     }
 
-    const addNewPerson = () => {
-        setPeople((oldData) => {
-            const newData = [...oldData];
-            newData.push({
-                name: "",
-                willSplit: true,
-                individualCost: undefined,
-                needToPay: undefined
-            })
-            return newData;
-        });
-    }
+    const adjustParticipantCount = (newNumber: number) => { setNumParticipant(newNumber); }
 
-    const removePerson = (personId: number) => {
-        setPeople((oldData) => {
-            const newData = [...oldData];
-            newData.splice(personId, 1);
-            return newData;
-        });
-    }
-
-    const updateTotalCost = (newTotal: number) => { setTotalCost(newTotal) }
-    const updateDiscount = (newDiscount: number) => { setDiscount(newDiscount) }
-    const updateDiscountMode = (newDiscountMode: DiscountType) => { setDiscountMode(newDiscountMode) }
+    const updateTotalCost = (newTotal?: number) => { setTotalCost(newTotal); }
+    const updateDiscount = (newDiscount?: number) => { setDiscount(newDiscount); }
+    const updateDiscountMode = (newDiscountMode: DiscountType) => { setDiscountMode(newDiscountMode); }
+    const updateServicePercentage = (newServicePercentage?: number) => { setServicePercentage(newServicePercentage); }
+    const updateDiscountAppliesToService = (newState: boolean) => { setDiscountAppliesToService(newState); }
 
     const calculate = () => {
 
@@ -98,9 +107,9 @@ const MealSplitProvider = ({ children }: {children: React.ReactNode}) => {
 
     return (
         <MealSplitContext.Provider value={{
-            people, totalCost, remainder, discount, discountMode,
-            updatePerson, addNewPerson, removePerson,
-            updateTotalCost, updateDiscount, updateDiscountMode, calculate
+            people, totalCost, servicePercentage, remainder, discount, discountMode, discountAppliesToService,
+            updatePerson, adjustParticipantCount,
+            updateTotalCost, updateServicePercentage, updateDiscount, updateDiscountMode, updateDiscountAppliesToService, calculate
         }}>
             {children}
         </MealSplitContext.Provider>

@@ -428,6 +428,7 @@
         "meal-split": {
             "title": "餐廳夾錢計算機",
             "subtitle": "您要付多少呢？",
+            "totalInfo": "帳單概要",
             "total": "應付總額（帳單列明）",
             "service": "服務費",
             "blankLeave": "如無收取，可漏空",
@@ -436,7 +437,9 @@
             "applyToService": "折扣應用至服務費",
             "absolute": "固定減免金額",
             "relative": "扣除百分比金額",
-            "individual": "個人資料",
+            "individual": "個人細項",
+            "numAdjust": "參與飯局人數：",
+            "adjustResets": "⚠️更改人數將清空下表！",
             "name": "名稱",
             "willSplit": "平分帳單",
             "individualCost": "個人單點項目\n（如無可漏空）",

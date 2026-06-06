@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import PageContainer from '../../styled/PageContainer';
 import { Stack } from '@mui/material';
 import { Subtitle1, Title1 } from '../../styled/text';
+import MealInfoInputPanel from '../meal-split/MealInfoInputPanel';
 
 const MealSplitContainer = () => {
 
@@ -13,6 +14,7 @@ const MealSplitContainer = () => {
                 <Title1>{t("title")}</Title1>
                 <Subtitle1>{t("subtitle")}</Subtitle1>
             </Stack>
+            <MealInfoInputPanel />
         </PageContainer>
     )
 }
