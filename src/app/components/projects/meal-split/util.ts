@@ -9,3 +9,15 @@ export function checkCurrencyFormat(event: React.ChangeEvent<HTMLInputElement | 
         setField(value);
     }
 }
+
+const participantRegex = /^\d*$/;
+
+export function checkParticipantFormat(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, setField: (newTotal?: string) => void) {
+    const value = event.target.value;
+
+    if (value === undefined) setField(undefined);
+
+    if (currencyRegex.test(value)) {
+        setField(value);
+    }
+}

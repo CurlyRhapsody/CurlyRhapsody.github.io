@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { ShadowedStack } from "../../styled/component";
 import { Divider, Stack } from '@mui/material';
-import { GrandTotalInputs } from "./MealInfoFields";
+import { GrandTotalInputs, IndividualItemTable } from "./MealInfoFields";
 
 const MealInfoInputPanel = () => {
     
@@ -11,6 +11,7 @@ const MealInfoInputPanel = () => {
         <ShadowedStack sx={{ width: "100%", borderRadius: "1rem", background: "#FFFFFF", p: "1rem", gap: "1rem", alignItems: "center" }}>
             <Stack sx={{ width: "100%" }} divider={<Divider sx={{ borderWidth: "0.0625rem" }} />}>
                 <GrandTotalInputs />
+                <IndividualItemTable />
             </Stack>
         </ShadowedStack>
     )

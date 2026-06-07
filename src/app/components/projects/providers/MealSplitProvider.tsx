@@ -28,6 +28,7 @@ const defaultPeople: Person[] = [
 
 type Context = {
     people?: Person[];
+    numParticipant?: number;
     totalCost?: number;
     servicePercentage?: number;
     remainder?: number;
@@ -37,7 +38,7 @@ type Context = {
     updatePerson: (personId: number, value: Partial<Person>) => void;
     adjustParticipantCount: (newNumber: number) => void;
     updateTotalCost: (newTotal?: number) => void;
-    updateServicePercentage: (newServicePercentage: number) => void;
+    updateServicePercentage: (newServicePercentage?: number) => void;
     updateDiscount: (newDiscount?: number) => void;
     updateDiscountMode: (newDiscountMode: DiscountType) => void;
     updateDiscountAppliesToService: (newState: boolean) => void;
@@ -46,6 +47,7 @@ type Context = {
 
 const initContext: Context = {
     people: undefined,
+    numParticipant: undefined,
     totalCost: undefined,
     servicePercentage: undefined,
     remainder: undefined,
@@ -107,7 +109,7 @@ const MealSplitProvider = ({ children }: {children: React.ReactNode}) => {
 
     return (
         <MealSplitContext.Provider value={{
-            people, totalCost, servicePercentage, remainder, discount, discountMode, discountAppliesToService,
+            people, numParticipant, totalCost, servicePercentage, remainder, discount, discountMode, discountAppliesToService,
             updatePerson, adjustParticipantCount,
             updateTotalCost, updateServicePercentage, updateDiscount, updateDiscountMode, updateDiscountAppliesToService, calculate
         }}>
