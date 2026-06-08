@@ -1,8 +1,8 @@
 import { useTranslations } from 'next-intl';
 import { DiscountType, useMealSplitContext } from '../providers/MealSplitProvider';
-import { Box, Stack, TextField, InputAdornment, Grid, RadioGroup, FormControlLabel, Radio, Checkbox } from '@mui/material';
-import { Subtitle1, Subtitle2 } from '../../styled/text';
-import { checkCurrencyFormat } from './util';
+import { Box, Stack, TextField, InputAdornment, Grid, RadioGroup, FormControlLabel, Radio, Checkbox, TableContainer, TableRow, TableCell, TableHead, Table, TableBody, SxProps } from '@mui/material';
+import { Body1, Subtitle1, Subtitle2 } from '../../styled/text';
+import { checkCurrencyFormat, checkParticipantFormat } from './util';
 import { useEffect, useState } from 'react';
 
 const CurrencyTextfield = ({ value, startAdornment, endAdornment, onChange }: {
@@ -32,6 +32,36 @@ const CurrencyTextfield = ({ value, startAdornment, endAdornment, onChange }: {
                 width: "10rem",
                 "& .MuiInputBase-input": { padding: "0.5rem" },
                 "& .MuiInputBase-root": { pl: "0.875rem" },
+            }}
+        />
+    )
+}
+
+const IndividualCurrencyTextfield = ({ value, personId, onChange }: {
+    value?: number;
+    personId: number;
+    onChange: (personId: number, value: { individualCost?: number }) => void;
+}) => {
+    
+    const [displayValue, setDisplayValue] = useState<string | undefined>(value?.toString() ?? "");
+
+    useEffect(() => onChange(personId, { individualCost: Number(displayValue) }), [displayValue]);
+
+    return (
+        <TextField
+            value={displayValue}
+            onChange={(e) => checkCurrencyFormat(e, setDisplayValue)}
+            slotProps={{
+                input: {
+                    startAdornment: <InputAdornment position="start" sx={{ ml: "0.5rem" }}>$</InputAdornment>,
+                    inputMode: 'decimal', 
+                },
+                htmlInput: { pattern: '[0-9]*\\.?[0-9]{0,2}' }
+            }}
+            sx={{
+                width: "100%",
+                "& .MuiInputBase-input": { padding: "0.75rem" },
+                "& .MuiInputBase-root": { pl: "0.5rem", fontSize: "1.25rem" },
             }}
         />
     )
@@ -163,31 +193,105 @@ export const IndividualItemTable = () => {
         updatePerson, adjustParticipantCount
     } = useMealSplitContext();
 
+    const [participantHasError, setParticipantHasError] = useState<boolean>(false);
+    const [participantText, setParticipantText] = useState<string>(numParticipant?.toString() ?? "");
+
+    useEffect(() => {
+        const num = Number(participantText);
+        if (num > 1) adjustParticipantCount(num);
+    }, [participantText])
+
     return (
         <Stack sx={{ gap: "1rem", alignItems: "center", width: "100%", py: "1rem" }}>
             <Box sx={{ width: "100%", p: "1rem 0 0.5rem 1rem" }}>
                 <Subtitle1>{t("individual")}</Subtitle1>
             </Box>
-            <Stack direction="row" sx={{ gap: "1rem", width: "100%", justifyContent: "center", alignItems: "center" }}>
-                <Subtitle2>{t("numAdjust")}</Subtitle2>
-                <TextField
-                    value={numParticipant}
-                    onChange={(e) => adjustParticipantCount(Number(e.target.value))}
-                    type="number"
-                    slotProps={{
-                        htmlInput: {
-                            min: 2,
-                            max: 100,
-                            pattern: '[0-9]*'
-                        }
-                    }}
-                    sx={{
-                        width: "10rem",
-                        "& .MuiInputBase-input": { padding: "0.5rem" },
-                        "& .MuiInputBase-root": { pl: "0.875rem" },
-                    }}
-                />
-            </Stack>
+            <Box>
+                <Stack direction="row" sx={{ gap: "1rem", width: "100%", justifyContent: "center", alignItems: "center" }}>
+                    <Subtitle2>{t("numAdjust")}</Subtitle2>
+                    <TextField
+                        value={participantText}
+                        error={participantHasError}
+                        onChange={(e) => {
+                            setParticipantHasError(false);
+                            const resCount = checkParticipantFormat(e);
+                            if (resCount !== undefined) {
+                                setParticipantText(e.target.value);
+                                return;
+                            }
+                            setParticipantHasError(true);
+                        }}
+                        type="number"
+                        slotProps={{
+                            htmlInput: {
+                                min: 2,
+                                max: 100,
+                                pattern: '[0-9]*'
+                            }
+                        }}
+                        sx={{
+                            width: "10rem",
+                            "& .MuiInputBase-input": { padding: "0.5rem" },
+                            "& .MuiInputBase-root": { pl: "0.875rem" },
+                        }}
+                    />
+                </Stack>
+                <Body1 sx={{ color: "#C20000", fontStyle: "italic" }}>{t("adjustResets")}</Body1>
+            </Box>
+            <TableContainer component={Grid}>
+                <Table sx={{ tableLayout: "fixed", width: "100%" }}>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell colSpan={6}>
+                                <Body1>{t("name")}</Body1>
+                            </TableCell>
+                            <TableCell colSpan={2}>
+                                <Body1>{t("willSplit")}</Body1>
+                            </TableCell>
+                            <TableCell colSpan={6}>
+                                <Body1 sx={{ whiteSpace: "pre-wrap" }}>{t("individualCost")}</Body1>
+                            </TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {(people ?? []).map((person, index) => {
+                            return (
+                                <TableRow key={`participant-${index}`}>
+                                    <TableCell colSpan={6}>
+                                        <TextField
+                                            value={people?.[index].name}
+                                            onChange={(e) => updatePerson(index, { name: e.target.value })}
+                                            sx={{
+                                                width: "100%",
+                                                "& .MuiInputBase-input": { padding: "0.75rem" },
+                                                "& .MuiInputBase-root": { pl: "0.5rem", fontSize: "1.25rem" },
+                                            }}
+                                        />
+                                    </TableCell>
+                                    <TableCell colSpan={2}>
+                                        <Checkbox
+                                            sx={{
+                                                width: "2rem", height: "2rem",
+                                                "& .MuiSvgIcon-root": { fontSize: "2rem" }
+                                            }}
+                                            value={people?.[index].willSplit}
+                                            checked={people?.[index].willSplit}
+                                            onChange={() => updatePerson(index, { willSplit: !people?.[index].willSplit })}
+                                        />
+                                    </TableCell>
+                                    <TableCell colSpan={6}>
+                                        <IndividualCurrencyTextfield
+                                            value={people?.[index].individualCost}
+                                            personId={index}
+                                            onChange={updatePerson}
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                            )
+                        })}
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </Stack>
     );
 }

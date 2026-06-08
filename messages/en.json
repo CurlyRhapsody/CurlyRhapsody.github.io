@@ -442,13 +442,21 @@
             "adjustResets": "⚠️Adjusting participants number resets table below!",
             "name": "Name",
             "willSplit": "Splits",
-            "individualCost": "Individual Item Cost\n(Blank if none)",
+            "individualCost": "Individual Item Cost\n(Unadjusted, blank if none)",
             "calculate": "Calculate",
             "results": "Results",
+            "grandTotal": "Grand Total:",
+            "baseCost": "Base cost (Excluding individual items):",
+            "pay": "Need to pay",
             "unnamed": "Person #{id}",
             "remainder": "Remainder (Extra charged if negative)",
-            "remainderDesc": "Remainder is the uncollected / extra charged money after split. This is mainly due to rounding errors from fee rules.\nIt is up to you to handle the amount.",
-            "done": "Okay"
+            "remainderDesc": "Remainder is the uncollected / extra charged money after split.\nThis is mainly due to rounding errors from fee rules.\nIt is up to you to handle the amount.",
+            "done": "Okay",
+            "errors": {
+                "TOTAL_COST_MISSING": "Please input the total charge of the bill.",
+                "NO_ONE_SPLITS": "At least one person is needed to split the bill.",
+                "IC_EXCEED_TOTAL": "Total individual item cost exceeds actual bill. Please check with your bill again."
+            }
         }
     },
     "games": {

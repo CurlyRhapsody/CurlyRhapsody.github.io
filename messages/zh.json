@@ -442,13 +442,21 @@
             "adjustResets": "⚠️更改人數將清空下表！",
             "name": "名稱",
             "willSplit": "平分帳單",
-            "individualCost": "個人單點項目\n（如無可漏空）",
+            "individualCost": "個人單點項目\n（未調整價格，如無可漏空）",
             "calculate": "計算",
             "results": "結果",
+            "grandTotal": "帳單總額：",
+            "baseCost": "每人最少需付（除去個人單點）：",
+            "pay": "須支付",
             "unnamed": "參與者 #{id}",
             "remainder": "餘額（若多收取則為負）",
             "remainderDesc": "餘額為平分帳單後仍未收取 / 多收取的款項，通常為餐廳或計算機四捨五入時產生的偏差。\n餘額的處理方式則由您決定。",
-            "done": "OK"
+            "done": "OK",
+            "errors": {
+                "TOTAL_COST_MISSING": "請填寫帳單總額。",
+                "NO_ONE_SPLITS": "必須有至少一名參與者參與分單。",
+                "IC_EXCEED_TOTAL": "個人單點項目總額超過了帳單列明總額，請重新檢查您的帳單。"
+            }
         }
     },
     "games": {
