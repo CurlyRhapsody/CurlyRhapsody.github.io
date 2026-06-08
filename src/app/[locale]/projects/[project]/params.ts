@@ -4,4 +4,5 @@ export enum AvailableProjects {
     BROADCAST = "broadcast",
     SORT_SIM = "sort-sim",
     PATHFIND = "pathfind",
+    MEAL_SPLIT = "meal-split",
 }

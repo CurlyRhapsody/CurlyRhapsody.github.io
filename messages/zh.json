@@ -9,7 +9,8 @@
             "casino-sim": "賭場模擬",
             "broadcast": "跨分頁多播模擬",
             "sort-sim": "排序視覺化",
-            "pathfind": "尋路視覺化"
+            "pathfind": "尋路視覺化",
+            "meal-split": "餐廳夾錢計算機"
         },
         "games": {
             "hub": "遊戲中心",
@@ -206,7 +207,8 @@
             "casino-sim": "賭場模擬",
             "broadcast": "跨分頁多播模擬",
             "sort-sim": "排序視覺化",
-            "pathfind": "尋路視覺化"
+            "pathfind": "尋路視覺化",
+            "meal-split": "餐廳夾錢計算機"
         },
         "color-calc": {
             "title": "色碼尋找器",
@@ -421,6 +423,39 @@
                 "gbfs": "貪婪最佳優先搜尋",
                 "dijkstra": "Dijkstra 演算法",
                 "aStar": "A* 演算法"
+            }
+        },
+        "meal-split": {
+            "title": "餐廳夾錢計算機",
+            "subtitle": "您要付多少呢？",
+            "totalInfo": "帳單概要",
+            "total": "應付總額（帳單列明）",
+            "service": "服務費",
+            "blankLeave": "如無收取，可漏空",
+            "discountValue": "折扣",
+            "discountType": "折扣模式",
+            "applyToService": "折扣應用至服務費",
+            "absolute": "固定減免金額",
+            "relative": "扣除百分比金額",
+            "individual": "個人細項",
+            "numAdjust": "參與飯局人數：",
+            "adjustResets": "⚠️更改人數將清空下表！",
+            "name": "名稱",
+            "willSplit": "平分帳單",
+            "individualCost": "個人單點項目\n（未調整價格，如無可漏空）",
+            "calculate": "計算",
+            "results": "結果",
+            "grandTotal": "帳單總額：",
+            "baseCost": "每人最少需付（除去個人單點）：",
+            "pay": "須支付",
+            "unnamed": "參與者 #{id}",
+            "remainder": "餘額（若多收取則為負）",
+            "remainderDesc": "餘額為平分帳單後仍未收取 / 多收取的款項，通常為餐廳或計算機四捨五入時產生的偏差。\n餘額的處理方式則由您決定。",
+            "done": "OK",
+            "errors": {
+                "TOTAL_COST_MISSING": "請填寫帳單總額。",
+                "NO_ONE_SPLITS": "必須有至少一名參與者參與分單。",
+                "IC_EXCEED_TOTAL": "個人單點項目總額超過了帳單列明總額，請重新檢查您的帳單。"
             }
         }
     },

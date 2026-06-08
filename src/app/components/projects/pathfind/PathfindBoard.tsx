@@ -36,8 +36,6 @@ const PathfindBoard = () => {
         setIsHoldDrawing(false);
     }
 
-    console.log(board);
-
     return (
         <Stack sx={{ width: "100%", gap: "1rem" }}>
             <Stack direction="row" sx={{ width: "100%", justifyContent: "center", gap: "2.5rem" }}>

@@ -14,9 +14,6 @@ const Roulette = ({
     wheelRotation: number;
     hasSpun: boolean;
 }) => {
-
-    console.log(marbleRotation, wheelRotation)
-
     return (
         <Box sx={{ position: 'relative', width: "30rem", height: "30rem" }}>
             <Box 
