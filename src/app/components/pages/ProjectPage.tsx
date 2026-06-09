@@ -14,6 +14,8 @@ import PathfindProvider from "../projects/providers/PathfindProvider";
 import PathfindContainer from "../projects/containers/PathfindContainer";
 import MealSplitProvider from "../projects/providers/MealSplitProvider";
 import MealSplitContainer from "../projects/containers/MealSplitContainer";
+import DecodersContainer from "../projects/containers/DecodersContainer";
+import DecodersProvider from "../projects/providers/DecodersProvider";
 
 const ProjectPage = () => {
     const params = useParams();
@@ -56,6 +58,14 @@ const ProjectPage = () => {
                     <MealSplitContainer />
                 </MealSplitProvider>
              )
+        case AvailableProjects.DECODERS:
+            return (
+                <SnackbarProvider>
+                    <DecodersProvider>
+                        <DecodersContainer />
+                    </DecodersProvider>
+                </SnackbarProvider>
+            )
         default: return <></>; // This case is not suppose to happen, should fallback by 404
     }
 }

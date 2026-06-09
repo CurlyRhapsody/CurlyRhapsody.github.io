@@ -10,7 +10,8 @@
             "broadcast": "Cross-tab Broadcast Simulation",
             "sort-sim": "Sort Visualizer",
             "pathfind": "Pathfinding Visualizer",
-            "meal-split": "Meal Split Calculator"
+            "meal-split": "Meal Split Calculator",
+            "decoders": "Decoder's Toolbox"
         },
         "games": {
             "hub": "Game Center",
@@ -208,7 +209,8 @@
             "broadcast": "Cross-tab Broadcast Simulation",
             "sort-sim": "Sort Visualizer",
             "pathfind": "Pathfinding Visualizer",
-            "meal-split": "Meal Split Calculator"
+            "meal-split": "Meal Split Calculator",
+            "decoders": "Decoder's Toolbox"
         },
         "color-calc": {
             "title": "Color Code Calculator",
@@ -456,6 +458,45 @@
                 "TOTAL_COST_MISSING": "Please input the total charge of the bill.",
                 "NO_ONE_SPLITS": "At least one person is needed to split the bill.",
                 "IC_EXCEED_TOTAL": "Total individual item cost exceeds actual bill. Please check with your bill again."
+            }
+        },
+        "decoders": {
+            "title": "Decoder's Toolbox",
+            "subtitle": "Useful tools for ARG lovers",
+            "selectTool": "Select Tool",
+            "tabs": {
+                "asciis": "ASCII Conversions",
+                "alphabets": "Alphabet Conversions",
+                "encodes": "Text Encodings",
+                "linear-cipher": "Affine Ciphers",
+                "rail-fence": "Rail Fence Cipher",
+                "vigenere": "Vigenere Cipher",
+                "braille": "Braille Encode",
+                "polybius": "Polybius Square",
+                "morse": "Morse Code",
+                "image": "Basic Image Processing",
+                "link-check": "Link ID Checker"
+            },
+            "ascii": {
+                "sepWithSpace": "For non-plaintext, please separate characters with space bar",
+                "plain": "Plaintext",
+                "decimal": "Decimal",
+                "binary": "Binary",
+                "octal": "Octal",
+                "hexadecimal": "Hexadecimal",
+                "convert": "Convert",
+                "converted": "Text Converted Successfully"
+            },
+            "alphabets": {
+                "sepWithSpace": "For non-plaintext, please separate characters with space bar",
+                "plain": "Plaintext",
+                "ais1": "A1Z26",
+                "customOrder": "Custom Order",
+                "order": "Order",
+                "check": "Check: A-Z appears exactly once",
+                "t9phone": "Mobile T9 Keyboard",
+                "convert": "Convert",
+                "converted": "Text Converted Successfully"
             }
         }
     },

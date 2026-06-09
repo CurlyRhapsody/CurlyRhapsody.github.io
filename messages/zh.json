@@ -10,7 +10,8 @@
             "broadcast": "跨分頁多播模擬",
             "sort-sim": "排序視覺化",
             "pathfind": "尋路視覺化",
-            "meal-split": "餐廳夾錢計算機"
+            "meal-split": "餐廳夾錢計算機",
+            "decoders": "解密工具箱"
         },
         "games": {
             "hub": "遊戲中心",
@@ -208,7 +209,8 @@
             "broadcast": "跨分頁多播模擬",
             "sort-sim": "排序視覺化",
             "pathfind": "尋路視覺化",
-            "meal-split": "餐廳夾錢計算機"
+            "meal-split": "餐廳夾錢計算機",
+            "decoders": "解密工具箱"
         },
         "color-calc": {
             "title": "色碼尋找器",
@@ -456,6 +458,45 @@
                 "TOTAL_COST_MISSING": "請填寫帳單總額。",
                 "NO_ONE_SPLITS": "必須有至少一名參與者參與分單。",
                 "IC_EXCEED_TOTAL": "個人單點項目總額超過了帳單列明總額，請重新檢查您的帳單。"
+            }
+        },
+        "decoders": {
+            "title": "解密工具箱",
+            "subtitle": "給 ARG 愛好者的工具",
+            "selectTool": "選擇工具",
+            "tabs": {
+                "asciis": "ASCII 轉換器",
+                "alphabets": "純英文轉換器",
+                "encodes": "文字編碼器",
+                "linear-cipher": "仿射加密",
+                "rail-fence": "籬笆加密法",
+                "vigenere": "維吉尼亞密碼",
+                "braille": "盲文編碼",
+                "polybius": "棋盤密碼",
+                "morse": "摩斯密碼",
+                "image": "基本圖像處理",
+                "link-check": "網頁 ID 檢查"
+            },
+            "ascii": {
+                "sepWithSpace": "非原文請使用空格分隔字元",
+                "plain": "原文",
+                "decimal": "十進制",
+                "binary": "二進制",
+                "octal": "八進制",
+                "hexadecimal": "十六進制",
+                "convert": "轉換",
+                "converted": "文本已成功轉換"
+            },
+            "alphabets": {
+                "sepWithSpace": "非原文請使用空格分隔字元",
+                "plain": "原文",
+                "ais1": "A1Z26",
+                "customOrder": "自定義次序",
+                "order": "次序",
+                "check": "檢查：A-Z 只出現一次",
+                "t9phone": "手機 T9 鍵盤輸入",
+                "convert": "轉換",
+                "converted": "文本已成功轉換"
             }
         }
     },
