@@ -488,12 +488,14 @@
                 "converted": "文本已成功轉換"
             },
             "alphabets": {
-                "sepWithSpace": "非原文請使用空格分隔字元",
+                "sepWithSpace": "非原文請使用連字號分隔字元",
                 "plain": "原文",
                 "ais1": "A1Z26",
                 "customOrder": "自定義次序",
                 "order": "次序",
-                "check": "檢查：A-Z 只出現一次",
+                "check": "A-Z 只出現一次",
+                "default": "將使用預設 A1Z26 次序（ABCDEF）進行解碼",
+                "preset": "預設次序",
                 "t9phone": "手機 T9 鍵盤輸入",
                 "convert": "轉換",
                 "converted": "文本已成功轉換"

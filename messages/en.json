@@ -478,7 +478,7 @@
                 "link-check": "Link ID Checker"
             },
             "ascii": {
-                "sepWithSpace": "For non-plaintext, please separate characters with space bar",
+                "sepWithSpace": "For non-plaintext, please separate characters with space",
                 "plain": "Plaintext",
                 "decimal": "Decimal",
                 "binary": "Binary",
@@ -488,12 +488,14 @@
                 "converted": "Text Converted Successfully"
             },
             "alphabets": {
-                "sepWithSpace": "For non-plaintext, please separate characters with space bar",
+                "sepWithSpace": "For non-plaintext, please separate characters with hyphen",
                 "plain": "Plaintext",
                 "ais1": "A1Z26",
                 "customOrder": "Custom Order",
                 "order": "Order",
-                "check": "Check: A-Z appears exactly once",
+                "check": "A-Z appears exactly once",
+                "default": "Default A1Z26 pattern (ABCDEF) will be used for conversion",
+                "preset": "Presets",
                 "t9phone": "Mobile T9 Keyboard",
                 "convert": "Convert",
                 "converted": "Text Converted Successfully"
