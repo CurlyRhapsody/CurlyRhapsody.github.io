@@ -468,7 +468,7 @@
                 "asciis": "ASCII 轉換器",
                 "alphabets": "純英文轉換器",
                 "encodes": "文字編碼器",
-                "linear-cipher": "仿射加密",
+                "linear-cipher": "線性加密",
                 "rail-fence": "籬笆加密法",
                 "vigenere": "維吉尼亞密碼",
                 "braille": "盲文編碼",
@@ -499,6 +499,28 @@
                 "t9phone": "手機 T9 鍵盤輸入",
                 "convert": "轉換",
                 "converted": "文本已成功轉換"
+            },
+            "encodings": {
+                "plain": "原文",
+                "base32": "Base32",
+                "base64": "Base64",
+                "base85": "Base85",
+                "uri": "URI 百分號編碼",
+                "html": "HTML 跳脫",
+                "unicode16": "Unicode (UTF-16)",
+                "convert": "轉換",
+                "converted": "文本已成功轉換"
+            },
+            "linear": {
+                "alphabetOnly": "只有英文字母會被處理",
+                "caesar": "凱撒密碼",
+                "affine": "仿射密碼",
+                "shift": "位移",
+                "factor": "倍率",
+                "encrypt": "加密",
+                "decrypt": "解密",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
             }
         }
     },

@@ -4,12 +4,13 @@ import { Divider, Tab, Tabs } from "@mui/material";
 import { DecodersTab, decoderTabText, useDecodersContext } from "../providers/DecodersProvider";
 import ASCIIDecoder from "./ASCIIDecoder";
 import AlphaDecoder from "./AlphaDecoder";
+import EncodingsDecoder from "./EncodingsDecoder";
 
 const DecoderContent = ({ activeTab }: { activeTab: DecodersTab }) => {
 
     if (activeTab === DecodersTab.ASCIIS) return <ASCIIDecoder />;
     if (activeTab === DecodersTab.ALPHABETS) return <AlphaDecoder />
-    if (activeTab === DecodersTab.ENCODES) return <>ENCODES</>;
+    if (activeTab === DecodersTab.ENCODES) return <EncodingsDecoder />;
     if (activeTab === DecodersTab.LINEAR_CIPHERS) return <>LINEAR_CIPHERS</>;
     if (activeTab === DecodersTab.RAIL_FENCE) return <>LINEAR_CIPHERS</>;
     if (activeTab === DecodersTab.VIGENERE) return <>LINEAR_CIPHERS</>;

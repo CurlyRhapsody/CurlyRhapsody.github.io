@@ -1,3 +1,6 @@
+import { encode as base32Encode, decode as base32Decode } from "hi-base32";
+import { encode as base85Encode, decode as base85Decode } from "base85"
+
 /* ----- ASCII ----- */
 export enum InitialTextType {
     PLAINTEXT,
@@ -165,4 +168,67 @@ export function encodeAlphabets(plaintext: string, a1z26Pattern: string): AlphaT
     const a1z26 = plaintextToA1Z26(plaintext, a1z26Pattern);
     const t9 = plaintextToT9(plaintext);
     return { plaintext, a1z26, t9 };
+}
+
+/* ----- Encodings ----- */
+export enum InitialEncodeType {
+    PLAINTEXT,
+    BASE32,
+    BASE64,
+    BASE85,
+    URI_ENCODE,
+    HTML_ESCAPE,
+    UNICODE_16
+}
+
+type EncodeTextBlock = {
+    plaintext: string,
+    base32: string,
+    base64: string,
+    base85: string,
+    uri: string,
+    html: string,
+    unicode16: string,
+}
+
+export function encodedTextToPlain(originalText: string, initialType: InitialEncodeType) {
+    switch (initialType) {
+        case InitialEncodeType.PLAINTEXT:
+            return originalText;
+        case InitialEncodeType.BASE32:
+            return base32Decode(originalText);
+        case InitialEncodeType.BASE64:
+            return Buffer.from(originalText, "base64").toString("utf-8");
+        case InitialEncodeType.BASE85:
+            const buffer = base85Decode(originalText, "ascii85");
+            if (buffer) return buffer.toString("utf-8");
+            return "ERROR";
+        case InitialEncodeType.URI_ENCODE:
+            return decodeURIComponent(originalText);
+        case InitialEncodeType.HTML_ESCAPE:
+            const doc = new DOMParser().parseFromString(originalText, "text/html");
+            return doc.documentElement.textContent;
+        case InitialEncodeType.UNICODE_16:
+            try {
+                return originalText.replace(/\\u([0-9A-Fa-f]{4})/g, (_, hex) => {
+                    return String.fromCharCode(parseInt(hex, 16));
+                });
+            } catch (error) {
+                return "ERROR"
+            }
+    }
+}
+
+export function plainToEncodedText(plaintext: string): EncodeTextBlock {
+    const base32 = base32Encode(plaintext);
+    const base64 = Buffer.from(plaintext, "utf-8").toString("base64");
+    const base85 = base85Encode(Buffer.from(plaintext, "utf-8"), "ascii85");
+    const uri = encodeURIComponent(plaintext);
+    const html = plaintext.split('').map(c => `&#${c.charCodeAt(0)};`).join('');
+    const unicode16 = plaintext.split('').map(char => {
+        const hex = char.charCodeAt(0).toString(16).toUpperCase();
+        return '\\u' + hex.padStart(4, '0');
+    }).join('');
+
+    return { plaintext, base32, base64, base85, uri, html, unicode16 }
 }

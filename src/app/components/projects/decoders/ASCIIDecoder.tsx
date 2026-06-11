@@ -27,7 +27,7 @@ const ASCIIDecoder = () => {
         setOctal(res.octal);
         setHexadecimal(res.hexadecimal);
 
-        openPopup(t("converted"))
+        openPopup(t("converted"));
     }
 
     return (
@@ -53,7 +53,7 @@ const ASCIIDecoder = () => {
                     }}
                 />
             </Box>
-            <Grid columns={2} container direction="row" columnSpacing="2rem" rowSpacing="3rem" sx={{ width: "100%" }}>
+            <Grid columns={2} container direction="row" columnSpacing="2rem" rowSpacing="3rem" sx={{ width: "100%", pb: "1.5rem" }}>
                 <Grid size={1}>
                     <Box sx={{ width: "100%" }}>
                         <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center", width: "100%", mb: "1rem" }}>
@@ -124,13 +124,12 @@ const ASCIIDecoder = () => {
                     <Box sx={{ width: "100%" }}>
                         <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center", width: "100%", mb: "1rem" }}>
                             <Body1>{t("hexadecimal")}</Body1>
-                            <Button
+                            <ConvertButton
                                 variant="contained"
-                                sx={{ p: "0.5rem", width: "7.5rem", borderRadius: "0.5rem", fontSize: "1.25rem" }}
                                 onClick={() => convert(hexadecimal, InitialTextType.HEXADECIMAL)}
                             >
                                 {t("convert")}
-                            </Button>
+                            </ConvertButton>
                         </Stack>
                         <StyledTextField
                             multiline rows={3}

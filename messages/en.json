@@ -499,6 +499,28 @@
                 "t9phone": "Mobile T9 Keyboard",
                 "convert": "Convert",
                 "converted": "Text Converted Successfully"
+            },
+            "encodings": {
+                "plain": "Plaintext",
+                "base32": "Base32",
+                "base64": "Base64",
+                "base85": "Base85",
+                "uri": "URI Percent Encode",
+                "html": "HTML Escaping",
+                "unicode16": "Unicode (UTF-16)",
+                "convert": "Convert",
+                "converted": "Text Converted Successfully"
+            },
+            "linear": {
+                "alphabetOnly": "Only alphabets will be manipulated",
+                "caesar": "Caesar Cipher",
+                "affine": "Affine Cipher",
+                "shift": "Shift",
+                "factor": "Factor",
+                "encrypt": "Encrypt",
+                "decrypt": "Decrypt",
+                "encrypted": "Text Encrypted Successfully",
+                "decrypted": "Text Decrypted Successfully"
             }
         }
     },

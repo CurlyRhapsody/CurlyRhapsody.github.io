@@ -17,6 +17,8 @@
     "@mui/x-charts": "^9.0.4",
     "@tanstack/react-query": "^5.99.2",
     "@uiw/react-color": "^2.10.1",
+    "base85": "^3.2.0",
+    "hi-base32": "^0.5.1",
     "luxon": "^3.7.2",
     "motion": "^12.38.0",
     "next": "16.2.4",

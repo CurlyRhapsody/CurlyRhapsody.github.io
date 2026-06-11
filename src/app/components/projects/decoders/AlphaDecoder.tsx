@@ -28,7 +28,7 @@ const AlphaDecoder = () => {
         setA1Z26(res.a1z26);
         setT9Phone(res.t9);
 
-        openPopup(t("converted"))
+        openPopup(t("converted"));
     }
 
     return (
