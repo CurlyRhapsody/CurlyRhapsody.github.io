@@ -232,3 +232,220 @@ export function plainToEncodedText(plaintext: string): EncodeTextBlock {
 
     return { plaintext, base32, base64, base85, uri, html, unicode16 }
 }
+
+/* ----- Linear ----- */
+export function encryptCaesar(plaintext: string, shift: number) {
+    const normalizedShift = (shift % 26 + 26) % 26;
+
+    return plaintext.replace(/[a-zA-Z]/g, (char) => {
+        const charCode = char.charCodeAt(0);
+
+        // Capital letters
+        if (charCode >= 65 && charCode <= 90) {
+            return String.fromCharCode((charCode - 65 + normalizedShift) % 26 + 65);
+        }
+
+        // Otherwise, it is lowercase
+        return String.fromCharCode((charCode - 97 + normalizedShift) % 26 + 97);
+    })
+}
+
+export function decryptCaesar(ciphertext: string, shift: number) {
+    const normalizedShift = (shift % 26 + 26) % 26;
+
+    return ciphertext.replace(/[a-zA-Z]/g, (char) => {
+        const charCode = char.charCodeAt(0);
+
+        // Capital letters
+        if (charCode >= 65 && charCode <= 90) {
+            return String.fromCharCode((charCode - 65 - normalizedShift + 26) % 26 + 65);
+        }
+
+        // Otherwise, it is lowercase
+        return String.fromCharCode((charCode - 97 - normalizedShift + 26) % 26 + 97);
+    })
+}
+
+// Helper for determine the slope is valid (Coprime with 26)
+export function isCoprime(x: number): boolean {
+    let target = 26;
+    while (target > 0) {
+        let temp = target;
+        target = x % target;
+        x = temp;
+    }
+    return x === 1;
+}
+
+// Find multiplicative inverse x mod 26 (Brute force is acceptable since 26 is small)
+export function findInverse(x: number): number | null {
+    for (let i = 1; i < 26; i++) {
+        if ((x * i) % 26 === 1) return i;
+    }
+    return null;
+}
+
+export function encryptAffine(plaintext: string, factor: number, shift: number) {
+    const normalizedShift = (shift % 26 + 26) % 26;
+
+    return plaintext.replace(/[a-zA-Z]/g, (char) => {
+        const charCode = char.charCodeAt(0);
+
+        // Capital letters
+        if (charCode >= 65 && charCode <= 90) {
+            return String.fromCharCode((factor * (charCode - 65) + normalizedShift) % 26 + 65);
+        }
+
+        // Otherwise, it is lowercase
+        return String.fromCharCode((factor * (charCode - 97) + normalizedShift) % 26 + 97);
+    })
+}
+
+export function decryptAffine(ciphertext: string, factor: number, shift: number) {
+    const normalizedShift = (shift % 26 + 26) % 26;
+    const modInv = findInverse(factor);
+    if (modInv === null) return ciphertext;
+
+    return ciphertext.replace(/[a-zA-Z]/g, (char) => {
+        const charCode = char.charCodeAt(0);
+
+        // Capital letters
+        if (charCode >= 65 && charCode <= 90) {
+            return String.fromCharCode((modInv * (charCode - 65 - normalizedShift + 26)) % 26 + 65);
+        }
+
+        // Otherwise, it is lowercase
+        return String.fromCharCode((modInv * (charCode - 97 - normalizedShift + 26)) % 26 + 97);
+    })
+}
+
+/* ----- Transpositions ----- */
+export function encryptRail(plaintext: string, numRails: number, offset: number): string {
+    if (numRails === 1) return plaintext;
+
+    const cycle = 2 * (numRails - 1);
+    const fence = Array.from({ length: numRails }, () => [] as string[]);
+
+    const n = plaintext.length;
+    for (let i = 0; i < n; i++) {
+        let phase = (i + offset) % cycle;
+
+        let railAssignTo = phase < numRails ? phase : cycle - phase;
+
+        fence[railAssignTo].push(plaintext[i]);
+    }
+
+    return fence.flat().join("");
+}
+
+export function decryptRail(ciphertext: string, numRails: number, offset: number): string {
+    if (numRails === 1) return ciphertext;
+
+    const cycle = 2 * (numRails - 1);
+    const n = ciphertext.length;
+
+    const grid = Array.from({ length: numRails }, () => new Array(n).fill(null));
+
+    let charIdx = 0;
+    for (let r = 0; r < n; r++) {
+        for (let c = 0; c < n; c++) {
+            let phase = (c + offset) % cycle;
+            let railAssignTo = phase < numRails ? phase : cycle - phase;
+
+            if (railAssignTo === r) {
+                grid[r][c] = ciphertext[charIdx++];
+            }
+        }
+    }
+
+    let plaintext = '';
+    for (let c = 0; c < n; c++) {
+        let phase = (c + offset) % cycle;
+        let railAssignTo = phase < numRails ? phase : cycle - phase;
+        plaintext += grid[railAssignTo][c];
+    }
+
+    return plaintext;
+}
+
+export function encryptColumn(plaintext: string, numColumns: number) {
+    const padding = "*";
+
+    const sLen = plaintext.length;
+    const columnHeight = Math.ceil(sLen / numColumns);
+
+    const newStr = Array(numColumns * columnHeight).fill(null);
+
+    let curr = 0;
+    for (let r = 0; r < columnHeight; r++) {
+        for (let c = 0; c < numColumns; c++) {
+            const pos = c * columnHeight + r;
+            if (pos >= sLen) {
+                newStr[curr] = padding;
+            } else {
+                newStr[curr] = plaintext[pos];
+            }
+            curr++;
+        }
+    }
+
+    return newStr.join("");
+}
+
+export function decryptColumn(ciphertext: string, numColumns: number) {
+    const padding = "*";
+
+    const sLen = ciphertext.length;
+    const columnHeight = Math.ceil(sLen / numColumns);
+
+    let plaintext = '';
+    for (let c = 0; c < numColumns; c++) {
+        for (let r = 0; r < columnHeight; r++) {
+            const char = ciphertext[r * numColumns + c];
+            if (char !== padding) {
+                plaintext += char;
+            }
+        }
+    }
+
+    return plaintext;
+}
+
+/* ----- Vigenere Cipher ----- */
+export function encryptVigenere(plaintext: string, secret: string): string {
+
+    let idx = 0;
+    const secretLen = secret.length;
+    return plaintext.replace(/[a-zA-Z]/g, (char) => {
+        const charCode = char.charCodeAt(0);
+        const charToUse = secret[(idx++) % secretLen];
+        const shift = charToUse.charCodeAt(0) - 65;
+
+        // Capital letters
+        if (charCode >= 65 && charCode <= 90) {
+            return String.fromCharCode((charCode - 65 + shift) % 26 + 65);
+        }
+
+        // Otherwise, it is lowercase
+        return String.fromCharCode((charCode - 97 + shift) % 26 + 97);
+    })
+}
+
+export function decryptVigenere(ciphertext: string, secret: string): string {
+
+    let idx = 0;
+    const secretLen = secret.length;
+    return ciphertext.replace(/[a-zA-Z]/g, (char) => {
+        const charCode = char.charCodeAt(0);
+        const charToUse = secret[(idx++) % secretLen];
+        const shift = charToUse.charCodeAt(0) - 65;
+
+        // Capital letters
+        if (charCode >= 65 && charCode <= 90) {
+            return String.fromCharCode((charCode - 65 - shift + 26) % 26 + 65);
+        }
+
+        // Otherwise, it is lowercase
+        return String.fromCharCode((charCode - 97 - shift + 26) % 26 + 97);
+    })
+}

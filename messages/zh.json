@@ -469,7 +469,7 @@
                 "alphabets": "純英文轉換器",
                 "encodes": "文字編碼器",
                 "linear-cipher": "線性加密",
-                "rail-fence": "籬笆加密法",
+                "transposition": "置換式加密",
                 "vigenere": "維吉尼亞密碼",
                 "braille": "盲文編碼",
                 "polybius": "棋盤密碼",
@@ -512,13 +512,39 @@
                 "converted": "文本已成功轉換"
             },
             "linear": {
-                "alphabetOnly": "只有英文字母會被處理",
+                "alphabetOnly": "此加密法只有英文字母會被加密及解密",
                 "caesar": "凱撒密碼",
                 "affine": "仿射密碼",
+                "plaintext": "明文",
+                "ciphertext": "密文",
                 "shift": "位移",
                 "factor": "倍率",
-                "encrypt": "加密",
-                "decrypt": "解密",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "notCoprime": "倍率與 26 不互質",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "transposition": {
+                "rail": "籬笆加密法",
+                "scytale": "密碼棒（縱列加密）",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "padding": "（* = 填充符號）",
+                "rails": "籬笆/行數量",
+                "column": "欄數量",
+                "shift": "位移",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "vigenere": {
+                "key": "關鍵字",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
                 "encrypted": "文本已成功加密",
                 "decrypted": "文本已成功解密"
             }

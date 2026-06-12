@@ -5,15 +5,18 @@ import { DecodersTab, decoderTabText, useDecodersContext } from "../providers/De
 import ASCIIDecoder from "./ASCIIDecoder";
 import AlphaDecoder from "./AlphaDecoder";
 import EncodingsDecoder from "./EncodingsDecoder";
+import LinearDecoder from "./LinearDecoder";
+import TranspositionDecoder from "./TranspositionDecoder";
+import VigenereDecoder from "./VigenereDecoder";
 
 const DecoderContent = ({ activeTab }: { activeTab: DecodersTab }) => {
 
     if (activeTab === DecodersTab.ASCIIS) return <ASCIIDecoder />;
     if (activeTab === DecodersTab.ALPHABETS) return <AlphaDecoder />
     if (activeTab === DecodersTab.ENCODES) return <EncodingsDecoder />;
-    if (activeTab === DecodersTab.LINEAR_CIPHERS) return <>LINEAR_CIPHERS</>;
-    if (activeTab === DecodersTab.RAIL_FENCE) return <>LINEAR_CIPHERS</>;
-    if (activeTab === DecodersTab.VIGENERE) return <>LINEAR_CIPHERS</>;
+    if (activeTab === DecodersTab.LINEAR_CIPHERS) return <LinearDecoder />;
+    if (activeTab === DecodersTab.TRANSPOSITION) return <TranspositionDecoder />;
+    if (activeTab === DecodersTab.VIGENERE) return <VigenereDecoder />;
     if (activeTab === DecodersTab.BRAILLE) return <>BRAILLE</>;
     if (activeTab === DecodersTab.POLYBIUS) return <>POLYBIUS</>;
     if (activeTab === DecodersTab.MORSE) return <>MORSE</>;

@@ -2,17 +2,17 @@
 
 import React, { createContext, useContext, useState } from "react";
 
-export const decoderTabText = ["asciis", "alphabets", "encodes", "linear-cipher", "rail-fence", "vigenere", "braille", "polybius", "morse", "image", "link-check"]
+export const decoderTabText = ["asciis", "alphabets", "encodes", "linear-cipher", "transposition", "vigenere", "polybius", "braille", "morse", "image", "link-check"]
 
 export enum DecodersTab {
     ASCIIS,
     ALPHABETS,
     ENCODES,
     LINEAR_CIPHERS,
-    RAIL_FENCE,
+    TRANSPOSITION,
     VIGENERE,
-    BRAILLE,
     POLYBIUS,
+    BRAILLE,
     MORSE,
     IMAGE,
     LINK_CHECK

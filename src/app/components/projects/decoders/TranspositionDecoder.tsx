@@ -2,120 +2,32 @@ import { useTranslations } from "next-intl";
 import { useSnackbarContext } from "../../providers/SnackbarProvider";
 import { useState } from "react";
 import { Box, Stack, TextField, Button, Divider } from '@mui/material';
-import { Body1, Caption1, Subtitle1, Subtitle2 } from "../../styled/text";
-import { StyledTextField, ConvertButton } from './components';
-import { decryptCaesar, encryptCaesar, isCoprime, encryptAffine, decryptAffine } from './utils';
+import { Body1, Subtitle2 } from "../../styled/text";
+import { StyledTextField } from './components';
+import { encryptAffine, decryptAffine, encryptRail, decryptRail, encryptColumn, decryptColumn } from './utils';
 
-const LinearDecoder = () => {
+const TranspositionDecoder = () => {
 
-    const t = useTranslations("project.decoders.linear");
+    const t = useTranslations("project.decoders.transposition");
     const { openPopup } = useSnackbarContext();
 
-    const [caesarPlain, setCaesarPlain] = useState<string>("");
-    const [caesarCipher, setCaesarCipher] = useState<string>("");
-    const [caesarShift, setCaesarShift] = useState<number>(1);
+    const [railPlain, setRailPlain] = useState<string>("");
+    const [railCipher, setRailCipher] = useState<string>("");
+    const [railRows, setRailRows] = useState<number>(2);
+    const [railOffset, setRailOffset] = useState<number>(0);
 
-    const [affinePlain, setAffinePlain] = useState<string>("");
-    const [affineCipher, setAffineCipher] = useState<string>("");
-    const [affineSlope, setAffineSlope] = useState<number>(1);
-    const [affineIntercept, setAffineIntercept] = useState<number>(1);
-    const [affineFactorError, setAffineFactorError] = useState<boolean>(false);
+    const [columnPlain, setColumnPlain] = useState<string>("");
+    const [columnCipher, setColumnCipher] = useState<string>("");
+    const [columnColumns, setColumnColumns] = useState<number>(2);
 
     return (
         <Stack sx={{ width: "100%", alignItems: "center", gap: "1rem", px: "2rem" }}>
-            <Subtitle1>{t("alphabetOnly")}</Subtitle1>
             <Box sx={{ width: "100%", py: "1rem" }}>
-                <Subtitle2>{t("caesar")} | C(x) = P(x) + s (mod 26)</Subtitle2>
+                <Subtitle2>{t("rail")}</Subtitle2>
                 <Stack direction="row" sx={{ width: "100%", py: "1rem", gap: "1rem", alignItems: "center" }}>
-                    <Body1>{t("shift")}</Body1>
+                    <Body1>{t("rails")}</Body1>
                     <TextField
-                        value={caesarShift}
-                        onKeyDown={(e) => {
-                            if (['e', 'E', '+', '-'].includes(e.key)) {
-                                e.preventDefault();
-                            }
-                        }}
-                        onChange={(e) => {
-                            const originalVal = e.target.value;
-                            const sanitized = originalVal.replace(/[^0-9]/g, '');
-                            const dropped = Number(sanitized)
-                            setCaesarShift(dropped === 0 ? 1 : dropped);
-                        }}
-                        type="number"
-                        slotProps={{
-                            htmlInput: {
-                                min: 1,
-                                pattern: '[0-9]*'
-                            }
-                        }}
-                        sx={{
-                            width: "10rem",
-                            "& .MuiInputBase-input": { padding: "0.5rem" },
-                            "& .MuiInputBase-root": { pl: "0.5rem" },
-                        }}
-                    />
-                </Stack>
-                <Stack direction="row">
-                    <Box sx={{ width: "40%" }}>
-                        <Body1 sx={{ pb: "0.5rem" }}>{t("plaintext")}</Body1>
-                        <StyledTextField
-                            multiline rows={3}
-                            value={caesarPlain}
-                            onChange={(e) => {
-                                const originalText = e.target.value;
-                                setCaesarPlain(originalText)
-                            }}
-                        />
-                    </Box>
-                    <Stack sx={{ width: "20%", alignItems: "center", justifyContent: "center", gap: "1rem", pt: "1.75rem" }}>
-                        <Button
-                            variant="contained"
-                            onClick={() => {
-                                setCaesarCipher(
-                                    encryptCaesar(caesarPlain, caesarShift)
-                                );
-                                openPopup(t("encrypted"));
-                            }}
-                        >
-                            {t("encrypt")}
-                        </Button>
-                        <Button
-                            variant="contained"
-                            onClick={() => {
-                                setCaesarPlain(
-                                    decryptCaesar(caesarCipher, caesarShift)
-                                );
-                                openPopup(t("decrypted"));
-                            }}
-                        >
-                            {t("decrypt")}
-                        </Button>
-                    </Stack>
-                    <Box sx={{ width: "40%" }}>
-                        <Body1 sx={{ pb: "0.5rem" }}>{t("ciphertext")}</Body1>
-                        <StyledTextField
-                            multiline rows={3}
-                            value={caesarCipher}
-                            onChange={(e) => {
-                                const originalText = e.target.value;
-                                setCaesarCipher(originalText)
-                            }}
-                        />
-                    </Box>
-                </Stack>
-                <Stack direction="row" sx={{ width: "100%", py: "1rem" }}>
-                    <Stack sx={{ width: "40%" }}>
-
-                    </Stack>
-                </Stack>
-            </Box>
-            <Box sx={{ width: "100%", py: "1rem" }}>
-                <Subtitle2>{t("affine")} | C(x) = (f * P(x) + s) (mod 26)</Subtitle2>
-                <Stack direction="row" sx={{ width: "100%", py: "1rem", gap: "1rem", alignItems: "center" }}>
-                    <Body1>{t("factor")}</Body1>
-                    <TextField
-                        value={affineSlope}
-                        error={affineFactorError}
+                        value={railRows}
                         onKeyDown={(e) => {
                             if (['e', 'E', '+', '-'].includes(e.key)) {
                                 e.preventDefault();
@@ -125,14 +37,13 @@ const LinearDecoder = () => {
                             const originalVal = e.target.value;
                             const sanitized = originalVal.replace(/[^0-9]/g, '');
                             const dropped = Number(sanitized);
-                            const result = dropped === 0 ? 1 : dropped;
-                            setAffineSlope(result);
-                            setAffineFactorError(!isCoprime(result));
+                            const result = dropped < 2 ? 2 : dropped;
+                            setRailRows(result)
                         }}
                         type="number"
                         slotProps={{
                             htmlInput: {
-                                min: 1,
+                                min: 2,
                                 pattern: '[0-9]*'
                             }
                         }}
@@ -145,7 +56,7 @@ const LinearDecoder = () => {
                     <Divider orientation="vertical" sx={{ height: "2rem", borderWidth: "0.0625rem", mx: "1rem" }} />
                     <Body1>{t("shift")}</Body1>
                     <TextField
-                        value={affineIntercept}
+                        value={railOffset}
                         onKeyDown={(e) => {
                             if (['e', 'E', '+', '-'].includes(e.key)) {
                                 e.preventDefault();
@@ -154,13 +65,12 @@ const LinearDecoder = () => {
                         onChange={(e) => {
                             const originalVal = e.target.value;
                             const sanitized = originalVal.replace(/[^0-9]/g, '');
-                            const dropped = Number(sanitized)
-                            setAffineIntercept(dropped === 0 ? 1 : dropped);
+                            setRailOffset(Number(sanitized));
                         }}
                         type="number"
                         slotProps={{
                             htmlInput: {
-                                min: 1,
+                                min: 0,
                                 pattern: '[0-9]*'
                             }
                         }}
@@ -176,20 +86,19 @@ const LinearDecoder = () => {
                         <Body1 sx={{ pb: "0.5rem" }}>{t("plaintext")}</Body1>
                         <StyledTextField
                             multiline rows={3}
-                            value={affinePlain}
+                            value={railPlain}
                             onChange={(e) => {
                                 const originalText = e.target.value;
-                                setAffinePlain(originalText)
+                                setRailPlain(originalText)
                             }}
                         />
                     </Box>
                     <Stack sx={{ width: "20%", alignItems: "center", justifyContent: "center", gap: "1rem", pt: "1.75rem" }}>
                         <Button
                             variant="contained"
-                            disabled={affineFactorError}
                             onClick={() => {
-                                setAffineCipher(
-                                    encryptAffine(affinePlain, affineSlope, affineIntercept)
+                                setRailCipher(
+                                    encryptRail(railPlain, railRows, railOffset)
                                 );
                                 openPopup(t("encrypted"));
                             }}
@@ -198,26 +107,110 @@ const LinearDecoder = () => {
                         </Button>
                         <Button
                             variant="contained"
-                            disabled={affineFactorError}
                             onClick={() => {
-                                setAffinePlain(
-                                    decryptAffine(affineCipher, affineSlope, affineIntercept)
+                                setRailPlain(
+                                    decryptRail(railCipher, railRows, railOffset)
                                 );
                                 openPopup(t("decrypted"));
                             }}
                         >
                             {t("decrypt")}
                         </Button>
-                        {affineFactorError && <Caption1 sx={{ color: "#C20000" }}>{t("notCoprime")}</Caption1>}
                     </Stack>
                     <Box sx={{ width: "40%" }}>
                         <Body1 sx={{ pb: "0.5rem" }}>{t("ciphertext")}</Body1>
                         <StyledTextField
                             multiline rows={3}
-                            value={affineCipher}
+                            value={railCipher}
                             onChange={(e) => {
                                 const originalText = e.target.value;
-                                setAffineCipher(originalText)
+                                setRailCipher(originalText)
+                            }}
+                        />
+                    </Box>
+                </Stack>
+                <Stack direction="row" sx={{ width: "100%", py: "1rem" }}>
+                    <Stack sx={{ width: "40%" }}>
+
+                    </Stack>
+                </Stack>
+            </Box>
+            <Box sx={{ width: "100%", py: "1rem" }}>
+                <Subtitle2>{t("scytale")}</Subtitle2>
+                <Stack direction="row" sx={{ width: "100%", py: "1rem", gap: "1rem", alignItems: "center" }}>
+                    <Body1>{t("column")}</Body1>
+                    <TextField
+                        value={columnColumns}
+                        onKeyDown={(e) => {
+                            if (['e', 'E', '+', '-'].includes(e.key)) {
+                                e.preventDefault();
+                            }
+                        }}
+                        onChange={(e) => {
+                            const originalVal = e.target.value;
+                            const sanitized = originalVal.replace(/[^0-9]/g, '');
+                            const dropped = Number(sanitized);
+                            const result = dropped < 2 ? 2 : dropped;
+                            setColumnColumns(result);
+                        }}
+                        type="number"
+                        slotProps={{
+                            htmlInput: {
+                                min: 2,
+                                pattern: '[0-9]*'
+                            }
+                        }}
+                        sx={{
+                            width: "10rem",
+                            "& .MuiInputBase-input": { padding: "0.5rem" },
+                            "& .MuiInputBase-root": { pl: "0.5rem" },
+                        }}
+                    />
+                </Stack>
+                <Stack direction="row">
+                    <Box sx={{ width: "40%" }}>
+                        <Body1 sx={{ pb: "0.5rem" }}>{t("plaintext")}</Body1>
+                        <StyledTextField
+                            multiline rows={3}
+                            value={columnPlain}
+                            onChange={(e) => {
+                                const originalText = e.target.value;
+                                setColumnPlain(originalText)
+                            }}
+                        />
+                    </Box>
+                    <Stack sx={{ width: "20%", alignItems: "center", justifyContent: "center", gap: "1rem", pt: "1.75rem" }}>
+                        <Button
+                            variant="contained"
+                            onClick={() => {
+                                setColumnCipher(
+                                    encryptColumn(columnPlain, columnColumns)
+                                );
+                                openPopup(t("encrypted"));
+                            }}
+                        >
+                            {t("encrypt")}
+                        </Button>
+                        <Button
+                            variant="contained"
+                            onClick={() => {
+                                setColumnPlain(
+                                    decryptColumn(columnCipher, columnColumns)
+                                );
+                                openPopup(t("decrypted"));
+                            }}
+                        >
+                            {t("decrypt")}
+                        </Button>
+                    </Stack>
+                    <Box sx={{ width: "40%" }}>
+                        <Body1 sx={{ pb: "0.5rem" }}>{t("ciphertext")} {t("padding")}</Body1>
+                        <StyledTextField
+                            multiline rows={3}
+                            value={columnCipher}
+                            onChange={(e) => {
+                                const originalText = e.target.value;
+                                setColumnCipher(originalText)
                             }}
                         />
                     </Box>
@@ -232,4 +225,4 @@ const LinearDecoder = () => {
     );
 }
 
-export default LinearDecoder;
+export default TranspositionDecoder;
