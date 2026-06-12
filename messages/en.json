@@ -472,7 +472,7 @@
                 "transposition": "Transposition Cipher",
                 "vigenere": "Vigenere Cipher",
                 "braille": "Braille Encode",
-                "polybius": "Polybius Square",
+                "polybius": "Polybius & Bacon",
                 "morse": "Morse Code",
                 "image": "Basic Image Processing",
                 "link-check": "Link ID Checker"

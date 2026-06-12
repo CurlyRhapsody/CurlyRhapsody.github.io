@@ -472,7 +472,7 @@
                 "transposition": "置換式加密",
                 "vigenere": "維吉尼亞密碼",
                 "braille": "盲文編碼",
-                "polybius": "棋盤密碼",
+                "polybius": "棋盤及培根密碼",
                 "morse": "摩斯密碼",
                 "image": "基本圖像處理",
                 "link-check": "網頁 ID 檢查"
