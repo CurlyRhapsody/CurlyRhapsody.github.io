@@ -471,8 +471,8 @@
                 "linear-cipher": "Linear Ciphers",
                 "transposition": "Transposition Cipher",
                 "vigenere": "Vigenere Cipher",
-                "braille": "Braille Encode",
-                "polybius": "Polybius & Bacon",
+                "polybius": "Polybius's Square",
+                "bacon": "Bacon Cipher",
                 "morse": "Morse Code",
                 "image": "Basic Image Processing",
                 "link-check": "Link ID Checker"
@@ -546,6 +546,41 @@
                 "ciphertext": "Ciphertext",
                 "encrypt": "Encrypt →",
                 "decrypt": "← Decrypt",
+                "encrypted": "Text Encrypted Successfully",
+                "decrypted": "Text Decrypted Successfully"
+            },
+            "polybius": {
+                "sepRules": "Separate characters with slash, words with space",
+                "decryptIJ": "24 will decrypt to I, interchange to J if needed",
+                "plaintext": "Plaintext",
+                "ciphertext": "Ciphertext",
+                "encrypt": "Encrypt →",
+                "decrypt": "← Decrypt",
+                "encrypted": "Text Encrypted Successfully",
+                "decrypted": "Text Decrypted Successfully"
+            },
+            "bacon": {
+                "sepRules": "Separate characters with slash, words with space",
+                "decrypt24": "24 Letter Mode: abaaa → I, baabb → U",
+                "mode": "Mode",
+                "modern": "Modern (26 Letters)",
+                "historical": "Historical (24 Letters, I-J, U-V shares code)",
+                "char1": "Character 1",
+                "char2": "Character 2",
+                "plaintext": "Plaintext",
+                "ciphertext": "Ciphertext",
+                "encrypt": "Encrypt →",
+                "decrypt": "← Decrypt",
+                "encrypted": "Text Encrypted Successfully",
+                "decrypted": "Text Decrypted Successfully"
+            },
+            "morse": {
+                "sepRules": "Separate characters with space, words with slash",
+                "plaintext": "Plaintext",
+                "ciphertext": "Ciphertext",
+                "encrypt": "Encrypt →",
+                "decrypt": "← Decrypt",
+                "playMorse": "Play Morse Code",
                 "encrypted": "Text Encrypted Successfully",
                 "decrypted": "Text Decrypted Successfully"
             }

@@ -8,6 +8,9 @@ import EncodingsDecoder from "./EncodingsDecoder";
 import LinearDecoder from "./LinearDecoder";
 import TranspositionDecoder from "./TranspositionDecoder";
 import VigenereDecoder from "./VigenereDecoder";
+import PolybiusDecoder from "./PolybiusDecoder";
+import BaconDecoder from "./BaconDecoder";
+import MorseDecoder from "./MorseDecoder";
 
 const DecoderContent = ({ activeTab }: { activeTab: DecodersTab }) => {
 
@@ -17,9 +20,9 @@ const DecoderContent = ({ activeTab }: { activeTab: DecodersTab }) => {
     if (activeTab === DecodersTab.LINEAR_CIPHERS) return <LinearDecoder />;
     if (activeTab === DecodersTab.TRANSPOSITION) return <TranspositionDecoder />;
     if (activeTab === DecodersTab.VIGENERE) return <VigenereDecoder />;
-    if (activeTab === DecodersTab.BRAILLE) return <>BRAILLE</>;
-    if (activeTab === DecodersTab.POLYBIUS) return <>POLYBIUS</>;
-    if (activeTab === DecodersTab.MORSE) return <>MORSE</>;
+    if (activeTab === DecodersTab.POLYBIUS) return <PolybiusDecoder />;
+    if (activeTab === DecodersTab.BACON) return <BaconDecoder />;
+    if (activeTab === DecodersTab.MORSE) return <MorseDecoder />;
     if (activeTab === DecodersTab.IMAGE) return <>IMAGE</>;
     if (activeTab === DecodersTab.LINK_CHECK) return <>LINK_CHECK</>;
 

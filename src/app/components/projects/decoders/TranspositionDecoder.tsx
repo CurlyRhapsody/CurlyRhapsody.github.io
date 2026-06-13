@@ -3,8 +3,8 @@ import { useSnackbarContext } from "../../providers/SnackbarProvider";
 import { useState } from "react";
 import { Box, Stack, TextField, Button, Divider } from '@mui/material';
 import { Body1, Subtitle2 } from "../../styled/text";
-import { StyledTextField } from './components';
-import { encryptAffine, decryptAffine, encryptRail, decryptRail, encryptColumn, decryptColumn } from './utils';
+import { EncryptButton, StyledTextField } from './components';
+import { encryptRail, decryptRail, encryptColumn, decryptColumn } from './utils';
 
 const TranspositionDecoder = () => {
 
@@ -94,7 +94,7 @@ const TranspositionDecoder = () => {
                         />
                     </Box>
                     <Stack sx={{ width: "20%", alignItems: "center", justifyContent: "center", gap: "1rem", pt: "1.75rem" }}>
-                        <Button
+                        <EncryptButton
                             variant="contained"
                             onClick={() => {
                                 setRailCipher(
@@ -104,8 +104,8 @@ const TranspositionDecoder = () => {
                             }}
                         >
                             {t("encrypt")}
-                        </Button>
-                        <Button
+                        </EncryptButton>
+                        <EncryptButton
                             variant="contained"
                             onClick={() => {
                                 setRailPlain(
@@ -115,7 +115,7 @@ const TranspositionDecoder = () => {
                             }}
                         >
                             {t("decrypt")}
-                        </Button>
+                        </EncryptButton>
                     </Stack>
                     <Box sx={{ width: "40%" }}>
                         <Body1 sx={{ pb: "0.5rem" }}>{t("ciphertext")}</Body1>

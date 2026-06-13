@@ -449,3 +449,154 @@ export function decryptVigenere(ciphertext: string, secret: string): string {
         return String.fromCharCode((charCode - 97 - shift + 26) % 26 + 97);
     })
 }
+
+/* ----- Polybius ----- */
+// For deciphering
+const polybiusDecipherGrid = [
+    ['A', 'B', 'C', 'D', 'E'],
+    ['F', 'G', 'H', 'I', 'K'],
+    ['L', 'M', 'N', 'O', 'P'],
+    ['Q', 'R', 'S', 'T', 'U'],
+    ['V', 'W', 'X', 'Y', 'Z']
+];
+
+// For ciphering
+const polybiusCipherMap = new Map();
+polybiusDecipherGrid.forEach((row, rowIndex) => {
+    row.forEach((char, colIndex) => {
+        polybiusCipherMap.set(char, `${rowIndex + 1}${colIndex + 1}`);
+    });
+});
+polybiusCipherMap.set("J", "24");
+
+export function encryptPolybius(plaintext: string) {
+    return plaintext.split(" ").map((word) => 
+        word.split("").map((char) => {
+            return polybiusCipherMap.get(char);
+        }).join("/")
+    ).join(" ")
+}
+
+export function decryptPolybius(ciphertext: string) {
+    return ciphertext.split(" ").map((word) => 
+        word.split("/").map((code) => {
+            if (code.length !== 2) return `[${code}]`;
+            const row = Number(code[0]); const col = Number(code[1]);
+            if (isNaN(row) || isNaN(col)) return `[${code}]`;
+            if (row === 0 || row > 5 || col === 0 || col > 5) return `[${code}]`;
+            return polybiusDecipherGrid[row-1][col-1];
+        }).join("")
+    ).join(" ")
+}
+
+/* ----- Bacon ----- */
+export enum BaconMode {
+    MODERN_26 = "modern",
+    HISTORICAL_24 = "historical"
+}
+
+// Helper on creating decrypt map
+function createBaconCipherMap(isDecrypt: boolean, mode: BaconMode) {
+    const map = new Map();
+
+    const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+    alphabets.forEach((char, index) => {
+        let code;
+        if (mode === BaconMode.MODERN_26) {
+            code = index.toString(2).padStart(5, "0");
+        } else {
+            let adjustedIdx = index;
+            if (char === "J") adjustedIdx = 8;
+            if (char === "V") adjustedIdx = 20;
+
+            if (adjustedIdx > 9) adjustedIdx--;
+            if (adjustedIdx > 21) adjustedIdx--;
+
+            code = adjustedIdx.toString(2).padStart(5, "0");
+        }
+        code = code.replace(/0/g, "a").replace(/1/g, "b");
+
+        if (isDecrypt) {
+            if (mode === BaconMode.HISTORICAL_24 && !map.has(code)) {
+                map.set(code, char);
+            }
+        } else {
+            map.set(char, code);
+        }
+    });
+
+    return map;
+}
+
+const modern26BaconDecrypt = createBaconCipherMap(true, BaconMode.MODERN_26);
+const historical24BaconDecrypt = createBaconCipherMap(true, BaconMode.HISTORICAL_24);
+const modern26BaconEncrypt = createBaconCipherMap(false, BaconMode.MODERN_26);
+const historical24BaconEncrypt = createBaconCipherMap(false, BaconMode.HISTORICAL_24);
+
+export function encryptBacon(plaintext: string, mode: BaconMode) {
+    return plaintext.split(" ").map((word) => 
+        word.split("").map((char) => {
+            if (mode === BaconMode.MODERN_26) {
+                return modern26BaconEncrypt.get(char);
+            } else if (mode === BaconMode.HISTORICAL_24) {
+                return historical24BaconEncrypt.get(char);
+            }
+        }).join("/")
+    ).join(" ")
+}
+
+export function decryptBacon(ciphertext: string, mode: BaconMode) {
+    return ciphertext.split(" ").map((word) => 
+        word.split("/").map((code) => {
+            if (mode === BaconMode.MODERN_26) {
+                return modern26BaconDecrypt.get(code) ?? `[${code}]`;
+            } else if (mode === BaconMode.HISTORICAL_24) {
+                return historical24BaconDecrypt.get(code) ?? `[${code}]`;
+            }
+        }).join("")
+    ).join(" ")
+}
+
+/* ----- Morse code ----- */
+const morseCodeEncryptMap = new Map([
+    // Letters
+    ['A', '.-'],    ['B', '-...'],  ['C', '-.-.'],  ['D', '-..'],
+    ['E', '.'],     ['F', '..-.'],  ['G', '--.'],   ['H', '....'],
+    ['I', '..'],    ['J', '.---'],  ['K', '-.-'],   ['L', '.-..'],
+    ['M', '--'],    ['N', '-.'],    ['O', '---'],   ['P', '.--.'],
+    ['Q', '--.-'],  ['R', '.-.'],   ['S', '...'],   ['T', '-'],
+    ['U', '..-'],   ['V', '...-'],  ['W', '.--'],   ['X', '-..-'],
+    ['Y', '-.--'],  ['Z', '--..'],
+  
+    // Numbers
+    ['1', '.----'], ['2', '..---'], ['3', '...--'], ['4', '....-'],
+    ['5', '.....'], ['6', '-....'], ['7', '--...'], ['8', '---..'],
+    ['9', '----.'], ['0', '-----'],
+  
+    // Punctuation Marks
+    ['.', '.-.-.-'], [',', '--..--'], ['?', '..--..'], ['!', '-.-.--'],
+    [':', '---...'], [';', '-.-.-.'], ['-', '-....-'], ['/', '-..-.'],
+    ['@', '.--.-.'], ["'", '.----.'], ['(', '-.--.'],  [')', '-.--.-'],
+    ['=', '-...-']
+]);
+
+const morseCodeDecrtptMap = new Map(
+    Array.from(morseCodeEncryptMap.entries()).map(([key, value]) => [value, key])
+);
+
+export function encryptMorse(plaintext: string) {
+    return plaintext.split(" ").map((word) => 
+        word.split("").map((char) => {
+            return morseCodeEncryptMap.get(char)
+        }).join("/")
+    ).join(" ")
+}
+
+export function decryptMorse(ciphertext: string) {
+    return ciphertext.split(" ").map((word) => 
+        word.split("/").map((code) => {
+            return morseCodeDecrtptMap.get(code)
+        }).join("")
+    ).join(" ")
+}

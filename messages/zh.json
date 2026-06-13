@@ -471,8 +471,8 @@
                 "linear-cipher": "線性加密",
                 "transposition": "置換式加密",
                 "vigenere": "維吉尼亞密碼",
-                "braille": "盲文編碼",
-                "polybius": "棋盤及培根密碼",
+                "polybius": "棋盤密碼",
+                "bacon": "培根密碼",
                 "morse": "摩斯密碼",
                 "image": "基本圖像處理",
                 "link-check": "網頁 ID 檢查"
@@ -545,6 +545,41 @@
                 "ciphertext": "密文",
                 "encrypt": "加密 →",
                 "decrypt": "← 解密",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "polybius": {
+                "sepRules": "使用斜線分隔字元，使用空格分隔文字",
+                "decryptIJ": "24 將會解作 I，請自行按需要置換成 J",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "bacon": {
+                "sepRules": "使用斜線分隔字元，使用空格分隔文字",
+                "decrypt24": "24 字母模式：abaaa → I, baabb → U",
+                "mode": "模式",
+                "modern": "現代模式（26 字母）",
+                "historical": "古代模式（26 字母，I-J 及 U-V 共用字母組）",
+                "char1": "加密字元 1",
+                "char2": "加密字元 2",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "morse": {
+                "sepRules": "使用空格分隔字元，使用斜線分隔文字",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "playMorse": "播放摩斯密碼",
                 "encrypted": "文本已成功加密",
                 "decrypted": "文本已成功解密"
             }

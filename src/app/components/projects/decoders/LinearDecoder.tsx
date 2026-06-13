@@ -1,9 +1,9 @@
 import { useTranslations } from "next-intl";
 import { useSnackbarContext } from "../../providers/SnackbarProvider";
 import { useState } from "react";
-import { Box, Stack, TextField, Button, Divider } from '@mui/material';
+import { Box, Stack, TextField, Divider } from '@mui/material';
 import { Body1, Caption1, Subtitle1, Subtitle2 } from "../../styled/text";
-import { StyledTextField, ConvertButton } from './components';
+import { StyledTextField, EncryptButton } from './components';
 import { decryptCaesar, encryptCaesar, isCoprime, encryptAffine, decryptAffine } from './utils';
 
 const LinearDecoder = () => {
@@ -68,7 +68,7 @@ const LinearDecoder = () => {
                         />
                     </Box>
                     <Stack sx={{ width: "20%", alignItems: "center", justifyContent: "center", gap: "1rem", pt: "1.75rem" }}>
-                        <Button
+                        <EncryptButton
                             variant="contained"
                             onClick={() => {
                                 setCaesarCipher(
@@ -78,8 +78,8 @@ const LinearDecoder = () => {
                             }}
                         >
                             {t("encrypt")}
-                        </Button>
-                        <Button
+                        </EncryptButton>
+                        <EncryptButton
                             variant="contained"
                             onClick={() => {
                                 setCaesarPlain(
@@ -89,7 +89,7 @@ const LinearDecoder = () => {
                             }}
                         >
                             {t("decrypt")}
-                        </Button>
+                        </EncryptButton>
                     </Stack>
                     <Box sx={{ width: "40%" }}>
                         <Body1 sx={{ pb: "0.5rem" }}>{t("ciphertext")}</Body1>
@@ -184,7 +184,7 @@ const LinearDecoder = () => {
                         />
                     </Box>
                     <Stack sx={{ width: "20%", alignItems: "center", justifyContent: "center", gap: "1rem", pt: "1.75rem" }}>
-                        <Button
+                        <EncryptButton
                             variant="contained"
                             disabled={affineFactorError}
                             onClick={() => {
@@ -195,8 +195,8 @@ const LinearDecoder = () => {
                             }}
                         >
                             {t("encrypt")}
-                        </Button>
-                        <Button
+                        </EncryptButton>
+                        <EncryptButton
                             variant="contained"
                             disabled={affineFactorError}
                             onClick={() => {
@@ -207,7 +207,7 @@ const LinearDecoder = () => {
                             }}
                         >
                             {t("decrypt")}
-                        </Button>
+                        </EncryptButton>
                         {affineFactorError && <Caption1 sx={{ color: "#C20000" }}>{t("notCoprime")}</Caption1>}
                     </Stack>
                     <Box sx={{ width: "40%" }}>
