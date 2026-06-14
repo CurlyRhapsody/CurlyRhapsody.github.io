@@ -583,6 +583,19 @@
                 "playMorse": "Play Morse Code",
                 "encrypted": "Text Encrypted Successfully",
                 "decrypted": "Text Decrypted Successfully"
+            },
+            "image": {
+                "yourImage": "Your Image",
+                "upload": "Click here or drag image here to upload",
+                "serverless": "Your image won't be saved to server.",
+                "dimension": "Image Dimension (HxW):",
+                "size": "Image Size (Bytes):",
+                "adjust": "Adjust Image Filter",
+                "brightness": "Brightness",
+                "contrast": "Contrast",
+                "MULTI_IMAGES_UPLOADED": "Please drag only one image.",
+                "INVALID_TYPE": "Invalid file type detected.",
+                "UNKNOWN_FILE": "Invalid file type detected."
             }
         }
     },

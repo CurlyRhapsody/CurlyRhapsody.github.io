@@ -11,6 +11,7 @@ import VigenereDecoder from "./VigenereDecoder";
 import PolybiusDecoder from "./PolybiusDecoder";
 import BaconDecoder from "./BaconDecoder";
 import MorseDecoder from "./MorseDecoder";
+import ImageProcessor from "./ImageProcessor";
 
 const DecoderContent = ({ activeTab }: { activeTab: DecodersTab }) => {
 
@@ -23,7 +24,7 @@ const DecoderContent = ({ activeTab }: { activeTab: DecodersTab }) => {
     if (activeTab === DecodersTab.POLYBIUS) return <PolybiusDecoder />;
     if (activeTab === DecodersTab.BACON) return <BaconDecoder />;
     if (activeTab === DecodersTab.MORSE) return <MorseDecoder />;
-    if (activeTab === DecodersTab.IMAGE) return <>IMAGE</>;
+    if (activeTab === DecodersTab.IMAGE) return <ImageProcessor />;
     if (activeTab === DecodersTab.LINK_CHECK) return <>LINK_CHECK</>;
 
     return null;

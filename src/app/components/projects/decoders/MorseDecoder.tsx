@@ -6,6 +6,8 @@ import { Body1, Subtitle2 } from "../../styled/text";
 import { EncryptButton, StyledTextField } from './components';
 import { encryptMorse, decryptMorse } from './utils';
 
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+
 const MorseDecoder = () => {
 
     const t = useTranslations("project.decoders.morse");
@@ -20,7 +22,7 @@ const MorseDecoder = () => {
         const gainNode = audioCtx.createGain();
 
         oscillator.type = 'sine'; // A clean "beep"
-        oscillator.frequency.setValueAtTime(600, startTime); // 600Hz tone
+        oscillator.frequency.setValueAtTime(550, startTime); // 600Hz tone
         
         gainNode.gain.setValueAtTime(0.1, startTime); // Keep volume low
         
@@ -38,7 +40,7 @@ const MorseDecoder = () => {
         const audioCtx = new window.AudioContext();
 
         setIsMorseDone(false);
-        const UNIT = 0.1; // 100ms per unit
+        const UNIT = 0.08; // 80ms per unit
         let time = audioCtx.currentTime;
 
         for (const char of morseText) {
@@ -52,10 +54,10 @@ const MorseDecoder = () => {
                 time += UNIT * 4; // Sound + tiny gap
                 break;
             case '/':
-                time += UNIT * 2; // Longer gap
+                time += UNIT * 6; // Longer gap
                 break;
             case ' ':
-                time += UNIT * 6; // Longest gap
+                time += UNIT * 2; // Longest gap
                 break;
             }
         }
@@ -122,6 +124,7 @@ const MorseDecoder = () => {
                         />
                         <Stack sx={{ width: "100%", alignItems: "center", pt: "1rem" }}>
                             <EncryptButton
+                                startIcon={<PlayArrowIcon />}
                                 variant="contained"
                                 disabled={!isMorseDone}
                                 onClick={() => playMorse(morseCipher)}

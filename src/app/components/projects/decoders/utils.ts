@@ -589,13 +589,13 @@ export function encryptMorse(plaintext: string) {
     return plaintext.split(" ").map((word) => 
         word.split("").map((char) => {
             return morseCodeEncryptMap.get(char)
-        }).join("/")
-    ).join(" ")
+        }).join(" ")
+    ).join("/")
 }
 
 export function decryptMorse(ciphertext: string) {
-    return ciphertext.split(" ").map((word) => 
-        word.split("/").map((code) => {
+    return ciphertext.split("/").map((word) => 
+        word.split(" ").map((code) => {
             return morseCodeDecrtptMap.get(code)
         }).join("")
     ).join(" ")

@@ -582,6 +582,18 @@
                 "playMorse": "播放摩斯密碼",
                 "encrypted": "文本已成功加密",
                 "decrypted": "文本已成功解密"
+            },
+            "image": {
+                "yourImage": "您的圖片",
+                "upload": "點此或拖曳圖片至此處以上傳圖片。",
+                "serverless": "您的圖片將不會被儲存至伺服器。",
+                "dimension": "圖片尺寸（高x寬）：",
+                "size": "圖片大小（位元）：",
+                "adjust": "調整圖片濾鏡",
+                "brightness": "亮度",
+                "contrast": "對比度",
+                "MULTI_IMAGES_UPLOADED": "請上傳僅一張圖片。.",
+                "INVALID_TYPE": "偵測到錯誤的文件格式。"
             }
         }
     },
