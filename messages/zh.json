@@ -463,7 +463,12 @@
         "decoders": {
             "title": "解密工具箱",
             "subtitle": "給 ARG 愛好者的工具",
+            "tool": "已選擇工具：",
             "selectTool": "選擇工具",
+            "confirm": "確定",
+            "encodes": "編碼",
+            "encrypts": "加密",
+            "misc": "其他工具",
             "tabs": {
                 "asciis": "ASCII 轉換器",
                 "alphabets": "純英文轉換器",
@@ -594,6 +599,22 @@
                 "contrast": "對比度",
                 "MULTI_IMAGES_UPLOADED": "請上傳僅一張圖片。.",
                 "INVALID_TYPE": "偵測到錯誤的文件格式。"
+            },
+            "link-check": {
+                "deciphered": "解碼後文字：",
+                "matching": "對應平台連結：",
+                "disclaimer": "⚠️ 此工具並不保證對應平台有所需線索。",
+                "type": "平台連結",
+                "isValid": "符合規格？",
+                "link": "連結",
+                "yt-video": "YouTube 影片/直播",
+                "yt-playlist": "YouTube 播放清單",
+                "imgur": "Imgur",
+                "gd-file": "Google 雲端硬碟文檔",
+                "gd-folder": "Google 雲端硬碟資料夾",
+                "pastebin": "Pastebin",
+                "mega-file": "MEGA 文檔",
+                "mega-folder": "MEGA 資料夾"
             }
         }
     },

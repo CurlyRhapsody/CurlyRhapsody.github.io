@@ -2,21 +2,50 @@
 
 import React, { createContext, useContext, useState } from "react";
 
-export const decoderTabText = ["asciis", "alphabets", "encodes", "linear-cipher", "transposition", "vigenere", "polybius", "bacon", "morse", "image", "link-check"]
-
 export enum DecodersTab {
-    ASCIIS,
-    ALPHABETS,
-    ENCODES,
-    LINEAR_CIPHERS,
-    TRANSPOSITION,
-    VIGENERE,
-    POLYBIUS,
-    BACON,
-    MORSE,
-    IMAGE,
-    LINK_CHECK
+    ASCIIS = "asciis",
+    ALPHABETS = "alphabets",
+    ENCODES = "encodes",
+    MORSE = "morse",
+
+    LINEAR_CIPHERS = "linear-cipher",
+    TRANSPOSITION = "transposition",
+    VIGENERE = "vigenere",
+    POLYBIUS = "polybius",
+    BACON = "bacon",
+
+    IMAGE = "image",
+    LINK_CHECK = "link-check"
 }
+
+export const toolList = [
+    {
+        title: "encodes",
+        tools: [
+            DecodersTab.ASCIIS,
+            DecodersTab.ALPHABETS,
+            DecodersTab.ENCODES,
+            DecodersTab.MORSE
+        ]
+    },
+    {
+        title: "encrypts",
+        tools: [
+            DecodersTab.LINEAR_CIPHERS,
+            DecodersTab.TRANSPOSITION,
+            DecodersTab.VIGENERE,
+            DecodersTab.POLYBIUS,
+            DecodersTab.BACON
+        ]
+    },
+    {
+        title: "misc",
+        tools: [
+            DecodersTab.IMAGE,
+            DecodersTab.LINK_CHECK,
+        ]
+    }
+];
 
 
 type Context = {

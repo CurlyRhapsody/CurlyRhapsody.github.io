@@ -463,7 +463,12 @@
         "decoders": {
             "title": "Decoder's Toolbox",
             "subtitle": "Useful tools for ARG lovers",
+            "tool": "Selected Tool: ",
             "selectTool": "Select Tool",
+            "confirm": "Confirm",
+            "encodes": "Encodings",
+            "encrypts": "Encryptions",
+            "misc": "Miscellaneous tools",
             "tabs": {
                 "asciis": "ASCII Conversions",
                 "alphabets": "Alphabet Conversions",
@@ -596,6 +601,22 @@
                 "MULTI_IMAGES_UPLOADED": "Please drag only one image.",
                 "INVALID_TYPE": "Invalid file type detected.",
                 "UNKNOWN_FILE": "Invalid file type detected."
+            },
+            "link-check": {
+                "deciphered": "Deciphered Text:",
+                "matching": "Matching Platform Link:",
+                "disclaimer": "⚠️ This tool does not guarantee matching platform has necessary clues.",
+                "type": "Link type",
+                "isValid": "Valid?",
+                "link": "Link",
+                "yt-video": "YouTube Video/Live",
+                "yt-playlist": "YouTube Playlist",
+                "imgur": "Imgur",
+                "gd-file": "Google Drive File",
+                "gd-folder": "Google Drive Folder",
+                "pastebin": "Pastebin",
+                "mega-file": "MEGA File",
+                "mega-folder": "MEGA Folder"
             }
         }
     },
