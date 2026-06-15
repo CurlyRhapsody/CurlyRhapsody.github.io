@@ -10,7 +10,8 @@
             "broadcast": "跨分頁多播模擬",
             "sort-sim": "排序視覺化",
             "pathfind": "尋路視覺化",
-            "meal-split": "餐廳夾錢計算機"
+            "meal-split": "餐廳夾錢計算機",
+            "decoders": "解密工具箱"
         },
         "games": {
             "hub": "遊戲中心",
@@ -208,7 +209,8 @@
             "broadcast": "跨分頁多播模擬",
             "sort-sim": "排序視覺化",
             "pathfind": "尋路視覺化",
-            "meal-split": "餐廳夾錢計算機"
+            "meal-split": "餐廳夾錢計算機",
+            "decoders": "解密工具箱"
         },
         "color-calc": {
             "title": "色碼尋找器",
@@ -456,6 +458,163 @@
                 "TOTAL_COST_MISSING": "請填寫帳單總額。",
                 "NO_ONE_SPLITS": "必須有至少一名參與者參與分單。",
                 "IC_EXCEED_TOTAL": "個人單點項目總額超過了帳單列明總額，請重新檢查您的帳單。"
+            }
+        },
+        "decoders": {
+            "title": "解密工具箱",
+            "subtitle": "給 ARG 愛好者的工具",
+            "tool": "已選擇工具：",
+            "selectTool": "選擇工具",
+            "confirm": "確定",
+            "encodes": "編碼",
+            "encrypts": "加密",
+            "misc": "其他工具",
+            "tabs": {
+                "asciis": "ASCII 轉換器",
+                "alphabets": "純英文轉換器",
+                "encodes": "文字編碼器",
+                "linear-cipher": "線性加密",
+                "transposition": "置換式加密",
+                "vigenere": "維吉尼亞密碼",
+                "polybius": "棋盤密碼",
+                "bacon": "培根密碼",
+                "morse": "摩斯密碼",
+                "image": "基本圖像處理",
+                "link-check": "網頁 ID 檢查"
+            },
+            "ascii": {
+                "sepWithSpace": "非原文請使用空格分隔字元",
+                "plain": "原文",
+                "decimal": "十進制",
+                "binary": "二進制",
+                "octal": "八進制",
+                "hexadecimal": "十六進制",
+                "convert": "轉換",
+                "converted": "文本已成功轉換"
+            },
+            "alphabets": {
+                "sepWithSpace": "非原文請使用連字號分隔字元",
+                "plain": "原文",
+                "ais1": "A1Z26",
+                "customOrder": "自定義次序",
+                "order": "次序",
+                "check": "A-Z 只出現一次",
+                "default": "將使用預設 A1Z26 次序（ABCDEF）進行解碼",
+                "preset": "預設次序",
+                "t9phone": "手機 T9 鍵盤輸入",
+                "convert": "轉換",
+                "converted": "文本已成功轉換"
+            },
+            "encodings": {
+                "plain": "原文",
+                "base32": "Base32",
+                "base64": "Base64",
+                "base85": "Base85",
+                "uri": "URI 百分號編碼",
+                "html": "HTML 跳脫",
+                "unicode16": "Unicode (UTF-16)",
+                "convert": "轉換",
+                "converted": "文本已成功轉換"
+            },
+            "linear": {
+                "alphabetOnly": "此加密法只有英文字母會被加密及解密",
+                "caesar": "凱撒密碼",
+                "affine": "仿射密碼",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "shift": "位移",
+                "factor": "倍率",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "notCoprime": "倍率與 26 不互質",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "transposition": {
+                "rail": "籬笆加密法",
+                "scytale": "密碼棒（縱列加密）",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "padding": "（* = 填充符號）",
+                "rails": "籬笆/行數量",
+                "column": "欄數量",
+                "shift": "位移",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "vigenere": {
+                "key": "關鍵字",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "polybius": {
+                "sepRules": "使用斜線分隔字元，使用空格分隔文字",
+                "decryptIJ": "24 將會解作 I，請自行按需要置換成 J",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "bacon": {
+                "sepRules": "使用斜線分隔字元，使用空格分隔文字",
+                "decrypt24": "24 字母模式：abaaa → I, baabb → U",
+                "mode": "模式",
+                "modern": "現代模式（26 字母）",
+                "historical": "古代模式（26 字母，I-J 及 U-V 共用字母組）",
+                "char1": "加密字元 1",
+                "char2": "加密字元 2",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "morse": {
+                "sepRules": "使用空格分隔字元，使用斜線分隔文字",
+                "plaintext": "明文",
+                "ciphertext": "密文",
+                "encrypt": "加密 →",
+                "decrypt": "← 解密",
+                "playMorse": "播放摩斯密碼",
+                "encrypted": "文本已成功加密",
+                "decrypted": "文本已成功解密"
+            },
+            "image": {
+                "yourImage": "您的圖片",
+                "upload": "點此或拖曳圖片至此處以上傳圖片。",
+                "serverless": "您的圖片將不會被儲存至伺服器。",
+                "dimension": "圖片尺寸（高x寬）：",
+                "size": "圖片大小（位元）：",
+                "adjust": "調整圖片濾鏡",
+                "brightness": "亮度",
+                "contrast": "對比度",
+                "MULTI_IMAGES_UPLOADED": "請上傳僅一張圖片。.",
+                "INVALID_TYPE": "偵測到錯誤的文件格式。"
+            },
+            "link-check": {
+                "deciphered": "解碼後文字：",
+                "matching": "對應平台連結：",
+                "disclaimer": "⚠️ 此工具並不保證對應平台有所需線索。",
+                "type": "平台連結",
+                "isValid": "符合規格？",
+                "link": "連結",
+                "yt-video": "YouTube 影片/直播",
+                "yt-playlist": "YouTube 播放清單",
+                "imgur": "Imgur",
+                "gd-file": "Google 雲端硬碟文檔",
+                "gd-folder": "Google 雲端硬碟資料夾",
+                "pastebin": "Pastebin",
+                "mega-file": "MEGA 文檔",
+                "mega-folder": "MEGA 資料夾"
             }
         }
     },

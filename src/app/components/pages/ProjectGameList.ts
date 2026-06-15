@@ -7,6 +7,7 @@ import CellTowerIcon from '@mui/icons-material/CellTower';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import RouteIcon from '@mui/icons-material/Route';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import PatternIcon from '@mui/icons-material/Pattern';
 
 import { AvailablePlatform } from "../hooks/useAccessPlatform";
 import { AvailableProjects } from "@/app/[locale]/projects/[project]/params";
@@ -49,6 +50,10 @@ export const projectList: ProjectMenu[] = [
     {
         id: AvailableProjects.MEAL_SPLIT,
         Icon: DinnerDiningIcon
+    },
+    {
+        id: AvailableProjects.DECODERS,
+        Icon: PatternIcon
     }
 ];
 

@@ -5,4 +5,5 @@ export enum AvailableProjects {
     SORT_SIM = "sort-sim",
     PATHFIND = "pathfind",
     MEAL_SPLIT = "meal-split",
+    DECODERS = "decoders",
 }
