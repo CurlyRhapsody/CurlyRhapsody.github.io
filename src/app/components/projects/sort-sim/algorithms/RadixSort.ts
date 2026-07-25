@@ -1,5 +1,6 @@
 import { sleep } from "@/app/components/utility/utils";
 import { ElementState, SortElement } from "../../providers/SortSimProvider";
+import { preprocess, postprocess } from "./utils";
 
 function getDigit(
     num: number,
@@ -38,6 +39,9 @@ export async function radixSort(
 ) {
     let arr: SortElement[] = [...array];
     const arrLen = arr.length;
+
+    await preprocess(arr, setArray);
+
     const numIterations = getIterations(array, base);
 
     for (let k = 0; k < numIterations; k++) {
@@ -65,9 +69,5 @@ export async function radixSort(
     setArray([...arr]);
     await sleep(interval);
 
-    for (let i = 0; i < arrLen; i++) {
-        arr[i].state = ElementState.FINISHED;
-        setArray([...arr]);
-        await sleep(3)
-    }
+    await postprocess(arr, setArray);
 }

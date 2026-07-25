@@ -1,5 +1,5 @@
 import { Slide, SlideProps, Snackbar, Stack } from "@mui/material";
-import { Body1 } from "./styled/text";
+import { Body1 } from "../styled/text";
 
 function SlideTransition(props: SlideProps) {
     return <Slide {...props} direction="left" />;

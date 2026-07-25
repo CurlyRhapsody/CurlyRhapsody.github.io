@@ -1,5 +1,6 @@
 import { sleep } from "@/app/components/utility/utils";
 import { ElementState, SortElement } from "../../providers/SortSimProvider";
+import { preprocess, postprocess } from "./utils";
 
 export async function shellSort(
     array: SortElement[],
@@ -9,6 +10,9 @@ export async function shellSort(
 ) {
     let arr: SortElement[] = [...array];
     const arrLen = arr.length;
+
+    await preprocess(arr, setArray);
+
     for (let gap = arrLen >> 1; gap > 0; gap = gap >> 1) {
         for (let i = gap; i < arrLen; i++) {
             let curr = arr[i];
@@ -37,9 +41,5 @@ export async function shellSort(
         }
     }
     
-    for (let i = 0; i < arrLen; i++) {
-        arr[i].state = ElementState.FINISHED;
-        setArray([...arr]);
-        await sleep(3)
-    }
+    await postprocess(arr, setArray);
 }

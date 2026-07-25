@@ -411,6 +411,7 @@
                 "mountain": "Terrain with cost of 15 to cross."
             },
             "reset": "Reset Board",
+            "clearPath": "Clear Path",
             "find": "Start",
             "pause": "Pause",
             "resume": "Resume",

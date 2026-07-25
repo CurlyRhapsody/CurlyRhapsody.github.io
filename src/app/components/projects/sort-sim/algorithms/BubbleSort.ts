@@ -1,5 +1,6 @@
 import { sleep } from "@/app/components/utility/utils";
 import { ElementState, SortElement } from "../../providers/SortSimProvider";
+import { preprocess, postprocess } from "./utils";
 
 export async function bubbleSort(
     array: SortElement[],
@@ -9,6 +10,9 @@ export async function bubbleSort(
 ) {
     let arr: SortElement[] = [...array];
     const arrLen = arr.length;
+
+    await preprocess(arr, setArray);
+
     for (let i = 0; i < arrLen - 1; i++) {
         for (let j = 0; j < arrLen - i - 1; j++) {
             await checkPause();
@@ -37,9 +41,5 @@ export async function bubbleSort(
         }
     }
     
-    for (let i = 0; i < arrLen; i++) {
-        arr[i].state = ElementState.FINISHED;
-        setArray([...arr]);
-        await sleep(3)
-    }
+    await postprocess(arr, setArray);
 }

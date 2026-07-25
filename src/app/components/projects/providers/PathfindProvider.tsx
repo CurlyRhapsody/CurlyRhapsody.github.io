@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useMemo, useRef, useState } from "react";
 import { useEffect } from 'react';
-import { shuffleArray, sleep } from "../../utility/utils";
+import { sleep } from "../../utility/utils";
 import useResponsiveSizing from '../../hooks/useResponsiveSizing';
 import { Coordinate } from "../pathfind/algorithms/utils";
 import * as PathfindingAlgorithms from "../pathfind/algorithms/index"
@@ -15,7 +15,8 @@ type Context = {
     selectedTile?: ObstacleType;
     search: () => void;
     togglePause: () => void;
-    reset: () => void;
+    resetPath: () => void;
+    resetBoard: () => void;
     setPathfindAlgo: (newMethod: PathfindMethod) => void;
     setSelectedTile: (newTile: ObstacleType) => void;
     addTile: (row: number, column: number, tile: ObstacleType) => void;
@@ -63,7 +64,8 @@ const initContext: Context = {
     selectedTile: undefined,
     search: () => { return; },
     togglePause: () => { return; },
-    reset: () => { return; },
+    resetPath: () => { return; },
+    resetBoard: () => { return; },
     setPathfindAlgo: () => { return; },
     setSelectedTile: () => { return; },
     addTile: () => { return; }
@@ -95,15 +97,11 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
     const [isSearching, setIsSearching] = useState<boolean>(false);
 
     useEffect(() => {
-        const newGrid: Tile[][] = Array.from({ length: maxCols }, () => Array(maxCols).fill({ obstacle: ObstacleType.AIR, state: TileState.NORMAL }));
-        setEnd({ r: maxCols-3, c: maxCols-3 });
-        newGrid[2][2] = { obstacle: ObstacleType.START, state: TileState.NORMAL };
-        newGrid[maxCols - 3][maxCols - 3] = { obstacle: ObstacleType.END, state: TileState.NORMAL };
-        setBoard(newGrid);
+        resetBoard();
     }, [maxCols]);
 
     useEffect(() => {
-        reset();
+        resetPath();
     }, [pathfindAlgo]);
 
     const pauseRef = useRef<boolean>(false);
@@ -149,12 +147,20 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
         setIsSearching(false);
     }
 
-    const reset = () => {
+    const resetPath = () => {
         if (!board) return;
         const resetGrid = board.map(
             row => row.map(el => ({ obstacle: el.obstacle, state: TileState.NORMAL }))
         );
         setBoard(resetGrid);
+    }
+
+    const resetBoard = () => {
+        const newGrid: Tile[][] = Array.from({ length: maxCols }, () => Array(maxCols).fill({ obstacle: ObstacleType.AIR, state: TileState.NORMAL }));
+        setEnd({ r: maxCols-3, c: maxCols-3 });
+        newGrid[2][2] = { obstacle: ObstacleType.START, state: TileState.NORMAL };
+        newGrid[maxCols - 3][maxCols - 3] = { obstacle: ObstacleType.END, state: TileState.NORMAL };
+        setBoard(newGrid);
     }
 
     const addTile = (row: number, column: number, tile: ObstacleType) => {
@@ -196,7 +202,7 @@ const PathfindProvider = ({ children }: {children: React.ReactNode}) => {
     return (
         <PathfindContext.Provider value={{
             board, pathfindAlgo, selectedTile, isSearching, isPaused,
-            search, togglePause, reset, setPathfindAlgo, setSelectedTile, addTile
+            search, togglePause, resetPath, resetBoard, setPathfindAlgo, setSelectedTile, addTile
         }}>
             {children}
         </PathfindContext.Provider>

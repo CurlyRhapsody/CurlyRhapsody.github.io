@@ -12,6 +12,11 @@ export async function DFS(
     const stack: Coordinate[] = [start];
     const parentMap: Map<string, Coordinate | null> = new Map<string, Coordinate | null>();
 
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board[0].length; j++) {
+            board[i][j].state = TileState.NORMAL;
+        }
+    }
     board[start.r][start.c].state = TileState.VISITED;
     setBoard(board);
 

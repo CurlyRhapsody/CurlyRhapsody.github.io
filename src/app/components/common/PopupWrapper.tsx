@@ -1,4 +1,4 @@
-import { Dialog, DialogProps, SxProps } from '@mui/material';
+import { Dialog, SxProps } from '@mui/material';
 
 const PopupWrapper = ({ open, dialogProps, onClose, children }: {
     open: boolean;

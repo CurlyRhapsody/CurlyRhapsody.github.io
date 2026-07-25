@@ -5,7 +5,7 @@ import { ShuffleMethod, SortMethod, useSortSimContext } from '../providers/SortS
 import { useEffect, useMemo, useState } from "react";
 import ChooseAlgoPopup from "./ChooseAlgoPopup";
 
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import DialogSelect from "../../common/DialogSelect";
 
 export const SortDropdown = () => {
     const t = useTranslations("project.sort-sim");
@@ -17,30 +17,10 @@ export const SortDropdown = () => {
             <ChooseAlgoPopup open={isSelectingAlgo} onClose={() => setIsSelectingAlgo(false)} />
             <Stack direction="row" sx={{ gap: "1.5rem", alignItems: "center", justifyContent: "center", width: "100%" }}>
                 <Subtitle2>{t("select")}</Subtitle2>
-                <TextField
+                <DialogSelect
                     disabled={isSorting}
                     value={t(`sort.${sortAlgo}`)}
-                    onClick={() => setIsSelectingAlgo(true)}
-                    sx={{
-                        width: "30rem",
-                        "& .MuiInputBase-root": { pr: "0.875rem" },
-                        "& .MuiInputBase-input": {
-                            p: "1rem 2rem 1rem 0.875rem",
-                            fontSize: "1.25rem",
-                            lineHeight: "1.75rem",
-                            fontWeight: 400,
-                        }
-                    }}
-                    slotProps={{
-                        input: {
-                            readOnly: true,
-                            endAdornment: (
-                                <InputAdornment position="end" sx={{ ml: "0.5rem" }}>
-                                    <ArrowDropDownIcon />
-                                </InputAdornment>
-                            ),
-                        }
-                    }}
+                    onOpen={() => setIsSelectingAlgo(true)}
                 />
             </Stack>
         </>

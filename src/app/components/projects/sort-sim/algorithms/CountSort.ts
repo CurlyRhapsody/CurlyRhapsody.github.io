@@ -1,5 +1,6 @@
 import { sleep } from "@/app/components/utility/utils";
 import { ElementState, SortElement } from "../../providers/SortSimProvider";
+import { preprocess, postprocess } from "./utils";
 
 export async function countSort(
     array: SortElement[],
@@ -8,6 +9,8 @@ export async function countSort(
     checkPause: () => Promise<void>,
 ) {
     let arr: SortElement[] = [...array];
+    await preprocess(arr, setArray);
+
     const min = Math.min(...arr.map((el) => el.value));
     const max = Math.max(...arr.map((el) => el.value));
     const freqs = Array(max - min + 1).fill(0);
@@ -39,9 +42,5 @@ export async function countSort(
         }
     }
     
-    for (let i = 0; i < arrLen; i++) {
-        arr[i].state = ElementState.FINISHED;
-        setArray([...arr]);
-        await sleep(3)
-    }
+    await postprocess(arr, setArray);
 }

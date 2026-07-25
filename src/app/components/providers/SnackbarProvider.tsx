@@ -1,7 +1,7 @@
 "use client"
 
 import React, { createContext, useContext, useState } from "react";
-import SnackbarPopup from "../SnackbarPopup";
+import SnackbarPopup from "../common/SnackbarPopup";
 
 type Context = {
     openPopup: (text: string, startAdornment?: React.ReactNode) => void;

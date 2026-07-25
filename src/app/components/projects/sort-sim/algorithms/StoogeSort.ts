@@ -1,5 +1,6 @@
 import { sleep } from "@/app/components/utility/utils";
 import { ElementState, SortElement } from "../../providers/SortSimProvider";
+import { preprocess, postprocess } from "./utils";
 
 async function _stoogeSort(
     arr: SortElement[],
@@ -53,11 +54,9 @@ export async function stoogeSort(
     let arr: SortElement[] = [...array];
     const arrLen = arr.length;
 
+    await preprocess(arr, setArray);
+
     await _stoogeSort(arr, interval, 0, arrLen-1, setArray, checkPause);
 
-    for (let i = 0; i < arrLen; i++) {
-        arr[i].state = ElementState.FINISHED;
-        setArray([...arr]);
-        await sleep(3)
-    }
+    await postprocess(arr, setArray);
 }

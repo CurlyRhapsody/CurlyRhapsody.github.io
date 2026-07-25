@@ -180,7 +180,7 @@ const TranspositionDecoder = () => {
                         />
                     </Box>
                     <Stack sx={{ width: "20%", alignItems: "center", justifyContent: "center", gap: "1rem", pt: "1.75rem" }}>
-                        <Button
+                        <EncryptButton
                             variant="contained"
                             onClick={() => {
                                 setColumnCipher(
@@ -190,8 +190,8 @@ const TranspositionDecoder = () => {
                             }}
                         >
                             {t("encrypt")}
-                        </Button>
-                        <Button
+                        </EncryptButton>
+                        <EncryptButton
                             variant="contained"
                             onClick={() => {
                                 setColumnPlain(
@@ -201,7 +201,7 @@ const TranspositionDecoder = () => {
                             }}
                         >
                             {t("decrypt")}
-                        </Button>
+                        </EncryptButton>
                     </Stack>
                     <Box sx={{ width: "40%" }}>
                         <Body1 sx={{ pb: "0.5rem" }}>{t("ciphertext")} {t("padding")}</Body1>

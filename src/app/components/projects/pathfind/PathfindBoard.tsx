@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import ReplayIcon from '@mui/icons-material/Replay';
+import ClearIcon from '@mui/icons-material/Clear';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 
@@ -12,7 +13,11 @@ const PathfindBoard = () => {
 
     const [isHoldDrawing, setIsHoldDrawing] = useState<boolean>(false);
 
-    const { board, selectedTile = ObstacleType.CLEAR, isPaused, isSearching, addTile, togglePause, search, reset } = usePathfindContext();
+    const {
+        board, selectedTile = ObstacleType.CLEAR,
+        isPaused, isSearching, addTile,
+        togglePause, search, resetPath, resetBoard
+    } = usePathfindContext();
     const t = useTranslations("project.pathfind");
 
     const onClickBoard = (row: number, column: number) => {
@@ -38,7 +43,7 @@ const PathfindBoard = () => {
 
     return (
         <Stack sx={{ width: "100%", gap: "1rem" }}>
-            <Stack direction="row" sx={{ width: "100%", justifyContent: "center", gap: "2.5rem" }}>
+            <Stack direction="row" sx={{ width: "100%", justifyContent: "center", gap: "1.5rem" }}>
                 <Button
                     disabled={isSearching}
                     variant="contained"
@@ -47,7 +52,19 @@ const PathfindBoard = () => {
                         p: "1rem", width: "12.5rem", borderRadius: "0.5rem", fontSize: "1.25rem",
                         "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
                     }}
-                    onClick={reset}
+                    onClick={resetPath}
+                >
+                    {t("clearPath")}
+                </Button>
+                <Button
+                    disabled={isSearching}
+                    variant="contained"
+                    startIcon={<ClearIcon sx={{ fontSize: "1.5rem" }} />}
+                    sx={{
+                        p: "1rem", width: "12.5rem", borderRadius: "0.5rem", fontSize: "1.25rem",
+                        "& .MuiButton-startIcon svg": { fontSize: "1.5rem" }
+                    }}
+                    onClick={resetBoard}
                 >
                     {t("reset")}
                 </Button>

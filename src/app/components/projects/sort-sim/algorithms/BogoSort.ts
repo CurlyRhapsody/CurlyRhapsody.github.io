@@ -1,5 +1,6 @@
 import { sleep } from "@/app/components/utility/utils";
 import { ElementState, SortElement } from "../../providers/SortSimProvider";
+import { postprocess, preprocess } from "./utils";
 
 // Since we will not animate shuffle and check sorted part, we can use non-async here
 function isSorted(array: SortElement[]): boolean {
@@ -34,6 +35,8 @@ export async function bogoSort(
     let arr: SortElement[] = [...array];
     const arrLen = arr.length;
 
+    await preprocess(arr, setArray);
+
     arr.forEach(el => el.state = ElementState.SWAPPING);
 
     while (!isSorted(arr)) {
@@ -44,11 +47,5 @@ export async function bogoSort(
         await sleep(interval)
     }
 
-    arr.forEach(el => el.state = ElementState.NORMAL);
-
-    for (let i = 0; i < arrLen; i++) {
-        arr[i].state = ElementState.FINISHED;
-        setArray([...arr]);
-        await sleep(3)
-    }
+    await postprocess(arr, setArray);
 }

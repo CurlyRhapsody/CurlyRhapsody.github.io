@@ -1,12 +1,12 @@
 import { useTranslations } from "next-intl";
 import { ObstacleType, PathfindMethod, usePathfindContext } from "../providers/PathfindProvider";
-import { Box, Grid, IconButton, InputAdornment, Stack, SvgIcon, TextField } from "@mui/material";
+import { Box, Grid, IconButton, Stack, SvgIcon } from "@mui/material";
 import { Body1, Subtitle1, Subtitle2 } from "../../styled/text";
 import { useMemo, useState } from 'react';
 import { tileToIcon } from "./tileMaps";
 import ChooseAlgoPopup from "./ChooseAlgoPopup";
 
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import DialogSelect from "../../common/DialogSelect";
 
 export const PathfindDropdown = () => {
     const t = useTranslations("project.pathfind");
@@ -21,30 +21,10 @@ export const PathfindDropdown = () => {
             <Stack sx={{ gap: "1rem", alignItems: "center" }}>
                 <Stack direction="row" sx={{ gap: "1.5rem", alignItems: "center", justifyContent: "center", width: "100%" }}>
                     <Subtitle2>{t("algo")}</Subtitle2>
-                    <TextField
+                    <DialogSelect
                         disabled={isSearching}
                         value={t(`algos.${pathfindAlgo}`)}
-                        onClick={() => setIsSelectingAlgo(true)}
-                        sx={{
-                            width: "30rem",
-                            "& .MuiInputBase-root": { pr: "0.875rem" },
-                            "& .MuiInputBase-input": {
-                                p: "1rem 2rem 1rem 0.875rem",
-                                fontSize: "1.25rem",
-                                lineHeight: "1.75rem",
-                                fontWeight: 400,
-                            }
-                        }}
-                        slotProps={{
-                            input: {
-                                readOnly: true,
-                                endAdornment: (
-                                    <InputAdornment position="end" sx={{ ml: "0.5rem" }}>
-                                        <ArrowDropDownIcon />
-                                    </InputAdornment>
-                                ),
-                            }
-                        }}
+                        onOpen={() => setIsSelectingAlgo(true)}
                     />
                 </Stack>
                 <Box sx={{ minWidth: "0.5rem", height: "1.75rem" }}>

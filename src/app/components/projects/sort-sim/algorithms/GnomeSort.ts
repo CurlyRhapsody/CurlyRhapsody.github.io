@@ -1,5 +1,6 @@
 import { sleep } from "@/app/components/utility/utils";
 import { ElementState, SortElement } from "../../providers/SortSimProvider";
+import { preprocess, postprocess } from "./utils";
 
 export async function gnomeSort(
     array: SortElement[],
@@ -10,6 +11,9 @@ export async function gnomeSort(
     let arr: SortElement[] = [...array];
     const arrLen = arr.length;
     let index = 1;
+
+    await preprocess(arr, setArray);
+
     while (index < arrLen) {
 
         await checkPause();
@@ -36,9 +40,5 @@ export async function gnomeSort(
         }
     }
     
-    for (let i = 0; i < arrLen; i++) {
-        arr[i].state = ElementState.FINISHED;
-        setArray([...arr]);
-        await sleep(3)
-    }
+    await postprocess(arr, setArray);
 }

@@ -1,4 +1,4 @@
-import PopupWrapper from "../../PopupWrapper";
+import PopupWrapper from "../../common/PopupWrapper";
 import { Subtitle1 } from '../../styled/text';
 import { useTranslations } from 'next-intl';
 import { Grid, Button, Stack } from '@mui/material';

@@ -1,5 +1,5 @@
 import { Button, List, ListItemButton, ListSubheader, Stack } from "@mui/material";
-import PopupWrapper from "../../PopupWrapper";
+import PopupWrapper from "../../common/PopupWrapper";
 import { useTranslations } from "next-intl";
 import { Body1, Subtitle2 } from '../../styled/text';
 import { DecodersTab, toolList, useDecodersContext } from "../providers/DecodersProvider";

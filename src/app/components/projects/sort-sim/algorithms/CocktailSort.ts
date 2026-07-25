@@ -1,5 +1,6 @@
 import { sleep } from "@/app/components/utility/utils";
 import { ElementState, SortElement } from "../../providers/SortSimProvider";
+import { preprocess, postprocess } from "./utils";
 
 export async function cocktailSort(
     array: SortElement[],
@@ -10,6 +11,9 @@ export async function cocktailSort(
     let arr: SortElement[] = [...array];
     const arrLen = arr.length;
     let swapped = true;
+
+    await preprocess(arr, setArray);
+
     let start = 0;
     let end = arrLen - 1;
     while (swapped) {
@@ -77,9 +81,5 @@ export async function cocktailSort(
         start++;
     }
     
-    for (let i = 0; i < arrLen; i++) {
-        arr[i].state = ElementState.FINISHED;
-        setArray([...arr]);
-        await sleep(3)
-    }
+    await postprocess(arr, setArray);
 }

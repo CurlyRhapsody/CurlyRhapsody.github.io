@@ -411,6 +411,7 @@
                 "mountain": "通行權重為 15 的格子。"
             },
             "reset": "重置網格",
+            "clearPath": "清除路徑",
             "find": "開始",
             "pause": "暫停",
             "resume": "繼續",

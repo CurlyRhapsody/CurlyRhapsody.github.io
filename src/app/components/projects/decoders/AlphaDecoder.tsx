@@ -75,7 +75,7 @@ const AlphaDecoder = () => {
                 />
                 <Stack sx={{ gap: "1rem", mt: "1rem" }}>
                     <Subtitle1>{t("customOrder")}</Subtitle1>
-                    <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
+                    <Stack direction="column" sx={{ gap: "1rem", alignItems: "flex-start" }}>
                         <Stack direction="row" sx={{ gap: "1rem", alignItems: "center" }}>
                             <Subtitle2>{t("order")}</Subtitle2>
                             <TextField

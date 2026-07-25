@@ -1,5 +1,5 @@
 import { Body1, Caption1, Subtitle2 } from '../../styled/text';
-import PopupWrapper from '../../PopupWrapper';
+import PopupWrapper from '../../common/PopupWrapper';
 import { Box, Button, Grid, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { useMealSplitContext } from '../providers/MealSplitProvider';

@@ -1,5 +1,6 @@
 import { sleep } from "@/app/components/utility/utils";
 import { ElementState, SortElement } from "../../providers/SortSimProvider";
+import { preprocess, postprocess } from "./utils";
 
 export async function insertionSort(
     array: SortElement[],
@@ -9,6 +10,9 @@ export async function insertionSort(
 ) {
     let arr: SortElement[] = [...array];
     const arrLen = arr.length;
+
+    await preprocess(arr, setArray);
+
     for (let i = 1; i < arrLen; i++) {
         await checkPause();
 
@@ -36,9 +40,5 @@ export async function insertionSort(
         await sleep(interval);
     }
     
-    for (let i = 0; i < arrLen; i++) {
-        arr[i].state = ElementState.FINISHED;
-        setArray([...arr]);
-        await sleep(3)
-    }
+    await postprocess(arr, setArray);
 }

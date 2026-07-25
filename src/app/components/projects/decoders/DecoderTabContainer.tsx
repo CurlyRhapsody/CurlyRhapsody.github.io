@@ -18,6 +18,7 @@ import ChooseToolPopup from "./ChooseToolPopup";
 
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Subtitle2 } from "../../styled/text";
+import DialogSelect from "../../common/DialogSelect";
 
 const DecoderContent = ({ activeTab }: { activeTab: DecodersTab }) => {
 
@@ -43,7 +44,7 @@ const DecoderTabContainer = () => {
 
     const t = useTranslations("project.decoders");
     const [isSelectingTool, setIsSelectingTool] = useState<boolean>(false);
-    const { tab, switchTab } = useDecodersContext();
+    const { tab } = useDecodersContext();
 
     return (
         <>
@@ -54,29 +55,9 @@ const DecoderTabContainer = () => {
             >
                 <Stack direction="row" sx={{ alignItems: "center", justifyContent: "center", gap: "2rem" }}>
                     <Subtitle2>{t("tool")}</Subtitle2>
-                    <TextField
+                    <DialogSelect
                         value={t(`tabs.${tab}`)}
-                        onClick={() => setIsSelectingTool(true)}
-                        sx={{
-                            width: "30rem",
-                            "& .MuiInputBase-root": { pr: "0.875rem" },
-                            "& .MuiInputBase-input": {
-                                p: "1rem 2rem 1rem 0.875rem",
-                                fontSize: "1.25rem",
-                                lineHeight: "1.75rem",
-                                fontWeight: 400,
-                            }
-                        }}
-                        slotProps={{
-                            input: {
-                                readOnly: true,
-                                endAdornment: (
-                                    <InputAdornment position="end" sx={{ ml: "0.5rem" }}>
-                                        <ArrowDropDownIcon />
-                                    </InputAdornment>
-                                ),
-                            }
-                        }}
+                        onOpen={() => setIsSelectingTool(true)}
                     />
                 </Stack>
                 <DecoderContent activeTab={tab} />
