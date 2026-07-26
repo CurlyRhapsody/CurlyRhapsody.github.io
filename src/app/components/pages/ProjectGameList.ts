@@ -8,6 +8,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import RouteIcon from '@mui/icons-material/Route';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import PatternIcon from '@mui/icons-material/Pattern';
+import ThumbsUpDownIcon from '@mui/icons-material/ThumbsUpDown';
 
 import { AvailablePlatform } from "../hooks/useAccessPlatform";
 import { AvailableProjects } from "@/app/[locale]/projects/[project]/params";
@@ -65,5 +66,9 @@ export const gameList: GameMenu[] = [
     {
         id: AvailableGames.PET_THE_CAT,
         Icon: PetsIcon
+    },
+    {
+        id: AvailableGames.PRISON,
+        Icon: ThumbsUpDownIcon
     }
 ]

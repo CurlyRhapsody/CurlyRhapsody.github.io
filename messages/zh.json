@@ -16,7 +16,8 @@
         "games": {
             "hub": "遊戲中心",
             "rps": "猜拳遊戲",
-            "pet-the-cat": "撫摸小貓"
+            "pet-the-cat": "撫摸小貓",
+            "prison": "囚徒困境"
         }
     },
     "menu": {
@@ -625,7 +626,8 @@
         "soon": "卡帶尚未準備好……",
         "menu": {
             "rps": "猜拳遊戲",
-            "pet-the-cat": "撫摸小貓"
+            "pet-the-cat": "撫摸小貓",
+            "prison": "囚徒困境"
         },
         "rps": {
             "title": "猜拳遊戲",
@@ -657,6 +659,10 @@
             "highScore": "最高分數：{score}",
             "gameOver": "遊戲結束！",
             "reset": "重試"
+        },
+        "prison": {
+            "title": "囚徙困境",
+            "subtitle": "經典邏輯遊戲"
         }
     }
 }

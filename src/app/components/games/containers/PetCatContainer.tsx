@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PageContainer from "../../styled/PageContainer";
 import { Title1, Subtitle2 } from "../../styled/text";
 import { useTranslations } from "next-intl";

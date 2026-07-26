@@ -5,6 +5,7 @@ import { useParams } from "next/navigation"
 import RPSContainer from "../games/containers/RPSContainer";
 import RPSProvider from "../games/providers/RPSProvider";
 import PetCatContainer from "../games/containers/PetCatContainer";
+import PrisonDilemmaContainer from "../games/containers/PrisonDilemmaContainer";
 
 const GamePage = () => {
     const params = useParams();
@@ -21,6 +22,10 @@ const GamePage = () => {
             return (
                 <PetCatContainer />
             );
+        case AvailableGames.PRISON:
+            return (
+                <PrisonDilemmaContainer />
+            )
         default: return <></>; // This case is not suppose to happen, should fallback by 404
     }
 }

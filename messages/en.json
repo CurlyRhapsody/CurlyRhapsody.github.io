@@ -627,7 +627,8 @@
         "soon": "Cartridges are not ready...",
         "menu": {
             "rps": "Rock Paper Scissors",
-            "pet-the-cat": "Pet the Cat"
+            "pet-the-cat": "Pet the Cat",
+            "prison": "Prisoner's Dilemma"
         },
         "rps": {
             "title": "Rock Paper Scissors",
@@ -659,6 +660,10 @@
             "highScore": "High Score: {score}",
             "gameOver": "Game Over!",
             "reset": "Retry"
+        },
+        "prison": {
+            "title": "Prisoner's Dilemma",
+            "subtitle": "The Classic Logic Game"
         }
     }
 }
